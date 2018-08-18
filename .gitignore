@@ -1,0 +1,9 @@
+
+
+# Editor-based Rest Client
+.idea/httpRequests
+.gradle/
+.idea/
+gradle/
+out/
+
