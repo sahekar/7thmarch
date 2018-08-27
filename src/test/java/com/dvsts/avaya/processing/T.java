@@ -1,4 +1,4 @@
 package com.dvsts.avaya.processing;
 
-public enum PcrfPacket {
+public class T {
 }

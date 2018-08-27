@@ -27,6 +27,13 @@ dependencies {
     compile('io.confluent:kafka-streams-avro-serde:5.0.0')
     // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+// https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+    compile group: 'org.jfree', name: 'jcommon', version: '1.0.17'
+    compile 'org.jfree:jfreechart:1.0.14'
+
 
     // compile('org.projectlombok:lombok')
     // https://mvnrepository.com/artifact/org.projectlombok/lom1.16.20bok
