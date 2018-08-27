@@ -29,21 +29,24 @@ public class Transformation {
 
     private static final SimpleDateFormat SDF = new SimpleDateFormat(DEFAULT_FULLDATEFORMAT);
 
-    public AvayaPacket  logicForCurrentSession( AvayaPacket packet ){
+    public GenericRecord  logicForCurrentSession( GenericRecord value ){
 
+        final AvayaPacket packet = create(value,"create");
         final double intervalLoss =0;
         final String catagory = ""; //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
 
+        value.put("mos",mos1);
 
-        packet.setMos1(mos1);
+
+       // packet.setMos1(mos1);
 
 
        // final int rateCall = rateCall(catagory,packet.getRtd(),packet.getJitter(),packet.getLoss(),mos1,);
 
         // int alertLevel =  extractMetrics( currentHolder);
 
-        return packet;
+        return value;
     }
 
 

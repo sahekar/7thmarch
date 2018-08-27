@@ -1,4 +1,43 @@
 package com.dvsts.avaya.processing.processors;
 
-public class TransfomationProcessor {
+import com.dvsts.avaya.processing.TopologySchema;
+import com.dvsts.avaya.processing.logic.AvayaPacket;
+import com.dvsts.avaya.processing.logic.Transformation;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.kafka.streams.processor.Processor;
+import org.apache.kafka.streams.processor.ProcessorContext;
+import org.apache.kafka.streams.state.KeyValueStore;
+
+public class TransfomationProcessor implements Processor<String, GenericRecord> {
+
+
+    private ProcessorContext context;
+    private KeyValueStore<String,GenericRecord> kvStore;
+    private final Transformation transformation = new Transformation();
+
+    @Override
+    public void init(ProcessorContext context) {
+        this.context = context;
+        this.kvStore = (KeyValueStore) context.getStateStore(TopologySchema.db);
+    }
+
+    @Override
+    public void process(String key, GenericRecord value) {
+
+        String ssrc1 =  value.get("ssrc1").toString();
+        String ssrc2 = value.get("ssrc2").toString();
+        String aggrKey = ssrc1+ssrc2;
+        final GenericRecord result = transformation.logicForCurrentSession(value);
+        GenericRecord existKey = this.kvStore.get(aggrKey);
+
+        if(existKey == null) { this.context.forward(key,result); }
+        else { this.context.forward(key,result); }
+
+
+    }
+
+    @Override
+    public void close() {
+
+    }
 }

@@ -28,6 +28,8 @@ public class TopologySchema {
     private Properties properties;
     private String kafkaRegistry;
     private String bootstrapServers;
+  final private String transformationProcessor = "transformationProcessor";
+  final static public String db = "state-db";
 
     public TopologySchema( Properties properties) {
         this.kafkaRegistry = properties.getProperty("kafka.schema.registry.url");
@@ -48,14 +50,14 @@ public class TopologySchema {
 
                 .addSource("Source",stringDeserializer,avroDeserializer,"test4_avaya")
 
-                .addProcessor("NewCallProcessor", TestProcessor::new,"Source")
+                .addProcessor(transformationProcessor, TestProcessor::new,"Source")
 
-                .addStateStore(initStore(),"NewCallProcessor")
+                .addStateStore(initStore(),transformationProcessor)
 
-                .addSink("ChangeState","change_state_test","NewCallProcessor")
+                .addSink("ChangeState","trasformation_state_test",transformationProcessor)
 
                 // link store to first processor
-                .connectProcessorAndStateStores("NewCallProcessor","test");
+                .connectProcessorAndStateStores(transformationProcessor,db);
 
         KafkaStreams streams = new KafkaStreams(builder,createProps());
 
@@ -83,7 +85,7 @@ public class TopologySchema {
         final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",kafkaRegistry);
         genericAvroSerde.configure(serdeConfig,false);
 
-        return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore("test"),stringSerde,genericAvroSerde);
+        return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(db),stringSerde,genericAvroSerde);
     }
 
 
