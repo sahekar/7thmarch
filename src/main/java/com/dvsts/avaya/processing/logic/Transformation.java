@@ -5,6 +5,10 @@ import com.dvsts.avaya.processing.core.rtcp.RTCPPacket;
 import com.dvsts.avaya.processing.core.rtcp.util.Util;
 import com.dvsts.avaya.processing.core.rtcp.util.VarBind;
 import com.dvsts.avaya.processing.logic.mos.QOSMOSComputationModel;
+import com.dvsts.avaya.processing.transformers.AvroTransformer;
+import com.dvsts.avaya.processing.transformers.SchemaProvider;
+import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
+import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.common.protocol.types.Field;
 import org.slf4j.Logger;
@@ -25,29 +29,25 @@ public class Transformation {
     public static final String	CALL_INDEX = "callIndex";
 
 
+
     private boolean	 usePqosRtcpIp		= true;
 
     private static final SimpleDateFormat SDF = new SimpleDateFormat(DEFAULT_FULLDATEFORMAT);
 
-    public GenericRecord  logicForCurrentSession( GenericRecord value ){
+    public AvayaPacket logicForCurrentSession( GenericRecord value )  {
 
         final AvayaPacket packet = create(value,"create");
         final double intervalLoss =0;
-        final String catagory = ""; //TODO: add here the needing  method to get catagery;
+        final String catagory = "";   //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
+        packet.setMos1(mos1);
 
-        value.put("mos",mos1);
+        final int rateCall = rateCall(catagory,packet.getRtd(),packet.getJitter(),packet.getLoss(),mos1,intervalLoss);
+         //int alertLevel =  extractMetrics( currentHolder);
+        return packet;
 
-
-       // packet.setMos1(mos1);
-
-
-       // final int rateCall = rateCall(catagory,packet.getRtd(),packet.getJitter(),packet.getLoss(),mos1,);
-
-        // int alertLevel =  extractMetrics( currentHolder);
-
-        return value;
     }
+
 
 
     private String lookupPayloadCodecCode(String input) {
@@ -98,17 +98,16 @@ public class Transformation {
         return (float) f;
     }
 
-    private float calculateMos(AvayaPacket packet){
+    private float calculateMos(AvayaPacket packet) {
 
          double ila = packet.getLoss();
 
-         final String  codec1 = lookupPayloadCodecCode(packet.getPayloadTypeText());
-
+       // TODO: add late  final String  codec1 = lookupPayloadCodecCode(packet.getPayloadTypeText());
+        String codec1 = "18";
 
         if (ila < 0) {
             ila = 0;
         }
-
 
         if (ila > 100) {
             ila = 100;
@@ -330,11 +329,13 @@ public class Transformation {
         AvayaPacket packet = new AvayaPacket();
         packet.setStatus("active");
         packet.setStartCall(SDF.format(new Date(tt)));
-        packet.setIp1((String) entry.get("ip"));
-        packet.setType1((String) entry.get("type1"));
-        packet.setSsrc1((String) entry.get("ssrc1"));
-        packet.setSsrc2((String) entry.get("ssrc2"));
-        packet.setPcktLossPct((String) entry.get("pcktLossPct"));
+       // packet.setIp1( entry.get("ip").toString());
+        packet.setType1( entry.get("type1").toString());
+        packet.setSsrc1(entry.get("ssrc1").toString());
+        packet.setSsrc2( entry.get("ssrc2").toString());
+
+       if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
+
         if( entry.get("rtpDSCP") == null ){ packet.setRtpDSCP("0"); } else { packet.setRtpDSCP("0"); }
 
         return packet;

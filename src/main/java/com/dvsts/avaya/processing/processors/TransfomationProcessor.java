@@ -12,7 +12,7 @@ public class TransfomationProcessor implements Processor<String, GenericRecord> 
 
 
     private ProcessorContext context;
-    private KeyValueStore<String,GenericRecord> kvStore;
+    private KeyValueStore<String,AvayaPacket> kvStore;
     private final Transformation transformation = new Transformation();
 
     @Override
@@ -27,10 +27,12 @@ public class TransfomationProcessor implements Processor<String, GenericRecord> 
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
-        final GenericRecord result = transformation.logicForCurrentSession(value);
-        GenericRecord existKey = this.kvStore.get(aggrKey);
+        final AvayaPacket result = transformation.logicForCurrentSession(value);
+        System.out.println("result: "+ result);
 
-        if(existKey == null) { this.context.forward(key,result); }
+        AvayaPacket existKey = this.kvStore.get(aggrKey);
+
+        if(existKey == null) { this.context.forward(key,value); }
         else { this.context.forward(key,result); }
 
 

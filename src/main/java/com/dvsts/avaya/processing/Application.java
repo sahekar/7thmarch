@@ -27,9 +27,12 @@ public class Application {
         Properties properties =new Properties();
         properties.load(Application.class.getClassLoader().getResourceAsStream("application.properties"));
 
-     TopologySchema topologySchema = new TopologySchema(properties);
+     //TopologySchema topologySchema = new TopologySchema(properties);
 
-     topologySchema.createSimpleStorage();
+    // topologySchema.createSimpleStorage();
+
+         StreamCreator creator = new StreamCreator(properties);
+         creator.streamWithTransformer("test4_avaya","avaya_output-test3");
 
 
 

@@ -1,6 +1,8 @@
 package com.dvsts.avaya.processing.logic;
 
 import lombok.Data;
+import org.apache.avro.Schema;
+import org.apache.avro.specific.SpecificRecord;
 
 @Data
 public class  AvayaPacket {
@@ -15,7 +17,7 @@ public class  AvayaPacket {
     private String ssrc1;
     private String ssrc2;
     private String pcktLossPct;
-    private String sessionIndex; //TODO: need to think about this field do we really this data ??
+   // private String sessionIndex; //TODO: need to think about this field do we really this data ??
     private String codec;
     private String payloadTypeText;
     private String rtpDSCP;
@@ -24,6 +26,7 @@ public class  AvayaPacket {
     private String ended;
     private int jitter;
     private int rtd;
-    private double loss;
+    private int loss;
     private float mos1;
+
 }
