@@ -5,23 +5,16 @@ import com.dvsts.avaya.processing.core.rtcp.RTCPPacket;
 import com.dvsts.avaya.processing.core.rtcp.util.Util;
 import com.dvsts.avaya.processing.core.rtcp.util.VarBind;
 import com.dvsts.avaya.processing.logic.mos.QOSMOSComputationModel;
-import com.dvsts.avaya.processing.transformers.AvroTransformer;
-import com.dvsts.avaya.processing.transformers.SchemaProvider;
-import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
-import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import org.apache.avro.generic.GenericRecord;
-import org.apache.kafka.common.protocol.types.Field;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import static com.dvsts.avaya.processing.logic.TransformationConfig.DEFAULT_FULLDATEFORMAT;
-import static com.dvsts.avaya.processing.logic.TransformationConfig.POTENTIAL_FIELDS;
 
 public class Transformation {
 
@@ -34,8 +27,8 @@ public class Transformation {
 
     private static final SimpleDateFormat SDF = new SimpleDateFormat(DEFAULT_FULLDATEFORMAT);
 
-    public AvayaPacket logicForCurrentSession( GenericRecord value )  {
-
+    public AvayaPacket logicForCurrentSession( GenericRecord value,AvayaPacket previousPacket )  {
+        final long currentTime = System.currentTimeMillis();
         final AvayaPacket packet = create(value,"create");
         final double intervalLoss =0;
         final String catagory = "";   //TODO: add here the needing  method to get catagery;
@@ -45,12 +38,118 @@ public class Transformation {
         packet.setMos1(mos1);
         packet.setAlarm(alarm1);
 
-         //int alertLevel =  extractMetrics( currentHolder);
-        return packet;
 
+        long firstTimeMill = 0L;
+        long lastTimeMill = 0L;
+        long timeDiff = 0L;
+        int timeDiffInSecs = 0;
+
+        float minMos = previousPacket.getMinMos();
+        int maxRTD = previousPacket.getMaxrtd();
+        int maxJitter = previousPacket.getMaxJitter();
+        int maxLoss = previousPacket.getMaxLoss();
+
+        long firstTime = previousPacket.getFirstTime(); // TODO: check this
+        long lastTime = previousPacket.getLastTime();   // TODO: check this
+
+        if(firstTime == 0) firstTimeMill = currentTime;
+        else firstTimeMill = firstTime;
+
+        if(lastTime == 0) lastTimeMill = currentTime;
+        else lastTimeMill = lastTime;
+
+        timeDiff = currentTime - lastTimeMill;
+        timeDiffInSecs = ((int) timeDiff) / 1000;
+        long totalTime = currentTime - firstTimeMill;
+        long totalLoss = previousPacket.getTotalLoss() + ((packet.getLoss()) * timeDiff);
+
+
+
+
+        double lossAverage = 0d;
+        if (totalTime > 0L) {
+            lossAverage = ((double) totalLoss) / ((double) totalTime);
+        }
+
+        long totalRTD = previousPacket.getTotalRtd() + ((packet.getRtd()) * timeDiff); // TODO: pay attention on this
+
+
+        double rtdAverage = 0d;
+
+        if (totalTime > 0L) {
+            rtdAverage = ((double) totalRTD) / ((double) totalTime);
+        }
+
+       long totalJitter = previousPacket.getTotalJitter() + ((packet.getJitter()) * timeDiff);
+        double jitterAverage = 0d;
+        if (totalTime > 0L) {
+            jitterAverage = ((double) totalJitter) / ((double) totalTime);
+        }
+
+       long  totalMos = previousPacket.getTotalMos() + (long) (mos1 * timeDiff);
+
+        double mosAverage = 0d;
+        if (totalTime > 0L) {
+            mosAverage = ((double) totalMos) / ((double) totalTime);
+        }
+
+        int highestAlertLevel = 1;
+        if (alarm1 > highestAlertLevel) {
+            highestAlertLevel = alarm1;
+        }
+
+        int alert1Seconds = previousPacket.getAlert1();
+        int alert2Seconds = previousPacket.getAlert2();
+        int alert3Seconds = previousPacket.getAlert3();
+        int alert4Seconds = previousPacket.getAlert4();
+        int alert5Seconds = previousPacket.getAlert5();
+
+        if (highestAlertLevel == 1) {
+            alert1Seconds += timeDiffInSecs;
+        } else if (highestAlertLevel == 2) {
+            alert2Seconds += timeDiffInSecs;
+        } else if (highestAlertLevel == 3) {
+            alert3Seconds += timeDiffInSecs;
+        } else if (highestAlertLevel == 4) {
+            alert4Seconds += timeDiffInSecs;
+        } else if (highestAlertLevel == 5) {
+            alert5Seconds += timeDiffInSecs;
+        }
+
+        packet.setAlert1(alert1Seconds);
+        packet.setAlert2(alert2Seconds);
+        packet.setAlert3(alert3Seconds);
+        packet.setAlert4(alert4Seconds);
+        packet.setAlert5(alert5Seconds);
+
+
+        packet.setTotalLoss(totalLoss); // TODO: chech why is long and not int .... also add test
+        packet.setTotalRtd(totalRTD);
+        packet.setAvgLoss(lossAverage);
+        packet.setAvgRtd(rtdAverage);
+        packet.setTotalJitter(totalJitter);
+        packet.setAvgJitter(jitterAverage);
+        packet.setTotalMos(totalMos);
+        packet.setMosAverage(mosAverage);
+        packet.setLastPacketTime(currentTime);
+        packet.setMinMos(Math.min(previousPacket.getMinMos(),packet.getMos1()));
+        packet.setMaxJitter(Math.max(previousPacket.getMaxJitter(),packet.getJitter()));
+        packet.setMaxLoss(Math.max(previousPacket.getMaxLoss(),packet.getLoss()));
+
+
+
+        return packet;
     }
 
 
+    private int checkMax(int maxValue, int value) {
+         return maxValue > value ? maxValue : value;
+    }
+
+    private float checkMin(float minValue, float value) {
+        if (minValue< value) return  minValue;
+            return value;
+    }
 
     private String lookupPayloadCodecCode(String input) {
         if (input.equals("0")) {
@@ -342,5 +441,52 @@ public class Transformation {
 
         return packet;
 
+    }
+
+    public static void main(String[] args) {
+          final String[]							AVG_FIELDS					= {
+                "firstPacketTime1",																																											// 0
+                "firstPacketTime2",																																											// 1
+                "lastPacketTime1",																																											// 2
+                "lastPacketTime2",																																											// 3
+                "totalLoss1",																																												// 4
+                "totalLoss2",																																												// 5
+                "avgLoss1",																																													// 6
+                "avgLoss2",																																													// 7
+                "totalJitter1",																																												// 8
+                "totalJitter2",																																												// 9
+                "avgJitter1",																																												// 10
+                "avgJitter2",																																												// 11
+                "totalRTD1",																																												// 12
+                "totalRTD2",																																												// 13
+                "avgRTD1",																																													// 14
+                "avgRTD2",																																													// 15
+                "totalMos1",																																												// 16
+                "totalMos2",																																												// 17
+                "avgMos1",																																													// 18
+                "avgMos2",																																													// 19
+                "alert1",																																													// 20
+                "alert2",																																													// 21
+                "alert3",																																													// 22
+                "alert4",																																													// 23
+                "alert5",																																													// 24
+                "minMos",																																													// 25
+                "maxRTD",																																													// 26
+                "maxJitter",																																												// 27
+                "maxLoss"																																													// 28
+        };
+
+       // System.out.print(AVG_FIELDS[12]);
+        String al1 = AVG_FIELDS[20];
+        String al2 = AVG_FIELDS[21];
+        String al3 = AVG_FIELDS[22];
+        String al4 = AVG_FIELDS[23];
+        String al5 = AVG_FIELDS[24];
+
+        System.out.println(al1);
+        System.out.println(al2);
+        System.out.println(al3);
+        System.out.println(al4);
+        System.out.println(al5);
     }
 }

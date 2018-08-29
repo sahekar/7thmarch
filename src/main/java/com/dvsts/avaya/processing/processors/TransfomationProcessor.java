@@ -27,7 +27,7 @@ public class TransfomationProcessor implements Processor<String, GenericRecord> 
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
-        final AvayaPacket result = transformation.logicForCurrentSession(value);
+        final AvayaPacket result = transformation.logicForCurrentSession(value,null);
         System.out.println("result: "+ result);
 
         AvayaPacket existKey = this.kvStore.get(aggrKey);

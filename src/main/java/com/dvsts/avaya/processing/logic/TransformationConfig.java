@@ -36,7 +36,7 @@ public class TransformationConfig {
             "lastPacketTime2", // 3
             "totalLoss1", // 4
             "totalLoss2", // 5
-            "avgLoss1", // 6
+            "avgLoss", // 6
             "avgLoss2", // 7
             "totalJitter1", // 8
             "totalJitter2", // 9
