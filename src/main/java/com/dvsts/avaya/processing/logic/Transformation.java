@@ -40,9 +40,11 @@ public class Transformation {
         final double intervalLoss =0;
         final String catagory = "";   //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
-        packet.setMos1(mos1);
+        final int alarm1  = rateCall(catagory,packet.getRtd(),packet.getJitter(),packet.getLoss(),mos1,intervalLoss);
 
-        final int rateCall = rateCall(catagory,packet.getRtd(),packet.getJitter(),packet.getLoss(),mos1,intervalLoss);
+        packet.setMos1(mos1);
+        packet.setAlarm(alarm1);
+
          //int alertLevel =  extractMetrics( currentHolder);
         return packet;
 
@@ -333,7 +335,7 @@ public class Transformation {
         packet.setType1( entry.get("type1").toString());
         packet.setSsrc1(entry.get("ssrc1").toString());
         packet.setSsrc2( entry.get("ssrc2").toString());
-
+        packet.setSsrc2( entry.get("ssrc2").toString());
        if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
 
         if( entry.get("rtpDSCP") == null ){ packet.setRtpDSCP("0"); } else { packet.setRtpDSCP("0"); }

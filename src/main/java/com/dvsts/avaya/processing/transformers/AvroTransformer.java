@@ -44,7 +44,7 @@ public class AvroTransformer {
 		recordBuilder.set("rtd",toSupportedType(data.getRtd()));
 		recordBuilder.set("loss",toSupportedType(data.getLoss()));
 		recordBuilder.set("mos",toSupportedType(data.getMos1()));
-		//recordBuilder.set("alarm",toSupportedType());
+		recordBuilder.set("alarm",toSupportedType(data.getAlarm()));
 
 		return recordBuilder.build();
 	}

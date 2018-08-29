@@ -32,7 +32,7 @@ public class Application {
     // topologySchema.createSimpleStorage();
 
          StreamCreator creator = new StreamCreator(properties);
-         creator.streamWithTransformer("test4_avaya","avaya_output-test3");
+         creator.streamWithTransformer("test4_avaya","avaya_output-test4");
 
 
 

@@ -28,5 +28,6 @@ public class  AvayaPacket {
     private int rtd;
     private int loss;
     private float mos1;
+    private int alarm;
 
 }

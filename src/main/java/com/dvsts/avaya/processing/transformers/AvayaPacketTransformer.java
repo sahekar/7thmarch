@@ -36,7 +36,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
         this.kvStore.put(aggrKey,result);
         System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
-           GenericRecord avroResult = transformer.toAvroRecord(result,"avaya_output_test3");
+           GenericRecord avroResult = transformer.toAvroRecord(result,"avaya_output_test4");
         return new KeyValue<>(key,avroResult);
     }
 
