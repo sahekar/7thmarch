@@ -1,9 +1,8 @@
 package com.dvsts.avaya.processing;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
-import com.dvsts.avaya.processing.transformers.AvayaPacketTransformer;
-import com.dvsts.avaya.processing.transformers.JsonPOJODeserializer;
-import com.dvsts.avaya.processing.transformers.JsonPOJOSerializer;
+import com.dvsts.avaya.processing.logic.Transformation;
+import com.dvsts.avaya.processing.transformers.*;
 import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
@@ -36,13 +35,14 @@ public class StreamCreator {
     private Properties properties;
     private String schemaRegistry;
     private String bootstrapServers;
+    private AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
+    private  Transformation transformation = new Transformation();
 
     public StreamCreator( Properties properties) {
        this.schemaRegistry = properties.getProperty("kafka.schema.registry.url");
        this.bootstrapServers = properties.getProperty("camel.component.kafka.brokers");
 
     }
-
 
     public void streamtoTable(String topicIn,String topicOut){
 
@@ -70,12 +70,13 @@ public class StreamCreator {
         final Serde<String> stringSerde = Serdes.String();
         final Serde<GenericRecord> genericAvroSerde = new GenericAvroSerde();
         genericAvroSerde.configure(serdeConfig,false);
-        Serde serde = Serdes.serdeFrom(createSerializer(),new KafkaAvroDeserializer(schemaRegistryClient()));
+
         StreamsBuilder builder = new StreamsBuilder();
         builder.addStateStore(initStore());
+
         KStream<String,GenericRecord> stream = builder.stream(topicIn);
 
-            stream.transform(() -> new AvayaPacketTransformer(),TopologySchema.db)
+            stream.transform(() -> new AvayaPacketTransformer(transformer,transformation),TopologySchema.db)
                   .to(topicOut, Produced.with(stringSerde,genericAvroSerde));
 
 
@@ -86,10 +87,12 @@ public class StreamCreator {
 
     }
 
-    public SchemaRegistryClient schemaRegistryClient() {
-        return new CachedSchemaRegistryClient(schemaRegistry, 2);
-    }
 
+    public SchemaProvider schemaRegistryClient() {
+        SchemaRegistryClient client =  new CachedSchemaRegistryClient("http://94.130.90.122:8081", 2);
+        SchemaProvider provider = new SchemaProvider(client,1);
+        return provider;
+    }
 
     /**
      * There its configure storestate

@@ -15,8 +15,13 @@ import org.apache.kafka.streams.state.KeyValueStore;
 public class AvayaPacketTransformer implements Transformer<String, GenericRecord, KeyValue<String, GenericRecord>> {
     private ProcessorContext context;
     private KeyValueStore<String,AvayaPacket> kvStore;
-    private final Transformation transformation = new Transformation();
-    AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
+    private final AvroTransformer transformer;
+    private  Transformation transformation;
+
+    public AvayaPacketTransformer(AvroTransformer transformer, Transformation transformation) {
+        this.transformer = transformer;
+        this.transformation = transformation;
+    }
 
     @Override
     public void init(ProcessorContext context) {
@@ -41,11 +46,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
     }
 
 
-    public SchemaProvider schemaRegistryClient() {
-        SchemaRegistryClient client =  new CachedSchemaRegistryClient("http://94.130.90.122:8081", 2);
-        SchemaProvider provider = new SchemaProvider(client,1);
-        return provider;
-    }
+
 
     @Override
     public void close() {
