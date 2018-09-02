@@ -1,31 +1,33 @@
 package com.dvsts.avaya.processing.logic;
 
 import com.dvsts.avaya.processing.core.rtcp.QOSStandardCodecRef;
-import com.dvsts.avaya.processing.core.rtcp.RTCPPacket;
-import com.dvsts.avaya.processing.core.rtcp.util.Util;
-import com.dvsts.avaya.processing.core.rtcp.util.VarBind;
 import com.dvsts.avaya.processing.logic.mos.QOSMOSComputationModel;
 import org.apache.avro.generic.GenericRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.dvsts.avaya.processing.logic.TransformationConfig.DEFAULT_FULLDATEFORMAT;
 
-public class Transformation {
+public class MainComputationModel {
 
-    private static final Logger LOGGER	= LoggerFactory.getLogger(Transformation.class);
+    private static final Logger LOGGER	= LoggerFactory.getLogger(MainComputationModel.class);
     public static final String	CALL_INDEX = "callIndex";
 
     private boolean	 usePqosRtcpIp		= true;
+    private boolean	 normalization	= false;
+
 
     private static final SimpleDateFormat SDF = new SimpleDateFormat(DEFAULT_FULLDATEFORMAT);
 
-    public AvayaPacket logicForCurrentSession( GenericRecord value,AvayaPacket previousPacket )  {
+    public AvayaPacket calculatesCallMetric(GenericRecord value, AvayaPacket previousPacket )  {
+
         final long currentTime = System.currentTimeMillis();
         final AvayaPacket packet = create(value,"create");
         final double intervalLoss =0;
@@ -35,7 +37,6 @@ public class Transformation {
 
         packet.setMos1(mos1);
         packet.setAlarm(alarm1);
-
 
         long firstTimeMill = 0L;
         long lastTimeMill = 0L;
@@ -61,10 +62,8 @@ public class Transformation {
         long totalTime = currentTime - firstTimeMill;
         long totalLoss = previousPacket.getTotalLoss() + ((packet.getLoss()) * timeDiff);
 
-
-
-
         double lossAverage = 0d;
+
         if (totalTime > 0L) {
             lossAverage = ((double) totalLoss) / ((double) totalTime);
         }
@@ -120,6 +119,14 @@ public class Transformation {
         packet.setAlert4(alert4Seconds);
         packet.setAlert5(alert5Seconds);
 
+         int maxAlertLevel = packet.getMaxAlert();
+
+        if (highestAlertLevel > maxAlertLevel) {
+            packet.setMaxAlert(maxAlertLevel);
+        }
+
+       // TODO: lool pn this int newAlertLevel = normalization ? ThresholdNormalizationEntry.evaluateCall(alert1Seconds, alert2Seconds, alert3Seconds, alert4Seconds, alert5Seconds) : highestAlertLevel;
+
 
         packet.setTotalLoss(totalLoss); // TODO: chech why is long and not int .... also add test
         packet.setTotalRtd(totalRTD);
@@ -139,6 +146,34 @@ public class Transformation {
         return packet;
     }
 
+    private final static AtomicBoolean reload = new AtomicBoolean(true);
+
+    //always called from QOSThread - so we know won't be running in multiple places
+  /*  public  boolean evaluateCall(int alert1, int alert2, int alert3, int alert4, int alert5) {
+
+
+        if (isCallMatch(alert1, alert2, alert3, alert4, alert5)) {
+            return tne.newAlert;
+        }
+        //no adjustments necessary, so just pass it through
+        return 1;
+    }*/
+
+   /* public boolean isCallMatch(int alert1, int alert2, int alert3, int alert4, int alert5) {
+
+        int seconds = 0;
+        if (currentAlert.equals("5")) seconds = alert5;
+        if (currentAlert.equals("4")) seconds = alert4;
+        if (currentAlert.equals("3")) seconds = alert3;
+        if (currentAlert.equals("2")) seconds = alert2;
+        if (currentAlert.equals("1")) seconds = alert1;
+
+        if (seconds < secondsRequired) {
+            return false;
+        }
+
+        return true;
+    }*/
 
     private String lookupPayloadCodecCode(String input) {
         if (input.equals("0")) {

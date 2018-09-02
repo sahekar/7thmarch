@@ -1,12 +1,11 @@
 package com.dvsts.avaya.processing;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
-import com.dvsts.avaya.processing.logic.Transformation;
+import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.*;
 import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import org.apache.avro.generic.GenericRecord;
@@ -36,7 +35,7 @@ public class StreamCreator {
     private String schemaRegistry;
     private String bootstrapServers;
     private AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
-    private  Transformation transformation = new Transformation();
+    private MainComputationModel mainComputationModel = new MainComputationModel();
 
     public StreamCreator( Properties properties) {
        this.schemaRegistry = properties.getProperty("kafka.schema.registry.url");
@@ -76,7 +75,7 @@ public class StreamCreator {
 
         KStream<String,GenericRecord> stream = builder.stream(topicIn);
 
-            stream.transform(() -> new AvayaPacketTransformer(transformer,transformation),TopologySchema.db)
+            stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel),TopologySchema.db)
                   .to(topicOut, Produced.with(stringSerde,genericAvroSerde));
 
 

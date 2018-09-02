@@ -49,5 +49,6 @@ public class  AvayaPacket {
     private int alert3;
     private int alert4;
     private int alert5;
+    private int maxAlert;
 
 }

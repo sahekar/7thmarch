@@ -2,9 +2,7 @@ package com.dvsts.avaya.processing.transformers;
 
 import com.dvsts.avaya.processing.TopologySchema;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
-import com.dvsts.avaya.processing.logic.Transformation;
-import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
-import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
+import com.dvsts.avaya.processing.logic.MainComputationModel;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.Transformer;
@@ -16,11 +14,11 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
     private ProcessorContext context;
     private KeyValueStore<String,AvayaPacket> kvStore;
     private final AvroTransformer transformer;
-    private  Transformation transformation;
+    private MainComputationModel mainComputationModel;
 
-    public AvayaPacketTransformer(AvroTransformer transformer, Transformation transformation) {
+    public AvayaPacketTransformer(AvroTransformer transformer, MainComputationModel mainComputationModel) {
         this.transformer = transformer;
-        this.transformation = transformation;
+        this.mainComputationModel = mainComputationModel;
     }
 
     @Override
@@ -31,17 +29,25 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
 
     @Override
     public KeyValue<String, GenericRecord> transform(String key, GenericRecord value) {
+
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
-
-         AvayaPacket result = transformation.logicForCurrentSession(value,null);
-
         AvayaPacket existKey = this.kvStore.get(aggrKey);
+        AvayaPacket result = null;
+
+        if(existKey == null) {
+             result = mainComputationModel.calculatesCallMetric(value,null);
+        } else {
+             result = mainComputationModel.calculatesCallMetric(value,existKey);
+        }
+
         this.kvStore.put(aggrKey,result);
+
         System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
-           GenericRecord avroResult = transformer.toAvroRecord(result,"avaya_output_test4");
+        GenericRecord avroResult = transformer.toAvroRecord(result,"avaya_output_test4");
+
         return new KeyValue<>(key,avroResult);
     }
 

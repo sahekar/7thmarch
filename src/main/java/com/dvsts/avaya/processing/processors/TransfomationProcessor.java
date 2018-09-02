@@ -2,7 +2,7 @@ package com.dvsts.avaya.processing.processors;
 
 import com.dvsts.avaya.processing.TopologySchema;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
-import com.dvsts.avaya.processing.logic.Transformation;
+import com.dvsts.avaya.processing.logic.MainComputationModel;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
@@ -13,7 +13,7 @@ public class TransfomationProcessor implements Processor<String, GenericRecord> 
 
     private ProcessorContext context;
     private KeyValueStore<String,AvayaPacket> kvStore;
-    private final Transformation transformation = new Transformation();
+    private final MainComputationModel mainComputationModel = new MainComputationModel();
 
     @Override
     public void init(ProcessorContext context) {
@@ -27,7 +27,8 @@ public class TransfomationProcessor implements Processor<String, GenericRecord> 
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
-        final AvayaPacket result = transformation.logicForCurrentSession(value,null);
+
+        final AvayaPacket result = mainComputationModel.calculatesCallMetric(value,null);
         System.out.println("result: "+ result);
 
         AvayaPacket existKey = this.kvStore.get(aggrKey);

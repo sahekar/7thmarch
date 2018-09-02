@@ -4,14 +4,14 @@ import org.junit.Test;
 
 
 // TODO: add here test for private methods;
-public class TransformationTest {
+public class MainComputationModelTest {
 
-    Transformation transformation = new Transformation();
+    MainComputationModel mainComputationModel = new MainComputationModel();
 
     @Test
    public void checkDoudbleMin(){
 
-       // transformation.
+       // mainComputationModel.
     }
 
 }
