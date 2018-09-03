@@ -34,6 +34,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
         AvayaPacket existKey = this.kvStore.get(aggrKey);
+
         AvayaPacket result = null;
 
         if(existKey == null) {
