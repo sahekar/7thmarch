@@ -20,7 +20,12 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 
+import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
+
 public class Application {
+
+
+
 
     public static void main(String[] args) throws IOException {
 
@@ -32,7 +37,7 @@ public class Application {
     // topologySchema.createSimpleStorage();
 
          StreamCreator creator = new StreamCreator(properties);
-         creator.streamWithTransformer("test4_avaya","avaya_output-test4");
+         creator.streamWithTransformer("test4_avaya",detailsEventTopic);
 
 
 

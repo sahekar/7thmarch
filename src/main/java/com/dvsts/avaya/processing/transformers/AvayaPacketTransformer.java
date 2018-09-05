@@ -9,6 +9,8 @@ import org.apache.kafka.streams.kstream.Transformer;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
 
+import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
+
 
 public class AvayaPacketTransformer implements Transformer<String, GenericRecord, KeyValue<String, GenericRecord>> {
     private ProcessorContext context;
@@ -47,7 +49,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
 
         System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
-        GenericRecord avroResult = transformer.toAvroRecord(result,"avaya_output_test4");
+        GenericRecord avroResult = transformer.toAvroRecord(result,detailsEventTopic);
 
         return new KeyValue<>(key,avroResult);
     }

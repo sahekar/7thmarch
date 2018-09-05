@@ -65,10 +65,6 @@ public class StreamCreator {
     }
 
     public void streamWithTransformer(String topicIn,String topicOut){
-        final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",schemaRegistry);
-        final Serde<String> stringSerde = Serdes.String();
-        final Serde<GenericRecord> genericAvroSerde = new GenericAvroSerde();
-        genericAvroSerde.configure(serdeConfig,false);
 
         StreamsBuilder builder = new StreamsBuilder();
         builder.addStateStore(initStore());
@@ -76,14 +72,18 @@ public class StreamCreator {
         KStream<String,GenericRecord> stream = builder.stream(topicIn);
 
             stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel),TopologySchema.db)
-                  .to(topicOut, Produced.with(stringSerde,genericAvroSerde));
+                  .to(topicOut, Produced.with(Serdes.String(),generateAvroSerde()));
 
 
         KafkaStreams streams = new KafkaStreams(builder.build(),createProps());
         streams.start();
+    }
 
-
-
+    private Serde<GenericRecord> generateAvroSerde(){
+        final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",schemaRegistry);
+        final Serde<GenericRecord> genericAvroSerde = new GenericAvroSerde();
+        genericAvroSerde.configure(serdeConfig,false);
+        return genericAvroSerde;
     }
 
 
