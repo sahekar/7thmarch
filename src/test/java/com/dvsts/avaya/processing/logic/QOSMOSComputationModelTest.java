@@ -1,7 +1,8 @@
 package com.dvsts.avaya.processing.logic;
 
+
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.Target;
 
@@ -9,7 +10,7 @@ public class QOSMOSComputationModelTest {
 
 
     @Test
-    public void simpleSampleTest(){
+    public void mosTest(){
         QOSMOSComputationModel model = new QOSMOSComputationModel();
         double a = 0;
 

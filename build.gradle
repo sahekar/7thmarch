@@ -35,6 +35,17 @@ dependencies {
     compile 'org.jfree:jfreechart:1.0.14'
 
 
+   /* testCompile group:'org.apache.kafka', name:'kafka-streams', version:'2.0.0', classifier:'test'
+    testCompile group:'org.apache.kafka', name:'kafka-clients', version:'2.0.0', classifier:'test'
+    testCompile (group:'org.apache.kafka', name:'kafka_2.12', version:'2.0.0') {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }*/
+// https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams-test-utils
+    compile group: 'org.apache.kafka', name: 'kafka-streams-test-utils', version: '2.0.0'
+
+/*    testCompile (group:'org.apache.kafka', name:'kafka_2.12', version:'2.0.0', classifier: 'test') {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }*/
     // compile('org.projectlombok:lombok')
     // https://mvnrepository.com/artifact/org.projectlombok/lom1.16.20bok
     //compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
@@ -44,5 +55,7 @@ dependencies {
         exclude module: 'log4j'
     }
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group:'org.hamcrest', name:'hamcrest-junit', version:'2.0.0.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version:'5.0.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version:'5.0.0'
 }
