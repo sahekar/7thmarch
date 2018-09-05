@@ -37,31 +37,10 @@ public class StreamCreator {
     private AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
     private MainComputationModel mainComputationModel = new MainComputationModel();
 
-    public StreamCreator( Properties properties) {
+    StreamCreator( Properties properties) {
        this.schemaRegistry = properties.getProperty("kafka.schema.registry.url");
        this.bootstrapServers = properties.getProperty("camel.component.kafka.brokers");
 
-    }
-
-    public void streamtoTable(String topicIn,String topicOut){
-
-
-        final String tableName = "";
-        final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",schemaRegistry);
-        final Serde<String> stringSerde = Serdes.String();
-        final Serde<GenericRecord> genericAvroSerde = new GenericAvroSerde();
-
-        genericAvroSerde.configure(serdeConfig,false);
-
-        StreamsBuilder builder = new StreamsBuilder();
-        KStream<String,GenericRecord> stream = builder.stream(topicIn);
-        final KTable<String,GenericRecord> table = builder.table(tableName);
-
-        stream.map((k,v) -> KeyValue.pair(v.get("ssrc1") +(String) v.get("ssrc1"),v))
-               .to(topicOut, Produced.with(stringSerde,genericAvroSerde));
-
-        KafkaStreams streams = new KafkaStreams(builder.build(),createProps());
-        streams.start();
     }
 
     public void streamWithTransformer(String topicIn,String topicOut){
@@ -86,9 +65,8 @@ public class StreamCreator {
         return genericAvroSerde;
     }
 
-
     public SchemaProvider schemaRegistryClient() {
-        SchemaRegistryClient client =  new CachedSchemaRegistryClient("http://94.130.90.122:8081", 2);
+        SchemaRegistryClient client =  new CachedSchemaRegistryClient(schemaRegistry, 2);
         SchemaProvider provider = new SchemaProvider(client,1);
         return provider;
     }
@@ -109,16 +87,6 @@ public class StreamCreator {
         final Serde<AvayaPacket> serde = Serdes.serdeFrom(jsonPOJOSerializer, jsonDeserializer);
 
         return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(TopologySchema.db),stringSerde,serde);
-    }
-
-
-    private Serializer createSerializer(){
-        Serializer serializer = new KafkaAvroSerializer();
-        Map<String, Object> serProps = new HashMap<>();
-        serProps.put("schema.registry.url",schemaRegistry);
-        serializer.configure(serProps,false);
-
-        return serializer;
     }
 
     private  Properties createProps(){
