@@ -1,4 +1,4 @@
-package com.dvsts.avaya.processing;
+package com.dvsts.avaya.processing.streams;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
@@ -6,7 +6,6 @@ import com.dvsts.avaya.processing.transformers.*;
 import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -15,11 +14,9 @@ import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.streams.KafkaStreams;
-import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.KStream;
-import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Produced;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
@@ -37,20 +34,20 @@ public class StreamCreator {
     private AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
     private MainComputationModel mainComputationModel = new MainComputationModel();
 
-    StreamCreator( Properties properties) {
+   public StreamCreator( Properties properties) {
        this.schemaRegistry = properties.getProperty("kafka.schema.registry.url");
        this.bootstrapServers = properties.getProperty("camel.component.kafka.brokers");
 
     }
 
-    public void streamWithTransformer(String topicIn,String topicOut){
+    public void streamWithTransformer(String topicIn,String topicOut) {
 
         StreamsBuilder builder = new StreamsBuilder();
         builder.addStateStore(initStore());
 
         KStream<String,GenericRecord> stream = builder.stream(topicIn);
 
-            stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel),TopologySchema.db)
+            stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel), TopologySchema.db)
                   .to(topicOut, Produced.with(Serdes.String(),generateAvroSerde()));
 
 
@@ -58,7 +55,7 @@ public class StreamCreator {
         streams.start();
     }
 
-    private Serde<GenericRecord> generateAvroSerde(){
+    private Serde<GenericRecord> generateAvroSerde() {
         final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",schemaRegistry);
         final Serde<GenericRecord> genericAvroSerde = new GenericAvroSerde();
         genericAvroSerde.configure(serdeConfig,false);
@@ -89,7 +86,7 @@ public class StreamCreator {
         return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(TopologySchema.db),stringSerde,serde);
     }
 
-    private  Properties createProps(){
+    private  Properties createProps() {
         final Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "test4-avayaee");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);

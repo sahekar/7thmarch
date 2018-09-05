@@ -2,13 +2,12 @@ package com.dvsts.avaya.processing;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
+import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.transformers.*;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
-import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -36,7 +35,7 @@ import java.util.Properties;
 
 import static com.dvsts.avaya.processing.KafkaStreamConfigTest.inputSchema;
 import static com.dvsts.avaya.processing.KafkaStreamConfigTest.outputSchema;
-import static com.dvsts.avaya.processing.TopologySchema.db;
+import static com.dvsts.avaya.processing.streams.TopologySchema.db;
 
 public class KafkaStreamTest {
 

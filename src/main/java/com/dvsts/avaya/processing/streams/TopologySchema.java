@@ -1,4 +1,4 @@
-package com.dvsts.avaya.processing;
+package com.dvsts.avaya.processing.streams;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.processors.TestProcessor;
