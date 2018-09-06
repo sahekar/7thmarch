@@ -32,6 +32,8 @@ public class AvroTransformer {
 		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(
 				schemaProvider.getSchema(subject + "-value"));
 		data.forEach((fieldName, value) -> recordBuilder.set(fieldName.toLowerCase(), toSupportedType(value)));
+
+
 		return recordBuilder.build();
 	}
 
