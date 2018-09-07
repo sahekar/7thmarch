@@ -30,13 +30,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import static com.dvsts.avaya.processing.AppConfig.db;
+
 public class TopologySchema {
 
     private Properties properties;
     private String kafkaRegistry;
     private String bootstrapServers;
   final private String transformationProcessor = "transformationProcessor";
-  final static public String db = "state-db";
+
 
     public TopologySchema( Properties properties) {
         this.kafkaRegistry = properties.getProperty("kafka.schema.registry.url");

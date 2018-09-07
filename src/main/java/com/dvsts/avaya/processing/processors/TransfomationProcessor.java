@@ -8,6 +8,8 @@ import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
 
+import static com.dvsts.avaya.processing.AppConfig.db;
+
 public class TransfomationProcessor implements Processor<String, GenericRecord> {
 
 
@@ -18,7 +20,7 @@ public class TransfomationProcessor implements Processor<String, GenericRecord> 
     @Override
     public void init(ProcessorContext context) {
         this.context = context;
-        this.kvStore = (KeyValueStore) context.getStateStore(TopologySchema.db);
+        this.kvStore = (KeyValueStore) context.getStateStore(db);
     }
 
     @Override

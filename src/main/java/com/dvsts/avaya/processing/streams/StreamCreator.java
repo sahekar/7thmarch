@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import static com.dvsts.avaya.processing.AppConfig.db;
+
 public class StreamCreator {
 
     private Properties properties;
@@ -47,7 +49,7 @@ public class StreamCreator {
 
         KStream<String,GenericRecord> stream = builder.stream(topicIn);
 
-            stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel), TopologySchema.db)
+            stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel), db)
                   .to(topicOut, Produced.with(Serdes.String(),generateAvroSerde()));
 
 
@@ -83,7 +85,7 @@ public class StreamCreator {
         jsonDeserializer.configure(serdeProps,false);
         final Serde<AvayaPacket> serde = Serdes.serdeFrom(jsonPOJOSerializer, jsonDeserializer);
 
-        return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(TopologySchema.db),stringSerde,serde);
+        return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(db),stringSerde,serde);
     }
 
     private  Properties createProps() {

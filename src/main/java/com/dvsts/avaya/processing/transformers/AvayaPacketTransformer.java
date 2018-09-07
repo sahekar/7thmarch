@@ -9,6 +9,7 @@ import org.apache.kafka.streams.kstream.Transformer;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
 
+import static com.dvsts.avaya.processing.AppConfig.db;
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
 
 
@@ -26,7 +27,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
     @Override
     public void init(ProcessorContext context) {
         this.context = context;
-        this.kvStore = (KeyValueStore) context.getStateStore(TopologySchema.db);
+        this.kvStore = (KeyValueStore) context.getStateStore(db);
     }
 
     @Override

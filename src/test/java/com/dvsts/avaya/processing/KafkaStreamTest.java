@@ -37,10 +37,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import static com.dvsts.avaya.processing.AppConfig.db;
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
 import static com.dvsts.avaya.processing.KafkaStreamConfigTest.inputSchema;
 import static com.dvsts.avaya.processing.KafkaStreamConfigTest.outputSchema;
-import static com.dvsts.avaya.processing.streams.TopologySchema.db;
+
 
 public class KafkaStreamTest {
 
@@ -51,16 +52,9 @@ public class KafkaStreamTest {
     private final Serde<GenericRecord> genericAvroSerde = createConfiguredSerdeForRecordValues();
     private AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
     private MainComputationModel mainComputationModel = new MainComputationModel();
-
     public GenericAvroSerializer genericAvroSerializer = new GenericAvroSerializer();
-
-
-
     private ConsumerRecordFactory<String, GenericRecord> recordFactory;
-
-
     private final String INPUT = "test";
-    private final String OUTPUT = "test-out";
 
     @BeforeEach
     public void setUp() throws IOException, RestClientException {
@@ -142,7 +136,7 @@ public class KafkaStreamTest {
        jsonDeserializer.configure(serdeProps,false);
        final Serde<AvayaPacket> serde = Serdes.serdeFrom(jsonPOJOSerializer, jsonDeserializer);
 
-       return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(TopologySchema.db),stringSerde,serde);
+       return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(db),stringSerde,serde);
    }
 
     @Test
@@ -155,7 +149,7 @@ public class KafkaStreamTest {
 
         //System.out.println((String) record.get("gaploss"));
            testDriver.pipeInput(recordFactory.create(record));
-          GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+           GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
 
           Assert.assertEquals(1,result.get("alarm"));

@@ -68,7 +68,6 @@ public class AvroTransformer {
          return recordBuilder.build();
 	}
 
-
 	/**
 	 *
 	 * @param data - list of SimpleEntry<String, Object>[] where each array represents one logical record.
