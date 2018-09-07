@@ -37,6 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
 import static com.dvsts.avaya.processing.KafkaStreamConfigTest.inputSchema;
 import static com.dvsts.avaya.processing.KafkaStreamConfigTest.outputSchema;
 import static com.dvsts.avaya.processing.streams.TopologySchema.db;
@@ -79,7 +80,7 @@ public class KafkaStreamTest {
         final Serde<String> stringSerde = Serdes.String();
 
         registerSchema(schemaRegistryClient, inputSchema,INPUT);
-        registerSchema(schemaRegistryClient, outputSchema,OUTPUT);
+        registerSchema(schemaRegistryClient, outputSchema,detailsEventTopic);
 
 
         final Map<String, String> serdeConfig1 = Collections.singletonMap("schema.registry.url","http://fake");
@@ -95,7 +96,7 @@ public class KafkaStreamTest {
 
 
         stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel), db)
-                .to(OUTPUT, Produced.with(stringSerde,genericAvroSerde));
+                .to(detailsEventTopic, Produced.with(stringSerde,genericAvroSerde));
 
         Topology topology = builder.build();
        recordFactory = new ConsumerRecordFactory<>(INPUT,new StringSerializer(),  genericAvroSerde.serializer());
@@ -147,6 +148,26 @@ public class KafkaStreamTest {
     @Test
     public void shouldFlushStoreForFirstInput() {
 
+
+        Map<String,Object> packet = createPcrfPacket();
+
+         GenericRecord record = transformer.toAvroRecord(packet,INPUT);
+
+        //System.out.println((String) record.get("gaploss"));
+           testDriver.pipeInput(recordFactory.create(record));
+          GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+
+
+          Assert.assertEquals(1,result.get("alarm"));
+
+
+     //   OutputVerifier.compareKeyValue(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer), "a", 21L);
+
+      //  Assert.assertNull(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer));
+    }
+
+
+    private  Map<String,Object> createPcrfPacket(){
         Map<String,Object> map = new HashMap<>();
 
         map.put("ssrc1","ddd");
@@ -172,18 +193,7 @@ public class KafkaStreamTest {
         map.put("burstdensity","fdf");
         map.put("gaploss","fdf");
         map.put("gapdensity","8");
-       // map.put("gapdensity","0");
-
-         GenericRecord record = transformer.toAvroRecord(map,INPUT);
-
-        //System.out.println((String) record.get("gaploss"));
-           testDriver.pipeInput(recordFactory.create(record));
-        // GenericRecord record = AvroUtils.createGenericRecord();
-
-     //   OutputVerifier.compareKeyValue(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer), "a", 21L);
-
-      //  Assert.assertNull(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer));
+        return map;
     }
-
 
 }

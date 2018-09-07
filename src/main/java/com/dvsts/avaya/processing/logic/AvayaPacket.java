@@ -25,9 +25,9 @@ public class  AvayaPacket {
     private String host1Cap;
     private String ended;
     private int jitter;
-    private int maxJitter;
-    private long totalJitter;
-    private double avgJitter;
+    private int maxJitter=0;
+    private long totalJitter=0;
+    private double avgJitter=0;
     private int rtd;
     private int Maxrtd;
     private int loss;

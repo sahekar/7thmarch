@@ -48,7 +48,7 @@ public class AvroTransformer {
 		recordBuilder.set("mos",toSupportedType(data.getMos1()));
 		recordBuilder.set("alarm",toSupportedType(data.getAlarm()));
 		//recordBuilder.set("maxJitter",toSupportedType(data.getMaxJitter()));
-		recordBuilder.set("totalJitter",toSupportedType(data.getMaxJitter()));
+		//recordBuilder.set("totalJitter",toSupportedType(data.getMaxJitter()));
 
 		return recordBuilder.build();
 	}
