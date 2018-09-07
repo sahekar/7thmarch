@@ -40,7 +40,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
         AvayaPacket result = null;
 
         if(existKey == null) {
-             result = mainComputationModel.calculatesCallMetric(value,null);
+             result = mainComputationModel.calculatesCallMetric(value,new AvayaPacket());
         } else {
              result = mainComputationModel.calculatesCallMetric(value,existKey);
         }

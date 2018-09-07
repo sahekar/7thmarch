@@ -34,8 +34,8 @@ public class  AvayaPacket {
     private int maxLoss;
     private double avgLoss;
     private long totalLoss;
-    private float mos1;
-    private float minMos;
+    private float mos1=0;
+    private float minMos =0;
     private long totalMos;
     private double mosAverage;
     private int alarm;

@@ -20,6 +20,7 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.TopologyTestDriver;
 
+import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Produced;
 import org.apache.kafka.streams.state.StoreBuilder;
@@ -90,7 +91,7 @@ public class KafkaStreamTest {
         builder.addStateStore(initStore());
     // TODO: add late    builder.addStateStore(initStore());
 
-        KStream<String,GenericRecord> stream = builder.stream(INPUT);
+        KStream<String,GenericRecord> stream = builder.stream(INPUT, Consumed.with(stringSerde,genericAvroSerde));
 
 
         stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel), db)
