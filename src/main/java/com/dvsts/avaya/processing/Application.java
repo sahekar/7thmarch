@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
+import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
 
 public class Application {
 
@@ -22,7 +23,7 @@ public class Application {
     // topologySchema.createSimpleStorage();
 
          StreamCreator creator = new StreamCreator(properties);
-         creator.streamWithTransformer("test4_avaya",detailsEventTopic);
+         creator.streamWithTransformer(initialAvayaSourceTopic,detailsEventTopic);
 
 
 

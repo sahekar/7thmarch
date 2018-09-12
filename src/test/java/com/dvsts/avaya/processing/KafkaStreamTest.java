@@ -23,6 +23,7 @@ import org.apache.kafka.streams.TopologyTestDriver;
 import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Produced;
+import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
@@ -153,6 +154,12 @@ public class KafkaStreamTest {
 
 
           Assert.assertEquals(1,result.get("alarm"));
+
+        KeyValueStore store = testDriver.getKeyValueStore(db);
+
+      AvayaPacket packet1 = (AvayaPacket)  store.get("dddfdfdf");
+
+        System.out.println("packet: "+packet1);
 
 
      //   OutputVerifier.compareKeyValue(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer), "a", 21L);
