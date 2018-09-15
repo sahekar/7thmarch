@@ -1,6 +1,7 @@
 package com.dvsts.avaya.processing;
 
 import com.dvsts.avaya.processing.streams.StreamCreator;
+import com.dvsts.avaya.processing.streams.TopologySchema;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -18,12 +19,12 @@ public class Application {
         Properties properties =new Properties();
         properties.load(Application.class.getClassLoader().getResourceAsStream("application.properties"));
 
-     //TopologySchema topologySchema = new TopologySchema(properties);
+     TopologySchema topologySchema = new TopologySchema(properties);
 
-    // topologySchema.createSimpleStorage();
+     topologySchema.createSimpleStorage();
 
-         StreamCreator creator = new StreamCreator(properties);
-         creator.streamWithTransformer(initialAvayaSourceTopic,detailsEventTopic);
+     //    StreamCreator creator = new StreamCreator(properties);
+      //   creator.streamWithTransformer(initialAvayaSourceTopic,detailsEventTopic);
 
 
 

@@ -11,7 +11,7 @@ public class QOSMOSComputationModelTest {
 
 
     @Test
-    public void mosConvTest(){
+    public void mosConvTest() {
         QOSMOSComputationModel model = new QOSMOSComputationModel();
         double a = 0;
 
