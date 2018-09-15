@@ -56,6 +56,8 @@ public class KafkaStreamTest {
     public GenericAvroSerializer genericAvroSerializer = new GenericAvroSerializer();
     private ConsumerRecordFactory<String, GenericRecord> recordFactory;
     private final String INPUT = "test";
+    private final String ssrc1 ="ssrc1";
+    private final String ssrc2 ="ssrc2";
 
     @BeforeEach
     public void setUp() throws IOException, RestClientException {
@@ -144,7 +146,7 @@ public class KafkaStreamTest {
     public void shouldFlushStoreForFirstInput() {
 
 
-        Map<String,Object> packet = createPcrfPacket();
+        Map<String,Object> packet = createPcrfPacket("0","0","0");
 
          GenericRecord record = transformer.toAvroRecord(packet,INPUT);
 
@@ -167,15 +169,32 @@ public class KafkaStreamTest {
       //  Assert.assertNull(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer));
     }
 
+    @Test
+    public void alarm1CalculationTest1(){
+        Map<String,Object> packet = createPcrfPacket("24","72","3");
+        GenericRecord record = transformer.toAvroRecord(packet,INPUT);
 
-    private  Map<String,Object> createPcrfPacket(){
+        testDriver.pipeInput(recordFactory.create(record));
+
+        KeyValueStore store = testDriver.getKeyValueStore(db);
+
+        AvayaPacket packet1 = (AvayaPacket)  store.get(ssrc1+ssrc2);
+
+        System.out.println("gert alert1: "+ packet1.getAlarm());
+
+
+
+    }
+
+
+    private  Map<String,Object> createPcrfPacket(String jitter,String rtd,String loss){
         Map<String,Object> map = new HashMap<>();
 
-        map.put("ssrc1","ddd");
-        map.put("ssrc2","fdfdf");
-        map.put("jitter","1L");
-        map.put("rtt","2");
-        map.put("loss","3");
+        map.put("ssrc1",ssrc1);
+        map.put("ssrc2",ssrc2);
+        map.put("jitter",jitter);
+        map.put("rtt",rtd);
+        map.put("loss",loss);
         map.put("cumulativeloss","4");
         map.put("time",5L);
         map.put("lsr","6");

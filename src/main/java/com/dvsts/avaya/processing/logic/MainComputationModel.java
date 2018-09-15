@@ -30,8 +30,8 @@ public class MainComputationModel {
 
         final long currentTime = System.currentTimeMillis();
         final AvayaPacket packet = create(value,"create");
-        final double intervalLoss =0;
-        final String catagory = "";   //TODO: add here the needing  method to get catagery;
+        final double intervalLoss =0; // TODO: where get the result of calculation
+        final String catagory = "0";   //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
         final int alarm1  = rateCall(catagory,packet.getRtd(),packet.getJitter(),packet.getLoss(),mos1,intervalLoss);
 
@@ -224,7 +224,7 @@ public class MainComputationModel {
          double ila = packet.getLoss();
 
        // TODO: add late  final String  codec1 = lookupPayloadCodecCode(packet.getPayloadTypeText());
-        String codec1 = "18";
+        String codec1 = "0";
 
         if (ila < 0) {
             ila = 0;
