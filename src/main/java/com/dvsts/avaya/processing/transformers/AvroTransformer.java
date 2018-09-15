@@ -28,7 +28,7 @@ public class AvroTransformer {
 	 * @param subject - subject in Schema Registry to determine schema to use for GenericRecord
 	 * @return GenericRecord to be serialized in Avro format
 	 */
-	public GenericRecord toAvroRecord(Map<String, Object> data, String subject) {
+	public GenericRecord toEventAvroRecord(Map<String, Object> data, String subject) {
 		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(
 				schemaProvider.getSchema(subject + "-value"));
 		data.forEach((fieldName, value) -> recordBuilder.set(fieldName.toLowerCase(), toSupportedType(value)));
@@ -37,7 +37,7 @@ public class AvroTransformer {
 		return recordBuilder.build();
 	}
 
-	public GenericRecord toAvroRecord(AvayaPacket data, String subject)  {
+	public GenericRecord toEventAvroRecord(AvayaPacket data, String subject)  {
 		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
 
 		recordBuilder.set("ssrc1",toSupportedType(data.getSsrc1()));
@@ -53,7 +53,23 @@ public class AvroTransformer {
 		return recordBuilder.build();
 	}
 
-	public GenericRecord toAvroRecord(Object data, String subject) throws IllegalAccessException {
+	public GenericRecord toSessionAvroRecord(AvayaPacket side1,AvayaPacket side2, String subject)  {
+		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
+
+		recordBuilder.set("ssrc1",toSupportedType(side1.getSsrc1()));
+		recordBuilder.set("ssrc2",toSupportedType(side1.getSsrc2()));
+		recordBuilder.set("jitter",toSupportedType(side1.getJitter()));
+		recordBuilder.set("rtd",toSupportedType(side1.getRtd()));
+		recordBuilder.set("loss",toSupportedType(side1.getLoss()));
+		recordBuilder.set("mos",toSupportedType(side1.getMos1()));
+		recordBuilder.set("alarm",toSupportedType(side1.getAlarm()));
+		//recordBuilder.set("maxJitter",toSupportedType(side1.getMaxJitter()));
+		//recordBuilder.set("totalJitter",toSupportedType(side1.getMaxJitter()));
+
+		return recordBuilder.build();
+	}
+
+	public GenericRecord toEventAvroRecord(Object data, String subject) throws IllegalAccessException {
 		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
 
 		Class<? extends Object> c = data.getClass();

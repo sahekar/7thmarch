@@ -2,14 +2,11 @@ package com.dvsts.avaya.processing;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
-import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.transformers.*;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-import io.confluent.kafka.serializers.KafkaAvroDeserializer;
-import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
 import org.apache.avro.generic.GenericRecord;
@@ -27,7 +24,6 @@ import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
-import org.apache.kafka.streams.test.OutputVerifier;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -146,7 +142,7 @@ public class KafkaStreamTest {
 
         Map<String,Object> packet = createPcrfPacket();
 
-         GenericRecord record = transformer.toAvroRecord(packet,INPUT);
+         GenericRecord record = transformer.toEventAvroRecord(packet,INPUT);
 
         //System.out.println((String) record.get("gaploss"));
            testDriver.pipeInput(recordFactory.create(record));

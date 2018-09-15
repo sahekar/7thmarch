@@ -1,11 +1,9 @@
 package com.dvsts.avaya.processing.processors;
 
-import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import org.apache.avro.generic.GenericRecord;
-import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
@@ -61,7 +59,7 @@ public class AvayaTransformationProcessor implements Processor<String, GenericRe
 
         System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
-        GenericRecord avroResult = transformer.toAvroRecord(result,detailsEventTopic);
+        GenericRecord avroResult = transformer.toEventAvroRecord(result,detailsEventTopic);
 
         context.forward(key, avroResult );
 

@@ -1,6 +1,5 @@
 package com.dvsts.avaya.processing.transformers;
 
-import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import org.apache.avro.generic.GenericRecord;
@@ -50,7 +49,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
 
         System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
-        GenericRecord avroResult = transformer.toAvroRecord(result,detailsEventTopic);
+        GenericRecord avroResult = transformer.toEventAvroRecord(result,detailsEventTopic);
 
         return new KeyValue<>(key,avroResult);
     }

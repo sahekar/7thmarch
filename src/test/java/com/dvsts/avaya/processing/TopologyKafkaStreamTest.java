@@ -8,7 +8,6 @@ import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
-import io.confluent.kafka.streams.serdes.avro.GenericAvroDeserializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
 import org.apache.avro.generic.GenericRecord;
@@ -110,10 +109,6 @@ public class TopologyKafkaStreamTest {
 
     }
 
-    /* @After
-     public void tearDown() {
-         testDriver.close();
-     }*/
     private StoreBuilder initStore(){
 
         final Serde<String> stringSerde = Serdes.String();
@@ -129,12 +124,12 @@ public class TopologyKafkaStreamTest {
     }
 
     @Test
-    public void insertInTopicTransformAndPutInTopicTest() {
+    public void simpleInsertOutputEventPrint() {
 
 
         Map<String,Object> packet = createPcrfPacket();
 
-        GenericRecord record = transformer.toAvroRecord(packet,initialAvayaSourceTopic);
+        GenericRecord record = transformer.toEventAvroRecord(packet,initialAvayaSourceTopic);
 
         testDriver.pipeInput(recordFactory.create(record));
         GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
@@ -142,18 +137,29 @@ public class TopologyKafkaStreamTest {
 
         Assert.assertEquals(1,result.get("alarm"));
 
-        /*KeyValueStore store = testDriver.getKeyValueStore(db);
 
-        AvayaPacket packet1 = (AvayaPacket)  store.get("dddfdfdf");
 
-        System.out.println("packet: "+packet1);
-*/
 
         //   OutputVerifier.compareKeyValue(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer), "a", 21L);
 
 
     }
 
+    @Test
+    public void StateStoreSimpleInsertOutputPrint(){
+        Map<String,Object> packet = createPcrfPacket();
+
+        GenericRecord record = transformer.toEventAvroRecord(packet,initialAvayaSourceTopic);
+
+        testDriver.pipeInput(recordFactory.create(record));
+
+        KeyValueStore store = testDriver.getKeyValueStore(db);
+
+        AvayaPacket packet1 = (AvayaPacket)  store.get("dddfdfdf");
+
+        Assert.assertEquals("ddd",packet1.getSsrc1());
+
+    }
 
     private  Map<String,Object> createPcrfPacket(){
         Map<String,Object> map = new HashMap<>();

@@ -4,6 +4,8 @@ import lombok.Data;
 import org.apache.avro.Schema;
 import org.apache.avro.specific.SpecificRecord;
 
+import java.time.LocalDateTime;
+
 @Data
 public class  AvayaPacket {
 
@@ -50,5 +52,6 @@ public class  AvayaPacket {
     private int alert4;
     private int alert5;
     private int maxAlert;
+    private LocalDateTime insertTime;
 
 }
