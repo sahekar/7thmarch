@@ -34,23 +34,26 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
         kvStore = (KeyValueStore) context.getStateStore(db);
 
         // schedule a punctuate() method every 1000 milliseconds based on event-time
-        this.context.schedule(1000, PunctuationType.STREAM_TIME, (timestamp) -> {
+        this.context.schedule(10000, PunctuationType.STREAM_TIME, (timestamp) -> {
+
+            System.out.println("start work the schedular");
             KeyValueIterator<String, AvayaPacket> iter = this.kvStore.all();
             while (iter.hasNext()) {
                   KeyValue<String, AvayaPacket> entry = iter.next();
+                System.out.println("get entry for calculation duration: "+entry.value);
+                if(entry.value.getInsertTime() == null) kvStore.delete(entry.key);
                   final AvayaPacket side1 = entry.value;
 
                  long seconds = Duration.between(side1.getInsertTime(), LocalDateTime.now()).getSeconds();
 
                  if(seconds >= 20){
                      //TODO: create and send a session here
-
                      String side2Key = side1.getSsrc2()+side1.getSsrc1();
                      final AvayaPacket side2 = this.kvStore.get(side2Key);
 
-                     GenericRecord record = transformer.toSessionAvroRecord(side1,side2,"");
+                   //  GenericRecord record = transformer.toSessionAvroRecord(side1,side2,"");
 
-                     context.forward(entry.key, record);
+                   //  context.forward(entry.key, record);
                  }
 
 
@@ -64,7 +67,7 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
 
     @Override
     public void process(String key, GenericRecord value) {
-
+        System.out.println("get value: "+ value);
     }
 
     @Override

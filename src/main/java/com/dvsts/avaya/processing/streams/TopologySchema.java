@@ -4,6 +4,7 @@ import com.dvsts.avaya.processing.KafkaStreamsUtils;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.processors.AvayaTransformationProcessor;
+import com.dvsts.avaya.processing.processors.SessionCreatorProcessor;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import com.dvsts.avaya.processing.transformers.JsonPOJODeserializer;
 import com.dvsts.avaya.processing.transformers.JsonPOJOSerializer;
@@ -43,6 +44,7 @@ public class TopologySchema {
     private String schemaRegistry;
     private String bootstrapServers;
     final private String transformationProcessor = "transformationProcessor";
+    final private String sessionProcessor = "sessionCreatorProcessor";
 
     private MainComputationModel mainComputationModel = new MainComputationModel();
 
@@ -70,7 +72,10 @@ public class TopologySchema {
 
         KafkaStreams streams = new KafkaStreams(builder,createProps());
 
+
         streams.start();
+
+
 
     }
 
@@ -78,7 +83,7 @@ public class TopologySchema {
 
         final AvroTransformer transformer = new AvroTransformer(KafkaStreamsUtils.schemaRegistryClient(schemaRegistryClient));
         Processor avayaTransformationProcessor = new AvayaTransformationProcessor(transformer, mainComputationModel);
-
+        Processor sessionCreatorProcessor = new SessionCreatorProcessor(transformer);
 
         Topology builder = new Topology();
 
@@ -87,13 +92,15 @@ public class TopologySchema {
                 .addSource("Source",new StringDeserializer(),avroDeserializer,initialAvayaSourceTopic)
 
                 .addProcessor(transformationProcessor,  () -> avayaTransformationProcessor,"Source")
+                .addProcessor(sessionProcessor,  () -> sessionCreatorProcessor,transformationProcessor)
 
                 .addStateStore(initStore(db),transformationProcessor)
 
                 .addSink("ChangeState",detailsEventTopic,new StringSerializer(),avroSerializer,transformationProcessor)
 
                 // link store to first processor
-                .connectProcessorAndStateStores(transformationProcessor,db);
+                .connectProcessorAndStateStores(transformationProcessor,db)
+                .connectProcessorAndStateStores(sessionProcessor,db);
 
         return builder;
 
@@ -102,7 +109,7 @@ public class TopologySchema {
 
     private Properties createProps(){
         final Properties props = new Properties();
-        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "test4fdfdfdfdf");
+        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "test878ff");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, GenericAvroSerde.class);
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG,  GenericAvroSerde.class);

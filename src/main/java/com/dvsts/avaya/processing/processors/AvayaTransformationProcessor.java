@@ -4,9 +4,14 @@ import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import org.apache.avro.generic.GenericRecord;
+import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
+import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 import static com.dvsts.avaya.processing.AppConfig.db;
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
@@ -45,7 +50,9 @@ public class AvayaTransformationProcessor implements Processor<String, GenericRe
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
-        AvayaPacket existKey = this.kvStore.get(aggrKey);
+
+
+       AvayaPacket existKey = this.kvStore.get(aggrKey);
 
         AvayaPacket result = null;
 
@@ -61,7 +68,7 @@ public class AvayaTransformationProcessor implements Processor<String, GenericRe
 
         GenericRecord avroResult = transformer.toEventAvroRecord(result,detailsEventTopic);
 
-        context.forward(key, avroResult );
+         context.forward(key, avroResult );
 
 
     }

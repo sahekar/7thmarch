@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +42,9 @@ public class AvroTransformer {
 	public GenericRecord toEventAvroRecord(AvayaPacket data, String subject)  {
 		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
 
+		long now = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+		System.out.println(data.getSsrc1()+data.getSsrc2()+ now);
+		recordBuilder.set("id",(data.getSsrc1()+data.getSsrc2()+ now));
 		recordBuilder.set("ssrc1",toSupportedType(data.getSsrc1()));
 		recordBuilder.set("ssrc2",toSupportedType(data.getSsrc2()));
 		recordBuilder.set("jitter",toSupportedType(data.getJitter()));

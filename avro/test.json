@@ -1,0 +1,39 @@
+{"type": "record",
+  "name": "test_upd3",
+  "namespace": "com.dvsts",
+  "doc": "this is a sample avro schema to get you started. please edit",
+  "fields": [
+
+    { "name": "ssrc1", "type": [  "null","string" ]},
+    { "name": "ssrc2", "type": [  "null","string" ]},
+    { "name": "jitter", "type": [  "null","string" ]},
+    { "name": "rtt", "type": [  "null","string" ]},
+    { "name": "rtd", "type": [  "null","string" ]},
+    { "name": "loss", "type": [  "null","string" ]},
+    { "name": "cumulativeLoss", "type": [  "null","string" ]},
+    { "name": "time", "type": [  "null","long" ]},
+    { "name": "lsr", "type": [  "null","string" ]},
+    { "name": "dlsr", "type": [  "null","string" ]},
+    { "name": "codec", "type": [  "null","string" ]},
+    { "name": "sr", "type": [  "null","string" ]},
+    { "name": "ip", "type": [  "null","string" ]},
+    { "name": "name1", "type": [  "null","string" ]},
+    { "name": "name2", "type": [  "null","string" ]},
+    { "name": "transponderName", "type": [  "null","string" ]},
+    { "name": "type", "type": [  "null","int" ]},
+    { "name": "type1", "type": [  "null","string" ]},
+    { "name": "type2", "type": [  "null","string" ]},
+    { "name": "hopNameLookup", "type": [  "null","boolean" ]},
+    { "name": "fromRtcp", "type": [  "null","boolean" ]},
+    { "name": "reportedIp", "type": [  "null","string" ]},
+    { "name": "reportedport", "type": [  "null","string" ]},
+    { "name": "owd", "type": [  "null","string" ]},
+    { "name": "burstLoss", "type": [  "null","string" ]},
+    { "name": "burstDensity", "type": [  "null","string" ]},
+    { "name": "gapLoss", "type": [  "null","string" ]},
+    { "name": "gapDensity", "type": [  "null","string" ]},
+    { "name": "category", "type": [  "null","string" ]}
+
+
+  ]
+}

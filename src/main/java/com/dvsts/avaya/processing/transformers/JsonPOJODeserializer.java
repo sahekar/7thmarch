@@ -1,13 +1,14 @@
 package com.dvsts.avaya.processing.transformers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
 
 import java.util.Map;
 
 public class JsonPOJODeserializer<T> implements Deserializer<T> {
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private ObjectMapper objectMapper = createDefaultMapper();
 
     private Class<T> tClass;
 
@@ -36,6 +37,15 @@ public class JsonPOJODeserializer<T> implements Deserializer<T> {
         }
 
         return data;
+    }
+
+
+    private ObjectMapper createDefaultMapper(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        //To parse LocalDateTime
+        objectMapper.registerModule(new JavaTimeModule());
+
+        return  objectMapper;
     }
 
     @Override

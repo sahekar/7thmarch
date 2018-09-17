@@ -1,13 +1,17 @@
 package com.dvsts.avaya.processing.transformers;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Map;
 
 public class JsonPOJOSerializer<T> implements Serializer<T> {
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper =  createDefaultMapper();
 
     /**
      * Default constructor needed by Kafka
@@ -29,6 +33,14 @@ public class JsonPOJOSerializer<T> implements Serializer<T> {
         } catch (Exception e) {
             throw new SerializationException("Error serializing JSON message", e);
         }
+    }
+
+    private ObjectMapper createDefaultMapper(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        //To parse LocalDateTime
+        objectMapper.registerModule(new JavaTimeModule());
+
+        return  objectMapper;
     }
 
     @Override
