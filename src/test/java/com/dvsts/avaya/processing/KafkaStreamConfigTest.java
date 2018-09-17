@@ -8,6 +8,13 @@ public class KafkaStreamConfigTest {
             "  \"doc\": \"this is a sample avro schema to get you started. please edit\",\n" +
             "  \"fields\": [\n" +
             "    {\n" +
+            "      \"name\": \"id\",\n" +
+            "      \"type\": [\n" +
+            "        \"null\",\n" +
+            "        \"string\"\n" +
+            "      ]\n" +
+            "    },\n" +
+            "    {\n" +
             "      \"name\": \"ssrc1\",\n" +
             "      \"type\": [\n" +
             "        \"null\",\n" +

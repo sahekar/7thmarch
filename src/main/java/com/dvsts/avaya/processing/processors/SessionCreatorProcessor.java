@@ -41,7 +41,7 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
             while (iter.hasNext()) {
                   KeyValue<String, AvayaPacket> entry = iter.next();
                 System.out.println("get entry for calculation duration: "+entry.value);
-                if(entry.value.getInsertTime() == null) kvStore.delete(entry.key);
+                if(entry.value.getInsertTime() == null) kvStore.delete(entry.key); // TODO: remove it only for testing
                   final AvayaPacket side1 = entry.value;
 
                  long seconds = Duration.between(side1.getInsertTime(), LocalDateTime.now()).getSeconds();
@@ -51,9 +51,17 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
                      String side2Key = side1.getSsrc2()+side1.getSsrc1();
                      final AvayaPacket side2 = this.kvStore.get(side2Key);
 
-                   //  GenericRecord record = transformer.toSessionAvroRecord(side1,side2,"");
+                     if(side2 == null) {
+                       //  GenericRecord record = transformer.toSessionAvroRecord(side1,"");
+                       //  context.forward(entry.key, record);
+                     } else {
+                       //  GenericRecord record = transformer.toSessionAvroRecord(side1,side2,"");
+                         //  context.forward(entry.key, record);
+                     }
 
-                   //  context.forward(entry.key, record);
+
+
+
                  }
 
 

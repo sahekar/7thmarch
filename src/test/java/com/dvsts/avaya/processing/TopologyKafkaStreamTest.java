@@ -21,6 +21,7 @@ import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -146,7 +147,8 @@ public class TopologyKafkaStreamTest {
     }
 
     @Test
-    public void StateStoreSimpleInsertOutputPrint(){
+    @Ignore
+    public void stateStoreSimpleInsertOutputPrint(){
         Map<String,Object> packet = createPcrfPacket();
 
         GenericRecord record = transformer.toEventAvroRecord(packet,initialAvayaSourceTopic);
@@ -160,6 +162,11 @@ public class TopologyKafkaStreamTest {
         Assert.assertEquals("ddd",packet1.getSsrc1());
 
     }
+
+   /* @Test
+    public void sessionCreatorSimpleFlowTest(){
+
+    }*/
 
 
 

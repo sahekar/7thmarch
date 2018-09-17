@@ -58,6 +58,22 @@ public class AvroTransformer {
 		return recordBuilder.build();
 	}
 
+
+	public GenericRecord toSessionAvroRecord(AvayaPacket side1, String subject)  {
+		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
+
+		recordBuilder.set("ssrc1",toSupportedType(side1.getSsrc1()));
+		recordBuilder.set("ssrc2",toSupportedType(side1.getSsrc2()));
+		recordBuilder.set("jitter",toSupportedType(side1.getJitter()));
+		recordBuilder.set("rtd",toSupportedType(side1.getRtd()));
+		recordBuilder.set("loss",toSupportedType(side1.getLoss()));
+		recordBuilder.set("mos",toSupportedType(side1.getMos1()));
+		recordBuilder.set("alarm",toSupportedType(side1.getAlarm()));
+		//recordBuilder.set("maxJitter",toSupportedType(side1.getMaxJitter()));
+		//recordBuilder.set("totalJitter",toSupportedType(side1.getMaxJitter()));
+
+		return recordBuilder.build();
+	}
 	public GenericRecord toSessionAvroRecord(AvayaPacket side1,AvayaPacket side2, String subject)  {
 		GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
 
