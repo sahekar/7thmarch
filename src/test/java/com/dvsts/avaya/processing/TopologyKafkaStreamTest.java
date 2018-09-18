@@ -147,7 +147,7 @@ public class TopologyKafkaStreamTest {
     }
 
     @Test
-    @Ignore
+
     public void stateStoreSimpleInsertOutputPrint(){
         Map<String,Object> packet = createPcrfPacket();
 

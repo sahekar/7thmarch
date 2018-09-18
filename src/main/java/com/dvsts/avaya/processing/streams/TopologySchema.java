@@ -33,9 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import static com.dvsts.avaya.processing.AppConfig.db;
-import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
-import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
+import static com.dvsts.avaya.processing.AppConfig.*;
 import static com.dvsts.avaya.processing.KafkaStreamsUtils.initStore;
 
 public class TopologySchema {
@@ -97,6 +95,7 @@ public class TopologySchema {
                 .addStateStore(initStore(db),transformationProcessor)
 
                 .addSink("ChangeState",detailsEventTopic,new StringSerializer(),avroSerializer,transformationProcessor)
+                .addSink("session",sessionEventTopic,new StringSerializer(),avroSerializer,sessionProcessor)
 
                 // link store to first processor
                 .connectProcessorAndStateStores(transformationProcessor,db)
