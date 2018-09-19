@@ -40,7 +40,7 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
             KeyValueIterator<String, AvayaPacket> iter = this.kvStore.all();
             while (iter.hasNext()) {
                   KeyValue<String, AvayaPacket> entry = iter.next();
-                System.out.println("get entry for calculation duration: "+entry.value);
+                System.out.println("get entry for calculation d_uration: "+entry.value);
                 if(entry.value.getInsertTime() == null) kvStore.delete(entry.key); // TODO: remove it only for testing
                   final AvayaPacket side1 = entry.value;
 
