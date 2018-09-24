@@ -278,10 +278,12 @@ public class MainComputationModel {
         packet.setStatus("active");
         packet.setStartCall(SDF.format(new Date(tt)));
        // packet.setIp1( entry.get("ip").toString());
-        packet.setType1( entry.get("type1").toString());
+
+        GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");
+        packet.setType1( (String) sourceDescription.get("type1"));
         packet.setSsrc1(entry.get("ssrc1").toString());
         packet.setSsrc2( entry.get("ssrc2").toString());
-        packet.setSsrc2( entry.get("ssrc2").toString());
+
        if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
 
         if( entry.get("rtpDSCP") == null ){ packet.setRtpDSCP("0"); } else { packet.setRtpDSCP("0"); }

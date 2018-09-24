@@ -13,8 +13,6 @@ public class RTCPPacket2 extends RTCPPacket {
 
 	private static final Logger LOGGER	= LoggerFactory.getLogger(RTCPPacket2.class);
 
-
-
 	public RTCPPacket2(String ip, byte[] payload, int remotePort, boolean hopNameLookup) {
 		this.remotePort = remotePort;
 		time = System.nanoTime();
