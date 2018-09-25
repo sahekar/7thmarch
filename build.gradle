@@ -46,6 +46,10 @@ dependencies {
 // https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams-test-utils
     compile group: 'org.apache.kafka', name: 'kafka-streams-test-utils', version: '2.0.0'
 
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
+
 /*    testCompile (group:'org.apache.kafka', name:'kafka_2.12', version:'2.0.0', classifier: 'test') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     }*/
@@ -58,6 +62,7 @@ dependencies {
         exclude module: 'log4j'
     }
 
+    testCompile 'org.mockito:mockito-core:2.22.0'
     testCompile group:'org.hamcrest', name:'hamcrest-junit', version:'2.0.0.0'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version:'5.0.0'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version:'5.0.0'

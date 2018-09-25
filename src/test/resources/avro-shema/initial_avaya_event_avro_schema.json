@@ -1,0 +1,580 @@
+{"type": "record",
+  "name": "AvayaEvent",
+  "namespace": "com.dvsts.nextgen.restcameltokafka.domain",
+  "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.Avaya",
+  "fields": [
+    {
+      "name": "appSpecificReport",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "AppSpecificReport",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.AppSpecificReport",
+          "fields": [
+            {
+              "name": "burstdensity",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "burstloss",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "codec",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "echocancellation",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "echotaillength",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "framesize",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "gapdensity",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "gaploss",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "inrtpsrcport",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "intypdestport",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "ipv6flowlabel",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "jitterbufferdelay",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "jitterbufferoverrun",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "jitterbufferunderrun",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "largestsequencefall",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "largestsequencejump",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "maxjitter",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "mediaencryption",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "owd",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "payloadtype",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "remoteipandport",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "remoteipv6address",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "remoteipv6port",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "reportedip",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "reportedport",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rsvpreceiverstatus",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rtd",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rtp8021d",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rtpdscp",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rtpoctetcount",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rtppacketcount",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "rtpttl",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "seqfallinstances",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "seqjumpinstances",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "silencesuppression",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "ssrc1",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "ssrc2",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "clientId",
+      "type": "long"
+    },
+    {
+      "name": "cumulativeloss",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "dlsr",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "goodBye",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "GoodBye",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.GoodBye",
+          "fields": [
+            {
+              "name": "ssrc1",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "type",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hopnamelookup",
+      "type": "boolean"
+    },
+    {
+      "name": "ip",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "jitter",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "loss",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "lsr",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "pcktlosspct",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "remoteport",
+      "type": "int"
+    },
+    {
+      "name": "requestType",
+      "type": "int"
+    },
+    {
+      "name": "sourceDescription",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "SourceDescription",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SourceDescription",
+          "fields": [
+            {
+              "name": "name1",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            },
+            {
+              "name": "type1",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sr",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "ssrc1",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "ssrc2",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ]
+    },
+    {
+      "name": "subtype",
+      "type": "int"
+    },
+    {
+      "name": "time",
+      "type": "long"
+    }
+  ]
+}

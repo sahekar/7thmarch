@@ -1,8 +1,7 @@
-package com.dvsts.avaya.processing;
+package com.dvsts.avaya.processing.topology;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
-import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.transformers.*;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
@@ -13,15 +12,19 @@ import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.*;
+import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.TopologyTestDriver;
+
+import org.apache.kafka.streams.kstream.Consumed;
+import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.Produced;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,11 +36,12 @@ import java.util.Properties;
 
 import static com.dvsts.avaya.processing.AppConfig.db;
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
-import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
-import static com.dvsts.avaya.processing.KafkaStreamConfigTest.inputSchema;
-import static com.dvsts.avaya.processing.KafkaStreamConfigTest.outputSchema;
+import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.inputSchema;
+import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
 
-public class TopologyKafkaStreamTest {
+
+public class KafkaStreamTest {
+
     private TopologyTestDriver testDriver;
     private StringDeserializer stringDeserializer = new StringDeserializer();
     private LongDeserializer longDeserializer = new LongDeserializer();
@@ -52,29 +56,6 @@ public class TopologyKafkaStreamTest {
     @BeforeEach
     public void setUp() throws IOException, RestClientException {
 
-        final  Properties props = createKafkaProperties();
-        final Serde<String> stringSerde = Serdes.String();
-
-        registerSchema(schemaRegistryClient, inputSchema,initialAvayaSourceTopic);
-        registerSchema(schemaRegistryClient, outputSchema,detailsEventTopic);
-
-        final Map<String, String> serdeConfig1 = Collections.singletonMap("schema.registry.url","http://fake");
-        genericAvroSerializer.configure(serdeConfig1,false);
-
-        Properties properties =new Properties();
-        properties.put("kafka.schema.registry.url","fake");
-        properties.put("camel.component.kafka.brokers","dat");
-
-        TopologySchema topologySchema = new TopologySchema(properties);
-        Topology topology = topologySchema.createTopology(schemaRegistryClient,genericAvroSerde.deserializer(),genericAvroSerde.serializer());
-
-
-        recordFactory = new ConsumerRecordFactory<>(initialAvayaSourceTopic,new StringSerializer(),  genericAvroSerde.serializer());
-        testDriver = new TopologyTestDriver(topology, props);
-
-    }
-
-    private Properties createKafkaProperties() {
         Properties props = new Properties();
         props.put(StreamsConfig.CLIENT_ID_CONFIG, "ks-papi-stock-analysis-client");
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "ks-papi-stock-analysis-group");
@@ -86,7 +67,32 @@ public class TopologyKafkaStreamTest {
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, GenericAvroSerde.class);
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG,  GenericAvroSerde.class);
 
-        return props;
+
+        final Serde<String> stringSerde = Serdes.String();
+
+        registerSchema(schemaRegistryClient, inputSchema,INPUT);
+        registerSchema(schemaRegistryClient, outputSchema,detailsEventTopic);
+
+
+        final Map<String, String> serdeConfig1 = Collections.singletonMap("schema.registry.url","http://fake");
+         genericAvroSerializer.configure(serdeConfig1,false);
+
+
+
+        StreamsBuilder builder = new StreamsBuilder();
+        builder.addStateStore(initStore());
+    // TODO: add late    builder.addStateStore(initStore());
+
+        KStream<String,GenericRecord> stream = builder.stream(INPUT, Consumed.with(stringSerde,genericAvroSerde));
+
+
+        stream.transform(() -> new AvayaPacketTransformer(transformer, mainComputationModel), db)
+                .to(detailsEventTopic, Produced.with(stringSerde,genericAvroSerde));
+
+        Topology topology = builder.build();
+       recordFactory = new ConsumerRecordFactory<>(INPUT,new StringSerializer(),  genericAvroSerde.serializer());
+       testDriver = new TopologyTestDriver(topology, props);
+
     }
 
     private  GenericAvroSerde createConfiguredSerdeForRecordValues() {
@@ -102,6 +108,8 @@ public class TopologyKafkaStreamTest {
         return provider;
     }
 
+
+
     private void registerSchema(SchemaRegistryClient schemaRegistryClient,String schema,String topic) throws IOException, RestClientException {
         org.apache.avro.Schema.Parser parser = new org.apache.avro.Schema.Parser();
         org.apache.avro.Schema avroSchema = parser.parse(schema);
@@ -110,64 +118,50 @@ public class TopologyKafkaStreamTest {
 
     }
 
-    private StoreBuilder initStore(){
+   /* @After
+    public void tearDown() {
+        testDriver.close();
+    }*/
+   private StoreBuilder initStore(){
 
-        final Serde<String> stringSerde = Serdes.String();
-        Map<String, Object> serdeProps = new HashMap<>();
-        final Serializer<AvayaPacket> jsonPOJOSerializer = new JsonPOJOSerializer<>();
-        serdeProps.put("JsonPOJOClass", AvayaPacket.class);
-        jsonPOJOSerializer.configure(serdeProps, false);
-        final Deserializer<AvayaPacket> jsonDeserializer = new JsonPOJODeserializer<>();
-        jsonDeserializer.configure(serdeProps,false);
-        final Serde<AvayaPacket> serde = Serdes.serdeFrom(jsonPOJOSerializer, jsonDeserializer);
+       final Serde<String> stringSerde = Serdes.String();
+       Map<String, Object> serdeProps = new HashMap<>();
+       final Serializer<AvayaPacket> jsonPOJOSerializer = new JsonPOJOSerializer<>();
+       serdeProps.put("JsonPOJOClass", AvayaPacket.class);
+       jsonPOJOSerializer.configure(serdeProps, false);
+       final Deserializer<AvayaPacket> jsonDeserializer = new JsonPOJODeserializer<>();
+       jsonDeserializer.configure(serdeProps,false);
+       final Serde<AvayaPacket> serde = Serdes.serdeFrom(jsonPOJOSerializer, jsonDeserializer);
 
-        return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(db),stringSerde,serde);
-    }
+       return Stores.keyValueStoreBuilder(Stores.persistentKeyValueStore(db),stringSerde,serde);
+   }
 
     @Test
-    public void simpleInsertOutputEventPrint() {
+    public void shouldFlushInStateStoreAfterFirstInput() {
 
 
         Map<String,Object> packet = createPcrfPacket();
 
-        GenericRecord record = transformer.toEventAvroRecord(packet,initialAvayaSourceTopic);
+         GenericRecord record = transformer.toEventAvroRecord(packet,INPUT);
 
-        testDriver.pipeInput(recordFactory.create(record));
-        GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
-
-
-        Assert.assertEquals(1,result.get("alarm"));
+        //System.out.println((String) record.get("gaploss"));
+           testDriver.pipeInput(recordFactory.create(record));
+           GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
 
-
-
-        //   OutputVerifier.compareKeyValue(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer), "a", 21L);
-
-
-    }
-
-    @Test
-
-    public void stateStoreSimpleInsertOutputPrint(){
-        Map<String,Object> packet = createPcrfPacket();
-
-        GenericRecord record = transformer.toEventAvroRecord(packet,initialAvayaSourceTopic);
-
-        testDriver.pipeInput(recordFactory.create(record));
+          Assert.assertEquals(1,result.get("alarm"));
 
         KeyValueStore store = testDriver.getKeyValueStore(db);
 
-        AvayaPacket packet1 = (AvayaPacket)  store.get("dddfdfdf");
+      AvayaPacket packet1 = (AvayaPacket)  store.get("dddfdfdf");
 
-        Assert.assertEquals("ddd",packet1.getSsrc1());
+        System.out.println("packet: "+packet1);
 
+
+     //   OutputVerifier.compareKeyValue(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer), "a", 21L);
+
+      //  Assert.assertNull(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer));
     }
-
-   /* @Test
-    public void sessionCreatorSimpleFlowTest(){
-
-    }*/
-
 
 
     private  Map<String,Object> createPcrfPacket(){
@@ -198,4 +192,5 @@ public class TopologyKafkaStreamTest {
         map.put("gapdensity","8");
         return map;
     }
+
 }

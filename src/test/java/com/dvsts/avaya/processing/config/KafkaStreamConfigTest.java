@@ -1,4 +1,4 @@
-package com.dvsts.avaya.processing;
+package com.dvsts.avaya.processing.config;
 
 public class KafkaStreamConfigTest {
     public final static String outputSchema = "{\n" +
