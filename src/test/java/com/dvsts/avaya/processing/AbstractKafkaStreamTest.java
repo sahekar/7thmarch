@@ -3,12 +3,15 @@ package com.dvsts.avaya.processing;
 import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import com.dvsts.avaya.processing.transformers.SchemaProvider;
+import com.dvsts.avaya.processing.utils.JsonUtils;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serde;
@@ -21,6 +24,7 @@ import org.apache.kafka.streams.TopologyTestDriver;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
@@ -86,6 +90,40 @@ public abstract class AbstractKafkaStreamTest {
         schemaRegistryClient.register(topic+"-value",
                 avroSchema);
 
+    }
+
+    public GenericRecord getInitialAvayaEvent() throws IOException, URISyntaxException {
+        String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
+
+        Schema schema = new Schema.Parser().parse(schemaString);
+        GenericRecord record = new GenericData.Record(schema);
+        record.put("clientId",1L);
+        record.put("cumulativeloss","4");
+        record.put("dlsr","7");
+        record.put("hopnamelookup",true);
+        record.put("ip","10.10.10");
+        record.put("jitter","1L");
+        record.put("loss","3");
+        record.put("lsr","6");
+        record.put("pcktlosspct","fdf");
+        record.put("remoteport",5050);
+        record.put("requestType",2002);
+        record.put("sr","fdf");
+        record.put("ssrc1","ddd");
+        record.put("ssrc2","fdfdf");
+        record.put("subtype",5);
+        record.put("time",5L);
+
+        Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
+        System.out.println(childSchema);
+        GenericRecord sourceDescription = new GenericData.Record(childSchema);
+        sourceDescription.put("type1","test");
+
+        record.put("sourceDescription",sourceDescription);
+
+
+        System.out.println("result: "+record);
+        return record;
     }
 
     private Properties createKafkaProperties() {
