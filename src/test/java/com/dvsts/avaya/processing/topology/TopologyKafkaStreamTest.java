@@ -1,13 +1,12 @@
 package com.dvsts.avaya.processing.topology;
 
-import com.dvsts.avaya.processing.AbstractKafkaStreamTest;
+import com.dvsts.avaya.processing.BaseKafkaStreamTest;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.commons.io.FileUtils;
 import org.apache.kafka.streams.state.KeyValueStore;
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,10 +15,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import static com.dvsts.avaya.processing.AppConfig.db;
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
@@ -28,7 +25,7 @@ import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.inputSchem
 import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TopologyKafkaStreamTest extends AbstractKafkaStreamTest {
+public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
 
 
     @BeforeEach

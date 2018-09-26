@@ -1,18 +1,15 @@
 package com.dvsts.avaya.processing.processors;
 
 
-import com.dvsts.avaya.processing.AbstractKafkaStreamTest;
+import com.dvsts.avaya.processing.BaseKafkaStreamTest;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.streams.state.KeyValueStore;
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -29,7 +26,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 
-public class SessionCreatorProcessorTest extends AbstractKafkaStreamTest {
+public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
     @Mock
     private KeyValueStore<String,AvayaPacket> kvStore;

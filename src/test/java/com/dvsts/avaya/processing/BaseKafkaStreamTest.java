@@ -33,13 +33,14 @@ import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
 
 
 /**
- * this is the skeleton for testing Processor api in kafka streams
- * create the next elements:
- *  - mockKafka registry schemaRegistryClient
+ * this is the base class where configured mocks for main components in kafka streams
+ * - mock for kafka registry
+ * - configured topologytestdriver
+ *  - configured serdes
  *  -
  *
  */
-public abstract class AbstractKafkaStreamTest {
+public abstract class BaseKafkaStreamTest {
 
     public final SchemaRegistryClient schemaRegistryClient = new MockSchemaRegistryClient();
     public  AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
