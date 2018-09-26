@@ -3,12 +3,15 @@ package com.dvsts.avaya.processing.topology;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.*;
+import com.dvsts.avaya.processing.utils.JsonUtils;
 import io.confluent.kafka.schemaregistry.client.MockSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.*;
@@ -29,6 +32,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -137,12 +141,12 @@ public class KafkaStreamTest {
    }
 
     @Test
-    public void shouldFlushInStateStoreAfterFirstInput() {
+    public void shouldFlushInStateStoreAfterFirstInput() throws IOException, URISyntaxException {
 
 
-        Map<String,Object> packet = createPcrfPacket();
 
-         GenericRecord record = transformer.toEventAvroRecord(packet,INPUT);
+
+         GenericRecord record = getInitialAvayaEvent();
 
         //System.out.println((String) record.get("gaploss"));
            testDriver.pipeInput(recordFactory.create(record));
@@ -163,6 +167,40 @@ public class KafkaStreamTest {
       //  Assert.assertNull(testDriver.readOutput("result-topic", stringDeserializer, longDeserializer));
     }
 
+
+    private GenericRecord getInitialAvayaEvent() throws IOException, URISyntaxException {
+        String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
+
+        Schema schema = new Schema.Parser().parse(schemaString);
+        GenericRecord record = new GenericData.Record(schema);
+        record.put("clientId",1L);
+        record.put("cumulativeloss","4");
+        record.put("dlsr","7");
+        record.put("hopnamelookup",true);
+        record.put("ip","10.10.10");
+        record.put("jitter","1L");
+        record.put("loss","3");
+        record.put("lsr","6");
+        record.put("pcktlosspct","fdf");
+        record.put("remoteport",5050);
+        record.put("requestType",2002);
+        record.put("sr","fdf");
+        record.put("ssrc1","ddd");
+        record.put("ssrc2","fdfdf");
+        record.put("subtype",5);
+        record.put("time",5L);
+
+        Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
+        System.out.println(childSchema);
+        GenericRecord sourceDescription = new GenericData.Record(childSchema);
+        sourceDescription.put("type1","test");
+
+        record.put("sourceDescription",sourceDescription);
+
+
+        System.out.println("result: "+record);
+        return record;
+    }
 
     private  Map<String,Object> createPcrfPacket(){
         Map<String,Object> map = new HashMap<>();
