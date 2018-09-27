@@ -28,6 +28,7 @@ import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
 import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -112,8 +113,6 @@ public class KafkaStreamTest {
         return provider;
     }
 
-
-
     private void registerSchema(SchemaRegistryClient schemaRegistryClient,String schema,String topic) throws IOException, RestClientException {
         org.apache.avro.Schema.Parser parser = new org.apache.avro.Schema.Parser();
         org.apache.avro.Schema avroSchema = parser.parse(schema);
@@ -122,11 +121,8 @@ public class KafkaStreamTest {
 
     }
 
-   /* @After
-    public void tearDown() {
-        testDriver.close();
-    }*/
-   private StoreBuilder initStore(){
+
+   private StoreBuilder initStore() {
 
        final Serde<String> stringSerde = Serdes.String();
        Map<String, Object> serdeProps = new HashMap<>();
@@ -230,5 +226,10 @@ public class KafkaStreamTest {
         map.put("gapdensity","8");
         return map;
     }
+
+   /* @AfterEach
+    public void tearDown() {
+        testDriver.close();
+    }*/
 
 }

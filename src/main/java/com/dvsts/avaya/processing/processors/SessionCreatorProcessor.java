@@ -1,17 +1,24 @@
 package com.dvsts.avaya.processing.processors;
 
+import com.dvsts.avaya.processing.domain.Session;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
+import com.dvsts.avaya.processing.logic.SessionComputationModel;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
+import org.apache.zookeeper.server.SessionTracker;
+import sun.plugin2.message.Serializer;
 
 import static com.dvsts.avaya.processing.AppConfig.db;
 
-public class SessionCreatorProcessor implements Processor<String, GenericRecord> {
+public class
+
+SessionCreatorProcessor implements Processor<String, GenericRecord> {
 
     private ProcessorContext context;
     private KeyValueStore<String,AvayaPacket> kvStore;
+    private SessionComputationModel sessionComputationModel = new SessionComputationModel();
 
     @Override
     public void init(ProcessorContext context) {
@@ -26,15 +33,14 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
         String ssrc2 = value.get("ssrc2").toString();
         String clientId  = value.get("clientid").toString();
         String aggrKey = ssrc1+ssrc2;
-        String sessionId = generateSessionId(ssrc1,ssrc2,clientId);
 
         AvayaPacket side1 = this.kvStore.get(aggrKey);
         AvayaPacket side2 = this.kvStore.get(aggrKey);
 
 
-        GenericRecord session = createSession(side1,side2);
+        GenericRecord session = sessionComputationModel.createSession(side1,side2);
 
-        context.forward(sessionId, session );
+        context.forward(clientId, session );
 
     }
 
@@ -43,15 +49,5 @@ public class SessionCreatorProcessor implements Processor<String, GenericRecord>
 
     }
 
-    private GenericRecord createSession(AvayaPacket side1,AvayaPacket side2){
-        return null;
-    }
 
-    private String generateSessionId(String ssrc1,String ssrc2,String clientId){
-        final long ssrc1L = Long.parseLong( ssrc1);
-        final long ssrc2L = Long.parseLong( ssrc2);
-
-        if(ssrc1L>ssrc2L)  return ssrc1+ssrc2+clientId;
-        else return ssrc2+ssrc1+clientId;
-    }
 }

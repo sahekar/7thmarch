@@ -1,6 +1,7 @@
 package com.dvsts.avaya.processing.config;
 
 public class KafkaStreamConfigTest {
+
     public final static String outputSchema = "{\n" +
             "  \"type\": \"record\",\n" +
             "  \"name\": \"test_upd3\",\n" +
@@ -65,6 +66,7 @@ public class KafkaStreamConfigTest {
             "    }\n" +
             "  ]\n" +
             "}";
+
     public final static String inputSchema = "{\n" +
             "  \"type\": \"record\",\n" +
             "  \"name\": \"test_upd3\",\n" +

@@ -3,6 +3,7 @@ package com.dvsts.avaya.processing.streams;
 import com.dvsts.avaya.processing.KafkaStreamsUtils;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.processors.AvayaTransformationProcessor;
+import com.dvsts.avaya.processing.processors.SessionCreatorProcessor;
 import com.dvsts.avaya.processing.processors.SessionFinisherProcessor;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
@@ -26,13 +27,18 @@ import java.util.Properties;
 import static com.dvsts.avaya.processing.AppConfig.*;
 import static com.dvsts.avaya.processing.KafkaStreamsUtils.initStore;
 
+
+/**
+ *
+ */
 public class TopologySchema {
 
     private Properties properties;
     private String schemaRegistry;
     private String bootstrapServers;
     final private String transformationProcessor = "transformationProcessor";
-    final private String sessionProcessor = "sessionCreatorProcessor";
+    final private String sessionFinisherProcessor = "sessionFinisherProcessor";
+    final private String sessionCreatorProcessor = "sessionCreatorProcessor";
 
     private MainComputationModel mainComputationModel = new MainComputationModel();
 
@@ -71,7 +77,9 @@ public class TopologySchema {
 
         final AvroTransformer transformer = new AvroTransformer(KafkaStreamsUtils.schemaRegistryClient(schemaRegistryClient));
         Processor avayaTransformationProcessor = new AvayaTransformationProcessor(transformer, mainComputationModel);
-        Processor sessionCreatorProcessor = new SessionFinisherProcessor(transformer);
+        Processor sessionFinisherProcessor = new SessionFinisherProcessor(transformer);
+        Processor sessionCreator = new SessionCreatorProcessor();
+
 
         Topology builder = new Topology();
 
@@ -80,16 +88,17 @@ public class TopologySchema {
                 .addSource("Source",new StringDeserializer(),avroDeserializer,initialAvayaSourceTopic)
 
                 .addProcessor(transformationProcessor,  () -> avayaTransformationProcessor,"Source")
-                .addProcessor(sessionProcessor,  () -> sessionCreatorProcessor,transformationProcessor)
+                .addProcessor(sessionCreatorProcessor,() -> sessionCreator,transformationProcessor)
+              //  .addProcessor(sessionFinisherProcessor,  () -> sessionCreatorProcessor,transformationProcessor) // TODO: add late
 
                 .addStateStore(initStore(db),transformationProcessor)
 
                 .addSink("ChangeState",detailsEventTopic,new StringSerializer(),avroSerializer,transformationProcessor)
-                .addSink("session",sessionEventTopic,new StringSerializer(),avroSerializer,sessionProcessor)
+                .addSink("session", sessionEventTopic ,new StringSerializer(),avroSerializer, sessionCreatorProcessor)
 
                 // link store to first processor
                 .connectProcessorAndStateStores(transformationProcessor,db)
-                .connectProcessorAndStateStores(sessionProcessor,db);
+                .connectProcessorAndStateStores(sessionCreatorProcessor,db);
 
         return builder;
 

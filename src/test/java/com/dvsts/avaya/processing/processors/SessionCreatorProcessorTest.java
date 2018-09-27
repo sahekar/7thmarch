@@ -3,66 +3,68 @@ package com.dvsts.avaya.processing.processors;
 
 import com.dvsts.avaya.processing.BaseKafkaStreamTest;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
+import com.dvsts.avaya.processing.utils.JsonUtils;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
+import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
 import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
+import static com.dvsts.avaya.processing.AppConfig.sessionEventTopic;
 import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.inputSchema;
 import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 
 public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
-    @Mock
+ /*   @Mock
     private KeyValueStore<String,AvayaPacket> kvStore;
     @InjectMocks
-    private SessionCreatorProcessor sessionCreatorProcessor;
+    private SessionCreatorProcessor sessionCreatorProcessor;*/
 
     @BeforeEach
-    public void setUp() throws IOException, RestClientException {
+    public void setUp() throws IOException, RestClientException, URISyntaxException {
         MockitoAnnotations.initMocks(this);
 
         init();
 
+        String inputSchema = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
+        String sessionSchema = JsonUtils.getJsonString("/avro-shema/session_schema.json");
+
+
         registerSchema(schemaRegistryClient, inputSchema,initialAvayaSourceTopic);
         registerSchema(schemaRegistryClient, outputSchema,detailsEventTopic);
+        registerSchema(schemaRegistryClient, sessionSchema,sessionEventTopic);
 
-        when(kvStore.get(any())).thenReturn(new AvayaPacket());
-        when(kvStore.get(any())).thenReturn(new AvayaPacket());
+
 
     }
 
-    //@Test
+    @Test
     @Ignore
-    public void simpleSessionCreate() throws IOException, RestClientException {
+    public void simpleSessionCreate() throws IOException, URISyntaxException {
 
-        /*Map<String,Object> packet = createPcrfPacket();
-        GenericRecord record = transformer.toEventAvroRecord(packet,detailsEventTopic);
+        GenericRecord record = getInitialAvayaEvent();
 
         testDriver.pipeInput(recordFactory.create(record));
-        GenericRecord result =  testDriver.readOutput(detailsEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
-
-
-        Assert.assertEquals(1,result.get("alarm"));*/
-
-
-        GenericRecord input = createSide1GenericRecord();
-        sessionCreatorProcessor.process("ttt",createSide1GenericRecord());
+        GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
     }
 
@@ -82,7 +84,6 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
         return  record;
     }
-
 
     private Map<String,Object> createPcrfPacket(){
         Map<String,Object> map = new HashMap<>();

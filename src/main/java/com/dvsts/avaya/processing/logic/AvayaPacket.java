@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Data
 public class  AvayaPacket {
 
+    private String clientId;
     private String status;
     private String callStart;
     private String startCall;
