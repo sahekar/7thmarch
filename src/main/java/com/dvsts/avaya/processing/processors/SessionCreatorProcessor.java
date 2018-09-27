@@ -31,7 +31,7 @@ SessionCreatorProcessor implements Processor<String, GenericRecord> {
 
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
-        String clientId  = value.get("clientid").toString();
+        String clientId  = value.get("client_id").toString();
         String aggrKey = ssrc1+ssrc2;
 
         AvayaPacket side1 = this.kvStore.get(aggrKey);

@@ -46,11 +46,12 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         init();
 
         String inputSchema = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
+        String sideSchema = JsonUtils.getJsonString("/avro-shema/side_schema.json");
         String sessionSchema = JsonUtils.getJsonString("/avro-shema/session_schema.json");
 
 
         registerSchema(schemaRegistryClient, inputSchema,initialAvayaSourceTopic);
-        registerSchema(schemaRegistryClient, outputSchema,detailsEventTopic);
+        registerSchema(schemaRegistryClient, sideSchema,detailsEventTopic);
         registerSchema(schemaRegistryClient, sessionSchema,sessionEventTopic);
 
 
@@ -58,13 +59,15 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
     }
 
     @Test
-    @Ignore
+
     public void simpleSessionCreate() throws IOException, URISyntaxException {
 
         GenericRecord record = getInitialAvayaEvent();
 
         testDriver.pipeInput(recordFactory.create(record));
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+
+        assertEquals(result.get("sessionindex"),"88977788451");
 
     }
 

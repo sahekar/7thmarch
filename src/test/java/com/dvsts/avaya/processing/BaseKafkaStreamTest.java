@@ -110,8 +110,8 @@ public abstract class BaseKafkaStreamTest {
         record.put("remoteport",5050);
         record.put("requestType",2002);
         record.put("sr","fdf");
-        record.put("ssrc1","ddd");
-        record.put("ssrc2","fdfdf");
+        record.put("ssrc1","88977");
+        record.put("ssrc2","78845");
         record.put("subtype",5);
         record.put("time",5L);
 

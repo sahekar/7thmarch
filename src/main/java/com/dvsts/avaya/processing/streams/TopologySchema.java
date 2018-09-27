@@ -50,7 +50,6 @@ public class TopologySchema {
 
 
 
-
     public void createSimpleStorage() {
         final SchemaRegistryClient schemaRegistryClient = KafkaStreamsUtils.createSchemaRegistryClient(schemaRegistry);
 

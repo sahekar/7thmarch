@@ -283,6 +283,7 @@ public class MainComputationModel {
         packet.setType1( (String) sourceDescription.get("type1"));
         packet.setSsrc1(entry.get("ssrc1").toString());
         packet.setSsrc2( entry.get("ssrc2").toString());
+        packet.setClientId( entry.get("clientId").toString());
 
        if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
 
