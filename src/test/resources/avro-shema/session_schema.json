@@ -1,302 +1,137 @@
 {
-  "type": "record",
-  "name": "test_upd3",
-  "namespace": "com.dvsts",
-  "doc": "this is a sample avro schema to get you started. please edit",
-  "fields": [
-    {
-      "name": "alert1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "alert2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "alert3_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "alert4_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "alert5_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "alert_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "avgjitter_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "avgloss_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "avgmos_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "avgrtd_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "avgtimelength_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "callindex_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "callstart_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "callstop_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "category_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "duration_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "idx",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "ip1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "ip2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "maxjitter_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "maxloss_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "maxrtd_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "minmos_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "name1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "name2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "payloadtype1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "payloadtype2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "payloadtypetext1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "payloadtypetext2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "port1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "port2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "rtppacketcount1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "rtppacketcount2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "sessionindex_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "ssrc1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "ssrc2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "startcall_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "status_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "stopcall_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "tracestatus_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "type1_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    {
-      "name": "type2_conv",
-      "type": [
-        "null",
-        "string"
-      ]
-    }
-  ]
+  "type" : "record",
+  "name" : "Session",
+  "namespace" : "com.dvsts.avaya.processing.domain",
+  "doc" : "Schema for Session ",
+  "fields" : [ {
+    "name" : "alert",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "alert1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "alert2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "alert3",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "alert4",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "alert5",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "avgjitter",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "avgloss",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "avgmos",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "avgrtd",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "avgtimelength",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "callindex",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "callstart",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "callstop",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "category",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "duration",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "active",
+    "type" : [ "null", "boolean" ]
+  }
+  , {
+    "name" : "idx",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "ip1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "ip2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "maxjitter",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "maxloss",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "maxrtd",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "minmos",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "name1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "name2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "payloadtype1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "payloadtype2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "payloadtypetext1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "payloadtypetext2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "port1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "port2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "rtppacketcount1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "rtppacketcount2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "sessionindex",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "ssrc1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "ssrc2",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "startcall",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "status",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "stopcall",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "tracestatus",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "type1",
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "type2",
+    "type" : [ "null", "string" ]
+  } ]
 }

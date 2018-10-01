@@ -5,17 +5,17 @@
  */
 package com.dvsts.avaya.processing.domain;
 
-import org.apache.avro.specific.SpecificData;
-import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
+import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.SchemaStore;
+import org.apache.avro.specific.SpecificData;
 
 @SuppressWarnings("all")
 /** Schema for Session  */
 @org.apache.avro.specific.AvroGenerated
 public class Session extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7672349764644437L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Session\",\"namespace\":\"com.dvsts.avaya.processing.domain\",\"doc\":\"Schema for Session \",\"fields\":[{\"name\":\"alert\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert3\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert4\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert5\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgtimelength\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstart\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstop\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"category\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"duration\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"idx\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"minmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"startcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"stopcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"tracestatus\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
+  private static final long serialVersionUID = 1626171079791435763L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Session\",\"namespace\":\"com.dvsts.avaya.processing.domain\",\"doc\":\"Schema for Session \",\"fields\":[{\"name\":\"alert\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert3\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert4\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert5\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgtimelength\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstart\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstop\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"category\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"duration\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"active\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"idx\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"minmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"startcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"stopcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"tracestatus\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -68,6 +68,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
   @Deprecated public String callstop;
   @Deprecated public String category;
   @Deprecated public String duration;
+  @Deprecated public Boolean active;
   @Deprecated public String idx;
   @Deprecated public String ip1;
   @Deprecated public String ip2;
@@ -120,6 +121,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param callstop The new value for callstop
    * @param category The new value for category
    * @param duration The new value for duration
+   * @param active The new value for active
    * @param idx The new value for idx
    * @param ip1 The new value for ip1
    * @param ip2 The new value for ip2
@@ -147,7 +149,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param type1 The new value for type1
    * @param type2 The new value for type2
    */
-  public Session(String alert, String alert1, String alert2, String alert3, String alert4, String alert5, String avgjitter, String avgloss, String avgmos, String avgrtd, String avgtimelength, String callindex, String callstart, String callstop, String category, String duration, String idx, String ip1, String ip2, String maxjitter, String maxloss, String maxrtd, String minmos, String name1, String name2, String payloadtype1, String payloadtype2, String payloadtypetext1, String payloadtypetext2, String port1, String port2, String rtppacketcount1, String rtppacketcount2, String sessionindex, String ssrc1, String ssrc2, String startcall, String status, String stopcall, String tracestatus, String type1, String type2) {
+  public Session(String alert, String alert1, String alert2, String alert3, String alert4, String alert5, String avgjitter, String avgloss, String avgmos, String avgrtd, String avgtimelength, String callindex, String callstart, String callstop, String category, String duration, Boolean active, String idx, String ip1, String ip2, String maxjitter, String maxloss, String maxrtd, String minmos, String name1, String name2, String payloadtype1, String payloadtype2, String payloadtypetext1, String payloadtypetext2, String port1, String port2, String rtppacketcount1, String rtppacketcount2, String sessionindex, String ssrc1, String ssrc2, String startcall, String status, String stopcall, String tracestatus, String type1, String type2) {
     this.alert = alert;
     this.alert1 = alert1;
     this.alert2 = alert2;
@@ -164,6 +166,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     this.callstop = callstop;
     this.category = category;
     this.duration = duration;
+    this.active = active;
     this.idx = idx;
     this.ip1 = ip1;
     this.ip2 = ip2;
@@ -212,32 +215,33 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     case 13: return callstop;
     case 14: return category;
     case 15: return duration;
-    case 16: return idx;
-    case 17: return ip1;
-    case 18: return ip2;
-    case 19: return maxjitter;
-    case 20: return maxloss;
-    case 21: return maxrtd;
-    case 22: return minmos;
-    case 23: return name1;
-    case 24: return name2;
-    case 25: return payloadtype1;
-    case 26: return payloadtype2;
-    case 27: return payloadtypetext1;
-    case 28: return payloadtypetext2;
-    case 29: return port1;
-    case 30: return port2;
-    case 31: return rtppacketcount1;
-    case 32: return rtppacketcount2;
-    case 33: return sessionindex;
-    case 34: return ssrc1;
-    case 35: return ssrc2;
-    case 36: return startcall;
-    case 37: return status;
-    case 38: return stopcall;
-    case 39: return tracestatus;
-    case 40: return type1;
-    case 41: return type2;
+    case 16: return active;
+    case 17: return idx;
+    case 18: return ip1;
+    case 19: return ip2;
+    case 20: return maxjitter;
+    case 21: return maxloss;
+    case 22: return maxrtd;
+    case 23: return minmos;
+    case 24: return name1;
+    case 25: return name2;
+    case 26: return payloadtype1;
+    case 27: return payloadtype2;
+    case 28: return payloadtypetext1;
+    case 29: return payloadtypetext2;
+    case 30: return port1;
+    case 31: return port2;
+    case 32: return rtppacketcount1;
+    case 33: return rtppacketcount2;
+    case 34: return sessionindex;
+    case 35: return ssrc1;
+    case 36: return ssrc2;
+    case 37: return startcall;
+    case 38: return status;
+    case 39: return stopcall;
+    case 40: return tracestatus;
+    case 41: return type1;
+    case 42: return type2;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -262,32 +266,33 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     case 13: callstop = (String)value$; break;
     case 14: category = (String)value$; break;
     case 15: duration = (String)value$; break;
-    case 16: idx = (String)value$; break;
-    case 17: ip1 = (String)value$; break;
-    case 18: ip2 = (String)value$; break;
-    case 19: maxjitter = (String)value$; break;
-    case 20: maxloss = (String)value$; break;
-    case 21: maxrtd = (String)value$; break;
-    case 22: minmos = (String)value$; break;
-    case 23: name1 = (String)value$; break;
-    case 24: name2 = (String)value$; break;
-    case 25: payloadtype1 = (String)value$; break;
-    case 26: payloadtype2 = (String)value$; break;
-    case 27: payloadtypetext1 = (String)value$; break;
-    case 28: payloadtypetext2 = (String)value$; break;
-    case 29: port1 = (String)value$; break;
-    case 30: port2 = (String)value$; break;
-    case 31: rtppacketcount1 = (String)value$; break;
-    case 32: rtppacketcount2 = (String)value$; break;
-    case 33: sessionindex = (String)value$; break;
-    case 34: ssrc1 = (String)value$; break;
-    case 35: ssrc2 = (String)value$; break;
-    case 36: startcall = (String)value$; break;
-    case 37: status = (String)value$; break;
-    case 38: stopcall = (String)value$; break;
-    case 39: tracestatus = (String)value$; break;
-    case 40: type1 = (String)value$; break;
-    case 41: type2 = (String)value$; break;
+    case 16: active = (Boolean)value$; break;
+    case 17: idx = (String)value$; break;
+    case 18: ip1 = (String)value$; break;
+    case 19: ip2 = (String)value$; break;
+    case 20: maxjitter = (String)value$; break;
+    case 21: maxloss = (String)value$; break;
+    case 22: maxrtd = (String)value$; break;
+    case 23: minmos = (String)value$; break;
+    case 24: name1 = (String)value$; break;
+    case 25: name2 = (String)value$; break;
+    case 26: payloadtype1 = (String)value$; break;
+    case 27: payloadtype2 = (String)value$; break;
+    case 28: payloadtypetext1 = (String)value$; break;
+    case 29: payloadtypetext2 = (String)value$; break;
+    case 30: port1 = (String)value$; break;
+    case 31: port2 = (String)value$; break;
+    case 32: rtppacketcount1 = (String)value$; break;
+    case 33: rtppacketcount2 = (String)value$; break;
+    case 34: sessionindex = (String)value$; break;
+    case 35: ssrc1 = (String)value$; break;
+    case 36: ssrc2 = (String)value$; break;
+    case 37: startcall = (String)value$; break;
+    case 38: status = (String)value$; break;
+    case 39: stopcall = (String)value$; break;
+    case 40: tracestatus = (String)value$; break;
+    case 41: type1 = (String)value$; break;
+    case 42: type2 = (String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -546,6 +551,22 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    */
   public void setDuration(String value) {
     this.duration = value;
+  }
+
+  /**
+   * Gets the value of the 'active' field.
+   * @return The value of the 'active' field.
+   */
+  public Boolean getActive() {
+    return active;
+  }
+
+  /**
+   * Sets the value of the 'active' field.
+   * @param value the value to set.
+   */
+  public void setActive(Boolean value) {
+    this.active = value;
   }
 
   /**
@@ -1012,6 +1033,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     private String callstop;
     private String category;
     private String duration;
+    private Boolean active;
     private String idx;
     private String ip1;
     private String ip2;
@@ -1114,109 +1136,113 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
         this.duration = data().deepCopy(fields()[15].schema(), other.duration);
         fieldSetFlags()[15] = true;
       }
-      if (isValidValue(fields()[16], other.idx)) {
-        this.idx = data().deepCopy(fields()[16].schema(), other.idx);
+      if (isValidValue(fields()[16], other.active)) {
+        this.active = data().deepCopy(fields()[16].schema(), other.active);
         fieldSetFlags()[16] = true;
       }
-      if (isValidValue(fields()[17], other.ip1)) {
-        this.ip1 = data().deepCopy(fields()[17].schema(), other.ip1);
+      if (isValidValue(fields()[17], other.idx)) {
+        this.idx = data().deepCopy(fields()[17].schema(), other.idx);
         fieldSetFlags()[17] = true;
       }
-      if (isValidValue(fields()[18], other.ip2)) {
-        this.ip2 = data().deepCopy(fields()[18].schema(), other.ip2);
+      if (isValidValue(fields()[18], other.ip1)) {
+        this.ip1 = data().deepCopy(fields()[18].schema(), other.ip1);
         fieldSetFlags()[18] = true;
       }
-      if (isValidValue(fields()[19], other.maxjitter)) {
-        this.maxjitter = data().deepCopy(fields()[19].schema(), other.maxjitter);
+      if (isValidValue(fields()[19], other.ip2)) {
+        this.ip2 = data().deepCopy(fields()[19].schema(), other.ip2);
         fieldSetFlags()[19] = true;
       }
-      if (isValidValue(fields()[20], other.maxloss)) {
-        this.maxloss = data().deepCopy(fields()[20].schema(), other.maxloss);
+      if (isValidValue(fields()[20], other.maxjitter)) {
+        this.maxjitter = data().deepCopy(fields()[20].schema(), other.maxjitter);
         fieldSetFlags()[20] = true;
       }
-      if (isValidValue(fields()[21], other.maxrtd)) {
-        this.maxrtd = data().deepCopy(fields()[21].schema(), other.maxrtd);
+      if (isValidValue(fields()[21], other.maxloss)) {
+        this.maxloss = data().deepCopy(fields()[21].schema(), other.maxloss);
         fieldSetFlags()[21] = true;
       }
-      if (isValidValue(fields()[22], other.minmos)) {
-        this.minmos = data().deepCopy(fields()[22].schema(), other.minmos);
+      if (isValidValue(fields()[22], other.maxrtd)) {
+        this.maxrtd = data().deepCopy(fields()[22].schema(), other.maxrtd);
         fieldSetFlags()[22] = true;
       }
-      if (isValidValue(fields()[23], other.name1)) {
-        this.name1 = data().deepCopy(fields()[23].schema(), other.name1);
+      if (isValidValue(fields()[23], other.minmos)) {
+        this.minmos = data().deepCopy(fields()[23].schema(), other.minmos);
         fieldSetFlags()[23] = true;
       }
-      if (isValidValue(fields()[24], other.name2)) {
-        this.name2 = data().deepCopy(fields()[24].schema(), other.name2);
+      if (isValidValue(fields()[24], other.name1)) {
+        this.name1 = data().deepCopy(fields()[24].schema(), other.name1);
         fieldSetFlags()[24] = true;
       }
-      if (isValidValue(fields()[25], other.payloadtype1)) {
-        this.payloadtype1 = data().deepCopy(fields()[25].schema(), other.payloadtype1);
+      if (isValidValue(fields()[25], other.name2)) {
+        this.name2 = data().deepCopy(fields()[25].schema(), other.name2);
         fieldSetFlags()[25] = true;
       }
-      if (isValidValue(fields()[26], other.payloadtype2)) {
-        this.payloadtype2 = data().deepCopy(fields()[26].schema(), other.payloadtype2);
+      if (isValidValue(fields()[26], other.payloadtype1)) {
+        this.payloadtype1 = data().deepCopy(fields()[26].schema(), other.payloadtype1);
         fieldSetFlags()[26] = true;
       }
-      if (isValidValue(fields()[27], other.payloadtypetext1)) {
-        this.payloadtypetext1 = data().deepCopy(fields()[27].schema(), other.payloadtypetext1);
+      if (isValidValue(fields()[27], other.payloadtype2)) {
+        this.payloadtype2 = data().deepCopy(fields()[27].schema(), other.payloadtype2);
         fieldSetFlags()[27] = true;
       }
-      if (isValidValue(fields()[28], other.payloadtypetext2)) {
-        this.payloadtypetext2 = data().deepCopy(fields()[28].schema(), other.payloadtypetext2);
+      if (isValidValue(fields()[28], other.payloadtypetext1)) {
+        this.payloadtypetext1 = data().deepCopy(fields()[28].schema(), other.payloadtypetext1);
         fieldSetFlags()[28] = true;
       }
-      if (isValidValue(fields()[29], other.port1)) {
-        this.port1 = data().deepCopy(fields()[29].schema(), other.port1);
+      if (isValidValue(fields()[29], other.payloadtypetext2)) {
+        this.payloadtypetext2 = data().deepCopy(fields()[29].schema(), other.payloadtypetext2);
         fieldSetFlags()[29] = true;
       }
-      if (isValidValue(fields()[30], other.port2)) {
-        this.port2 = data().deepCopy(fields()[30].schema(), other.port2);
+      if (isValidValue(fields()[30], other.port1)) {
+        this.port1 = data().deepCopy(fields()[30].schema(), other.port1);
         fieldSetFlags()[30] = true;
       }
-      if (isValidValue(fields()[31], other.rtppacketcount1)) {
-        this.rtppacketcount1 = data().deepCopy(fields()[31].schema(), other.rtppacketcount1);
+      if (isValidValue(fields()[31], other.port2)) {
+        this.port2 = data().deepCopy(fields()[31].schema(), other.port2);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.rtppacketcount2)) {
-        this.rtppacketcount2 = data().deepCopy(fields()[32].schema(), other.rtppacketcount2);
+      if (isValidValue(fields()[32], other.rtppacketcount1)) {
+        this.rtppacketcount1 = data().deepCopy(fields()[32].schema(), other.rtppacketcount1);
         fieldSetFlags()[32] = true;
       }
-      if (isValidValue(fields()[33], other.sessionindex)) {
-        this.sessionindex = data().deepCopy(fields()[33].schema(), other.sessionindex);
+      if (isValidValue(fields()[33], other.rtppacketcount2)) {
+        this.rtppacketcount2 = data().deepCopy(fields()[33].schema(), other.rtppacketcount2);
         fieldSetFlags()[33] = true;
       }
-      if (isValidValue(fields()[34], other.ssrc1)) {
-        this.ssrc1 = data().deepCopy(fields()[34].schema(), other.ssrc1);
+      if (isValidValue(fields()[34], other.sessionindex)) {
+        this.sessionindex = data().deepCopy(fields()[34].schema(), other.sessionindex);
         fieldSetFlags()[34] = true;
       }
-      if (isValidValue(fields()[35], other.ssrc2)) {
-        this.ssrc2 = data().deepCopy(fields()[35].schema(), other.ssrc2);
+      if (isValidValue(fields()[35], other.ssrc1)) {
+        this.ssrc1 = data().deepCopy(fields()[35].schema(), other.ssrc1);
         fieldSetFlags()[35] = true;
       }
-      if (isValidValue(fields()[36], other.startcall)) {
-        this.startcall = data().deepCopy(fields()[36].schema(), other.startcall);
+      if (isValidValue(fields()[36], other.ssrc2)) {
+        this.ssrc2 = data().deepCopy(fields()[36].schema(), other.ssrc2);
         fieldSetFlags()[36] = true;
       }
-      if (isValidValue(fields()[37], other.status)) {
-        this.status = data().deepCopy(fields()[37].schema(), other.status);
+      if (isValidValue(fields()[37], other.startcall)) {
+        this.startcall = data().deepCopy(fields()[37].schema(), other.startcall);
         fieldSetFlags()[37] = true;
       }
-      if (isValidValue(fields()[38], other.stopcall)) {
-        this.stopcall = data().deepCopy(fields()[38].schema(), other.stopcall);
+      if (isValidValue(fields()[38], other.status)) {
+        this.status = data().deepCopy(fields()[38].schema(), other.status);
         fieldSetFlags()[38] = true;
       }
-      if (isValidValue(fields()[39], other.tracestatus)) {
-        this.tracestatus = data().deepCopy(fields()[39].schema(), other.tracestatus);
+      if (isValidValue(fields()[39], other.stopcall)) {
+        this.stopcall = data().deepCopy(fields()[39].schema(), other.stopcall);
         fieldSetFlags()[39] = true;
       }
-      if (isValidValue(fields()[40], other.type1)) {
-        this.type1 = data().deepCopy(fields()[40].schema(), other.type1);
+      if (isValidValue(fields()[40], other.tracestatus)) {
+        this.tracestatus = data().deepCopy(fields()[40].schema(), other.tracestatus);
         fieldSetFlags()[40] = true;
       }
-      if (isValidValue(fields()[41], other.type2)) {
-        this.type2 = data().deepCopy(fields()[41].schema(), other.type2);
+      if (isValidValue(fields()[41], other.type1)) {
+        this.type1 = data().deepCopy(fields()[41].schema(), other.type1);
         fieldSetFlags()[41] = true;
+      }
+      if (isValidValue(fields()[42], other.type2)) {
+        this.type2 = data().deepCopy(fields()[42].schema(), other.type2);
+        fieldSetFlags()[42] = true;
       }
     }
 
@@ -1290,109 +1316,113 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
         this.duration = data().deepCopy(fields()[15].schema(), other.duration);
         fieldSetFlags()[15] = true;
       }
-      if (isValidValue(fields()[16], other.idx)) {
-        this.idx = data().deepCopy(fields()[16].schema(), other.idx);
+      if (isValidValue(fields()[16], other.active)) {
+        this.active = data().deepCopy(fields()[16].schema(), other.active);
         fieldSetFlags()[16] = true;
       }
-      if (isValidValue(fields()[17], other.ip1)) {
-        this.ip1 = data().deepCopy(fields()[17].schema(), other.ip1);
+      if (isValidValue(fields()[17], other.idx)) {
+        this.idx = data().deepCopy(fields()[17].schema(), other.idx);
         fieldSetFlags()[17] = true;
       }
-      if (isValidValue(fields()[18], other.ip2)) {
-        this.ip2 = data().deepCopy(fields()[18].schema(), other.ip2);
+      if (isValidValue(fields()[18], other.ip1)) {
+        this.ip1 = data().deepCopy(fields()[18].schema(), other.ip1);
         fieldSetFlags()[18] = true;
       }
-      if (isValidValue(fields()[19], other.maxjitter)) {
-        this.maxjitter = data().deepCopy(fields()[19].schema(), other.maxjitter);
+      if (isValidValue(fields()[19], other.ip2)) {
+        this.ip2 = data().deepCopy(fields()[19].schema(), other.ip2);
         fieldSetFlags()[19] = true;
       }
-      if (isValidValue(fields()[20], other.maxloss)) {
-        this.maxloss = data().deepCopy(fields()[20].schema(), other.maxloss);
+      if (isValidValue(fields()[20], other.maxjitter)) {
+        this.maxjitter = data().deepCopy(fields()[20].schema(), other.maxjitter);
         fieldSetFlags()[20] = true;
       }
-      if (isValidValue(fields()[21], other.maxrtd)) {
-        this.maxrtd = data().deepCopy(fields()[21].schema(), other.maxrtd);
+      if (isValidValue(fields()[21], other.maxloss)) {
+        this.maxloss = data().deepCopy(fields()[21].schema(), other.maxloss);
         fieldSetFlags()[21] = true;
       }
-      if (isValidValue(fields()[22], other.minmos)) {
-        this.minmos = data().deepCopy(fields()[22].schema(), other.minmos);
+      if (isValidValue(fields()[22], other.maxrtd)) {
+        this.maxrtd = data().deepCopy(fields()[22].schema(), other.maxrtd);
         fieldSetFlags()[22] = true;
       }
-      if (isValidValue(fields()[23], other.name1)) {
-        this.name1 = data().deepCopy(fields()[23].schema(), other.name1);
+      if (isValidValue(fields()[23], other.minmos)) {
+        this.minmos = data().deepCopy(fields()[23].schema(), other.minmos);
         fieldSetFlags()[23] = true;
       }
-      if (isValidValue(fields()[24], other.name2)) {
-        this.name2 = data().deepCopy(fields()[24].schema(), other.name2);
+      if (isValidValue(fields()[24], other.name1)) {
+        this.name1 = data().deepCopy(fields()[24].schema(), other.name1);
         fieldSetFlags()[24] = true;
       }
-      if (isValidValue(fields()[25], other.payloadtype1)) {
-        this.payloadtype1 = data().deepCopy(fields()[25].schema(), other.payloadtype1);
+      if (isValidValue(fields()[25], other.name2)) {
+        this.name2 = data().deepCopy(fields()[25].schema(), other.name2);
         fieldSetFlags()[25] = true;
       }
-      if (isValidValue(fields()[26], other.payloadtype2)) {
-        this.payloadtype2 = data().deepCopy(fields()[26].schema(), other.payloadtype2);
+      if (isValidValue(fields()[26], other.payloadtype1)) {
+        this.payloadtype1 = data().deepCopy(fields()[26].schema(), other.payloadtype1);
         fieldSetFlags()[26] = true;
       }
-      if (isValidValue(fields()[27], other.payloadtypetext1)) {
-        this.payloadtypetext1 = data().deepCopy(fields()[27].schema(), other.payloadtypetext1);
+      if (isValidValue(fields()[27], other.payloadtype2)) {
+        this.payloadtype2 = data().deepCopy(fields()[27].schema(), other.payloadtype2);
         fieldSetFlags()[27] = true;
       }
-      if (isValidValue(fields()[28], other.payloadtypetext2)) {
-        this.payloadtypetext2 = data().deepCopy(fields()[28].schema(), other.payloadtypetext2);
+      if (isValidValue(fields()[28], other.payloadtypetext1)) {
+        this.payloadtypetext1 = data().deepCopy(fields()[28].schema(), other.payloadtypetext1);
         fieldSetFlags()[28] = true;
       }
-      if (isValidValue(fields()[29], other.port1)) {
-        this.port1 = data().deepCopy(fields()[29].schema(), other.port1);
+      if (isValidValue(fields()[29], other.payloadtypetext2)) {
+        this.payloadtypetext2 = data().deepCopy(fields()[29].schema(), other.payloadtypetext2);
         fieldSetFlags()[29] = true;
       }
-      if (isValidValue(fields()[30], other.port2)) {
-        this.port2 = data().deepCopy(fields()[30].schema(), other.port2);
+      if (isValidValue(fields()[30], other.port1)) {
+        this.port1 = data().deepCopy(fields()[30].schema(), other.port1);
         fieldSetFlags()[30] = true;
       }
-      if (isValidValue(fields()[31], other.rtppacketcount1)) {
-        this.rtppacketcount1 = data().deepCopy(fields()[31].schema(), other.rtppacketcount1);
+      if (isValidValue(fields()[31], other.port2)) {
+        this.port2 = data().deepCopy(fields()[31].schema(), other.port2);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.rtppacketcount2)) {
-        this.rtppacketcount2 = data().deepCopy(fields()[32].schema(), other.rtppacketcount2);
+      if (isValidValue(fields()[32], other.rtppacketcount1)) {
+        this.rtppacketcount1 = data().deepCopy(fields()[32].schema(), other.rtppacketcount1);
         fieldSetFlags()[32] = true;
       }
-      if (isValidValue(fields()[33], other.sessionindex)) {
-        this.sessionindex = data().deepCopy(fields()[33].schema(), other.sessionindex);
+      if (isValidValue(fields()[33], other.rtppacketcount2)) {
+        this.rtppacketcount2 = data().deepCopy(fields()[33].schema(), other.rtppacketcount2);
         fieldSetFlags()[33] = true;
       }
-      if (isValidValue(fields()[34], other.ssrc1)) {
-        this.ssrc1 = data().deepCopy(fields()[34].schema(), other.ssrc1);
+      if (isValidValue(fields()[34], other.sessionindex)) {
+        this.sessionindex = data().deepCopy(fields()[34].schema(), other.sessionindex);
         fieldSetFlags()[34] = true;
       }
-      if (isValidValue(fields()[35], other.ssrc2)) {
-        this.ssrc2 = data().deepCopy(fields()[35].schema(), other.ssrc2);
+      if (isValidValue(fields()[35], other.ssrc1)) {
+        this.ssrc1 = data().deepCopy(fields()[35].schema(), other.ssrc1);
         fieldSetFlags()[35] = true;
       }
-      if (isValidValue(fields()[36], other.startcall)) {
-        this.startcall = data().deepCopy(fields()[36].schema(), other.startcall);
+      if (isValidValue(fields()[36], other.ssrc2)) {
+        this.ssrc2 = data().deepCopy(fields()[36].schema(), other.ssrc2);
         fieldSetFlags()[36] = true;
       }
-      if (isValidValue(fields()[37], other.status)) {
-        this.status = data().deepCopy(fields()[37].schema(), other.status);
+      if (isValidValue(fields()[37], other.startcall)) {
+        this.startcall = data().deepCopy(fields()[37].schema(), other.startcall);
         fieldSetFlags()[37] = true;
       }
-      if (isValidValue(fields()[38], other.stopcall)) {
-        this.stopcall = data().deepCopy(fields()[38].schema(), other.stopcall);
+      if (isValidValue(fields()[38], other.status)) {
+        this.status = data().deepCopy(fields()[38].schema(), other.status);
         fieldSetFlags()[38] = true;
       }
-      if (isValidValue(fields()[39], other.tracestatus)) {
-        this.tracestatus = data().deepCopy(fields()[39].schema(), other.tracestatus);
+      if (isValidValue(fields()[39], other.stopcall)) {
+        this.stopcall = data().deepCopy(fields()[39].schema(), other.stopcall);
         fieldSetFlags()[39] = true;
       }
-      if (isValidValue(fields()[40], other.type1)) {
-        this.type1 = data().deepCopy(fields()[40].schema(), other.type1);
+      if (isValidValue(fields()[40], other.tracestatus)) {
+        this.tracestatus = data().deepCopy(fields()[40].schema(), other.tracestatus);
         fieldSetFlags()[40] = true;
       }
-      if (isValidValue(fields()[41], other.type2)) {
-        this.type2 = data().deepCopy(fields()[41].schema(), other.type2);
+      if (isValidValue(fields()[41], other.type1)) {
+        this.type1 = data().deepCopy(fields()[41].schema(), other.type1);
         fieldSetFlags()[41] = true;
+      }
+      if (isValidValue(fields()[42], other.type2)) {
+        this.type2 = data().deepCopy(fields()[42].schema(), other.type2);
+        fieldSetFlags()[42] = true;
       }
     }
 
@@ -2021,6 +2051,45 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     /**
+      * Gets the value of the 'active' field.
+      * @return The value.
+      */
+    public Boolean getActive() {
+      return active;
+    }
+
+    /**
+      * Sets the value of the 'active' field.
+      * @param value The value of 'active'.
+      * @return This builder.
+      */
+    public Builder setActive(Boolean value) {
+      validate(fields()[16], value);
+      this.active = value;
+      fieldSetFlags()[16] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'active' field has been set.
+      * @return True if the 'active' field has been set, false otherwise.
+      */
+    public boolean hasActive() {
+      return fieldSetFlags()[16];
+    }
+
+
+    /**
+      * Clears the value of the 'active' field.
+      * @return This builder.
+      */
+    public Builder clearActive() {
+      active = null;
+      fieldSetFlags()[16] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'idx' field.
       * @return The value.
       */
@@ -2034,9 +2103,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setIdx(String value) {
-      validate(fields()[16], value);
+      validate(fields()[17], value);
       this.idx = value;
-      fieldSetFlags()[16] = true;
+      fieldSetFlags()[17] = true;
       return this;
     }
 
@@ -2045,7 +2114,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'idx' field has been set, false otherwise.
       */
     public boolean hasIdx() {
-      return fieldSetFlags()[16];
+      return fieldSetFlags()[17];
     }
 
 
@@ -2055,7 +2124,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearIdx() {
       idx = null;
-      fieldSetFlags()[16] = false;
+      fieldSetFlags()[17] = false;
       return this;
     }
 
@@ -2073,9 +2142,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setIp1(String value) {
-      validate(fields()[17], value);
+      validate(fields()[18], value);
       this.ip1 = value;
-      fieldSetFlags()[17] = true;
+      fieldSetFlags()[18] = true;
       return this;
     }
 
@@ -2084,7 +2153,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'ip1' field has been set, false otherwise.
       */
     public boolean hasIp1() {
-      return fieldSetFlags()[17];
+      return fieldSetFlags()[18];
     }
 
 
@@ -2094,7 +2163,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearIp1() {
       ip1 = null;
-      fieldSetFlags()[17] = false;
+      fieldSetFlags()[18] = false;
       return this;
     }
 
@@ -2112,9 +2181,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setIp2(String value) {
-      validate(fields()[18], value);
+      validate(fields()[19], value);
       this.ip2 = value;
-      fieldSetFlags()[18] = true;
+      fieldSetFlags()[19] = true;
       return this;
     }
 
@@ -2123,7 +2192,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'ip2' field has been set, false otherwise.
       */
     public boolean hasIp2() {
-      return fieldSetFlags()[18];
+      return fieldSetFlags()[19];
     }
 
 
@@ -2133,7 +2202,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearIp2() {
       ip2 = null;
-      fieldSetFlags()[18] = false;
+      fieldSetFlags()[19] = false;
       return this;
     }
 
@@ -2151,9 +2220,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setMaxjitter(String value) {
-      validate(fields()[19], value);
+      validate(fields()[20], value);
       this.maxjitter = value;
-      fieldSetFlags()[19] = true;
+      fieldSetFlags()[20] = true;
       return this;
     }
 
@@ -2162,7 +2231,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'maxjitter' field has been set, false otherwise.
       */
     public boolean hasMaxjitter() {
-      return fieldSetFlags()[19];
+      return fieldSetFlags()[20];
     }
 
 
@@ -2172,7 +2241,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearMaxjitter() {
       maxjitter = null;
-      fieldSetFlags()[19] = false;
+      fieldSetFlags()[20] = false;
       return this;
     }
 
@@ -2190,9 +2259,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setMaxloss(String value) {
-      validate(fields()[20], value);
+      validate(fields()[21], value);
       this.maxloss = value;
-      fieldSetFlags()[20] = true;
+      fieldSetFlags()[21] = true;
       return this;
     }
 
@@ -2201,7 +2270,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'maxloss' field has been set, false otherwise.
       */
     public boolean hasMaxloss() {
-      return fieldSetFlags()[20];
+      return fieldSetFlags()[21];
     }
 
 
@@ -2211,7 +2280,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearMaxloss() {
       maxloss = null;
-      fieldSetFlags()[20] = false;
+      fieldSetFlags()[21] = false;
       return this;
     }
 
@@ -2229,9 +2298,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setMaxrtd(String value) {
-      validate(fields()[21], value);
+      validate(fields()[22], value);
       this.maxrtd = value;
-      fieldSetFlags()[21] = true;
+      fieldSetFlags()[22] = true;
       return this;
     }
 
@@ -2240,7 +2309,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'maxrtd' field has been set, false otherwise.
       */
     public boolean hasMaxrtd() {
-      return fieldSetFlags()[21];
+      return fieldSetFlags()[22];
     }
 
 
@@ -2250,7 +2319,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearMaxrtd() {
       maxrtd = null;
-      fieldSetFlags()[21] = false;
+      fieldSetFlags()[22] = false;
       return this;
     }
 
@@ -2268,9 +2337,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setMinmos(String value) {
-      validate(fields()[22], value);
+      validate(fields()[23], value);
       this.minmos = value;
-      fieldSetFlags()[22] = true;
+      fieldSetFlags()[23] = true;
       return this;
     }
 
@@ -2279,7 +2348,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'minmos' field has been set, false otherwise.
       */
     public boolean hasMinmos() {
-      return fieldSetFlags()[22];
+      return fieldSetFlags()[23];
     }
 
 
@@ -2289,7 +2358,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearMinmos() {
       minmos = null;
-      fieldSetFlags()[22] = false;
+      fieldSetFlags()[23] = false;
       return this;
     }
 
@@ -2307,9 +2376,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setName1(String value) {
-      validate(fields()[23], value);
+      validate(fields()[24], value);
       this.name1 = value;
-      fieldSetFlags()[23] = true;
+      fieldSetFlags()[24] = true;
       return this;
     }
 
@@ -2318,7 +2387,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'name1' field has been set, false otherwise.
       */
     public boolean hasName1() {
-      return fieldSetFlags()[23];
+      return fieldSetFlags()[24];
     }
 
 
@@ -2328,7 +2397,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearName1() {
       name1 = null;
-      fieldSetFlags()[23] = false;
+      fieldSetFlags()[24] = false;
       return this;
     }
 
@@ -2346,9 +2415,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setName2(String value) {
-      validate(fields()[24], value);
+      validate(fields()[25], value);
       this.name2 = value;
-      fieldSetFlags()[24] = true;
+      fieldSetFlags()[25] = true;
       return this;
     }
 
@@ -2357,7 +2426,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'name2' field has been set, false otherwise.
       */
     public boolean hasName2() {
-      return fieldSetFlags()[24];
+      return fieldSetFlags()[25];
     }
 
 
@@ -2367,7 +2436,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearName2() {
       name2 = null;
-      fieldSetFlags()[24] = false;
+      fieldSetFlags()[25] = false;
       return this;
     }
 
@@ -2385,9 +2454,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setPayloadtype1(String value) {
-      validate(fields()[25], value);
+      validate(fields()[26], value);
       this.payloadtype1 = value;
-      fieldSetFlags()[25] = true;
+      fieldSetFlags()[26] = true;
       return this;
     }
 
@@ -2396,7 +2465,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtype1' field has been set, false otherwise.
       */
     public boolean hasPayloadtype1() {
-      return fieldSetFlags()[25];
+      return fieldSetFlags()[26];
     }
 
 
@@ -2406,7 +2475,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearPayloadtype1() {
       payloadtype1 = null;
-      fieldSetFlags()[25] = false;
+      fieldSetFlags()[26] = false;
       return this;
     }
 
@@ -2424,9 +2493,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setPayloadtype2(String value) {
-      validate(fields()[26], value);
+      validate(fields()[27], value);
       this.payloadtype2 = value;
-      fieldSetFlags()[26] = true;
+      fieldSetFlags()[27] = true;
       return this;
     }
 
@@ -2435,7 +2504,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtype2' field has been set, false otherwise.
       */
     public boolean hasPayloadtype2() {
-      return fieldSetFlags()[26];
+      return fieldSetFlags()[27];
     }
 
 
@@ -2445,7 +2514,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearPayloadtype2() {
       payloadtype2 = null;
-      fieldSetFlags()[26] = false;
+      fieldSetFlags()[27] = false;
       return this;
     }
 
@@ -2463,9 +2532,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setPayloadtypetext1(String value) {
-      validate(fields()[27], value);
+      validate(fields()[28], value);
       this.payloadtypetext1 = value;
-      fieldSetFlags()[27] = true;
+      fieldSetFlags()[28] = true;
       return this;
     }
 
@@ -2474,7 +2543,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtypetext1' field has been set, false otherwise.
       */
     public boolean hasPayloadtypetext1() {
-      return fieldSetFlags()[27];
+      return fieldSetFlags()[28];
     }
 
 
@@ -2484,7 +2553,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearPayloadtypetext1() {
       payloadtypetext1 = null;
-      fieldSetFlags()[27] = false;
+      fieldSetFlags()[28] = false;
       return this;
     }
 
@@ -2502,9 +2571,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setPayloadtypetext2(String value) {
-      validate(fields()[28], value);
+      validate(fields()[29], value);
       this.payloadtypetext2 = value;
-      fieldSetFlags()[28] = true;
+      fieldSetFlags()[29] = true;
       return this;
     }
 
@@ -2513,7 +2582,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtypetext2' field has been set, false otherwise.
       */
     public boolean hasPayloadtypetext2() {
-      return fieldSetFlags()[28];
+      return fieldSetFlags()[29];
     }
 
 
@@ -2523,7 +2592,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearPayloadtypetext2() {
       payloadtypetext2 = null;
-      fieldSetFlags()[28] = false;
+      fieldSetFlags()[29] = false;
       return this;
     }
 
@@ -2541,9 +2610,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setPort1(String value) {
-      validate(fields()[29], value);
+      validate(fields()[30], value);
       this.port1 = value;
-      fieldSetFlags()[29] = true;
+      fieldSetFlags()[30] = true;
       return this;
     }
 
@@ -2552,7 +2621,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'port1' field has been set, false otherwise.
       */
     public boolean hasPort1() {
-      return fieldSetFlags()[29];
+      return fieldSetFlags()[30];
     }
 
 
@@ -2562,7 +2631,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearPort1() {
       port1 = null;
-      fieldSetFlags()[29] = false;
+      fieldSetFlags()[30] = false;
       return this;
     }
 
@@ -2580,9 +2649,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setPort2(String value) {
-      validate(fields()[30], value);
+      validate(fields()[31], value);
       this.port2 = value;
-      fieldSetFlags()[30] = true;
+      fieldSetFlags()[31] = true;
       return this;
     }
 
@@ -2591,7 +2660,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'port2' field has been set, false otherwise.
       */
     public boolean hasPort2() {
-      return fieldSetFlags()[30];
+      return fieldSetFlags()[31];
     }
 
 
@@ -2601,7 +2670,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearPort2() {
       port2 = null;
-      fieldSetFlags()[30] = false;
+      fieldSetFlags()[31] = false;
       return this;
     }
 
@@ -2619,9 +2688,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setRtppacketcount1(String value) {
-      validate(fields()[31], value);
+      validate(fields()[32], value);
       this.rtppacketcount1 = value;
-      fieldSetFlags()[31] = true;
+      fieldSetFlags()[32] = true;
       return this;
     }
 
@@ -2630,7 +2699,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'rtppacketcount1' field has been set, false otherwise.
       */
     public boolean hasRtppacketcount1() {
-      return fieldSetFlags()[31];
+      return fieldSetFlags()[32];
     }
 
 
@@ -2640,7 +2709,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearRtppacketcount1() {
       rtppacketcount1 = null;
-      fieldSetFlags()[31] = false;
+      fieldSetFlags()[32] = false;
       return this;
     }
 
@@ -2658,9 +2727,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setRtppacketcount2(String value) {
-      validate(fields()[32], value);
+      validate(fields()[33], value);
       this.rtppacketcount2 = value;
-      fieldSetFlags()[32] = true;
+      fieldSetFlags()[33] = true;
       return this;
     }
 
@@ -2669,7 +2738,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'rtppacketcount2' field has been set, false otherwise.
       */
     public boolean hasRtppacketcount2() {
-      return fieldSetFlags()[32];
+      return fieldSetFlags()[33];
     }
 
 
@@ -2679,7 +2748,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearRtppacketcount2() {
       rtppacketcount2 = null;
-      fieldSetFlags()[32] = false;
+      fieldSetFlags()[33] = false;
       return this;
     }
 
@@ -2697,9 +2766,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setSessionindex(String value) {
-      validate(fields()[33], value);
+      validate(fields()[34], value);
       this.sessionindex = value;
-      fieldSetFlags()[33] = true;
+      fieldSetFlags()[34] = true;
       return this;
     }
 
@@ -2708,7 +2777,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'sessionindex' field has been set, false otherwise.
       */
     public boolean hasSessionindex() {
-      return fieldSetFlags()[33];
+      return fieldSetFlags()[34];
     }
 
 
@@ -2718,7 +2787,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearSessionindex() {
       sessionindex = null;
-      fieldSetFlags()[33] = false;
+      fieldSetFlags()[34] = false;
       return this;
     }
 
@@ -2736,9 +2805,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setSsrc1(String value) {
-      validate(fields()[34], value);
+      validate(fields()[35], value);
       this.ssrc1 = value;
-      fieldSetFlags()[34] = true;
+      fieldSetFlags()[35] = true;
       return this;
     }
 
@@ -2747,7 +2816,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'ssrc1' field has been set, false otherwise.
       */
     public boolean hasSsrc1() {
-      return fieldSetFlags()[34];
+      return fieldSetFlags()[35];
     }
 
 
@@ -2757,7 +2826,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearSsrc1() {
       ssrc1 = null;
-      fieldSetFlags()[34] = false;
+      fieldSetFlags()[35] = false;
       return this;
     }
 
@@ -2775,9 +2844,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setSsrc2(String value) {
-      validate(fields()[35], value);
+      validate(fields()[36], value);
       this.ssrc2 = value;
-      fieldSetFlags()[35] = true;
+      fieldSetFlags()[36] = true;
       return this;
     }
 
@@ -2786,7 +2855,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'ssrc2' field has been set, false otherwise.
       */
     public boolean hasSsrc2() {
-      return fieldSetFlags()[35];
+      return fieldSetFlags()[36];
     }
 
 
@@ -2796,7 +2865,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearSsrc2() {
       ssrc2 = null;
-      fieldSetFlags()[35] = false;
+      fieldSetFlags()[36] = false;
       return this;
     }
 
@@ -2814,9 +2883,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setStartcall(String value) {
-      validate(fields()[36], value);
+      validate(fields()[37], value);
       this.startcall = value;
-      fieldSetFlags()[36] = true;
+      fieldSetFlags()[37] = true;
       return this;
     }
 
@@ -2825,7 +2894,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'startcall' field has been set, false otherwise.
       */
     public boolean hasStartcall() {
-      return fieldSetFlags()[36];
+      return fieldSetFlags()[37];
     }
 
 
@@ -2835,7 +2904,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearStartcall() {
       startcall = null;
-      fieldSetFlags()[36] = false;
+      fieldSetFlags()[37] = false;
       return this;
     }
 
@@ -2853,9 +2922,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setStatus(String value) {
-      validate(fields()[37], value);
+      validate(fields()[38], value);
       this.status = value;
-      fieldSetFlags()[37] = true;
+      fieldSetFlags()[38] = true;
       return this;
     }
 
@@ -2864,7 +2933,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'status' field has been set, false otherwise.
       */
     public boolean hasStatus() {
-      return fieldSetFlags()[37];
+      return fieldSetFlags()[38];
     }
 
 
@@ -2874,7 +2943,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearStatus() {
       status = null;
-      fieldSetFlags()[37] = false;
+      fieldSetFlags()[38] = false;
       return this;
     }
 
@@ -2892,9 +2961,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setStopcall(String value) {
-      validate(fields()[38], value);
+      validate(fields()[39], value);
       this.stopcall = value;
-      fieldSetFlags()[38] = true;
+      fieldSetFlags()[39] = true;
       return this;
     }
 
@@ -2903,7 +2972,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'stopcall' field has been set, false otherwise.
       */
     public boolean hasStopcall() {
-      return fieldSetFlags()[38];
+      return fieldSetFlags()[39];
     }
 
 
@@ -2913,7 +2982,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearStopcall() {
       stopcall = null;
-      fieldSetFlags()[38] = false;
+      fieldSetFlags()[39] = false;
       return this;
     }
 
@@ -2931,9 +3000,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setTracestatus(String value) {
-      validate(fields()[39], value);
+      validate(fields()[40], value);
       this.tracestatus = value;
-      fieldSetFlags()[39] = true;
+      fieldSetFlags()[40] = true;
       return this;
     }
 
@@ -2942,7 +3011,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'tracestatus' field has been set, false otherwise.
       */
     public boolean hasTracestatus() {
-      return fieldSetFlags()[39];
+      return fieldSetFlags()[40];
     }
 
 
@@ -2952,7 +3021,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearTracestatus() {
       tracestatus = null;
-      fieldSetFlags()[39] = false;
+      fieldSetFlags()[40] = false;
       return this;
     }
 
@@ -2970,9 +3039,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setType1(String value) {
-      validate(fields()[40], value);
+      validate(fields()[41], value);
       this.type1 = value;
-      fieldSetFlags()[40] = true;
+      fieldSetFlags()[41] = true;
       return this;
     }
 
@@ -2981,7 +3050,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'type1' field has been set, false otherwise.
       */
     public boolean hasType1() {
-      return fieldSetFlags()[40];
+      return fieldSetFlags()[41];
     }
 
 
@@ -2991,7 +3060,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearType1() {
       type1 = null;
-      fieldSetFlags()[40] = false;
+      fieldSetFlags()[41] = false;
       return this;
     }
 
@@ -3009,9 +3078,9 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return This builder.
       */
     public Builder setType2(String value) {
-      validate(fields()[41], value);
+      validate(fields()[42], value);
       this.type2 = value;
-      fieldSetFlags()[41] = true;
+      fieldSetFlags()[42] = true;
       return this;
     }
 
@@ -3020,7 +3089,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'type2' field has been set, false otherwise.
       */
     public boolean hasType2() {
-      return fieldSetFlags()[41];
+      return fieldSetFlags()[42];
     }
 
 
@@ -3030,7 +3099,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       */
     public Builder clearType2() {
       type2 = null;
-      fieldSetFlags()[41] = false;
+      fieldSetFlags()[42] = false;
       return this;
     }
 
@@ -3055,32 +3124,33 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
         record.callstop = fieldSetFlags()[13] ? this.callstop : (String) defaultValue(fields()[13]);
         record.category = fieldSetFlags()[14] ? this.category : (String) defaultValue(fields()[14]);
         record.duration = fieldSetFlags()[15] ? this.duration : (String) defaultValue(fields()[15]);
-        record.idx = fieldSetFlags()[16] ? this.idx : (String) defaultValue(fields()[16]);
-        record.ip1 = fieldSetFlags()[17] ? this.ip1 : (String) defaultValue(fields()[17]);
-        record.ip2 = fieldSetFlags()[18] ? this.ip2 : (String) defaultValue(fields()[18]);
-        record.maxjitter = fieldSetFlags()[19] ? this.maxjitter : (String) defaultValue(fields()[19]);
-        record.maxloss = fieldSetFlags()[20] ? this.maxloss : (String) defaultValue(fields()[20]);
-        record.maxrtd = fieldSetFlags()[21] ? this.maxrtd : (String) defaultValue(fields()[21]);
-        record.minmos = fieldSetFlags()[22] ? this.minmos : (String) defaultValue(fields()[22]);
-        record.name1 = fieldSetFlags()[23] ? this.name1 : (String) defaultValue(fields()[23]);
-        record.name2 = fieldSetFlags()[24] ? this.name2 : (String) defaultValue(fields()[24]);
-        record.payloadtype1 = fieldSetFlags()[25] ? this.payloadtype1 : (String) defaultValue(fields()[25]);
-        record.payloadtype2 = fieldSetFlags()[26] ? this.payloadtype2 : (String) defaultValue(fields()[26]);
-        record.payloadtypetext1 = fieldSetFlags()[27] ? this.payloadtypetext1 : (String) defaultValue(fields()[27]);
-        record.payloadtypetext2 = fieldSetFlags()[28] ? this.payloadtypetext2 : (String) defaultValue(fields()[28]);
-        record.port1 = fieldSetFlags()[29] ? this.port1 : (String) defaultValue(fields()[29]);
-        record.port2 = fieldSetFlags()[30] ? this.port2 : (String) defaultValue(fields()[30]);
-        record.rtppacketcount1 = fieldSetFlags()[31] ? this.rtppacketcount1 : (String) defaultValue(fields()[31]);
-        record.rtppacketcount2 = fieldSetFlags()[32] ? this.rtppacketcount2 : (String) defaultValue(fields()[32]);
-        record.sessionindex = fieldSetFlags()[33] ? this.sessionindex : (String) defaultValue(fields()[33]);
-        record.ssrc1 = fieldSetFlags()[34] ? this.ssrc1 : (String) defaultValue(fields()[34]);
-        record.ssrc2 = fieldSetFlags()[35] ? this.ssrc2 : (String) defaultValue(fields()[35]);
-        record.startcall = fieldSetFlags()[36] ? this.startcall : (String) defaultValue(fields()[36]);
-        record.status = fieldSetFlags()[37] ? this.status : (String) defaultValue(fields()[37]);
-        record.stopcall = fieldSetFlags()[38] ? this.stopcall : (String) defaultValue(fields()[38]);
-        record.tracestatus = fieldSetFlags()[39] ? this.tracestatus : (String) defaultValue(fields()[39]);
-        record.type1 = fieldSetFlags()[40] ? this.type1 : (String) defaultValue(fields()[40]);
-        record.type2 = fieldSetFlags()[41] ? this.type2 : (String) defaultValue(fields()[41]);
+        record.active = fieldSetFlags()[16] ? this.active : (Boolean) defaultValue(fields()[16]);
+        record.idx = fieldSetFlags()[17] ? this.idx : (String) defaultValue(fields()[17]);
+        record.ip1 = fieldSetFlags()[18] ? this.ip1 : (String) defaultValue(fields()[18]);
+        record.ip2 = fieldSetFlags()[19] ? this.ip2 : (String) defaultValue(fields()[19]);
+        record.maxjitter = fieldSetFlags()[20] ? this.maxjitter : (String) defaultValue(fields()[20]);
+        record.maxloss = fieldSetFlags()[21] ? this.maxloss : (String) defaultValue(fields()[21]);
+        record.maxrtd = fieldSetFlags()[22] ? this.maxrtd : (String) defaultValue(fields()[22]);
+        record.minmos = fieldSetFlags()[23] ? this.minmos : (String) defaultValue(fields()[23]);
+        record.name1 = fieldSetFlags()[24] ? this.name1 : (String) defaultValue(fields()[24]);
+        record.name2 = fieldSetFlags()[25] ? this.name2 : (String) defaultValue(fields()[25]);
+        record.payloadtype1 = fieldSetFlags()[26] ? this.payloadtype1 : (String) defaultValue(fields()[26]);
+        record.payloadtype2 = fieldSetFlags()[27] ? this.payloadtype2 : (String) defaultValue(fields()[27]);
+        record.payloadtypetext1 = fieldSetFlags()[28] ? this.payloadtypetext1 : (String) defaultValue(fields()[28]);
+        record.payloadtypetext2 = fieldSetFlags()[29] ? this.payloadtypetext2 : (String) defaultValue(fields()[29]);
+        record.port1 = fieldSetFlags()[30] ? this.port1 : (String) defaultValue(fields()[30]);
+        record.port2 = fieldSetFlags()[31] ? this.port2 : (String) defaultValue(fields()[31]);
+        record.rtppacketcount1 = fieldSetFlags()[32] ? this.rtppacketcount1 : (String) defaultValue(fields()[32]);
+        record.rtppacketcount2 = fieldSetFlags()[33] ? this.rtppacketcount2 : (String) defaultValue(fields()[33]);
+        record.sessionindex = fieldSetFlags()[34] ? this.sessionindex : (String) defaultValue(fields()[34]);
+        record.ssrc1 = fieldSetFlags()[35] ? this.ssrc1 : (String) defaultValue(fields()[35]);
+        record.ssrc2 = fieldSetFlags()[36] ? this.ssrc2 : (String) defaultValue(fields()[36]);
+        record.startcall = fieldSetFlags()[37] ? this.startcall : (String) defaultValue(fields()[37]);
+        record.status = fieldSetFlags()[38] ? this.status : (String) defaultValue(fields()[38]);
+        record.stopcall = fieldSetFlags()[39] ? this.stopcall : (String) defaultValue(fields()[39]);
+        record.tracestatus = fieldSetFlags()[40] ? this.tracestatus : (String) defaultValue(fields()[40]);
+        record.type1 = fieldSetFlags()[41] ? this.type1 : (String) defaultValue(fields()[41]);
+        record.type2 = fieldSetFlags()[42] ? this.type2 : (String) defaultValue(fields()[42]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

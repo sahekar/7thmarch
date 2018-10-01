@@ -2,19 +2,13 @@ package com.dvsts.avaya.processing.processors;
 
 
 import com.dvsts.avaya.processing.BaseKafkaStreamTest;
-import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.utils.JsonUtils;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.apache.kafka.common.protocol.types.Field;
-import org.apache.kafka.streams.state.KeyValueStore;
-import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
@@ -22,14 +16,9 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
-import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
-import static com.dvsts.avaya.processing.AppConfig.sessionEventTopic;
-import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.inputSchema;
+import static com.dvsts.avaya.processing.AppConfig.*;
 import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 
 public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
@@ -59,7 +48,6 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
     }
 
     @Test
-
     public void simpleSessionCreate() throws IOException, URISyntaxException {
 
         GenericRecord record = getInitialAvayaEvent();
@@ -68,6 +56,7 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
         assertEquals(result.get("sessionindex"),"88977788451");
+        assertEquals(true, result.get("active"));
 
     }
 
