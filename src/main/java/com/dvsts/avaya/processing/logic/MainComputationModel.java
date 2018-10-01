@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -269,13 +270,11 @@ public class MainComputationModel {
     }
 
     private AvayaPacket create(GenericRecord entry,String status){
-        long tt = System.currentTimeMillis();
-        String thisTime = String.valueOf(tt);
 
         AvayaPacket packet = new AvayaPacket();
         packet.setStatus("active");
 
-       if(packet.getStartCall() == 0) packet.setStartCall(tt);
+       if(packet.getStartCall() == 0) packet.setStartCall(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
        // packet.setIp1( entry.get("ip").toString());
 
         GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");

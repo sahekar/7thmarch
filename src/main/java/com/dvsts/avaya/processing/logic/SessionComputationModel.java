@@ -3,6 +3,8 @@ package com.dvsts.avaya.processing.logic;
 import com.dvsts.avaya.processing.domain.Session;
 import org.apache.avro.generic.GenericRecord;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 
@@ -51,8 +53,8 @@ public class SessionComputationModel {
 
     Long calculatesDuration(String callStart){
         long ot = Long.parseLong(callStart);
-        long tn = System.currentTimeMillis();
-        return (tn-ot) /1000L;
+
+        return (LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) -ot) /1000L;
     }
 
     private SimpleEntry<String, Object>[]  createGenericRegord(AvayaPacket side1, AvayaPacket side2){
