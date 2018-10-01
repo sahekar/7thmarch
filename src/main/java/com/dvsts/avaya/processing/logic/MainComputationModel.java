@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -276,7 +274,8 @@ public class MainComputationModel {
 
         AvayaPacket packet = new AvayaPacket();
         packet.setStatus("active");
-        packet.setStartCall(SDF.format(new Date(tt)));
+
+       if(packet.getStartCall() == 0) packet.setStartCall(tt);
        // packet.setIp1( entry.get("ip").toString());
 
         GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");

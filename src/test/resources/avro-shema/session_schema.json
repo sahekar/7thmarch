@@ -50,7 +50,7 @@
     "type" : [ "null", "string" ]
   }, {
     "name" : "duration",
-    "type" : [ "null", "string" ]
+    "type" : [ "null", "long" ]
   }, {
     "name" : "active",
     "type" : [ "null", "boolean" ]

@@ -43,8 +43,6 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         registerSchema(schemaRegistryClient, sideSchema,detailsEventTopic);
         registerSchema(schemaRegistryClient, sessionSchema,sessionEventTopic);
 
-
-
     }
 
     @Test

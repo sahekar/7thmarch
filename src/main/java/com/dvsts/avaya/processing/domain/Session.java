@@ -14,8 +14,8 @@ import org.apache.avro.specific.SpecificData;
 /** Schema for Session  */
 @org.apache.avro.specific.AvroGenerated
 public class Session extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1626171079791435763L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Session\",\"namespace\":\"com.dvsts.avaya.processing.domain\",\"doc\":\"Schema for Session \",\"fields\":[{\"name\":\"alert\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert3\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert4\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert5\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgtimelength\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstart\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstop\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"category\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"duration\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"active\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"idx\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"minmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"startcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"stopcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"tracestatus\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
+  private static final long serialVersionUID = -5552789432632858612L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Session\",\"namespace\":\"com.dvsts.avaya.processing.domain\",\"doc\":\"Schema for Session \",\"fields\":[{\"name\":\"alert\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert3\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert4\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert5\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgtimelength\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstart\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstop\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"category\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"duration\",\"type\":[\"null\",\"long\"]},{\"name\":\"active\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"idx\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"minmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"startcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"stopcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"tracestatus\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -67,7 +67,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
   @Deprecated public String callstart;
   @Deprecated public String callstop;
   @Deprecated public String category;
-  @Deprecated public String duration;
+  @Deprecated public Long duration;
   @Deprecated public Boolean active;
   @Deprecated public String idx;
   @Deprecated public String ip1;
@@ -149,7 +149,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param type1 The new value for type1
    * @param type2 The new value for type2
    */
-  public Session(String alert, String alert1, String alert2, String alert3, String alert4, String alert5, String avgjitter, String avgloss, String avgmos, String avgrtd, String avgtimelength, String callindex, String callstart, String callstop, String category, String duration, Boolean active, String idx, String ip1, String ip2, String maxjitter, String maxloss, String maxrtd, String minmos, String name1, String name2, String payloadtype1, String payloadtype2, String payloadtypetext1, String payloadtypetext2, String port1, String port2, String rtppacketcount1, String rtppacketcount2, String sessionindex, String ssrc1, String ssrc2, String startcall, String status, String stopcall, String tracestatus, String type1, String type2) {
+  public Session(String alert, String alert1, String alert2, String alert3, String alert4, String alert5, String avgjitter, String avgloss, String avgmos, String avgrtd, String avgtimelength, String callindex, String callstart, String callstop, String category, Long duration, Boolean active, String idx, String ip1, String ip2, String maxjitter, String maxloss, String maxrtd, String minmos, String name1, String name2, String payloadtype1, String payloadtype2, String payloadtypetext1, String payloadtypetext2, String port1, String port2, String rtppacketcount1, String rtppacketcount2, String sessionindex, String ssrc1, String ssrc2, String startcall, String status, String stopcall, String tracestatus, String type1, String type2) {
     this.alert = alert;
     this.alert1 = alert1;
     this.alert2 = alert2;
@@ -265,7 +265,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     case 12: callstart = (String)value$; break;
     case 13: callstop = (String)value$; break;
     case 14: category = (String)value$; break;
-    case 15: duration = (String)value$; break;
+    case 15: duration = (Long)value$; break;
     case 16: active = (Boolean)value$; break;
     case 17: idx = (String)value$; break;
     case 18: ip1 = (String)value$; break;
@@ -541,7 +541,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'duration' field.
    * @return The value of the 'duration' field.
    */
-  public String getDuration() {
+  public Long getDuration() {
     return duration;
   }
 
@@ -549,7 +549,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'duration' field.
    * @param value the value to set.
    */
-  public void setDuration(String value) {
+  public void setDuration(Long value) {
     this.duration = value;
   }
 
@@ -1032,7 +1032,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     private String callstart;
     private String callstop;
     private String category;
-    private String duration;
+    private Long duration;
     private Boolean active;
     private String idx;
     private String ip1;
@@ -2015,7 +2015,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'duration' field.
       * @return The value.
       */
-    public String getDuration() {
+    public Long getDuration() {
       return duration;
     }
 
@@ -2024,7 +2024,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'duration'.
       * @return This builder.
       */
-    public Builder setDuration(String value) {
+    public Builder setDuration(Long value) {
       validate(fields()[15], value);
       this.duration = value;
       fieldSetFlags()[15] = true;
@@ -3123,7 +3123,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
         record.callstart = fieldSetFlags()[12] ? this.callstart : (String) defaultValue(fields()[12]);
         record.callstop = fieldSetFlags()[13] ? this.callstop : (String) defaultValue(fields()[13]);
         record.category = fieldSetFlags()[14] ? this.category : (String) defaultValue(fields()[14]);
-        record.duration = fieldSetFlags()[15] ? this.duration : (String) defaultValue(fields()[15]);
+        record.duration = fieldSetFlags()[15] ? this.duration : (Long) defaultValue(fields()[15]);
         record.active = fieldSetFlags()[16] ? this.active : (Boolean) defaultValue(fields()[16]);
         record.idx = fieldSetFlags()[17] ? this.idx : (String) defaultValue(fields()[17]);
         record.ip1 = fieldSetFlags()[18] ? this.ip1 : (String) defaultValue(fields()[18]);
