@@ -98,28 +98,28 @@ public abstract class BaseKafkaStreamTest {
 
         Schema schema = new Schema.Parser().parse(schemaString);
         GenericRecord record = new GenericData.Record(schema);
-        record.put("clientId",1L);
-        record.put("cumulativeloss","4");
-        record.put("dlsr","7");
-        record.put("hopnamelookup",true);
-        record.put("ip","10.10.10");
-        record.put("jitter","1L");
-        record.put("loss","3");
-        record.put("lsr","6");
-        record.put("pcktlosspct","fdf");
-        record.put("remoteport",5050);
-        record.put("requestType",2002);
-        record.put("sr","fdf");
-        record.put("ssrc1","88977");
-        record.put("ssrc2","78845");
+        record.put("clientid", 1L);
+
+        record.put("ssrc1", "88979");
+        record.put("ssrc2", "78846");
         record.put("subtype",5);
+        record.put("remoteport", 5020);
         record.put("time",5L);
+        record.put("hopnamelookup", true);
+
+        Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
+        GenericRecord senderReport = new GenericData.Record(childSchema1);
+        senderReport.put("jitter", "55");
+        senderReport.put("jitter", "55");
+        senderReport.put("cumulativepktloss", 554);
+        senderReport.put("ehsnr", 75);
 
         Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
         System.out.println(childSchema);
         GenericRecord sourceDescription = new GenericData.Record(childSchema);
-        sourceDescription.put("type1","test");
+        sourceDescription.put("type", "phone");
 
+        record.put("senderReport", senderReport);
         record.put("sourceDescription",sourceDescription);
 
 

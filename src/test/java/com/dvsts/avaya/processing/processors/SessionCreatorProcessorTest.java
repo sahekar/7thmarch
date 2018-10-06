@@ -53,7 +53,7 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         testDriver.pipeInput(recordFactory.create(record));
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
-        assertEquals(result.get("sessionindex"),"88977788451");
+        assertEquals(result.get("sessionindex"), "88979788461");
         assertEquals(true, result.get("active"));
 
     }

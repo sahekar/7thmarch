@@ -15,7 +15,7 @@ public class SessionComputationModel {
 
         Session session = new Session();
         String sessionIndex = generateSessionId(side1.getSsrc1(),side1.getSsrc2(),side1.getClientId());
-        Long duration = calculatesDuration(side1.getCallStart());
+        Long duration = calculatesDuration(side1.getStartCall());
 
         session.setSessionindex(sessionIndex);
         session.setDuration(duration);
@@ -51,10 +51,9 @@ public class SessionComputationModel {
         else return ssrc2+ssrc1+clientId;
     }
 
-    Long calculatesDuration(String callStart){
-        long ot = Long.parseLong(callStart);
+    Long calculatesDuration(long startCall) {
 
-        return (LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) -ot) /1000L;
+        return (LocalDateTime.now().toEpochSecond(ZoneOffset.UTC) - startCall) / 1000L;
     }
 
     private SimpleEntry<String, Object>[]  createGenericRegord(AvayaPacket side1, AvayaPacket side2){

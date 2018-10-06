@@ -1,13 +1,9 @@
 package com.dvsts.avaya.processing;
 
-import com.dvsts.avaya.processing.streams.StreamCreator;
 import com.dvsts.avaya.processing.streams.TopologySchema;
 
 import java.io.IOException;
 import java.util.Properties;
-
-import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
-import static com.dvsts.avaya.processing.AppConfig.initialAvayaSourceTopic;
 
 public class Application {
 
@@ -25,8 +21,6 @@ public class Application {
 
      //    StreamCreator creator = new StreamCreator(properties);
       //   creator.streamWithTransformer(initialAvayaSourceTopic,detailsEventTopic);
-
-
 
     }
 

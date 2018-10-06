@@ -1,4 +1,5 @@
-{"type": "record",
+{
+  "type": "record",
   "name": "AvayaEvent",
   "namespace": "com.dvsts.nextgen.restcameltokafka.domain",
   "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.Avaya",
@@ -16,370 +17,259 @@
               "name": "burstdensity",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "burstloss",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "codec",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "echocancellation",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "echotaillength",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "framesize",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "gapdensity",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "gaploss",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "inrtpsrcport",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "intypdestport",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "ipv6flowlabel",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "jitterbufferdelay",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "jitterbufferoverrun",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "jitterbufferunderrun",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "largestsequencefall",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "largestsequencejump",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "maxjitter",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "mediaencryption",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "owd",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "payloadtype",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "remoteipandport",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "remoteipv6address",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "remoteipv6port",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "reportedip",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "reportedport",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rsvpreceiverstatus",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rtd",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rtp8021d",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rtpdscp",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rtpoctetcount",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rtppacketcount",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "rtpttl",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "seqfallinstances",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "seqjumpinstances",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "silencesuppression",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "ssrc1",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "ssrc2",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             }
           ]
@@ -387,28 +277,8 @@
       ]
     },
     {
-      "name": "clientId",
+      "name": "clientid",
       "type": "long"
-    },
-    {
-      "name": "cumulativeloss",
-      "type": [
-        "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
-      ]
-    },
-    {
-      "name": "dlsr",
-      "type": [
-        "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
-      ]
     },
     {
       "name": "goodBye",
@@ -423,20 +293,14 @@
               "name": "ssrc1",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
               "name": "type",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             }
           ]
@@ -451,49 +315,69 @@
       "name": "ip",
       "type": [
         "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
+        "string"
       ]
     },
     {
-      "name": "jitter",
+      "name": "receiverReport",
       "type": [
         "null",
         {
-          "type": "string",
-          "avro.java.string": "String"
-        }
-      ]
-    },
-    {
-      "name": "loss",
-      "type": [
-        "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
-      ]
-    },
-    {
-      "name": "lsr",
-      "type": [
-        "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
-      ]
-    },
-    {
-      "name": "pcktlosspct",
-      "type": [
-        "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
+          "type": "record",
+          "name": "ReceiverReport",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.ReceiverReport",
+          "fields": [
+            {
+              "name": "cumulativeloss",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "cumulativepktloss",
+              "type": "int"
+            },
+            {
+              "name": "dlsr",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "ehsnr",
+              "type": "int"
+            },
+            {
+              "name": "jitter",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "loss",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "lsr",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "pcktlosspct",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -502,36 +386,104 @@
       "type": "int"
     },
     {
-      "name": "requestType",
-      "type": "int"
-    },
-    {
-      "name": "sourceDescription",
+      "name": "senderReport",
       "type": [
         "null",
         {
           "type": "record",
-          "name": "SourceDescription",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SourceDescription",
+          "name": "SenderReport",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SenderReport",
           "fields": [
             {
-              "name": "name1",
+              "name": "cumulativeloss",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
               ]
             },
             {
-              "name": "type1",
+              "name": "cumulativepktloss",
+              "type": "int"
+            },
+            {
+              "name": "dlsr",
               "type": [
                 "null",
-                {
-                  "type": "string",
-                  "avro.java.string": "String"
-                }
+                "string"
+              ]
+            },
+            {
+              "name": "ehsnr",
+              "type": "int"
+            },
+            {
+              "name": "jitter",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "loss",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "lsr",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "lsw",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "pcktlosspct",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "rtp",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "senderoc",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "senderpc",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "sr",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "ts",
+              "type": [
+                "null",
+                "string"
               ]
             }
           ]
@@ -539,12 +491,78 @@
       ]
     },
     {
-      "name": "sr",
+      "name": "sourceDescription",
       "type": [
         "null",
         {
-          "type": "string",
-          "avro.java.string": "String"
+          "type": "record",
+          "name": "SourceDescriptionPojo",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SourceDescriptionPojo",
+          "fields": [
+            {
+              "name": "email",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "fullname",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "loc",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "name",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "note",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "priv",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "tool",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "type",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "username",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -552,20 +570,14 @@
       "name": "ssrc1",
       "type": [
         "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
+        "string"
       ]
     },
     {
       "name": "ssrc2",
       "type": [
         "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
+        "string"
       ]
     },
     {
