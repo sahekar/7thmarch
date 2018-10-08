@@ -288,7 +288,7 @@ public class MainComputationModel {
         packet.setClientId(entry.get("clientid").toString());
 
 
-        packet.setLoss(Integer.parseInt(senderReport.get("jitter").toString()));
+        packet.setJitter(Integer.parseInt(senderReport.get("jitter").toString()));
         packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
 
 

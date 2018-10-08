@@ -34,7 +34,9 @@ public class SessionComputationModel {
         session.setPayloadtype2(side2.getPayloadType());
         session.setType1(side1.getType1());
         session.setType2(side2.getType1());
-
+        session.setMinmos(Math.min(side1.getMos1(), side2.getMos1()) + "");
+        session.setMaxjitter(Math.max(side1.getMaxJitter(), side2.getMaxJitter()) + "");
+        session.setMaxloss(Math.max(side1.getMaxLoss(), side2.getMaxLoss()) + "");
         session.setSessionindex(sessionIndex);
 
         session.setDuration(duration);

@@ -80,6 +80,9 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         assertEquals(true, result.get("active"));
 
 
+        System.out.println(result.get("maxloss"));
+
+
     }
 
 
