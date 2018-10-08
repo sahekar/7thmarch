@@ -282,6 +282,12 @@ public class MainComputationModel {
         GenericRecord appSpecificReport = (GenericRecord) entry.get("appSpecificReport");
         GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");
 
+
+        packet.setSsrc1(entry.get("ssrc1").toString());
+        packet.setSsrc2(entry.get("ssrc2").toString());
+        packet.setClientId(entry.get("clientid").toString());
+
+
         packet.setLoss(Integer.parseInt(senderReport.get("jitter").toString()));
         packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
 
@@ -293,9 +299,6 @@ public class MainComputationModel {
 
         packet.setType1(sourceDescription.get("type").toString());
         packet.setName1(sourceDescription.get("name").toString());
-        packet.setSsrc1(entry.get("ssrc1").toString());
-        packet.setSsrc2( entry.get("ssrc2").toString());
-        packet.setClientId(entry.get("clientid").toString());
 
 
         if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());

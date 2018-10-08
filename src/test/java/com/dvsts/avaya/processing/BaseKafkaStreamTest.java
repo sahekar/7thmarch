@@ -124,7 +124,7 @@ public abstract class BaseKafkaStreamTest {
         Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
         System.out.println(childSchema);
         GenericRecord sourceDescription = new GenericData.Record(childSchema);
-        sourceDescription.put("type", "phone");
+        sourceDescription.put("type", "phone1");
         sourceDescription.put("name", "test1");
 
 
@@ -167,7 +167,7 @@ public abstract class BaseKafkaStreamTest {
         Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
         System.out.println(childSchema);
         GenericRecord sourceDescription = new GenericData.Record(childSchema);
-        sourceDescription.put("type", "phone");
+        sourceDescription.put("type", "phone2");
         sourceDescription.put("name", "test2");
 
         record.put("senderReport", senderReport);

@@ -32,6 +32,8 @@ public class SessionComputationModel {
         session.setName2(side2.getName1());
         session.setPayloadtype1(side1.getPayloadType());
         session.setPayloadtype2(side2.getPayloadType());
+        session.setType1(side1.getType1());
+        session.setType2(side2.getType1());
 
         session.setSessionindex(sessionIndex);
 

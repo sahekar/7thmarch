@@ -75,6 +75,8 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         assertEquals("test2", result.get("name2"));
         assertEquals("payloadtype1", result.get("payloadtype1"));
         assertEquals("payloadtype2", result.get("payloadtype2"));
+        assertEquals("phone1", result.get("type1"));
+        assertEquals("phone2", result.get("type2"));
         assertEquals(true, result.get("active"));
 
 
