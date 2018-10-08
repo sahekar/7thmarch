@@ -274,16 +274,31 @@ public class MainComputationModel {
         AvayaPacket packet = new AvayaPacket();
         packet.setStatus("active");
 
+        packet.setIp1(entry.get("ip").toString());
+
        if(packet.getStartCall() == 0) packet.setStartCall(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
        // packet.setIp1( entry.get("ip").toString());
-
+        GenericRecord senderReport = (GenericRecord) entry.get("senderReport");
+        GenericRecord appSpecificReport = (GenericRecord) entry.get("appSpecificReport");
         GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");
+
+        packet.setLoss(Integer.parseInt(senderReport.get("jitter").toString()));
+        packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
+
+
+        packet.setRtd(Integer.parseInt(appSpecificReport.get("rtd").toString()));
+        packet.setPayloadType(appSpecificReport.get("payloadtype").toString());
+
+
+
         packet.setType1(sourceDescription.get("type").toString());
+        packet.setName1(sourceDescription.get("name").toString());
         packet.setSsrc1(entry.get("ssrc1").toString());
         packet.setSsrc2( entry.get("ssrc2").toString());
         packet.setClientId(entry.get("clientid").toString());
 
-       if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
+
+        if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
 
         if( entry.get("rtpDSCP") == null ){ packet.setRtpDSCP("0"); } else { packet.setRtpDSCP("0"); }
 

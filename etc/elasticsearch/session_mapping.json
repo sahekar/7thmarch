@@ -1,0 +1,46 @@
+{
+  "session": {
+    "mappings": {
+      "type.name=avaya-details": {
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "duration": {
+            "type": "long"
+          },
+          "insertdata": {
+            "type": "date"
+          },
+          "sessionindex": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "ssrc1": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "ssrc2": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -93,13 +93,13 @@ public abstract class BaseKafkaStreamTest {
 
     }
 
-    public GenericRecord getInitialAvayaEvent() throws IOException, URISyntaxException {
+    public GenericRecord getInitialAvayaEventSide1() throws IOException, URISyntaxException {
         String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
 
         Schema schema = new Schema.Parser().parse(schemaString);
         GenericRecord record = new GenericData.Record(schema);
         record.put("clientid", 1L);
-
+        record.put("ip", "11.11.21");
         record.put("ssrc1", "88979");
         record.put("ssrc2", "78846");
         record.put("subtype",5);
@@ -110,20 +110,71 @@ public abstract class BaseKafkaStreamTest {
         Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
         GenericRecord senderReport = new GenericData.Record(childSchema1);
         senderReport.put("jitter", "55");
-        senderReport.put("jitter", "55");
+        senderReport.put("loss", "5");
         senderReport.put("cumulativepktloss", 554);
         senderReport.put("ehsnr", 75);
+
+
+        Schema childSchema2 = record.getSchema().getField("appSpecificReport").schema().getTypes().get(1);
+        GenericRecord appSpecificReport = new GenericData.Record(childSchema2);
+        appSpecificReport.put("rtd", "45");//sourceDescription
+        appSpecificReport.put("payloadtype", "payloadtype1");
+
 
         Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
         System.out.println(childSchema);
         GenericRecord sourceDescription = new GenericData.Record(childSchema);
         sourceDescription.put("type", "phone");
+        sourceDescription.put("name", "test1");
+
 
         record.put("senderReport", senderReport);
         record.put("sourceDescription",sourceDescription);
+        record.put("appSpecificReport", appSpecificReport);
 
 
         System.out.println("result: "+record);
+        return record;
+    }
+
+    public GenericRecord getInitialAvayaEventSide2() throws IOException, URISyntaxException {
+        String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
+
+        Schema schema = new Schema.Parser().parse(schemaString);
+        GenericRecord record = new GenericData.Record(schema);
+        record.put("clientid", 1L);
+        record.put("ip", "12.12.21");
+        record.put("ssrc1", "78846");
+        record.put("ssrc2", "88979");
+        record.put("subtype", 5);
+        record.put("remoteport", 5020);
+        record.put("time", 5L);
+        record.put("hopnamelookup", true);
+
+        Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
+        GenericRecord senderReport = new GenericData.Record(childSchema1);
+        senderReport.put("jitter", "75");
+        senderReport.put("loss", "25");
+        senderReport.put("cumulativepktloss", 554);
+        senderReport.put("ehsnr", 75);
+
+
+        Schema childSchema2 = record.getSchema().getField("appSpecificReport").schema().getTypes().get(1);
+        GenericRecord appSpecificReport = new GenericData.Record(childSchema2);
+        appSpecificReport.put("rtd", "78");
+        appSpecificReport.put("payloadtype", "payloadtype2");
+
+        Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
+        System.out.println(childSchema);
+        GenericRecord sourceDescription = new GenericData.Record(childSchema);
+        sourceDescription.put("type", "phone");
+        sourceDescription.put("name", "test2");
+
+        record.put("senderReport", senderReport);
+        record.put("sourceDescription", sourceDescription);
+        record.put("appSpecificReport", appSpecificReport);
+
+        System.out.println("result: " + record);
         return record;
     }
 

@@ -13,12 +13,15 @@ import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.dvsts.avaya.processing.AppConfig.*;
 import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
@@ -46,15 +49,34 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
     }
 
     @Test
+    public void test() {
+        long now = LocalDateTime.now().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli();
+        System.out.println(now);
+    }
+
+
+    @Test
     public void simpleSessionCreate() throws IOException, URISyntaxException {
 
-        GenericRecord record = getInitialAvayaEvent();
 
-        testDriver.pipeInput(recordFactory.create(record));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2()));
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
         assertEquals(result.get("sessionindex"), "88979788461");
+        assertNotNull(result.get("insertdata"));
+        assertNotNull(result.get("avgloss"));
+        System.out.println(result.get("avgjitter"));
+        System.out.println(result.get("avgmos"));
+        System.out.println(result.get("avgrtd"));
+        assertEquals("11.11.21", result.get("ip1"));
+        assertEquals("12.12.21", result.get("ip2"));
+        assertEquals("test1", result.get("name1"));
+        assertEquals("test2", result.get("name2"));
+        assertEquals("payloadtype1", result.get("payloadtype1"));
+        assertEquals("payloadtype2", result.get("payloadtype2"));
         assertEquals(true, result.get("active"));
+
 
     }
 
@@ -67,6 +89,7 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
          record.put("ssrc2","987456");
         record.put("jitter",1234);
         record.put("rtd",5);
+        record.put("rtp", 5);
         record.put("loss",510);
         record.put("mos",2F);
         record.put("alarm",5);

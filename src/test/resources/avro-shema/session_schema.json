@@ -3,13 +3,22 @@
   "name" : "Session",
   "namespace" : "com.dvsts.avaya.processing.domain",
   "doc" : "Schema for Session ",
-  "fields" : [ {
+  "fields": [
+    {
+      "name": "insertdata",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
     "name" : "alert",
     "type" : [ "null", "string" ]
   }, {
     "name" : "alert1",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "alert2",
     "type" : [ "null", "string" ]
   }, {
@@ -18,7 +27,8 @@
   }, {
     "name" : "alert4",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "alert5",
     "type" : [ "null", "string" ]
   }, {
@@ -76,37 +86,46 @@
   }, {
     "name" : "minmos",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "name1",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "name2",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "payloadtype1",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "payloadtype2",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "payloadtypetext1",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "payloadtypetext2",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "port1",
     "type" : [ "null", "string" ]
   }, {
     "name" : "port2",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "rtppacketcount1",
     "type" : [ "null", "string" ]
   }, {
     "name" : "rtppacketcount2",
     "type" : [ "null", "string" ]
-  }, {
+    },
+    {
     "name" : "sessionindex",
     "type" : [ "null", "string" ]
   }, {

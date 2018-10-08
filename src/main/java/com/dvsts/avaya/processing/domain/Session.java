@@ -14,8 +14,8 @@ import org.apache.avro.specific.SpecificData;
 /** Schema for Session  */
 @org.apache.avro.specific.AvroGenerated
 public class Session extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -5552789432632858612L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Session\",\"namespace\":\"com.dvsts.avaya.processing.domain\",\"doc\":\"Schema for Session \",\"fields\":[{\"name\":\"alert\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert3\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert4\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert5\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgtimelength\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstart\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstop\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"category\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"duration\",\"type\":[\"null\",\"long\"]},{\"name\":\"active\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"idx\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"minmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"startcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"stopcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"tracestatus\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
+  private static final long serialVersionUID = 4431556465738939677L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Session\",\"namespace\":\"com.dvsts.avaya.processing.domain\",\"doc\":\"Schema for Session \",\"fields\":[{\"name\":\"insertdata\",\"type\":[\"null\",\"long\"]},{\"name\":\"alert\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert3\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert4\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"alert5\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"avgtimelength\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstart\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"callstop\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"category\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"duration\",\"type\":[\"null\",\"long\"]},{\"name\":\"active\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"idx\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ip2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxjitter\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxloss\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"maxrtd\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"minmos\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"name2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtype2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"payloadtypetext2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"port2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rtppacketcount2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionindex\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"ssrc2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"startcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"stopcall\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"tracestatus\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"type2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -52,49 +52,94 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     return DECODER.decode(b);
   }
 
-  @Deprecated public String alert;
-  @Deprecated public String alert1;
-  @Deprecated public String alert2;
-  @Deprecated public String alert3;
-  @Deprecated public String alert4;
-  @Deprecated public String alert5;
-  @Deprecated public String avgjitter;
-  @Deprecated public String avgloss;
-  @Deprecated public String avgmos;
-  @Deprecated public String avgrtd;
-  @Deprecated public String avgtimelength;
-  @Deprecated public String callindex;
-  @Deprecated public String callstart;
-  @Deprecated public String callstop;
-  @Deprecated public String category;
-  @Deprecated public Long duration;
-  @Deprecated public Boolean active;
-  @Deprecated public String idx;
-  @Deprecated public String ip1;
-  @Deprecated public String ip2;
-  @Deprecated public String maxjitter;
-  @Deprecated public String maxloss;
-  @Deprecated public String maxrtd;
-  @Deprecated public String minmos;
-  @Deprecated public String name1;
-  @Deprecated public String name2;
-  @Deprecated public String payloadtype1;
-  @Deprecated public String payloadtype2;
-  @Deprecated public String payloadtypetext1;
-  @Deprecated public String payloadtypetext2;
-  @Deprecated public String port1;
-  @Deprecated public String port2;
-  @Deprecated public String rtppacketcount1;
-  @Deprecated public String rtppacketcount2;
-  @Deprecated public String sessionindex;
-  @Deprecated public String ssrc1;
-  @Deprecated public String ssrc2;
-  @Deprecated public String startcall;
-  @Deprecated public String status;
-  @Deprecated public String stopcall;
-  @Deprecated public String tracestatus;
-  @Deprecated public String type1;
-  @Deprecated public String type2;
+  @Deprecated
+  public java.lang.Long insertdata;
+  @Deprecated
+  public java.lang.String alert;
+  @Deprecated
+  public java.lang.String alert1;
+  @Deprecated
+  public java.lang.String alert2;
+  @Deprecated
+  public java.lang.String alert3;
+  @Deprecated
+  public java.lang.String alert4;
+  @Deprecated
+  public java.lang.String alert5;
+  @Deprecated
+  public java.lang.String avgjitter;
+  @Deprecated
+  public java.lang.String avgloss;
+  @Deprecated
+  public java.lang.String avgmos;
+  @Deprecated
+  public java.lang.String avgrtd;
+  @Deprecated
+  public java.lang.String avgtimelength;
+  @Deprecated
+  public java.lang.String callindex;
+  @Deprecated
+  public java.lang.String callstart;
+  @Deprecated
+  public java.lang.String callstop;
+  @Deprecated
+  public java.lang.String category;
+  @Deprecated
+  public java.lang.Long duration;
+  @Deprecated
+  public java.lang.Boolean active;
+  @Deprecated
+  public java.lang.String idx;
+  @Deprecated
+  public java.lang.String ip1;
+  @Deprecated
+  public java.lang.String ip2;
+  @Deprecated
+  public java.lang.String maxjitter;
+  @Deprecated
+  public java.lang.String maxloss;
+  @Deprecated
+  public java.lang.String maxrtd;
+  @Deprecated
+  public java.lang.String minmos;
+  @Deprecated
+  public java.lang.String name1;
+  @Deprecated
+  public java.lang.String name2;
+  @Deprecated
+  public java.lang.String payloadtype1;
+  @Deprecated
+  public java.lang.String payloadtype2;
+  @Deprecated
+  public java.lang.String payloadtypetext1;
+  @Deprecated
+  public java.lang.String payloadtypetext2;
+  @Deprecated
+  public java.lang.String port1;
+  @Deprecated
+  public java.lang.String port2;
+  @Deprecated
+  public java.lang.String rtppacketcount1;
+  @Deprecated
+  public java.lang.String rtppacketcount2;
+  @Deprecated
+  public java.lang.String sessionindex;
+  @Deprecated
+  public java.lang.String ssrc1;
+  @Deprecated
+  public java.lang.String ssrc2;
+  @Deprecated
+  public java.lang.String startcall;
+  @Deprecated
+  public java.lang.String status;
+  @Deprecated
+  public java.lang.String stopcall;
+  @Deprecated
+  public java.lang.String tracestatus;
+  @Deprecated
+  public java.lang.String type1;
+  @Deprecated
+  public java.lang.String type2;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -105,6 +150,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
 
   /**
    * All-args constructor.
+   * @param insertdata The new value for insertdata
    * @param alert The new value for alert
    * @param alert1 The new value for alert1
    * @param alert2 The new value for alert2
@@ -149,7 +195,8 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param type1 The new value for type1
    * @param type2 The new value for type2
    */
-  public Session(String alert, String alert1, String alert2, String alert3, String alert4, String alert5, String avgjitter, String avgloss, String avgmos, String avgrtd, String avgtimelength, String callindex, String callstart, String callstop, String category, Long duration, Boolean active, String idx, String ip1, String ip2, String maxjitter, String maxloss, String maxrtd, String minmos, String name1, String name2, String payloadtype1, String payloadtype2, String payloadtypetext1, String payloadtypetext2, String port1, String port2, String rtppacketcount1, String rtppacketcount2, String sessionindex, String ssrc1, String ssrc2, String startcall, String status, String stopcall, String tracestatus, String type1, String type2) {
+  public Session(java.lang.Long insertdata, java.lang.String alert, java.lang.String alert1, java.lang.String alert2, java.lang.String alert3, java.lang.String alert4, java.lang.String alert5, java.lang.String avgjitter, java.lang.String avgloss, java.lang.String avgmos, java.lang.String avgrtd, java.lang.String avgtimelength, java.lang.String callindex, java.lang.String callstart, java.lang.String callstop, java.lang.String category, java.lang.Long duration, java.lang.Boolean active, java.lang.String idx, java.lang.String ip1, java.lang.String ip2, java.lang.String maxjitter, java.lang.String maxloss, java.lang.String maxrtd, java.lang.String minmos, java.lang.String name1, java.lang.String name2, java.lang.String payloadtype1, java.lang.String payloadtype2, java.lang.String payloadtypetext1, java.lang.String payloadtypetext2, java.lang.String port1, java.lang.String port2, java.lang.String rtppacketcount1, java.lang.String rtppacketcount2, java.lang.String sessionindex, java.lang.String ssrc1, java.lang.String ssrc2, java.lang.String startcall, java.lang.String status, java.lang.String stopcall, java.lang.String tracestatus, java.lang.String type1, java.lang.String type2) {
+    this.insertdata = insertdata;
     this.alert = alert;
     this.alert1 = alert1;
     this.alert2 = alert2;
@@ -197,111 +244,263 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return alert;
-    case 1: return alert1;
-    case 2: return alert2;
-    case 3: return alert3;
-    case 4: return alert4;
-    case 5: return alert5;
-    case 6: return avgjitter;
-    case 7: return avgloss;
-    case 8: return avgmos;
-    case 9: return avgrtd;
-    case 10: return avgtimelength;
-    case 11: return callindex;
-    case 12: return callstart;
-    case 13: return callstop;
-    case 14: return category;
-    case 15: return duration;
-    case 16: return active;
-    case 17: return idx;
-    case 18: return ip1;
-    case 19: return ip2;
-    case 20: return maxjitter;
-    case 21: return maxloss;
-    case 22: return maxrtd;
-    case 23: return minmos;
-    case 24: return name1;
-    case 25: return name2;
-    case 26: return payloadtype1;
-    case 27: return payloadtype2;
-    case 28: return payloadtypetext1;
-    case 29: return payloadtypetext2;
-    case 30: return port1;
-    case 31: return port2;
-    case 32: return rtppacketcount1;
-    case 33: return rtppacketcount2;
-    case 34: return sessionindex;
-    case 35: return ssrc1;
-    case 36: return ssrc2;
-    case 37: return startcall;
-    case 38: return status;
-    case 39: return stopcall;
-    case 40: return tracestatus;
-    case 41: return type1;
-    case 42: return type2;
+      case 0:
+        return insertdata;
+      case 1:
+        return alert;
+      case 2:
+        return alert1;
+      case 3:
+        return alert2;
+      case 4:
+        return alert3;
+      case 5:
+        return alert4;
+      case 6:
+        return alert5;
+      case 7:
+        return avgjitter;
+      case 8:
+        return avgloss;
+      case 9:
+        return avgmos;
+      case 10:
+        return avgrtd;
+      case 11:
+        return avgtimelength;
+      case 12:
+        return callindex;
+      case 13:
+        return callstart;
+      case 14:
+        return callstop;
+      case 15:
+        return category;
+      case 16:
+        return duration;
+      case 17:
+        return active;
+      case 18:
+        return idx;
+      case 19:
+        return ip1;
+      case 20:
+        return ip2;
+      case 21:
+        return maxjitter;
+      case 22:
+        return maxloss;
+      case 23:
+        return maxrtd;
+      case 24:
+        return minmos;
+      case 25:
+        return name1;
+      case 26:
+        return name2;
+      case 27:
+        return payloadtype1;
+      case 28:
+        return payloadtype2;
+      case 29:
+        return payloadtypetext1;
+      case 30:
+        return payloadtypetext2;
+      case 31:
+        return port1;
+      case 32:
+        return port2;
+      case 33:
+        return rtppacketcount1;
+      case 34:
+        return rtppacketcount2;
+      case 35:
+        return sessionindex;
+      case 36:
+        return ssrc1;
+      case 37:
+        return ssrc2;
+      case 38:
+        return startcall;
+      case 39:
+        return status;
+      case 40:
+        return stopcall;
+      case 41:
+        return tracestatus;
+      case 42:
+        return type1;
+      case 43:
+        return type2;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: alert = (String)value$; break;
-    case 1: alert1 = (String)value$; break;
-    case 2: alert2 = (String)value$; break;
-    case 3: alert3 = (String)value$; break;
-    case 4: alert4 = (String)value$; break;
-    case 5: alert5 = (String)value$; break;
-    case 6: avgjitter = (String)value$; break;
-    case 7: avgloss = (String)value$; break;
-    case 8: avgmos = (String)value$; break;
-    case 9: avgrtd = (String)value$; break;
-    case 10: avgtimelength = (String)value$; break;
-    case 11: callindex = (String)value$; break;
-    case 12: callstart = (String)value$; break;
-    case 13: callstop = (String)value$; break;
-    case 14: category = (String)value$; break;
-    case 15: duration = (Long)value$; break;
-    case 16: active = (Boolean)value$; break;
-    case 17: idx = (String)value$; break;
-    case 18: ip1 = (String)value$; break;
-    case 19: ip2 = (String)value$; break;
-    case 20: maxjitter = (String)value$; break;
-    case 21: maxloss = (String)value$; break;
-    case 22: maxrtd = (String)value$; break;
-    case 23: minmos = (String)value$; break;
-    case 24: name1 = (String)value$; break;
-    case 25: name2 = (String)value$; break;
-    case 26: payloadtype1 = (String)value$; break;
-    case 27: payloadtype2 = (String)value$; break;
-    case 28: payloadtypetext1 = (String)value$; break;
-    case 29: payloadtypetext2 = (String)value$; break;
-    case 30: port1 = (String)value$; break;
-    case 31: port2 = (String)value$; break;
-    case 32: rtppacketcount1 = (String)value$; break;
-    case 33: rtppacketcount2 = (String)value$; break;
-    case 34: sessionindex = (String)value$; break;
-    case 35: ssrc1 = (String)value$; break;
-    case 36: ssrc2 = (String)value$; break;
-    case 37: startcall = (String)value$; break;
-    case 38: status = (String)value$; break;
-    case 39: stopcall = (String)value$; break;
-    case 40: tracestatus = (String)value$; break;
-    case 41: type1 = (String)value$; break;
-    case 42: type2 = (String)value$; break;
+      case 0:
+        insertdata = (java.lang.Long) value$;
+        break;
+      case 1:
+        alert = (java.lang.String) value$;
+        break;
+      case 2:
+        alert1 = (java.lang.String) value$;
+        break;
+      case 3:
+        alert2 = (java.lang.String) value$;
+        break;
+      case 4:
+        alert3 = (java.lang.String) value$;
+        break;
+      case 5:
+        alert4 = (java.lang.String) value$;
+        break;
+      case 6:
+        alert5 = (java.lang.String) value$;
+        break;
+      case 7:
+        avgjitter = (java.lang.String) value$;
+        break;
+      case 8:
+        avgloss = (java.lang.String) value$;
+        break;
+      case 9:
+        avgmos = (java.lang.String) value$;
+        break;
+      case 10:
+        avgrtd = (java.lang.String) value$;
+        break;
+      case 11:
+        avgtimelength = (java.lang.String) value$;
+        break;
+      case 12:
+        callindex = (java.lang.String) value$;
+        break;
+      case 13:
+        callstart = (java.lang.String) value$;
+        break;
+      case 14:
+        callstop = (java.lang.String) value$;
+        break;
+      case 15:
+        category = (java.lang.String) value$;
+        break;
+      case 16:
+        duration = (java.lang.Long) value$;
+        break;
+      case 17:
+        active = (java.lang.Boolean) value$;
+        break;
+      case 18:
+        idx = (java.lang.String) value$;
+        break;
+      case 19:
+        ip1 = (java.lang.String) value$;
+        break;
+      case 20:
+        ip2 = (java.lang.String) value$;
+        break;
+      case 21:
+        maxjitter = (java.lang.String) value$;
+        break;
+      case 22:
+        maxloss = (java.lang.String) value$;
+        break;
+      case 23:
+        maxrtd = (java.lang.String) value$;
+        break;
+      case 24:
+        minmos = (java.lang.String) value$;
+        break;
+      case 25:
+        name1 = (java.lang.String) value$;
+        break;
+      case 26:
+        name2 = (java.lang.String) value$;
+        break;
+      case 27:
+        payloadtype1 = (java.lang.String) value$;
+        break;
+      case 28:
+        payloadtype2 = (java.lang.String) value$;
+        break;
+      case 29:
+        payloadtypetext1 = (java.lang.String) value$;
+        break;
+      case 30:
+        payloadtypetext2 = (java.lang.String) value$;
+        break;
+      case 31:
+        port1 = (java.lang.String) value$;
+        break;
+      case 32:
+        port2 = (java.lang.String) value$;
+        break;
+      case 33:
+        rtppacketcount1 = (java.lang.String) value$;
+        break;
+      case 34:
+        rtppacketcount2 = (java.lang.String) value$;
+        break;
+      case 35:
+        sessionindex = (java.lang.String) value$;
+        break;
+      case 36:
+        ssrc1 = (java.lang.String) value$;
+        break;
+      case 37:
+        ssrc2 = (java.lang.String) value$;
+        break;
+      case 38:
+        startcall = (java.lang.String) value$;
+        break;
+      case 39:
+        status = (java.lang.String) value$;
+        break;
+      case 40:
+        stopcall = (java.lang.String) value$;
+        break;
+      case 41:
+        tracestatus = (java.lang.String) value$;
+        break;
+      case 42:
+        type1 = (java.lang.String) value$;
+        break;
+      case 43:
+        type2 = (java.lang.String) value$;
+        break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
+  }
+
+  /**
+   * Gets the value of the 'insertdata' field.
+   *
+   * @return The value of the 'insertdata' field.
+   */
+  public java.lang.Long getInsertdata() {
+    return insertdata;
+  }
+
+  /**
+   * Sets the value of the 'insertdata' field.
+   *
+   * @param value the value to set.
+   */
+  public void setInsertdata(java.lang.Long value) {
+    this.insertdata = value;
   }
 
   /**
    * Gets the value of the 'alert' field.
    * @return The value of the 'alert' field.
    */
-  public String getAlert() {
+  public java.lang.String getAlert() {
     return alert;
   }
 
@@ -309,7 +508,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'alert' field.
    * @param value the value to set.
    */
-  public void setAlert(String value) {
+  public void setAlert(java.lang.String value) {
     this.alert = value;
   }
 
@@ -317,7 +516,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'alert1' field.
    * @return The value of the 'alert1' field.
    */
-  public String getAlert1() {
+  public java.lang.String getAlert1() {
     return alert1;
   }
 
@@ -325,7 +524,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'alert1' field.
    * @param value the value to set.
    */
-  public void setAlert1(String value) {
+  public void setAlert1(java.lang.String value) {
     this.alert1 = value;
   }
 
@@ -333,7 +532,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'alert2' field.
    * @return The value of the 'alert2' field.
    */
-  public String getAlert2() {
+  public java.lang.String getAlert2() {
     return alert2;
   }
 
@@ -341,7 +540,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'alert2' field.
    * @param value the value to set.
    */
-  public void setAlert2(String value) {
+  public void setAlert2(java.lang.String value) {
     this.alert2 = value;
   }
 
@@ -349,7 +548,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'alert3' field.
    * @return The value of the 'alert3' field.
    */
-  public String getAlert3() {
+  public java.lang.String getAlert3() {
     return alert3;
   }
 
@@ -357,7 +556,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'alert3' field.
    * @param value the value to set.
    */
-  public void setAlert3(String value) {
+  public void setAlert3(java.lang.String value) {
     this.alert3 = value;
   }
 
@@ -365,7 +564,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'alert4' field.
    * @return The value of the 'alert4' field.
    */
-  public String getAlert4() {
+  public java.lang.String getAlert4() {
     return alert4;
   }
 
@@ -373,7 +572,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'alert4' field.
    * @param value the value to set.
    */
-  public void setAlert4(String value) {
+  public void setAlert4(java.lang.String value) {
     this.alert4 = value;
   }
 
@@ -381,7 +580,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'alert5' field.
    * @return The value of the 'alert5' field.
    */
-  public String getAlert5() {
+  public java.lang.String getAlert5() {
     return alert5;
   }
 
@@ -389,7 +588,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'alert5' field.
    * @param value the value to set.
    */
-  public void setAlert5(String value) {
+  public void setAlert5(java.lang.String value) {
     this.alert5 = value;
   }
 
@@ -397,7 +596,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'avgjitter' field.
    * @return The value of the 'avgjitter' field.
    */
-  public String getAvgjitter() {
+  public java.lang.String getAvgjitter() {
     return avgjitter;
   }
 
@@ -405,7 +604,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'avgjitter' field.
    * @param value the value to set.
    */
-  public void setAvgjitter(String value) {
+  public void setAvgjitter(java.lang.String value) {
     this.avgjitter = value;
   }
 
@@ -413,7 +612,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'avgloss' field.
    * @return The value of the 'avgloss' field.
    */
-  public String getAvgloss() {
+  public java.lang.String getAvgloss() {
     return avgloss;
   }
 
@@ -421,7 +620,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'avgloss' field.
    * @param value the value to set.
    */
-  public void setAvgloss(String value) {
+  public void setAvgloss(java.lang.String value) {
     this.avgloss = value;
   }
 
@@ -429,7 +628,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'avgmos' field.
    * @return The value of the 'avgmos' field.
    */
-  public String getAvgmos() {
+  public java.lang.String getAvgmos() {
     return avgmos;
   }
 
@@ -437,7 +636,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'avgmos' field.
    * @param value the value to set.
    */
-  public void setAvgmos(String value) {
+  public void setAvgmos(java.lang.String value) {
     this.avgmos = value;
   }
 
@@ -445,7 +644,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'avgrtd' field.
    * @return The value of the 'avgrtd' field.
    */
-  public String getAvgrtd() {
+  public java.lang.String getAvgrtd() {
     return avgrtd;
   }
 
@@ -453,7 +652,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'avgrtd' field.
    * @param value the value to set.
    */
-  public void setAvgrtd(String value) {
+  public void setAvgrtd(java.lang.String value) {
     this.avgrtd = value;
   }
 
@@ -461,7 +660,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'avgtimelength' field.
    * @return The value of the 'avgtimelength' field.
    */
-  public String getAvgtimelength() {
+  public java.lang.String getAvgtimelength() {
     return avgtimelength;
   }
 
@@ -469,7 +668,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'avgtimelength' field.
    * @param value the value to set.
    */
-  public void setAvgtimelength(String value) {
+  public void setAvgtimelength(java.lang.String value) {
     this.avgtimelength = value;
   }
 
@@ -477,7 +676,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'callindex' field.
    * @return The value of the 'callindex' field.
    */
-  public String getCallindex() {
+  public java.lang.String getCallindex() {
     return callindex;
   }
 
@@ -485,7 +684,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'callindex' field.
    * @param value the value to set.
    */
-  public void setCallindex(String value) {
+  public void setCallindex(java.lang.String value) {
     this.callindex = value;
   }
 
@@ -493,7 +692,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'callstart' field.
    * @return The value of the 'callstart' field.
    */
-  public String getCallstart() {
+  public java.lang.String getCallstart() {
     return callstart;
   }
 
@@ -501,7 +700,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'callstart' field.
    * @param value the value to set.
    */
-  public void setCallstart(String value) {
+  public void setCallstart(java.lang.String value) {
     this.callstart = value;
   }
 
@@ -509,7 +708,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'callstop' field.
    * @return The value of the 'callstop' field.
    */
-  public String getCallstop() {
+  public java.lang.String getCallstop() {
     return callstop;
   }
 
@@ -517,7 +716,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'callstop' field.
    * @param value the value to set.
    */
-  public void setCallstop(String value) {
+  public void setCallstop(java.lang.String value) {
     this.callstop = value;
   }
 
@@ -525,7 +724,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'category' field.
    * @return The value of the 'category' field.
    */
-  public String getCategory() {
+  public java.lang.String getCategory() {
     return category;
   }
 
@@ -533,7 +732,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'category' field.
    * @param value the value to set.
    */
-  public void setCategory(String value) {
+  public void setCategory(java.lang.String value) {
     this.category = value;
   }
 
@@ -541,7 +740,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'duration' field.
    * @return The value of the 'duration' field.
    */
-  public Long getDuration() {
+  public java.lang.Long getDuration() {
     return duration;
   }
 
@@ -549,7 +748,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'duration' field.
    * @param value the value to set.
    */
-  public void setDuration(Long value) {
+  public void setDuration(java.lang.Long value) {
     this.duration = value;
   }
 
@@ -557,7 +756,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'active' field.
    * @return The value of the 'active' field.
    */
-  public Boolean getActive() {
+  public java.lang.Boolean getActive() {
     return active;
   }
 
@@ -565,7 +764,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'active' field.
    * @param value the value to set.
    */
-  public void setActive(Boolean value) {
+  public void setActive(java.lang.Boolean value) {
     this.active = value;
   }
 
@@ -573,7 +772,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'idx' field.
    * @return The value of the 'idx' field.
    */
-  public String getIdx() {
+  public java.lang.String getIdx() {
     return idx;
   }
 
@@ -581,7 +780,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'idx' field.
    * @param value the value to set.
    */
-  public void setIdx(String value) {
+  public void setIdx(java.lang.String value) {
     this.idx = value;
   }
 
@@ -589,7 +788,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'ip1' field.
    * @return The value of the 'ip1' field.
    */
-  public String getIp1() {
+  public java.lang.String getIp1() {
     return ip1;
   }
 
@@ -597,7 +796,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'ip1' field.
    * @param value the value to set.
    */
-  public void setIp1(String value) {
+  public void setIp1(java.lang.String value) {
     this.ip1 = value;
   }
 
@@ -605,7 +804,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'ip2' field.
    * @return The value of the 'ip2' field.
    */
-  public String getIp2() {
+  public java.lang.String getIp2() {
     return ip2;
   }
 
@@ -613,7 +812,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'ip2' field.
    * @param value the value to set.
    */
-  public void setIp2(String value) {
+  public void setIp2(java.lang.String value) {
     this.ip2 = value;
   }
 
@@ -621,7 +820,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'maxjitter' field.
    * @return The value of the 'maxjitter' field.
    */
-  public String getMaxjitter() {
+  public java.lang.String getMaxjitter() {
     return maxjitter;
   }
 
@@ -629,7 +828,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'maxjitter' field.
    * @param value the value to set.
    */
-  public void setMaxjitter(String value) {
+  public void setMaxjitter(java.lang.String value) {
     this.maxjitter = value;
   }
 
@@ -637,7 +836,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'maxloss' field.
    * @return The value of the 'maxloss' field.
    */
-  public String getMaxloss() {
+  public java.lang.String getMaxloss() {
     return maxloss;
   }
 
@@ -645,7 +844,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'maxloss' field.
    * @param value the value to set.
    */
-  public void setMaxloss(String value) {
+  public void setMaxloss(java.lang.String value) {
     this.maxloss = value;
   }
 
@@ -653,7 +852,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'maxrtd' field.
    * @return The value of the 'maxrtd' field.
    */
-  public String getMaxrtd() {
+  public java.lang.String getMaxrtd() {
     return maxrtd;
   }
 
@@ -661,7 +860,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'maxrtd' field.
    * @param value the value to set.
    */
-  public void setMaxrtd(String value) {
+  public void setMaxrtd(java.lang.String value) {
     this.maxrtd = value;
   }
 
@@ -669,7 +868,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'minmos' field.
    * @return The value of the 'minmos' field.
    */
-  public String getMinmos() {
+  public java.lang.String getMinmos() {
     return minmos;
   }
 
@@ -677,7 +876,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'minmos' field.
    * @param value the value to set.
    */
-  public void setMinmos(String value) {
+  public void setMinmos(java.lang.String value) {
     this.minmos = value;
   }
 
@@ -685,7 +884,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'name1' field.
    * @return The value of the 'name1' field.
    */
-  public String getName1() {
+  public java.lang.String getName1() {
     return name1;
   }
 
@@ -693,7 +892,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'name1' field.
    * @param value the value to set.
    */
-  public void setName1(String value) {
+  public void setName1(java.lang.String value) {
     this.name1 = value;
   }
 
@@ -701,7 +900,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'name2' field.
    * @return The value of the 'name2' field.
    */
-  public String getName2() {
+  public java.lang.String getName2() {
     return name2;
   }
 
@@ -709,7 +908,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'name2' field.
    * @param value the value to set.
    */
-  public void setName2(String value) {
+  public void setName2(java.lang.String value) {
     this.name2 = value;
   }
 
@@ -717,7 +916,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'payloadtype1' field.
    * @return The value of the 'payloadtype1' field.
    */
-  public String getPayloadtype1() {
+  public java.lang.String getPayloadtype1() {
     return payloadtype1;
   }
 
@@ -725,7 +924,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'payloadtype1' field.
    * @param value the value to set.
    */
-  public void setPayloadtype1(String value) {
+  public void setPayloadtype1(java.lang.String value) {
     this.payloadtype1 = value;
   }
 
@@ -733,7 +932,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'payloadtype2' field.
    * @return The value of the 'payloadtype2' field.
    */
-  public String getPayloadtype2() {
+  public java.lang.String getPayloadtype2() {
     return payloadtype2;
   }
 
@@ -741,7 +940,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'payloadtype2' field.
    * @param value the value to set.
    */
-  public void setPayloadtype2(String value) {
+  public void setPayloadtype2(java.lang.String value) {
     this.payloadtype2 = value;
   }
 
@@ -749,7 +948,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'payloadtypetext1' field.
    * @return The value of the 'payloadtypetext1' field.
    */
-  public String getPayloadtypetext1() {
+  public java.lang.String getPayloadtypetext1() {
     return payloadtypetext1;
   }
 
@@ -757,7 +956,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'payloadtypetext1' field.
    * @param value the value to set.
    */
-  public void setPayloadtypetext1(String value) {
+  public void setPayloadtypetext1(java.lang.String value) {
     this.payloadtypetext1 = value;
   }
 
@@ -765,7 +964,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'payloadtypetext2' field.
    * @return The value of the 'payloadtypetext2' field.
    */
-  public String getPayloadtypetext2() {
+  public java.lang.String getPayloadtypetext2() {
     return payloadtypetext2;
   }
 
@@ -773,7 +972,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'payloadtypetext2' field.
    * @param value the value to set.
    */
-  public void setPayloadtypetext2(String value) {
+  public void setPayloadtypetext2(java.lang.String value) {
     this.payloadtypetext2 = value;
   }
 
@@ -781,7 +980,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'port1' field.
    * @return The value of the 'port1' field.
    */
-  public String getPort1() {
+  public java.lang.String getPort1() {
     return port1;
   }
 
@@ -789,7 +988,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'port1' field.
    * @param value the value to set.
    */
-  public void setPort1(String value) {
+  public void setPort1(java.lang.String value) {
     this.port1 = value;
   }
 
@@ -797,7 +996,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'port2' field.
    * @return The value of the 'port2' field.
    */
-  public String getPort2() {
+  public java.lang.String getPort2() {
     return port2;
   }
 
@@ -805,7 +1004,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'port2' field.
    * @param value the value to set.
    */
-  public void setPort2(String value) {
+  public void setPort2(java.lang.String value) {
     this.port2 = value;
   }
 
@@ -813,7 +1012,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'rtppacketcount1' field.
    * @return The value of the 'rtppacketcount1' field.
    */
-  public String getRtppacketcount1() {
+  public java.lang.String getRtppacketcount1() {
     return rtppacketcount1;
   }
 
@@ -821,7 +1020,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'rtppacketcount1' field.
    * @param value the value to set.
    */
-  public void setRtppacketcount1(String value) {
+  public void setRtppacketcount1(java.lang.String value) {
     this.rtppacketcount1 = value;
   }
 
@@ -829,7 +1028,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'rtppacketcount2' field.
    * @return The value of the 'rtppacketcount2' field.
    */
-  public String getRtppacketcount2() {
+  public java.lang.String getRtppacketcount2() {
     return rtppacketcount2;
   }
 
@@ -837,7 +1036,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'rtppacketcount2' field.
    * @param value the value to set.
    */
-  public void setRtppacketcount2(String value) {
+  public void setRtppacketcount2(java.lang.String value) {
     this.rtppacketcount2 = value;
   }
 
@@ -845,7 +1044,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'sessionindex' field.
    * @return The value of the 'sessionindex' field.
    */
-  public String getSessionindex() {
+  public java.lang.String getSessionindex() {
     return sessionindex;
   }
 
@@ -853,7 +1052,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'sessionindex' field.
    * @param value the value to set.
    */
-  public void setSessionindex(String value) {
+  public void setSessionindex(java.lang.String value) {
     this.sessionindex = value;
   }
 
@@ -861,7 +1060,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'ssrc1' field.
    * @return The value of the 'ssrc1' field.
    */
-  public String getSsrc1() {
+  public java.lang.String getSsrc1() {
     return ssrc1;
   }
 
@@ -869,7 +1068,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'ssrc1' field.
    * @param value the value to set.
    */
-  public void setSsrc1(String value) {
+  public void setSsrc1(java.lang.String value) {
     this.ssrc1 = value;
   }
 
@@ -877,7 +1076,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'ssrc2' field.
    * @return The value of the 'ssrc2' field.
    */
-  public String getSsrc2() {
+  public java.lang.String getSsrc2() {
     return ssrc2;
   }
 
@@ -885,7 +1084,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'ssrc2' field.
    * @param value the value to set.
    */
-  public void setSsrc2(String value) {
+  public void setSsrc2(java.lang.String value) {
     this.ssrc2 = value;
   }
 
@@ -893,7 +1092,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'startcall' field.
    * @return The value of the 'startcall' field.
    */
-  public String getStartcall() {
+  public java.lang.String getStartcall() {
     return startcall;
   }
 
@@ -901,7 +1100,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'startcall' field.
    * @param value the value to set.
    */
-  public void setStartcall(String value) {
+  public void setStartcall(java.lang.String value) {
     this.startcall = value;
   }
 
@@ -909,7 +1108,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'status' field.
    * @return The value of the 'status' field.
    */
-  public String getStatus() {
+  public java.lang.String getStatus() {
     return status;
   }
 
@@ -917,7 +1116,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'status' field.
    * @param value the value to set.
    */
-  public void setStatus(String value) {
+  public void setStatus(java.lang.String value) {
     this.status = value;
   }
 
@@ -925,7 +1124,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'stopcall' field.
    * @return The value of the 'stopcall' field.
    */
-  public String getStopcall() {
+  public java.lang.String getStopcall() {
     return stopcall;
   }
 
@@ -933,7 +1132,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'stopcall' field.
    * @param value the value to set.
    */
-  public void setStopcall(String value) {
+  public void setStopcall(java.lang.String value) {
     this.stopcall = value;
   }
 
@@ -941,7 +1140,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'tracestatus' field.
    * @return The value of the 'tracestatus' field.
    */
-  public String getTracestatus() {
+  public java.lang.String getTracestatus() {
     return tracestatus;
   }
 
@@ -949,7 +1148,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'tracestatus' field.
    * @param value the value to set.
    */
-  public void setTracestatus(String value) {
+  public void setTracestatus(java.lang.String value) {
     this.tracestatus = value;
   }
 
@@ -957,7 +1156,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'type1' field.
    * @return The value of the 'type1' field.
    */
-  public String getType1() {
+  public java.lang.String getType1() {
     return type1;
   }
 
@@ -965,7 +1164,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'type1' field.
    * @param value the value to set.
    */
-  public void setType1(String value) {
+  public void setType1(java.lang.String value) {
     this.type1 = value;
   }
 
@@ -973,7 +1172,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'type2' field.
    * @return The value of the 'type2' field.
    */
-  public String getType2() {
+  public java.lang.String getType2() {
     return type2;
   }
 
@@ -981,7 +1180,7 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'type2' field.
    * @param value the value to set.
    */
-  public void setType2(String value) {
+  public void setType2(java.lang.String value) {
     this.type2 = value;
   }
 
@@ -989,8 +1188,8 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * Creates a new Session RecordBuilder.
    * @return A new Session RecordBuilder
    */
-  public static Builder newBuilder() {
-    return new Builder();
+  public static com.dvsts.avaya.processing.domain.Session.Builder newBuilder() {
+    return new com.dvsts.avaya.processing.domain.Session.Builder();
   }
 
   /**
@@ -998,8 +1197,8 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing builder to copy.
    * @return A new Session RecordBuilder
    */
-  public static Builder newBuilder(Builder other) {
-    return new Builder(other);
+  public static com.dvsts.avaya.processing.domain.Session.Builder newBuilder(com.dvsts.avaya.processing.domain.Session.Builder other) {
+    return new com.dvsts.avaya.processing.domain.Session.Builder(other);
   }
 
   /**
@@ -1007,8 +1206,8 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing instance to copy.
    * @return A new Session RecordBuilder
    */
-  public static Builder newBuilder(Session other) {
-    return new Builder(other);
+  public static com.dvsts.avaya.processing.domain.Session.Builder newBuilder(com.dvsts.avaya.processing.domain.Session other) {
+    return new com.dvsts.avaya.processing.domain.Session.Builder(other);
   }
 
   /**
@@ -1017,49 +1216,50 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Session>
     implements org.apache.avro.data.RecordBuilder<Session> {
 
-    private String alert;
-    private String alert1;
-    private String alert2;
-    private String alert3;
-    private String alert4;
-    private String alert5;
-    private String avgjitter;
-    private String avgloss;
-    private String avgmos;
-    private String avgrtd;
-    private String avgtimelength;
-    private String callindex;
-    private String callstart;
-    private String callstop;
-    private String category;
-    private Long duration;
-    private Boolean active;
-    private String idx;
-    private String ip1;
-    private String ip2;
-    private String maxjitter;
-    private String maxloss;
-    private String maxrtd;
-    private String minmos;
-    private String name1;
-    private String name2;
-    private String payloadtype1;
-    private String payloadtype2;
-    private String payloadtypetext1;
-    private String payloadtypetext2;
-    private String port1;
-    private String port2;
-    private String rtppacketcount1;
-    private String rtppacketcount2;
-    private String sessionindex;
-    private String ssrc1;
-    private String ssrc2;
-    private String startcall;
-    private String status;
-    private String stopcall;
-    private String tracestatus;
-    private String type1;
-    private String type2;
+    private java.lang.Long insertdata;
+    private java.lang.String alert;
+    private java.lang.String alert1;
+    private java.lang.String alert2;
+    private java.lang.String alert3;
+    private java.lang.String alert4;
+    private java.lang.String alert5;
+    private java.lang.String avgjitter;
+    private java.lang.String avgloss;
+    private java.lang.String avgmos;
+    private java.lang.String avgrtd;
+    private java.lang.String avgtimelength;
+    private java.lang.String callindex;
+    private java.lang.String callstart;
+    private java.lang.String callstop;
+    private java.lang.String category;
+    private java.lang.Long duration;
+    private java.lang.Boolean active;
+    private java.lang.String idx;
+    private java.lang.String ip1;
+    private java.lang.String ip2;
+    private java.lang.String maxjitter;
+    private java.lang.String maxloss;
+    private java.lang.String maxrtd;
+    private java.lang.String minmos;
+    private java.lang.String name1;
+    private java.lang.String name2;
+    private java.lang.String payloadtype1;
+    private java.lang.String payloadtype2;
+    private java.lang.String payloadtypetext1;
+    private java.lang.String payloadtypetext2;
+    private java.lang.String port1;
+    private java.lang.String port2;
+    private java.lang.String rtppacketcount1;
+    private java.lang.String rtppacketcount2;
+    private java.lang.String sessionindex;
+    private java.lang.String ssrc1;
+    private java.lang.String ssrc2;
+    private java.lang.String startcall;
+    private java.lang.String status;
+    private java.lang.String stopcall;
+    private java.lang.String tracestatus;
+    private java.lang.String type1;
+    private java.lang.String type2;
 
     /** Creates a new Builder */
     private Builder() {
@@ -1070,179 +1270,183 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(Builder other) {
+    private Builder(com.dvsts.avaya.processing.domain.Session.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.alert)) {
-        this.alert = data().deepCopy(fields()[0].schema(), other.alert);
+      if (isValidValue(fields()[0], other.insertdata)) {
+        this.insertdata = data().deepCopy(fields()[0].schema(), other.insertdata);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.alert1)) {
-        this.alert1 = data().deepCopy(fields()[1].schema(), other.alert1);
+      if (isValidValue(fields()[1], other.alert)) {
+        this.alert = data().deepCopy(fields()[1].schema(), other.alert);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.alert2)) {
-        this.alert2 = data().deepCopy(fields()[2].schema(), other.alert2);
+      if (isValidValue(fields()[2], other.alert1)) {
+        this.alert1 = data().deepCopy(fields()[2].schema(), other.alert1);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.alert3)) {
-        this.alert3 = data().deepCopy(fields()[3].schema(), other.alert3);
+      if (isValidValue(fields()[3], other.alert2)) {
+        this.alert2 = data().deepCopy(fields()[3].schema(), other.alert2);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.alert4)) {
-        this.alert4 = data().deepCopy(fields()[4].schema(), other.alert4);
+      if (isValidValue(fields()[4], other.alert3)) {
+        this.alert3 = data().deepCopy(fields()[4].schema(), other.alert3);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.alert5)) {
-        this.alert5 = data().deepCopy(fields()[5].schema(), other.alert5);
+      if (isValidValue(fields()[5], other.alert4)) {
+        this.alert4 = data().deepCopy(fields()[5].schema(), other.alert4);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.avgjitter)) {
-        this.avgjitter = data().deepCopy(fields()[6].schema(), other.avgjitter);
+      if (isValidValue(fields()[6], other.alert5)) {
+        this.alert5 = data().deepCopy(fields()[6].schema(), other.alert5);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.avgloss)) {
-        this.avgloss = data().deepCopy(fields()[7].schema(), other.avgloss);
+      if (isValidValue(fields()[7], other.avgjitter)) {
+        this.avgjitter = data().deepCopy(fields()[7].schema(), other.avgjitter);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.avgmos)) {
-        this.avgmos = data().deepCopy(fields()[8].schema(), other.avgmos);
+      if (isValidValue(fields()[8], other.avgloss)) {
+        this.avgloss = data().deepCopy(fields()[8].schema(), other.avgloss);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.avgrtd)) {
-        this.avgrtd = data().deepCopy(fields()[9].schema(), other.avgrtd);
+      if (isValidValue(fields()[9], other.avgmos)) {
+        this.avgmos = data().deepCopy(fields()[9].schema(), other.avgmos);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.avgtimelength)) {
-        this.avgtimelength = data().deepCopy(fields()[10].schema(), other.avgtimelength);
+      if (isValidValue(fields()[10], other.avgrtd)) {
+        this.avgrtd = data().deepCopy(fields()[10].schema(), other.avgrtd);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.callindex)) {
-        this.callindex = data().deepCopy(fields()[11].schema(), other.callindex);
+      if (isValidValue(fields()[11], other.avgtimelength)) {
+        this.avgtimelength = data().deepCopy(fields()[11].schema(), other.avgtimelength);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.callstart)) {
-        this.callstart = data().deepCopy(fields()[12].schema(), other.callstart);
+      if (isValidValue(fields()[12], other.callindex)) {
+        this.callindex = data().deepCopy(fields()[12].schema(), other.callindex);
         fieldSetFlags()[12] = true;
       }
-      if (isValidValue(fields()[13], other.callstop)) {
-        this.callstop = data().deepCopy(fields()[13].schema(), other.callstop);
+      if (isValidValue(fields()[13], other.callstart)) {
+        this.callstart = data().deepCopy(fields()[13].schema(), other.callstart);
         fieldSetFlags()[13] = true;
       }
-      if (isValidValue(fields()[14], other.category)) {
-        this.category = data().deepCopy(fields()[14].schema(), other.category);
+      if (isValidValue(fields()[14], other.callstop)) {
+        this.callstop = data().deepCopy(fields()[14].schema(), other.callstop);
         fieldSetFlags()[14] = true;
       }
-      if (isValidValue(fields()[15], other.duration)) {
-        this.duration = data().deepCopy(fields()[15].schema(), other.duration);
+      if (isValidValue(fields()[15], other.category)) {
+        this.category = data().deepCopy(fields()[15].schema(), other.category);
         fieldSetFlags()[15] = true;
       }
-      if (isValidValue(fields()[16], other.active)) {
-        this.active = data().deepCopy(fields()[16].schema(), other.active);
+      if (isValidValue(fields()[16], other.duration)) {
+        this.duration = data().deepCopy(fields()[16].schema(), other.duration);
         fieldSetFlags()[16] = true;
       }
-      if (isValidValue(fields()[17], other.idx)) {
-        this.idx = data().deepCopy(fields()[17].schema(), other.idx);
+      if (isValidValue(fields()[17], other.active)) {
+        this.active = data().deepCopy(fields()[17].schema(), other.active);
         fieldSetFlags()[17] = true;
       }
-      if (isValidValue(fields()[18], other.ip1)) {
-        this.ip1 = data().deepCopy(fields()[18].schema(), other.ip1);
+      if (isValidValue(fields()[18], other.idx)) {
+        this.idx = data().deepCopy(fields()[18].schema(), other.idx);
         fieldSetFlags()[18] = true;
       }
-      if (isValidValue(fields()[19], other.ip2)) {
-        this.ip2 = data().deepCopy(fields()[19].schema(), other.ip2);
+      if (isValidValue(fields()[19], other.ip1)) {
+        this.ip1 = data().deepCopy(fields()[19].schema(), other.ip1);
         fieldSetFlags()[19] = true;
       }
-      if (isValidValue(fields()[20], other.maxjitter)) {
-        this.maxjitter = data().deepCopy(fields()[20].schema(), other.maxjitter);
+      if (isValidValue(fields()[20], other.ip2)) {
+        this.ip2 = data().deepCopy(fields()[20].schema(), other.ip2);
         fieldSetFlags()[20] = true;
       }
-      if (isValidValue(fields()[21], other.maxloss)) {
-        this.maxloss = data().deepCopy(fields()[21].schema(), other.maxloss);
+      if (isValidValue(fields()[21], other.maxjitter)) {
+        this.maxjitter = data().deepCopy(fields()[21].schema(), other.maxjitter);
         fieldSetFlags()[21] = true;
       }
-      if (isValidValue(fields()[22], other.maxrtd)) {
-        this.maxrtd = data().deepCopy(fields()[22].schema(), other.maxrtd);
+      if (isValidValue(fields()[22], other.maxloss)) {
+        this.maxloss = data().deepCopy(fields()[22].schema(), other.maxloss);
         fieldSetFlags()[22] = true;
       }
-      if (isValidValue(fields()[23], other.minmos)) {
-        this.minmos = data().deepCopy(fields()[23].schema(), other.minmos);
+      if (isValidValue(fields()[23], other.maxrtd)) {
+        this.maxrtd = data().deepCopy(fields()[23].schema(), other.maxrtd);
         fieldSetFlags()[23] = true;
       }
-      if (isValidValue(fields()[24], other.name1)) {
-        this.name1 = data().deepCopy(fields()[24].schema(), other.name1);
+      if (isValidValue(fields()[24], other.minmos)) {
+        this.minmos = data().deepCopy(fields()[24].schema(), other.minmos);
         fieldSetFlags()[24] = true;
       }
-      if (isValidValue(fields()[25], other.name2)) {
-        this.name2 = data().deepCopy(fields()[25].schema(), other.name2);
+      if (isValidValue(fields()[25], other.name1)) {
+        this.name1 = data().deepCopy(fields()[25].schema(), other.name1);
         fieldSetFlags()[25] = true;
       }
-      if (isValidValue(fields()[26], other.payloadtype1)) {
-        this.payloadtype1 = data().deepCopy(fields()[26].schema(), other.payloadtype1);
+      if (isValidValue(fields()[26], other.name2)) {
+        this.name2 = data().deepCopy(fields()[26].schema(), other.name2);
         fieldSetFlags()[26] = true;
       }
-      if (isValidValue(fields()[27], other.payloadtype2)) {
-        this.payloadtype2 = data().deepCopy(fields()[27].schema(), other.payloadtype2);
+      if (isValidValue(fields()[27], other.payloadtype1)) {
+        this.payloadtype1 = data().deepCopy(fields()[27].schema(), other.payloadtype1);
         fieldSetFlags()[27] = true;
       }
-      if (isValidValue(fields()[28], other.payloadtypetext1)) {
-        this.payloadtypetext1 = data().deepCopy(fields()[28].schema(), other.payloadtypetext1);
+      if (isValidValue(fields()[28], other.payloadtype2)) {
+        this.payloadtype2 = data().deepCopy(fields()[28].schema(), other.payloadtype2);
         fieldSetFlags()[28] = true;
       }
-      if (isValidValue(fields()[29], other.payloadtypetext2)) {
-        this.payloadtypetext2 = data().deepCopy(fields()[29].schema(), other.payloadtypetext2);
+      if (isValidValue(fields()[29], other.payloadtypetext1)) {
+        this.payloadtypetext1 = data().deepCopy(fields()[29].schema(), other.payloadtypetext1);
         fieldSetFlags()[29] = true;
       }
-      if (isValidValue(fields()[30], other.port1)) {
-        this.port1 = data().deepCopy(fields()[30].schema(), other.port1);
+      if (isValidValue(fields()[30], other.payloadtypetext2)) {
+        this.payloadtypetext2 = data().deepCopy(fields()[30].schema(), other.payloadtypetext2);
         fieldSetFlags()[30] = true;
       }
-      if (isValidValue(fields()[31], other.port2)) {
-        this.port2 = data().deepCopy(fields()[31].schema(), other.port2);
+      if (isValidValue(fields()[31], other.port1)) {
+        this.port1 = data().deepCopy(fields()[31].schema(), other.port1);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.rtppacketcount1)) {
-        this.rtppacketcount1 = data().deepCopy(fields()[32].schema(), other.rtppacketcount1);
+      if (isValidValue(fields()[32], other.port2)) {
+        this.port2 = data().deepCopy(fields()[32].schema(), other.port2);
         fieldSetFlags()[32] = true;
       }
-      if (isValidValue(fields()[33], other.rtppacketcount2)) {
-        this.rtppacketcount2 = data().deepCopy(fields()[33].schema(), other.rtppacketcount2);
+      if (isValidValue(fields()[33], other.rtppacketcount1)) {
+        this.rtppacketcount1 = data().deepCopy(fields()[33].schema(), other.rtppacketcount1);
         fieldSetFlags()[33] = true;
       }
-      if (isValidValue(fields()[34], other.sessionindex)) {
-        this.sessionindex = data().deepCopy(fields()[34].schema(), other.sessionindex);
+      if (isValidValue(fields()[34], other.rtppacketcount2)) {
+        this.rtppacketcount2 = data().deepCopy(fields()[34].schema(), other.rtppacketcount2);
         fieldSetFlags()[34] = true;
       }
-      if (isValidValue(fields()[35], other.ssrc1)) {
-        this.ssrc1 = data().deepCopy(fields()[35].schema(), other.ssrc1);
+      if (isValidValue(fields()[35], other.sessionindex)) {
+        this.sessionindex = data().deepCopy(fields()[35].schema(), other.sessionindex);
         fieldSetFlags()[35] = true;
       }
-      if (isValidValue(fields()[36], other.ssrc2)) {
-        this.ssrc2 = data().deepCopy(fields()[36].schema(), other.ssrc2);
+      if (isValidValue(fields()[36], other.ssrc1)) {
+        this.ssrc1 = data().deepCopy(fields()[36].schema(), other.ssrc1);
         fieldSetFlags()[36] = true;
       }
-      if (isValidValue(fields()[37], other.startcall)) {
-        this.startcall = data().deepCopy(fields()[37].schema(), other.startcall);
+      if (isValidValue(fields()[37], other.ssrc2)) {
+        this.ssrc2 = data().deepCopy(fields()[37].schema(), other.ssrc2);
         fieldSetFlags()[37] = true;
       }
-      if (isValidValue(fields()[38], other.status)) {
-        this.status = data().deepCopy(fields()[38].schema(), other.status);
+      if (isValidValue(fields()[38], other.startcall)) {
+        this.startcall = data().deepCopy(fields()[38].schema(), other.startcall);
         fieldSetFlags()[38] = true;
       }
-      if (isValidValue(fields()[39], other.stopcall)) {
-        this.stopcall = data().deepCopy(fields()[39].schema(), other.stopcall);
+      if (isValidValue(fields()[39], other.status)) {
+        this.status = data().deepCopy(fields()[39].schema(), other.status);
         fieldSetFlags()[39] = true;
       }
-      if (isValidValue(fields()[40], other.tracestatus)) {
-        this.tracestatus = data().deepCopy(fields()[40].schema(), other.tracestatus);
+      if (isValidValue(fields()[40], other.stopcall)) {
+        this.stopcall = data().deepCopy(fields()[40].schema(), other.stopcall);
         fieldSetFlags()[40] = true;
       }
-      if (isValidValue(fields()[41], other.type1)) {
-        this.type1 = data().deepCopy(fields()[41].schema(), other.type1);
+      if (isValidValue(fields()[41], other.tracestatus)) {
+        this.tracestatus = data().deepCopy(fields()[41].schema(), other.tracestatus);
         fieldSetFlags()[41] = true;
       }
-      if (isValidValue(fields()[42], other.type2)) {
-        this.type2 = data().deepCopy(fields()[42].schema(), other.type2);
+      if (isValidValue(fields()[42], other.type1)) {
+        this.type1 = data().deepCopy(fields()[42].schema(), other.type1);
         fieldSetFlags()[42] = true;
+      }
+      if (isValidValue(fields()[43], other.type2)) {
+        this.type2 = data().deepCopy(fields()[43].schema(), other.type2);
+        fieldSetFlags()[43] = true;
       }
     }
 
@@ -1250,238 +1454,285 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Session instance
      * @param other The existing instance to copy.
      */
-    private Builder(Session other) {
-            super(SCHEMA$);
-      if (isValidValue(fields()[0], other.alert)) {
-        this.alert = data().deepCopy(fields()[0].schema(), other.alert);
+    private Builder(com.dvsts.avaya.processing.domain.Session other) {
+      super(SCHEMA$);
+      if (isValidValue(fields()[0], other.insertdata)) {
+        this.insertdata = data().deepCopy(fields()[0].schema(), other.insertdata);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.alert1)) {
-        this.alert1 = data().deepCopy(fields()[1].schema(), other.alert1);
+      if (isValidValue(fields()[1], other.alert)) {
+        this.alert = data().deepCopy(fields()[1].schema(), other.alert);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.alert2)) {
-        this.alert2 = data().deepCopy(fields()[2].schema(), other.alert2);
+      if (isValidValue(fields()[2], other.alert1)) {
+        this.alert1 = data().deepCopy(fields()[2].schema(), other.alert1);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.alert3)) {
-        this.alert3 = data().deepCopy(fields()[3].schema(), other.alert3);
+      if (isValidValue(fields()[3], other.alert2)) {
+        this.alert2 = data().deepCopy(fields()[3].schema(), other.alert2);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.alert4)) {
-        this.alert4 = data().deepCopy(fields()[4].schema(), other.alert4);
+      if (isValidValue(fields()[4], other.alert3)) {
+        this.alert3 = data().deepCopy(fields()[4].schema(), other.alert3);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.alert5)) {
-        this.alert5 = data().deepCopy(fields()[5].schema(), other.alert5);
+      if (isValidValue(fields()[5], other.alert4)) {
+        this.alert4 = data().deepCopy(fields()[5].schema(), other.alert4);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.avgjitter)) {
-        this.avgjitter = data().deepCopy(fields()[6].schema(), other.avgjitter);
+      if (isValidValue(fields()[6], other.alert5)) {
+        this.alert5 = data().deepCopy(fields()[6].schema(), other.alert5);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.avgloss)) {
-        this.avgloss = data().deepCopy(fields()[7].schema(), other.avgloss);
+      if (isValidValue(fields()[7], other.avgjitter)) {
+        this.avgjitter = data().deepCopy(fields()[7].schema(), other.avgjitter);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.avgmos)) {
-        this.avgmos = data().deepCopy(fields()[8].schema(), other.avgmos);
+      if (isValidValue(fields()[8], other.avgloss)) {
+        this.avgloss = data().deepCopy(fields()[8].schema(), other.avgloss);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.avgrtd)) {
-        this.avgrtd = data().deepCopy(fields()[9].schema(), other.avgrtd);
+      if (isValidValue(fields()[9], other.avgmos)) {
+        this.avgmos = data().deepCopy(fields()[9].schema(), other.avgmos);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.avgtimelength)) {
-        this.avgtimelength = data().deepCopy(fields()[10].schema(), other.avgtimelength);
+      if (isValidValue(fields()[10], other.avgrtd)) {
+        this.avgrtd = data().deepCopy(fields()[10].schema(), other.avgrtd);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.callindex)) {
-        this.callindex = data().deepCopy(fields()[11].schema(), other.callindex);
+      if (isValidValue(fields()[11], other.avgtimelength)) {
+        this.avgtimelength = data().deepCopy(fields()[11].schema(), other.avgtimelength);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.callstart)) {
-        this.callstart = data().deepCopy(fields()[12].schema(), other.callstart);
+      if (isValidValue(fields()[12], other.callindex)) {
+        this.callindex = data().deepCopy(fields()[12].schema(), other.callindex);
         fieldSetFlags()[12] = true;
       }
-      if (isValidValue(fields()[13], other.callstop)) {
-        this.callstop = data().deepCopy(fields()[13].schema(), other.callstop);
+      if (isValidValue(fields()[13], other.callstart)) {
+        this.callstart = data().deepCopy(fields()[13].schema(), other.callstart);
         fieldSetFlags()[13] = true;
       }
-      if (isValidValue(fields()[14], other.category)) {
-        this.category = data().deepCopy(fields()[14].schema(), other.category);
+      if (isValidValue(fields()[14], other.callstop)) {
+        this.callstop = data().deepCopy(fields()[14].schema(), other.callstop);
         fieldSetFlags()[14] = true;
       }
-      if (isValidValue(fields()[15], other.duration)) {
-        this.duration = data().deepCopy(fields()[15].schema(), other.duration);
+      if (isValidValue(fields()[15], other.category)) {
+        this.category = data().deepCopy(fields()[15].schema(), other.category);
         fieldSetFlags()[15] = true;
       }
-      if (isValidValue(fields()[16], other.active)) {
-        this.active = data().deepCopy(fields()[16].schema(), other.active);
+      if (isValidValue(fields()[16], other.duration)) {
+        this.duration = data().deepCopy(fields()[16].schema(), other.duration);
         fieldSetFlags()[16] = true;
       }
-      if (isValidValue(fields()[17], other.idx)) {
-        this.idx = data().deepCopy(fields()[17].schema(), other.idx);
+      if (isValidValue(fields()[17], other.active)) {
+        this.active = data().deepCopy(fields()[17].schema(), other.active);
         fieldSetFlags()[17] = true;
       }
-      if (isValidValue(fields()[18], other.ip1)) {
-        this.ip1 = data().deepCopy(fields()[18].schema(), other.ip1);
+      if (isValidValue(fields()[18], other.idx)) {
+        this.idx = data().deepCopy(fields()[18].schema(), other.idx);
         fieldSetFlags()[18] = true;
       }
-      if (isValidValue(fields()[19], other.ip2)) {
-        this.ip2 = data().deepCopy(fields()[19].schema(), other.ip2);
+      if (isValidValue(fields()[19], other.ip1)) {
+        this.ip1 = data().deepCopy(fields()[19].schema(), other.ip1);
         fieldSetFlags()[19] = true;
       }
-      if (isValidValue(fields()[20], other.maxjitter)) {
-        this.maxjitter = data().deepCopy(fields()[20].schema(), other.maxjitter);
+      if (isValidValue(fields()[20], other.ip2)) {
+        this.ip2 = data().deepCopy(fields()[20].schema(), other.ip2);
         fieldSetFlags()[20] = true;
       }
-      if (isValidValue(fields()[21], other.maxloss)) {
-        this.maxloss = data().deepCopy(fields()[21].schema(), other.maxloss);
+      if (isValidValue(fields()[21], other.maxjitter)) {
+        this.maxjitter = data().deepCopy(fields()[21].schema(), other.maxjitter);
         fieldSetFlags()[21] = true;
       }
-      if (isValidValue(fields()[22], other.maxrtd)) {
-        this.maxrtd = data().deepCopy(fields()[22].schema(), other.maxrtd);
+      if (isValidValue(fields()[22], other.maxloss)) {
+        this.maxloss = data().deepCopy(fields()[22].schema(), other.maxloss);
         fieldSetFlags()[22] = true;
       }
-      if (isValidValue(fields()[23], other.minmos)) {
-        this.minmos = data().deepCopy(fields()[23].schema(), other.minmos);
+      if (isValidValue(fields()[23], other.maxrtd)) {
+        this.maxrtd = data().deepCopy(fields()[23].schema(), other.maxrtd);
         fieldSetFlags()[23] = true;
       }
-      if (isValidValue(fields()[24], other.name1)) {
-        this.name1 = data().deepCopy(fields()[24].schema(), other.name1);
+      if (isValidValue(fields()[24], other.minmos)) {
+        this.minmos = data().deepCopy(fields()[24].schema(), other.minmos);
         fieldSetFlags()[24] = true;
       }
-      if (isValidValue(fields()[25], other.name2)) {
-        this.name2 = data().deepCopy(fields()[25].schema(), other.name2);
+      if (isValidValue(fields()[25], other.name1)) {
+        this.name1 = data().deepCopy(fields()[25].schema(), other.name1);
         fieldSetFlags()[25] = true;
       }
-      if (isValidValue(fields()[26], other.payloadtype1)) {
-        this.payloadtype1 = data().deepCopy(fields()[26].schema(), other.payloadtype1);
+      if (isValidValue(fields()[26], other.name2)) {
+        this.name2 = data().deepCopy(fields()[26].schema(), other.name2);
         fieldSetFlags()[26] = true;
       }
-      if (isValidValue(fields()[27], other.payloadtype2)) {
-        this.payloadtype2 = data().deepCopy(fields()[27].schema(), other.payloadtype2);
+      if (isValidValue(fields()[27], other.payloadtype1)) {
+        this.payloadtype1 = data().deepCopy(fields()[27].schema(), other.payloadtype1);
         fieldSetFlags()[27] = true;
       }
-      if (isValidValue(fields()[28], other.payloadtypetext1)) {
-        this.payloadtypetext1 = data().deepCopy(fields()[28].schema(), other.payloadtypetext1);
+      if (isValidValue(fields()[28], other.payloadtype2)) {
+        this.payloadtype2 = data().deepCopy(fields()[28].schema(), other.payloadtype2);
         fieldSetFlags()[28] = true;
       }
-      if (isValidValue(fields()[29], other.payloadtypetext2)) {
-        this.payloadtypetext2 = data().deepCopy(fields()[29].schema(), other.payloadtypetext2);
+      if (isValidValue(fields()[29], other.payloadtypetext1)) {
+        this.payloadtypetext1 = data().deepCopy(fields()[29].schema(), other.payloadtypetext1);
         fieldSetFlags()[29] = true;
       }
-      if (isValidValue(fields()[30], other.port1)) {
-        this.port1 = data().deepCopy(fields()[30].schema(), other.port1);
+      if (isValidValue(fields()[30], other.payloadtypetext2)) {
+        this.payloadtypetext2 = data().deepCopy(fields()[30].schema(), other.payloadtypetext2);
         fieldSetFlags()[30] = true;
       }
-      if (isValidValue(fields()[31], other.port2)) {
-        this.port2 = data().deepCopy(fields()[31].schema(), other.port2);
+      if (isValidValue(fields()[31], other.port1)) {
+        this.port1 = data().deepCopy(fields()[31].schema(), other.port1);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.rtppacketcount1)) {
-        this.rtppacketcount1 = data().deepCopy(fields()[32].schema(), other.rtppacketcount1);
+      if (isValidValue(fields()[32], other.port2)) {
+        this.port2 = data().deepCopy(fields()[32].schema(), other.port2);
         fieldSetFlags()[32] = true;
       }
-      if (isValidValue(fields()[33], other.rtppacketcount2)) {
-        this.rtppacketcount2 = data().deepCopy(fields()[33].schema(), other.rtppacketcount2);
+      if (isValidValue(fields()[33], other.rtppacketcount1)) {
+        this.rtppacketcount1 = data().deepCopy(fields()[33].schema(), other.rtppacketcount1);
         fieldSetFlags()[33] = true;
       }
-      if (isValidValue(fields()[34], other.sessionindex)) {
-        this.sessionindex = data().deepCopy(fields()[34].schema(), other.sessionindex);
+      if (isValidValue(fields()[34], other.rtppacketcount2)) {
+        this.rtppacketcount2 = data().deepCopy(fields()[34].schema(), other.rtppacketcount2);
         fieldSetFlags()[34] = true;
       }
-      if (isValidValue(fields()[35], other.ssrc1)) {
-        this.ssrc1 = data().deepCopy(fields()[35].schema(), other.ssrc1);
+      if (isValidValue(fields()[35], other.sessionindex)) {
+        this.sessionindex = data().deepCopy(fields()[35].schema(), other.sessionindex);
         fieldSetFlags()[35] = true;
       }
-      if (isValidValue(fields()[36], other.ssrc2)) {
-        this.ssrc2 = data().deepCopy(fields()[36].schema(), other.ssrc2);
+      if (isValidValue(fields()[36], other.ssrc1)) {
+        this.ssrc1 = data().deepCopy(fields()[36].schema(), other.ssrc1);
         fieldSetFlags()[36] = true;
       }
-      if (isValidValue(fields()[37], other.startcall)) {
-        this.startcall = data().deepCopy(fields()[37].schema(), other.startcall);
+      if (isValidValue(fields()[37], other.ssrc2)) {
+        this.ssrc2 = data().deepCopy(fields()[37].schema(), other.ssrc2);
         fieldSetFlags()[37] = true;
       }
-      if (isValidValue(fields()[38], other.status)) {
-        this.status = data().deepCopy(fields()[38].schema(), other.status);
+      if (isValidValue(fields()[38], other.startcall)) {
+        this.startcall = data().deepCopy(fields()[38].schema(), other.startcall);
         fieldSetFlags()[38] = true;
       }
-      if (isValidValue(fields()[39], other.stopcall)) {
-        this.stopcall = data().deepCopy(fields()[39].schema(), other.stopcall);
+      if (isValidValue(fields()[39], other.status)) {
+        this.status = data().deepCopy(fields()[39].schema(), other.status);
         fieldSetFlags()[39] = true;
       }
-      if (isValidValue(fields()[40], other.tracestatus)) {
-        this.tracestatus = data().deepCopy(fields()[40].schema(), other.tracestatus);
+      if (isValidValue(fields()[40], other.stopcall)) {
+        this.stopcall = data().deepCopy(fields()[40].schema(), other.stopcall);
         fieldSetFlags()[40] = true;
       }
-      if (isValidValue(fields()[41], other.type1)) {
-        this.type1 = data().deepCopy(fields()[41].schema(), other.type1);
+      if (isValidValue(fields()[41], other.tracestatus)) {
+        this.tracestatus = data().deepCopy(fields()[41].schema(), other.tracestatus);
         fieldSetFlags()[41] = true;
       }
-      if (isValidValue(fields()[42], other.type2)) {
-        this.type2 = data().deepCopy(fields()[42].schema(), other.type2);
+      if (isValidValue(fields()[42], other.type1)) {
+        this.type1 = data().deepCopy(fields()[42].schema(), other.type1);
         fieldSetFlags()[42] = true;
+      }
+      if (isValidValue(fields()[43], other.type2)) {
+        this.type2 = data().deepCopy(fields()[43].schema(), other.type2);
+        fieldSetFlags()[43] = true;
       }
     }
 
     /**
-      * Gets the value of the 'alert' field.
-      * @return The value.
-      */
-    public String getAlert() {
-      return alert;
+     * Gets the value of the 'insertdata' field.
+     *
+     * @return The value.
+     */
+    public java.lang.Long getInsertdata() {
+      return insertdata;
     }
 
     /**
-      * Sets the value of the 'alert' field.
-      * @param value The value of 'alert'.
-      * @return This builder.
-      */
-    public Builder setAlert(String value) {
+     * Sets the value of the 'insertdata' field.
+     *
+     * @param value The value of 'insertdata'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setInsertdata(java.lang.Long value) {
       validate(fields()[0], value);
-      this.alert = value;
+      this.insertdata = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'alert' field has been set.
-      * @return True if the 'alert' field has been set, false otherwise.
-      */
-    public boolean hasAlert() {
+     * Checks whether the 'insertdata' field has been set.
+     *
+     * @return True if the 'insertdata' field has been set, false otherwise.
+     */
+    public boolean hasInsertdata() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'alert' field.
-      * @return This builder.
-      */
-    public Builder clearAlert() {
-      alert = null;
+     * Clears the value of the 'insertdata' field.
+     *
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearInsertdata() {
+      insertdata = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'alert1' field.
+     * Gets the value of the 'alert' field.
       * @return The value.
       */
-    public String getAlert1() {
+    public java.lang.String getAlert() {
+      return alert;
+    }
+
+    /**
+      * Sets the value of the 'alert' field.
+     * @param value The value of 'alert'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAlert(java.lang.String value) {
+      validate(fields()[1], value);
+      this.alert = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'alert' field has been set.
+     * @return True if the 'alert' field has been set, false otherwise.
+      */
+    public boolean hasAlert() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+     * Clears the value of the 'alert' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAlert() {
+      alert = null;
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
+     * Gets the value of the 'alert1' field.
+      * @return The value.
+      */
+    public java.lang.String getAlert1() {
       return alert1;
     }
 
     /**
       * Sets the value of the 'alert1' field.
-      * @param value The value of 'alert1'.
-      * @return This builder.
-      */
-    public Builder setAlert1(String value) {
-      validate(fields()[1], value);
+     * @param value The value of 'alert1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAlert1(java.lang.String value) {
+      validate(fields()[2], value);
       this.alert1 = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -1490,37 +1741,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'alert1' field has been set, false otherwise.
       */
     public boolean hasAlert1() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'alert1' field.
-      * @return This builder.
-      */
-    public Builder clearAlert1() {
+     * Clears the value of the 'alert1' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAlert1() {
       alert1 = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'alert2' field.
+     * Gets the value of the 'alert2' field.
       * @return The value.
       */
-    public String getAlert2() {
+    public java.lang.String getAlert2() {
       return alert2;
     }
 
     /**
       * Sets the value of the 'alert2' field.
-      * @param value The value of 'alert2'.
-      * @return This builder.
-      */
-    public Builder setAlert2(String value) {
-      validate(fields()[2], value);
+     * @param value The value of 'alert2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAlert2(java.lang.String value) {
+      validate(fields()[3], value);
       this.alert2 = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -1529,37 +1780,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'alert2' field has been set, false otherwise.
       */
     public boolean hasAlert2() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
     /**
-      * Clears the value of the 'alert2' field.
-      * @return This builder.
-      */
-    public Builder clearAlert2() {
+     * Clears the value of the 'alert2' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAlert2() {
       alert2 = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'alert3' field.
+     * Gets the value of the 'alert3' field.
       * @return The value.
       */
-    public String getAlert3() {
+    public java.lang.String getAlert3() {
       return alert3;
     }
 
     /**
       * Sets the value of the 'alert3' field.
-      * @param value The value of 'alert3'.
-      * @return This builder.
-      */
-    public Builder setAlert3(String value) {
-      validate(fields()[3], value);
+     * @param value The value of 'alert3'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAlert3(java.lang.String value) {
+      validate(fields()[4], value);
       this.alert3 = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -1568,37 +1819,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'alert3' field has been set, false otherwise.
       */
     public boolean hasAlert3() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
 
 
     /**
-      * Clears the value of the 'alert3' field.
-      * @return This builder.
-      */
-    public Builder clearAlert3() {
+     * Clears the value of the 'alert3' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAlert3() {
       alert3 = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'alert4' field.
+     * Gets the value of the 'alert4' field.
       * @return The value.
       */
-    public String getAlert4() {
+    public java.lang.String getAlert4() {
       return alert4;
     }
 
     /**
       * Sets the value of the 'alert4' field.
-      * @param value The value of 'alert4'.
-      * @return This builder.
-      */
-    public Builder setAlert4(String value) {
-      validate(fields()[4], value);
+     * @param value The value of 'alert4'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAlert4(java.lang.String value) {
+      validate(fields()[5], value);
       this.alert4 = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -1607,37 +1858,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'alert4' field has been set, false otherwise.
       */
     public boolean hasAlert4() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[5];
     }
 
 
     /**
-      * Clears the value of the 'alert4' field.
-      * @return This builder.
-      */
-    public Builder clearAlert4() {
+     * Clears the value of the 'alert4' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAlert4() {
       alert4 = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'alert5' field.
+     * Gets the value of the 'alert5' field.
       * @return The value.
       */
-    public String getAlert5() {
+    public java.lang.String getAlert5() {
       return alert5;
     }
 
     /**
       * Sets the value of the 'alert5' field.
-      * @param value The value of 'alert5'.
-      * @return This builder.
-      */
-    public Builder setAlert5(String value) {
-      validate(fields()[5], value);
+     * @param value The value of 'alert5'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAlert5(java.lang.String value) {
+      validate(fields()[6], value);
       this.alert5 = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -1646,37 +1897,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'alert5' field has been set, false otherwise.
       */
     public boolean hasAlert5() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
     /**
-      * Clears the value of the 'alert5' field.
-      * @return This builder.
-      */
-    public Builder clearAlert5() {
+     * Clears the value of the 'alert5' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAlert5() {
       alert5 = null;
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'avgjitter' field.
+     * Gets the value of the 'avgjitter' field.
       * @return The value.
       */
-    public String getAvgjitter() {
+    public java.lang.String getAvgjitter() {
       return avgjitter;
     }
 
     /**
       * Sets the value of the 'avgjitter' field.
-      * @param value The value of 'avgjitter'.
-      * @return This builder.
-      */
-    public Builder setAvgjitter(String value) {
-      validate(fields()[6], value);
+     * @param value The value of 'avgjitter'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAvgjitter(java.lang.String value) {
+      validate(fields()[7], value);
       this.avgjitter = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -1685,37 +1936,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'avgjitter' field has been set, false otherwise.
       */
     public boolean hasAvgjitter() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[7];
     }
 
 
     /**
-      * Clears the value of the 'avgjitter' field.
-      * @return This builder.
-      */
-    public Builder clearAvgjitter() {
+     * Clears the value of the 'avgjitter' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAvgjitter() {
       avgjitter = null;
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'avgloss' field.
+     * Gets the value of the 'avgloss' field.
       * @return The value.
       */
-    public String getAvgloss() {
+    public java.lang.String getAvgloss() {
       return avgloss;
     }
 
     /**
       * Sets the value of the 'avgloss' field.
-      * @param value The value of 'avgloss'.
-      * @return This builder.
-      */
-    public Builder setAvgloss(String value) {
-      validate(fields()[7], value);
+     * @param value The value of 'avgloss'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAvgloss(java.lang.String value) {
+      validate(fields()[8], value);
       this.avgloss = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[8] = true;
       return this;
     }
 
@@ -1724,37 +1975,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'avgloss' field has been set, false otherwise.
       */
     public boolean hasAvgloss() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[8];
     }
 
 
     /**
-      * Clears the value of the 'avgloss' field.
-      * @return This builder.
-      */
-    public Builder clearAvgloss() {
+     * Clears the value of the 'avgloss' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAvgloss() {
       avgloss = null;
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[8] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'avgmos' field.
+     * Gets the value of the 'avgmos' field.
       * @return The value.
       */
-    public String getAvgmos() {
+    public java.lang.String getAvgmos() {
       return avgmos;
     }
 
     /**
       * Sets the value of the 'avgmos' field.
-      * @param value The value of 'avgmos'.
-      * @return This builder.
-      */
-    public Builder setAvgmos(String value) {
-      validate(fields()[8], value);
+     * @param value The value of 'avgmos'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAvgmos(java.lang.String value) {
+      validate(fields()[9], value);
       this.avgmos = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[9] = true;
       return this;
     }
 
@@ -1763,37 +2014,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'avgmos' field has been set, false otherwise.
       */
     public boolean hasAvgmos() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[9];
     }
 
 
     /**
-      * Clears the value of the 'avgmos' field.
-      * @return This builder.
-      */
-    public Builder clearAvgmos() {
+     * Clears the value of the 'avgmos' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAvgmos() {
       avgmos = null;
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[9] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'avgrtd' field.
+     * Gets the value of the 'avgrtd' field.
       * @return The value.
       */
-    public String getAvgrtd() {
+    public java.lang.String getAvgrtd() {
       return avgrtd;
     }
 
     /**
       * Sets the value of the 'avgrtd' field.
-      * @param value The value of 'avgrtd'.
-      * @return This builder.
-      */
-    public Builder setAvgrtd(String value) {
-      validate(fields()[9], value);
+     * @param value The value of 'avgrtd'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAvgrtd(java.lang.String value) {
+      validate(fields()[10], value);
       this.avgrtd = value;
-      fieldSetFlags()[9] = true;
+      fieldSetFlags()[10] = true;
       return this;
     }
 
@@ -1802,37 +2053,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'avgrtd' field has been set, false otherwise.
       */
     public boolean hasAvgrtd() {
-      return fieldSetFlags()[9];
+      return fieldSetFlags()[10];
     }
 
 
     /**
-      * Clears the value of the 'avgrtd' field.
-      * @return This builder.
-      */
-    public Builder clearAvgrtd() {
+     * Clears the value of the 'avgrtd' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAvgrtd() {
       avgrtd = null;
-      fieldSetFlags()[9] = false;
+      fieldSetFlags()[10] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'avgtimelength' field.
+     * Gets the value of the 'avgtimelength' field.
       * @return The value.
       */
-    public String getAvgtimelength() {
+    public java.lang.String getAvgtimelength() {
       return avgtimelength;
     }
 
     /**
       * Sets the value of the 'avgtimelength' field.
-      * @param value The value of 'avgtimelength'.
-      * @return This builder.
-      */
-    public Builder setAvgtimelength(String value) {
-      validate(fields()[10], value);
+     * @param value The value of 'avgtimelength'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setAvgtimelength(java.lang.String value) {
+      validate(fields()[11], value);
       this.avgtimelength = value;
-      fieldSetFlags()[10] = true;
+      fieldSetFlags()[11] = true;
       return this;
     }
 
@@ -1841,37 +2092,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'avgtimelength' field has been set, false otherwise.
       */
     public boolean hasAvgtimelength() {
-      return fieldSetFlags()[10];
+      return fieldSetFlags()[11];
     }
 
 
     /**
-      * Clears the value of the 'avgtimelength' field.
-      * @return This builder.
+     * Clears the value of the 'avgtimelength' field.
+     * @return This builder.
       */
-    public Builder clearAvgtimelength() {
+    public com.dvsts.avaya.processing.domain.Session.Builder clearAvgtimelength() {
       avgtimelength = null;
-      fieldSetFlags()[10] = false;
+      fieldSetFlags()[11] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'callindex' field.
+     * Gets the value of the 'callindex' field.
       * @return The value.
       */
-    public String getCallindex() {
+    public java.lang.String getCallindex() {
       return callindex;
     }
 
     /**
       * Sets the value of the 'callindex' field.
-      * @param value The value of 'callindex'.
-      * @return This builder.
-      */
-    public Builder setCallindex(String value) {
-      validate(fields()[11], value);
+     * @param value The value of 'callindex'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setCallindex(java.lang.String value) {
+      validate(fields()[12], value);
       this.callindex = value;
-      fieldSetFlags()[11] = true;
+      fieldSetFlags()[12] = true;
       return this;
     }
 
@@ -1880,37 +2131,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'callindex' field has been set, false otherwise.
       */
     public boolean hasCallindex() {
-      return fieldSetFlags()[11];
+      return fieldSetFlags()[12];
     }
 
 
     /**
-      * Clears the value of the 'callindex' field.
-      * @return This builder.
-      */
-    public Builder clearCallindex() {
+     * Clears the value of the 'callindex' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearCallindex() {
       callindex = null;
-      fieldSetFlags()[11] = false;
+      fieldSetFlags()[12] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'callstart' field.
+     * Gets the value of the 'callstart' field.
       * @return The value.
       */
-    public String getCallstart() {
+    public java.lang.String getCallstart() {
       return callstart;
     }
 
     /**
       * Sets the value of the 'callstart' field.
-      * @param value The value of 'callstart'.
-      * @return This builder.
-      */
-    public Builder setCallstart(String value) {
-      validate(fields()[12], value);
+     * @param value The value of 'callstart'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setCallstart(java.lang.String value) {
+      validate(fields()[13], value);
       this.callstart = value;
-      fieldSetFlags()[12] = true;
+      fieldSetFlags()[13] = true;
       return this;
     }
 
@@ -1919,37 +2170,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'callstart' field has been set, false otherwise.
       */
     public boolean hasCallstart() {
-      return fieldSetFlags()[12];
+      return fieldSetFlags()[13];
     }
 
 
     /**
-      * Clears the value of the 'callstart' field.
-      * @return This builder.
-      */
-    public Builder clearCallstart() {
+     * Clears the value of the 'callstart' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearCallstart() {
       callstart = null;
-      fieldSetFlags()[12] = false;
+      fieldSetFlags()[13] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'callstop' field.
+     * Gets the value of the 'callstop' field.
       * @return The value.
       */
-    public String getCallstop() {
+    public java.lang.String getCallstop() {
       return callstop;
     }
 
     /**
       * Sets the value of the 'callstop' field.
-      * @param value The value of 'callstop'.
-      * @return This builder.
-      */
-    public Builder setCallstop(String value) {
-      validate(fields()[13], value);
+     * @param value The value of 'callstop'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setCallstop(java.lang.String value) {
+      validate(fields()[14], value);
       this.callstop = value;
-      fieldSetFlags()[13] = true;
+      fieldSetFlags()[14] = true;
       return this;
     }
 
@@ -1958,37 +2209,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'callstop' field has been set, false otherwise.
       */
     public boolean hasCallstop() {
-      return fieldSetFlags()[13];
+      return fieldSetFlags()[14];
     }
 
 
     /**
-      * Clears the value of the 'callstop' field.
-      * @return This builder.
-      */
-    public Builder clearCallstop() {
+     * Clears the value of the 'callstop' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearCallstop() {
       callstop = null;
-      fieldSetFlags()[13] = false;
+      fieldSetFlags()[14] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'category' field.
+     * Gets the value of the 'category' field.
       * @return The value.
       */
-    public String getCategory() {
+    public java.lang.String getCategory() {
       return category;
     }
 
     /**
       * Sets the value of the 'category' field.
-      * @param value The value of 'category'.
-      * @return This builder.
-      */
-    public Builder setCategory(String value) {
-      validate(fields()[14], value);
+     * @param value The value of 'category'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setCategory(java.lang.String value) {
+      validate(fields()[15], value);
       this.category = value;
-      fieldSetFlags()[14] = true;
+      fieldSetFlags()[15] = true;
       return this;
     }
 
@@ -1997,37 +2248,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'category' field has been set, false otherwise.
       */
     public boolean hasCategory() {
-      return fieldSetFlags()[14];
+      return fieldSetFlags()[15];
     }
 
 
     /**
-      * Clears the value of the 'category' field.
-      * @return This builder.
-      */
-    public Builder clearCategory() {
+     * Clears the value of the 'category' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearCategory() {
       category = null;
-      fieldSetFlags()[14] = false;
+      fieldSetFlags()[15] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'duration' field.
+     * Gets the value of the 'duration' field.
       * @return The value.
       */
-    public Long getDuration() {
+    public java.lang.Long getDuration() {
       return duration;
     }
 
     /**
       * Sets the value of the 'duration' field.
-      * @param value The value of 'duration'.
-      * @return This builder.
-      */
-    public Builder setDuration(Long value) {
-      validate(fields()[15], value);
+     * @param value The value of 'duration'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setDuration(java.lang.Long value) {
+      validate(fields()[16], value);
       this.duration = value;
-      fieldSetFlags()[15] = true;
+      fieldSetFlags()[16] = true;
       return this;
     }
 
@@ -2036,37 +2287,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'duration' field has been set, false otherwise.
       */
     public boolean hasDuration() {
-      return fieldSetFlags()[15];
+      return fieldSetFlags()[16];
     }
 
 
     /**
-      * Clears the value of the 'duration' field.
-      * @return This builder.
-      */
-    public Builder clearDuration() {
+     * Clears the value of the 'duration' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearDuration() {
       duration = null;
-      fieldSetFlags()[15] = false;
+      fieldSetFlags()[16] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'active' field.
+     * Gets the value of the 'active' field.
       * @return The value.
       */
-    public Boolean getActive() {
+    public java.lang.Boolean getActive() {
       return active;
     }
 
     /**
       * Sets the value of the 'active' field.
-      * @param value The value of 'active'.
-      * @return This builder.
-      */
-    public Builder setActive(Boolean value) {
-      validate(fields()[16], value);
+     * @param value The value of 'active'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setActive(java.lang.Boolean value) {
+      validate(fields()[17], value);
       this.active = value;
-      fieldSetFlags()[16] = true;
+      fieldSetFlags()[17] = true;
       return this;
     }
 
@@ -2075,154 +2326,154 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'active' field has been set, false otherwise.
       */
     public boolean hasActive() {
-      return fieldSetFlags()[16];
-    }
-
-
-    /**
-      * Clears the value of the 'active' field.
-      * @return This builder.
-      */
-    public Builder clearActive() {
-      active = null;
-      fieldSetFlags()[16] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'idx' field.
-      * @return The value.
-      */
-    public String getIdx() {
-      return idx;
-    }
-
-    /**
-      * Sets the value of the 'idx' field.
-      * @param value The value of 'idx'.
-      * @return This builder.
-      */
-    public Builder setIdx(String value) {
-      validate(fields()[17], value);
-      this.idx = value;
-      fieldSetFlags()[17] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'idx' field has been set.
-      * @return True if the 'idx' field has been set, false otherwise.
-      */
-    public boolean hasIdx() {
       return fieldSetFlags()[17];
     }
 
 
     /**
-      * Clears the value of the 'idx' field.
-      * @return This builder.
-      */
-    public Builder clearIdx() {
-      idx = null;
+     * Clears the value of the 'active' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearActive() {
+      active = null;
       fieldSetFlags()[17] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'ip1' field.
+     * Gets the value of the 'idx' field.
       * @return The value.
       */
-    public String getIp1() {
-      return ip1;
+    public java.lang.String getIdx() {
+      return idx;
     }
 
     /**
-      * Sets the value of the 'ip1' field.
-      * @param value The value of 'ip1'.
-      * @return This builder.
-      */
-    public Builder setIp1(String value) {
+      * Sets the value of the 'idx' field.
+     * @param value The value of 'idx'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setIdx(java.lang.String value) {
       validate(fields()[18], value);
-      this.ip1 = value;
+      this.idx = value;
       fieldSetFlags()[18] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'ip1' field has been set.
-      * @return True if the 'ip1' field has been set, false otherwise.
+      * Checks whether the 'idx' field has been set.
+     * @return True if the 'idx' field has been set, false otherwise.
       */
-    public boolean hasIp1() {
+    public boolean hasIdx() {
       return fieldSetFlags()[18];
     }
 
 
     /**
-      * Clears the value of the 'ip1' field.
-      * @return This builder.
-      */
-    public Builder clearIp1() {
-      ip1 = null;
+     * Clears the value of the 'idx' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearIdx() {
+      idx = null;
       fieldSetFlags()[18] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'ip2' field.
+     * Gets the value of the 'ip1' field.
       * @return The value.
       */
-    public String getIp2() {
-      return ip2;
+    public java.lang.String getIp1() {
+      return ip1;
     }
 
     /**
-      * Sets the value of the 'ip2' field.
-      * @param value The value of 'ip2'.
-      * @return This builder.
-      */
-    public Builder setIp2(String value) {
+      * Sets the value of the 'ip1' field.
+     * @param value The value of 'ip1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setIp1(java.lang.String value) {
       validate(fields()[19], value);
-      this.ip2 = value;
+      this.ip1 = value;
       fieldSetFlags()[19] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'ip2' field has been set.
-      * @return True if the 'ip2' field has been set, false otherwise.
+      * Checks whether the 'ip1' field has been set.
+     * @return True if the 'ip1' field has been set, false otherwise.
       */
-    public boolean hasIp2() {
+    public boolean hasIp1() {
       return fieldSetFlags()[19];
     }
 
 
     /**
-      * Clears the value of the 'ip2' field.
-      * @return This builder.
-      */
-    public Builder clearIp2() {
-      ip2 = null;
+     * Clears the value of the 'ip1' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearIp1() {
+      ip1 = null;
       fieldSetFlags()[19] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'maxjitter' field.
+     * Gets the value of the 'ip2' field.
       * @return The value.
       */
-    public String getMaxjitter() {
+    public java.lang.String getIp2() {
+      return ip2;
+    }
+
+    /**
+      * Sets the value of the 'ip2' field.
+     * @param value The value of 'ip2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setIp2(java.lang.String value) {
+      validate(fields()[20], value);
+      this.ip2 = value;
+      fieldSetFlags()[20] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'ip2' field has been set.
+     * @return True if the 'ip2' field has been set, false otherwise.
+      */
+    public boolean hasIp2() {
+      return fieldSetFlags()[20];
+    }
+
+
+    /**
+     * Clears the value of the 'ip2' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearIp2() {
+      ip2 = null;
+      fieldSetFlags()[20] = false;
+      return this;
+    }
+
+    /**
+     * Gets the value of the 'maxjitter' field.
+      * @return The value.
+      */
+    public java.lang.String getMaxjitter() {
       return maxjitter;
     }
 
     /**
       * Sets the value of the 'maxjitter' field.
-      * @param value The value of 'maxjitter'.
-      * @return This builder.
-      */
-    public Builder setMaxjitter(String value) {
-      validate(fields()[20], value);
+     * @param value The value of 'maxjitter'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setMaxjitter(java.lang.String value) {
+      validate(fields()[21], value);
       this.maxjitter = value;
-      fieldSetFlags()[20] = true;
+      fieldSetFlags()[21] = true;
       return this;
     }
 
@@ -2231,37 +2482,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'maxjitter' field has been set, false otherwise.
       */
     public boolean hasMaxjitter() {
-      return fieldSetFlags()[20];
+      return fieldSetFlags()[21];
     }
 
 
     /**
-      * Clears the value of the 'maxjitter' field.
-      * @return This builder.
-      */
-    public Builder clearMaxjitter() {
+     * Clears the value of the 'maxjitter' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearMaxjitter() {
       maxjitter = null;
-      fieldSetFlags()[20] = false;
+      fieldSetFlags()[21] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'maxloss' field.
+     * Gets the value of the 'maxloss' field.
       * @return The value.
       */
-    public String getMaxloss() {
+    public java.lang.String getMaxloss() {
       return maxloss;
     }
 
     /**
       * Sets the value of the 'maxloss' field.
-      * @param value The value of 'maxloss'.
-      * @return This builder.
-      */
-    public Builder setMaxloss(String value) {
-      validate(fields()[21], value);
+     * @param value The value of 'maxloss'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setMaxloss(java.lang.String value) {
+      validate(fields()[22], value);
       this.maxloss = value;
-      fieldSetFlags()[21] = true;
+      fieldSetFlags()[22] = true;
       return this;
     }
 
@@ -2270,37 +2521,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'maxloss' field has been set, false otherwise.
       */
     public boolean hasMaxloss() {
-      return fieldSetFlags()[21];
+      return fieldSetFlags()[22];
     }
 
 
     /**
-      * Clears the value of the 'maxloss' field.
-      * @return This builder.
-      */
-    public Builder clearMaxloss() {
+     * Clears the value of the 'maxloss' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearMaxloss() {
       maxloss = null;
-      fieldSetFlags()[21] = false;
+      fieldSetFlags()[22] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'maxrtd' field.
+     * Gets the value of the 'maxrtd' field.
       * @return The value.
       */
-    public String getMaxrtd() {
+    public java.lang.String getMaxrtd() {
       return maxrtd;
     }
 
     /**
       * Sets the value of the 'maxrtd' field.
-      * @param value The value of 'maxrtd'.
-      * @return This builder.
-      */
-    public Builder setMaxrtd(String value) {
-      validate(fields()[22], value);
+     * @param value The value of 'maxrtd'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setMaxrtd(java.lang.String value) {
+      validate(fields()[23], value);
       this.maxrtd = value;
-      fieldSetFlags()[22] = true;
+      fieldSetFlags()[23] = true;
       return this;
     }
 
@@ -2309,37 +2560,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'maxrtd' field has been set, false otherwise.
       */
     public boolean hasMaxrtd() {
-      return fieldSetFlags()[22];
+      return fieldSetFlags()[23];
     }
 
 
     /**
-      * Clears the value of the 'maxrtd' field.
-      * @return This builder.
-      */
-    public Builder clearMaxrtd() {
+     * Clears the value of the 'maxrtd' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearMaxrtd() {
       maxrtd = null;
-      fieldSetFlags()[22] = false;
+      fieldSetFlags()[23] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'minmos' field.
+     * Gets the value of the 'minmos' field.
       * @return The value.
       */
-    public String getMinmos() {
+    public java.lang.String getMinmos() {
       return minmos;
     }
 
     /**
       * Sets the value of the 'minmos' field.
-      * @param value The value of 'minmos'.
-      * @return This builder.
-      */
-    public Builder setMinmos(String value) {
-      validate(fields()[23], value);
+     * @param value The value of 'minmos'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setMinmos(java.lang.String value) {
+      validate(fields()[24], value);
       this.minmos = value;
-      fieldSetFlags()[23] = true;
+      fieldSetFlags()[24] = true;
       return this;
     }
 
@@ -2348,115 +2599,115 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'minmos' field has been set, false otherwise.
       */
     public boolean hasMinmos() {
-      return fieldSetFlags()[23];
-    }
-
-
-    /**
-      * Clears the value of the 'minmos' field.
-      * @return This builder.
-      */
-    public Builder clearMinmos() {
-      minmos = null;
-      fieldSetFlags()[23] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'name1' field.
-      * @return The value.
-      */
-    public String getName1() {
-      return name1;
-    }
-
-    /**
-      * Sets the value of the 'name1' field.
-      * @param value The value of 'name1'.
-      * @return This builder.
-      */
-    public Builder setName1(String value) {
-      validate(fields()[24], value);
-      this.name1 = value;
-      fieldSetFlags()[24] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'name1' field has been set.
-      * @return True if the 'name1' field has been set, false otherwise.
-      */
-    public boolean hasName1() {
       return fieldSetFlags()[24];
     }
 
 
     /**
-      * Clears the value of the 'name1' field.
-      * @return This builder.
-      */
-    public Builder clearName1() {
-      name1 = null;
+     * Clears the value of the 'minmos' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearMinmos() {
+      minmos = null;
       fieldSetFlags()[24] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'name2' field.
+     * Gets the value of the 'name1' field.
       * @return The value.
       */
-    public String getName2() {
-      return name2;
+    public java.lang.String getName1() {
+      return name1;
     }
 
     /**
-      * Sets the value of the 'name2' field.
-      * @param value The value of 'name2'.
-      * @return This builder.
-      */
-    public Builder setName2(String value) {
+      * Sets the value of the 'name1' field.
+     * @param value The value of 'name1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setName1(java.lang.String value) {
       validate(fields()[25], value);
-      this.name2 = value;
+      this.name1 = value;
       fieldSetFlags()[25] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'name2' field has been set.
-      * @return True if the 'name2' field has been set, false otherwise.
+      * Checks whether the 'name1' field has been set.
+     * @return True if the 'name1' field has been set, false otherwise.
       */
-    public boolean hasName2() {
+    public boolean hasName1() {
       return fieldSetFlags()[25];
     }
 
 
     /**
-      * Clears the value of the 'name2' field.
-      * @return This builder.
-      */
-    public Builder clearName2() {
-      name2 = null;
+     * Clears the value of the 'name1' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearName1() {
+      name1 = null;
       fieldSetFlags()[25] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'payloadtype1' field.
+     * Gets the value of the 'name2' field.
       * @return The value.
       */
-    public String getPayloadtype1() {
+    public java.lang.String getName2() {
+      return name2;
+    }
+
+    /**
+      * Sets the value of the 'name2' field.
+     * @param value The value of 'name2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setName2(java.lang.String value) {
+      validate(fields()[26], value);
+      this.name2 = value;
+      fieldSetFlags()[26] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'name2' field has been set.
+     * @return True if the 'name2' field has been set, false otherwise.
+      */
+    public boolean hasName2() {
+      return fieldSetFlags()[26];
+    }
+
+
+    /**
+     * Clears the value of the 'name2' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearName2() {
+      name2 = null;
+      fieldSetFlags()[26] = false;
+      return this;
+    }
+
+    /**
+     * Gets the value of the 'payloadtype1' field.
+      * @return The value.
+      */
+    public java.lang.String getPayloadtype1() {
       return payloadtype1;
     }
 
     /**
       * Sets the value of the 'payloadtype1' field.
-      * @param value The value of 'payloadtype1'.
-      * @return This builder.
-      */
-    public Builder setPayloadtype1(String value) {
-      validate(fields()[26], value);
+     * @param value The value of 'payloadtype1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setPayloadtype1(java.lang.String value) {
+      validate(fields()[27], value);
       this.payloadtype1 = value;
-      fieldSetFlags()[26] = true;
+      fieldSetFlags()[27] = true;
       return this;
     }
 
@@ -2465,37 +2716,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtype1' field has been set, false otherwise.
       */
     public boolean hasPayloadtype1() {
-      return fieldSetFlags()[26];
+      return fieldSetFlags()[27];
     }
 
 
     /**
-      * Clears the value of the 'payloadtype1' field.
-      * @return This builder.
+     * Clears the value of the 'payloadtype1' field.
+     * @return This builder.
       */
-    public Builder clearPayloadtype1() {
+    public com.dvsts.avaya.processing.domain.Session.Builder clearPayloadtype1() {
       payloadtype1 = null;
-      fieldSetFlags()[26] = false;
+      fieldSetFlags()[27] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'payloadtype2' field.
+     * Gets the value of the 'payloadtype2' field.
       * @return The value.
       */
-    public String getPayloadtype2() {
+    public java.lang.String getPayloadtype2() {
       return payloadtype2;
     }
 
     /**
       * Sets the value of the 'payloadtype2' field.
-      * @param value The value of 'payloadtype2'.
-      * @return This builder.
-      */
-    public Builder setPayloadtype2(String value) {
-      validate(fields()[27], value);
+     * @param value The value of 'payloadtype2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setPayloadtype2(java.lang.String value) {
+      validate(fields()[28], value);
       this.payloadtype2 = value;
-      fieldSetFlags()[27] = true;
+      fieldSetFlags()[28] = true;
       return this;
     }
 
@@ -2504,37 +2755,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtype2' field has been set, false otherwise.
       */
     public boolean hasPayloadtype2() {
-      return fieldSetFlags()[27];
+      return fieldSetFlags()[28];
     }
 
 
     /**
-      * Clears the value of the 'payloadtype2' field.
-      * @return This builder.
+     * Clears the value of the 'payloadtype2' field.
+     * @return This builder.
       */
-    public Builder clearPayloadtype2() {
+    public com.dvsts.avaya.processing.domain.Session.Builder clearPayloadtype2() {
       payloadtype2 = null;
-      fieldSetFlags()[27] = false;
+      fieldSetFlags()[28] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'payloadtypetext1' field.
+     * Gets the value of the 'payloadtypetext1' field.
       * @return The value.
       */
-    public String getPayloadtypetext1() {
+    public java.lang.String getPayloadtypetext1() {
       return payloadtypetext1;
     }
 
     /**
       * Sets the value of the 'payloadtypetext1' field.
-      * @param value The value of 'payloadtypetext1'.
-      * @return This builder.
-      */
-    public Builder setPayloadtypetext1(String value) {
-      validate(fields()[28], value);
+     * @param value The value of 'payloadtypetext1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setPayloadtypetext1(java.lang.String value) {
+      validate(fields()[29], value);
       this.payloadtypetext1 = value;
-      fieldSetFlags()[28] = true;
+      fieldSetFlags()[29] = true;
       return this;
     }
 
@@ -2543,37 +2794,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtypetext1' field has been set, false otherwise.
       */
     public boolean hasPayloadtypetext1() {
-      return fieldSetFlags()[28];
+      return fieldSetFlags()[29];
     }
 
 
     /**
-      * Clears the value of the 'payloadtypetext1' field.
-      * @return This builder.
+     * Clears the value of the 'payloadtypetext1' field.
+     * @return This builder.
       */
-    public Builder clearPayloadtypetext1() {
+    public com.dvsts.avaya.processing.domain.Session.Builder clearPayloadtypetext1() {
       payloadtypetext1 = null;
-      fieldSetFlags()[28] = false;
+      fieldSetFlags()[29] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'payloadtypetext2' field.
+     * Gets the value of the 'payloadtypetext2' field.
       * @return The value.
       */
-    public String getPayloadtypetext2() {
+    public java.lang.String getPayloadtypetext2() {
       return payloadtypetext2;
     }
 
     /**
       * Sets the value of the 'payloadtypetext2' field.
-      * @param value The value of 'payloadtypetext2'.
-      * @return This builder.
-      */
-    public Builder setPayloadtypetext2(String value) {
-      validate(fields()[29], value);
+     * @param value The value of 'payloadtypetext2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setPayloadtypetext2(java.lang.String value) {
+      validate(fields()[30], value);
       this.payloadtypetext2 = value;
-      fieldSetFlags()[29] = true;
+      fieldSetFlags()[30] = true;
       return this;
     }
 
@@ -2582,115 +2833,115 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'payloadtypetext2' field has been set, false otherwise.
       */
     public boolean hasPayloadtypetext2() {
-      return fieldSetFlags()[29];
-    }
-
-
-    /**
-      * Clears the value of the 'payloadtypetext2' field.
-      * @return This builder.
-      */
-    public Builder clearPayloadtypetext2() {
-      payloadtypetext2 = null;
-      fieldSetFlags()[29] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'port1' field.
-      * @return The value.
-      */
-    public String getPort1() {
-      return port1;
-    }
-
-    /**
-      * Sets the value of the 'port1' field.
-      * @param value The value of 'port1'.
-      * @return This builder.
-      */
-    public Builder setPort1(String value) {
-      validate(fields()[30], value);
-      this.port1 = value;
-      fieldSetFlags()[30] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'port1' field has been set.
-      * @return True if the 'port1' field has been set, false otherwise.
-      */
-    public boolean hasPort1() {
       return fieldSetFlags()[30];
     }
 
 
     /**
-      * Clears the value of the 'port1' field.
-      * @return This builder.
+     * Clears the value of the 'payloadtypetext2' field.
+     * @return This builder.
       */
-    public Builder clearPort1() {
-      port1 = null;
+    public com.dvsts.avaya.processing.domain.Session.Builder clearPayloadtypetext2() {
+      payloadtypetext2 = null;
       fieldSetFlags()[30] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'port2' field.
+     * Gets the value of the 'port1' field.
       * @return The value.
       */
-    public String getPort2() {
-      return port2;
+    public java.lang.String getPort1() {
+      return port1;
     }
 
     /**
-      * Sets the value of the 'port2' field.
-      * @param value The value of 'port2'.
-      * @return This builder.
-      */
-    public Builder setPort2(String value) {
+      * Sets the value of the 'port1' field.
+     * @param value The value of 'port1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setPort1(java.lang.String value) {
       validate(fields()[31], value);
-      this.port2 = value;
+      this.port1 = value;
       fieldSetFlags()[31] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'port2' field has been set.
-      * @return True if the 'port2' field has been set, false otherwise.
+      * Checks whether the 'port1' field has been set.
+     * @return True if the 'port1' field has been set, false otherwise.
       */
-    public boolean hasPort2() {
+    public boolean hasPort1() {
       return fieldSetFlags()[31];
     }
 
 
     /**
-      * Clears the value of the 'port2' field.
-      * @return This builder.
-      */
-    public Builder clearPort2() {
-      port2 = null;
+     * Clears the value of the 'port1' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearPort1() {
+      port1 = null;
       fieldSetFlags()[31] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'rtppacketcount1' field.
+     * Gets the value of the 'port2' field.
       * @return The value.
       */
-    public String getRtppacketcount1() {
+    public java.lang.String getPort2() {
+      return port2;
+    }
+
+    /**
+      * Sets the value of the 'port2' field.
+     * @param value The value of 'port2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setPort2(java.lang.String value) {
+      validate(fields()[32], value);
+      this.port2 = value;
+      fieldSetFlags()[32] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'port2' field has been set.
+     * @return True if the 'port2' field has been set, false otherwise.
+      */
+    public boolean hasPort2() {
+      return fieldSetFlags()[32];
+    }
+
+
+    /**
+     * Clears the value of the 'port2' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearPort2() {
+      port2 = null;
+      fieldSetFlags()[32] = false;
+      return this;
+    }
+
+    /**
+     * Gets the value of the 'rtppacketcount1' field.
+      * @return The value.
+      */
+    public java.lang.String getRtppacketcount1() {
       return rtppacketcount1;
     }
 
     /**
       * Sets the value of the 'rtppacketcount1' field.
-      * @param value The value of 'rtppacketcount1'.
-      * @return This builder.
-      */
-    public Builder setRtppacketcount1(String value) {
-      validate(fields()[32], value);
+     * @param value The value of 'rtppacketcount1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setRtppacketcount1(java.lang.String value) {
+      validate(fields()[33], value);
       this.rtppacketcount1 = value;
-      fieldSetFlags()[32] = true;
+      fieldSetFlags()[33] = true;
       return this;
     }
 
@@ -2699,37 +2950,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'rtppacketcount1' field has been set, false otherwise.
       */
     public boolean hasRtppacketcount1() {
-      return fieldSetFlags()[32];
+      return fieldSetFlags()[33];
     }
 
 
     /**
-      * Clears the value of the 'rtppacketcount1' field.
-      * @return This builder.
+     * Clears the value of the 'rtppacketcount1' field.
+     * @return This builder.
       */
-    public Builder clearRtppacketcount1() {
+    public com.dvsts.avaya.processing.domain.Session.Builder clearRtppacketcount1() {
       rtppacketcount1 = null;
-      fieldSetFlags()[32] = false;
+      fieldSetFlags()[33] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'rtppacketcount2' field.
+     * Gets the value of the 'rtppacketcount2' field.
       * @return The value.
       */
-    public String getRtppacketcount2() {
+    public java.lang.String getRtppacketcount2() {
       return rtppacketcount2;
     }
 
     /**
       * Sets the value of the 'rtppacketcount2' field.
-      * @param value The value of 'rtppacketcount2'.
-      * @return This builder.
-      */
-    public Builder setRtppacketcount2(String value) {
-      validate(fields()[33], value);
+     * @param value The value of 'rtppacketcount2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setRtppacketcount2(java.lang.String value) {
+      validate(fields()[34], value);
       this.rtppacketcount2 = value;
-      fieldSetFlags()[33] = true;
+      fieldSetFlags()[34] = true;
       return this;
     }
 
@@ -2738,37 +2989,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'rtppacketcount2' field has been set, false otherwise.
       */
     public boolean hasRtppacketcount2() {
-      return fieldSetFlags()[33];
+      return fieldSetFlags()[34];
     }
 
 
     /**
-      * Clears the value of the 'rtppacketcount2' field.
-      * @return This builder.
+     * Clears the value of the 'rtppacketcount2' field.
+     * @return This builder.
       */
-    public Builder clearRtppacketcount2() {
+    public com.dvsts.avaya.processing.domain.Session.Builder clearRtppacketcount2() {
       rtppacketcount2 = null;
-      fieldSetFlags()[33] = false;
+      fieldSetFlags()[34] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'sessionindex' field.
+     * Gets the value of the 'sessionindex' field.
       * @return The value.
       */
-    public String getSessionindex() {
+    public java.lang.String getSessionindex() {
       return sessionindex;
     }
 
     /**
       * Sets the value of the 'sessionindex' field.
-      * @param value The value of 'sessionindex'.
-      * @return This builder.
-      */
-    public Builder setSessionindex(String value) {
-      validate(fields()[34], value);
+     * @param value The value of 'sessionindex'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setSessionindex(java.lang.String value) {
+      validate(fields()[35], value);
       this.sessionindex = value;
-      fieldSetFlags()[34] = true;
+      fieldSetFlags()[35] = true;
       return this;
     }
 
@@ -2777,115 +3028,115 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'sessionindex' field has been set, false otherwise.
       */
     public boolean hasSessionindex() {
-      return fieldSetFlags()[34];
-    }
-
-
-    /**
-      * Clears the value of the 'sessionindex' field.
-      * @return This builder.
-      */
-    public Builder clearSessionindex() {
-      sessionindex = null;
-      fieldSetFlags()[34] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'ssrc1' field.
-      * @return The value.
-      */
-    public String getSsrc1() {
-      return ssrc1;
-    }
-
-    /**
-      * Sets the value of the 'ssrc1' field.
-      * @param value The value of 'ssrc1'.
-      * @return This builder.
-      */
-    public Builder setSsrc1(String value) {
-      validate(fields()[35], value);
-      this.ssrc1 = value;
-      fieldSetFlags()[35] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'ssrc1' field has been set.
-      * @return True if the 'ssrc1' field has been set, false otherwise.
-      */
-    public boolean hasSsrc1() {
       return fieldSetFlags()[35];
     }
 
 
     /**
-      * Clears the value of the 'ssrc1' field.
-      * @return This builder.
+     * Clears the value of the 'sessionindex' field.
+     * @return This builder.
       */
-    public Builder clearSsrc1() {
-      ssrc1 = null;
+    public com.dvsts.avaya.processing.domain.Session.Builder clearSessionindex() {
+      sessionindex = null;
       fieldSetFlags()[35] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'ssrc2' field.
+     * Gets the value of the 'ssrc1' field.
       * @return The value.
       */
-    public String getSsrc2() {
-      return ssrc2;
+    public java.lang.String getSsrc1() {
+      return ssrc1;
     }
 
     /**
-      * Sets the value of the 'ssrc2' field.
-      * @param value The value of 'ssrc2'.
-      * @return This builder.
-      */
-    public Builder setSsrc2(String value) {
+      * Sets the value of the 'ssrc1' field.
+     * @param value The value of 'ssrc1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setSsrc1(java.lang.String value) {
       validate(fields()[36], value);
-      this.ssrc2 = value;
+      this.ssrc1 = value;
       fieldSetFlags()[36] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'ssrc2' field has been set.
-      * @return True if the 'ssrc2' field has been set, false otherwise.
+      * Checks whether the 'ssrc1' field has been set.
+     * @return True if the 'ssrc1' field has been set, false otherwise.
       */
-    public boolean hasSsrc2() {
+    public boolean hasSsrc1() {
       return fieldSetFlags()[36];
     }
 
 
     /**
-      * Clears the value of the 'ssrc2' field.
-      * @return This builder.
-      */
-    public Builder clearSsrc2() {
-      ssrc2 = null;
+     * Clears the value of the 'ssrc1' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearSsrc1() {
+      ssrc1 = null;
       fieldSetFlags()[36] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'startcall' field.
+     * Gets the value of the 'ssrc2' field.
       * @return The value.
       */
-    public String getStartcall() {
+    public java.lang.String getSsrc2() {
+      return ssrc2;
+    }
+
+    /**
+      * Sets the value of the 'ssrc2' field.
+     * @param value The value of 'ssrc2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setSsrc2(java.lang.String value) {
+      validate(fields()[37], value);
+      this.ssrc2 = value;
+      fieldSetFlags()[37] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'ssrc2' field has been set.
+     * @return True if the 'ssrc2' field has been set, false otherwise.
+      */
+    public boolean hasSsrc2() {
+      return fieldSetFlags()[37];
+    }
+
+
+    /**
+     * Clears the value of the 'ssrc2' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearSsrc2() {
+      ssrc2 = null;
+      fieldSetFlags()[37] = false;
+      return this;
+    }
+
+    /**
+     * Gets the value of the 'startcall' field.
+      * @return The value.
+      */
+    public java.lang.String getStartcall() {
       return startcall;
     }
 
     /**
       * Sets the value of the 'startcall' field.
-      * @param value The value of 'startcall'.
-      * @return This builder.
-      */
-    public Builder setStartcall(String value) {
-      validate(fields()[37], value);
+     * @param value The value of 'startcall'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setStartcall(java.lang.String value) {
+      validate(fields()[38], value);
       this.startcall = value;
-      fieldSetFlags()[37] = true;
+      fieldSetFlags()[38] = true;
       return this;
     }
 
@@ -2894,37 +3145,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'startcall' field has been set, false otherwise.
       */
     public boolean hasStartcall() {
-      return fieldSetFlags()[37];
+      return fieldSetFlags()[38];
     }
 
 
     /**
-      * Clears the value of the 'startcall' field.
-      * @return This builder.
-      */
-    public Builder clearStartcall() {
+     * Clears the value of the 'startcall' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearStartcall() {
       startcall = null;
-      fieldSetFlags()[37] = false;
+      fieldSetFlags()[38] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'status' field.
+     * Gets the value of the 'status' field.
       * @return The value.
       */
-    public String getStatus() {
+    public java.lang.String getStatus() {
       return status;
     }
 
     /**
       * Sets the value of the 'status' field.
-      * @param value The value of 'status'.
-      * @return This builder.
-      */
-    public Builder setStatus(String value) {
-      validate(fields()[38], value);
+     * @param value The value of 'status'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setStatus(java.lang.String value) {
+      validate(fields()[39], value);
       this.status = value;
-      fieldSetFlags()[38] = true;
+      fieldSetFlags()[39] = true;
       return this;
     }
 
@@ -2933,37 +3184,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'status' field has been set, false otherwise.
       */
     public boolean hasStatus() {
-      return fieldSetFlags()[38];
+      return fieldSetFlags()[39];
     }
 
 
     /**
-      * Clears the value of the 'status' field.
-      * @return This builder.
-      */
-    public Builder clearStatus() {
+     * Clears the value of the 'status' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearStatus() {
       status = null;
-      fieldSetFlags()[38] = false;
+      fieldSetFlags()[39] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'stopcall' field.
+     * Gets the value of the 'stopcall' field.
       * @return The value.
       */
-    public String getStopcall() {
+    public java.lang.String getStopcall() {
       return stopcall;
     }
 
     /**
       * Sets the value of the 'stopcall' field.
-      * @param value The value of 'stopcall'.
-      * @return This builder.
-      */
-    public Builder setStopcall(String value) {
-      validate(fields()[39], value);
+     * @param value The value of 'stopcall'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setStopcall(java.lang.String value) {
+      validate(fields()[40], value);
       this.stopcall = value;
-      fieldSetFlags()[39] = true;
+      fieldSetFlags()[40] = true;
       return this;
     }
 
@@ -2972,37 +3223,37 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'stopcall' field has been set, false otherwise.
       */
     public boolean hasStopcall() {
-      return fieldSetFlags()[39];
+      return fieldSetFlags()[40];
     }
 
 
     /**
-      * Clears the value of the 'stopcall' field.
-      * @return This builder.
-      */
-    public Builder clearStopcall() {
+     * Clears the value of the 'stopcall' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearStopcall() {
       stopcall = null;
-      fieldSetFlags()[39] = false;
+      fieldSetFlags()[40] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'tracestatus' field.
+     * Gets the value of the 'tracestatus' field.
       * @return The value.
       */
-    public String getTracestatus() {
+    public java.lang.String getTracestatus() {
       return tracestatus;
     }
 
     /**
       * Sets the value of the 'tracestatus' field.
-      * @param value The value of 'tracestatus'.
-      * @return This builder.
-      */
-    public Builder setTracestatus(String value) {
-      validate(fields()[40], value);
+     * @param value The value of 'tracestatus'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setTracestatus(java.lang.String value) {
+      validate(fields()[41], value);
       this.tracestatus = value;
-      fieldSetFlags()[40] = true;
+      fieldSetFlags()[41] = true;
       return this;
     }
 
@@ -3011,95 +3262,95 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
       * @return True if the 'tracestatus' field has been set, false otherwise.
       */
     public boolean hasTracestatus() {
-      return fieldSetFlags()[40];
-    }
-
-
-    /**
-      * Clears the value of the 'tracestatus' field.
-      * @return This builder.
-      */
-    public Builder clearTracestatus() {
-      tracestatus = null;
-      fieldSetFlags()[40] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'type1' field.
-      * @return The value.
-      */
-    public String getType1() {
-      return type1;
-    }
-
-    /**
-      * Sets the value of the 'type1' field.
-      * @param value The value of 'type1'.
-      * @return This builder.
-      */
-    public Builder setType1(String value) {
-      validate(fields()[41], value);
-      this.type1 = value;
-      fieldSetFlags()[41] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'type1' field has been set.
-      * @return True if the 'type1' field has been set, false otherwise.
-      */
-    public boolean hasType1() {
       return fieldSetFlags()[41];
     }
 
 
     /**
-      * Clears the value of the 'type1' field.
-      * @return This builder.
+     * Clears the value of the 'tracestatus' field.
+     * @return This builder.
       */
-    public Builder clearType1() {
-      type1 = null;
+    public com.dvsts.avaya.processing.domain.Session.Builder clearTracestatus() {
+      tracestatus = null;
       fieldSetFlags()[41] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'type2' field.
+     * Gets the value of the 'type1' field.
       * @return The value.
       */
-    public String getType2() {
-      return type2;
+    public java.lang.String getType1() {
+      return type1;
     }
 
     /**
-      * Sets the value of the 'type2' field.
-      * @param value The value of 'type2'.
-      * @return This builder.
-      */
-    public Builder setType2(String value) {
+      * Sets the value of the 'type1' field.
+     * @param value The value of 'type1'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setType1(java.lang.String value) {
       validate(fields()[42], value);
-      this.type2 = value;
+      this.type1 = value;
       fieldSetFlags()[42] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'type2' field has been set.
-      * @return True if the 'type2' field has been set, false otherwise.
+      * Checks whether the 'type1' field has been set.
+     * @return True if the 'type1' field has been set, false otherwise.
       */
-    public boolean hasType2() {
+    public boolean hasType1() {
       return fieldSetFlags()[42];
     }
 
 
     /**
-      * Clears the value of the 'type2' field.
-      * @return This builder.
-      */
-    public Builder clearType2() {
-      type2 = null;
+     * Clears the value of the 'type1' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearType1() {
+      type1 = null;
       fieldSetFlags()[42] = false;
+      return this;
+    }
+
+    /**
+     * Gets the value of the 'type2' field.
+      * @return The value.
+      */
+    public java.lang.String getType2() {
+      return type2;
+    }
+
+    /**
+      * Sets the value of the 'type2' field.
+     * @param value The value of 'type2'.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder setType2(java.lang.String value) {
+      validate(fields()[43], value);
+      this.type2 = value;
+      fieldSetFlags()[43] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'type2' field has been set.
+     * @return True if the 'type2' field has been set, false otherwise.
+      */
+    public boolean hasType2() {
+      return fieldSetFlags()[43];
+    }
+
+
+    /**
+     * Clears the value of the 'type2' field.
+     * @return This builder.
+     */
+    public com.dvsts.avaya.processing.domain.Session.Builder clearType2() {
+      type2 = null;
+      fieldSetFlags()[43] = false;
       return this;
     }
 
@@ -3108,51 +3359,52 @@ public class Session extends org.apache.avro.specific.SpecificRecordBase impleme
     public Session build() {
       try {
         Session record = new Session();
-        record.alert = fieldSetFlags()[0] ? this.alert : (String) defaultValue(fields()[0]);
-        record.alert1 = fieldSetFlags()[1] ? this.alert1 : (String) defaultValue(fields()[1]);
-        record.alert2 = fieldSetFlags()[2] ? this.alert2 : (String) defaultValue(fields()[2]);
-        record.alert3 = fieldSetFlags()[3] ? this.alert3 : (String) defaultValue(fields()[3]);
-        record.alert4 = fieldSetFlags()[4] ? this.alert4 : (String) defaultValue(fields()[4]);
-        record.alert5 = fieldSetFlags()[5] ? this.alert5 : (String) defaultValue(fields()[5]);
-        record.avgjitter = fieldSetFlags()[6] ? this.avgjitter : (String) defaultValue(fields()[6]);
-        record.avgloss = fieldSetFlags()[7] ? this.avgloss : (String) defaultValue(fields()[7]);
-        record.avgmos = fieldSetFlags()[8] ? this.avgmos : (String) defaultValue(fields()[8]);
-        record.avgrtd = fieldSetFlags()[9] ? this.avgrtd : (String) defaultValue(fields()[9]);
-        record.avgtimelength = fieldSetFlags()[10] ? this.avgtimelength : (String) defaultValue(fields()[10]);
-        record.callindex = fieldSetFlags()[11] ? this.callindex : (String) defaultValue(fields()[11]);
-        record.callstart = fieldSetFlags()[12] ? this.callstart : (String) defaultValue(fields()[12]);
-        record.callstop = fieldSetFlags()[13] ? this.callstop : (String) defaultValue(fields()[13]);
-        record.category = fieldSetFlags()[14] ? this.category : (String) defaultValue(fields()[14]);
-        record.duration = fieldSetFlags()[15] ? this.duration : (Long) defaultValue(fields()[15]);
-        record.active = fieldSetFlags()[16] ? this.active : (Boolean) defaultValue(fields()[16]);
-        record.idx = fieldSetFlags()[17] ? this.idx : (String) defaultValue(fields()[17]);
-        record.ip1 = fieldSetFlags()[18] ? this.ip1 : (String) defaultValue(fields()[18]);
-        record.ip2 = fieldSetFlags()[19] ? this.ip2 : (String) defaultValue(fields()[19]);
-        record.maxjitter = fieldSetFlags()[20] ? this.maxjitter : (String) defaultValue(fields()[20]);
-        record.maxloss = fieldSetFlags()[21] ? this.maxloss : (String) defaultValue(fields()[21]);
-        record.maxrtd = fieldSetFlags()[22] ? this.maxrtd : (String) defaultValue(fields()[22]);
-        record.minmos = fieldSetFlags()[23] ? this.minmos : (String) defaultValue(fields()[23]);
-        record.name1 = fieldSetFlags()[24] ? this.name1 : (String) defaultValue(fields()[24]);
-        record.name2 = fieldSetFlags()[25] ? this.name2 : (String) defaultValue(fields()[25]);
-        record.payloadtype1 = fieldSetFlags()[26] ? this.payloadtype1 : (String) defaultValue(fields()[26]);
-        record.payloadtype2 = fieldSetFlags()[27] ? this.payloadtype2 : (String) defaultValue(fields()[27]);
-        record.payloadtypetext1 = fieldSetFlags()[28] ? this.payloadtypetext1 : (String) defaultValue(fields()[28]);
-        record.payloadtypetext2 = fieldSetFlags()[29] ? this.payloadtypetext2 : (String) defaultValue(fields()[29]);
-        record.port1 = fieldSetFlags()[30] ? this.port1 : (String) defaultValue(fields()[30]);
-        record.port2 = fieldSetFlags()[31] ? this.port2 : (String) defaultValue(fields()[31]);
-        record.rtppacketcount1 = fieldSetFlags()[32] ? this.rtppacketcount1 : (String) defaultValue(fields()[32]);
-        record.rtppacketcount2 = fieldSetFlags()[33] ? this.rtppacketcount2 : (String) defaultValue(fields()[33]);
-        record.sessionindex = fieldSetFlags()[34] ? this.sessionindex : (String) defaultValue(fields()[34]);
-        record.ssrc1 = fieldSetFlags()[35] ? this.ssrc1 : (String) defaultValue(fields()[35]);
-        record.ssrc2 = fieldSetFlags()[36] ? this.ssrc2 : (String) defaultValue(fields()[36]);
-        record.startcall = fieldSetFlags()[37] ? this.startcall : (String) defaultValue(fields()[37]);
-        record.status = fieldSetFlags()[38] ? this.status : (String) defaultValue(fields()[38]);
-        record.stopcall = fieldSetFlags()[39] ? this.stopcall : (String) defaultValue(fields()[39]);
-        record.tracestatus = fieldSetFlags()[40] ? this.tracestatus : (String) defaultValue(fields()[40]);
-        record.type1 = fieldSetFlags()[41] ? this.type1 : (String) defaultValue(fields()[41]);
-        record.type2 = fieldSetFlags()[42] ? this.type2 : (String) defaultValue(fields()[42]);
+        record.insertdata = fieldSetFlags()[0] ? this.insertdata : (java.lang.Long) defaultValue(fields()[0]);
+        record.alert = fieldSetFlags()[1] ? this.alert : (java.lang.String) defaultValue(fields()[1]);
+        record.alert1 = fieldSetFlags()[2] ? this.alert1 : (java.lang.String) defaultValue(fields()[2]);
+        record.alert2 = fieldSetFlags()[3] ? this.alert2 : (java.lang.String) defaultValue(fields()[3]);
+        record.alert3 = fieldSetFlags()[4] ? this.alert3 : (java.lang.String) defaultValue(fields()[4]);
+        record.alert4 = fieldSetFlags()[5] ? this.alert4 : (java.lang.String) defaultValue(fields()[5]);
+        record.alert5 = fieldSetFlags()[6] ? this.alert5 : (java.lang.String) defaultValue(fields()[6]);
+        record.avgjitter = fieldSetFlags()[7] ? this.avgjitter : (java.lang.String) defaultValue(fields()[7]);
+        record.avgloss = fieldSetFlags()[8] ? this.avgloss : (java.lang.String) defaultValue(fields()[8]);
+        record.avgmos = fieldSetFlags()[9] ? this.avgmos : (java.lang.String) defaultValue(fields()[9]);
+        record.avgrtd = fieldSetFlags()[10] ? this.avgrtd : (java.lang.String) defaultValue(fields()[10]);
+        record.avgtimelength = fieldSetFlags()[11] ? this.avgtimelength : (java.lang.String) defaultValue(fields()[11]);
+        record.callindex = fieldSetFlags()[12] ? this.callindex : (java.lang.String) defaultValue(fields()[12]);
+        record.callstart = fieldSetFlags()[13] ? this.callstart : (java.lang.String) defaultValue(fields()[13]);
+        record.callstop = fieldSetFlags()[14] ? this.callstop : (java.lang.String) defaultValue(fields()[14]);
+        record.category = fieldSetFlags()[15] ? this.category : (java.lang.String) defaultValue(fields()[15]);
+        record.duration = fieldSetFlags()[16] ? this.duration : (java.lang.Long) defaultValue(fields()[16]);
+        record.active = fieldSetFlags()[17] ? this.active : (java.lang.Boolean) defaultValue(fields()[17]);
+        record.idx = fieldSetFlags()[18] ? this.idx : (java.lang.String) defaultValue(fields()[18]);
+        record.ip1 = fieldSetFlags()[19] ? this.ip1 : (java.lang.String) defaultValue(fields()[19]);
+        record.ip2 = fieldSetFlags()[20] ? this.ip2 : (java.lang.String) defaultValue(fields()[20]);
+        record.maxjitter = fieldSetFlags()[21] ? this.maxjitter : (java.lang.String) defaultValue(fields()[21]);
+        record.maxloss = fieldSetFlags()[22] ? this.maxloss : (java.lang.String) defaultValue(fields()[22]);
+        record.maxrtd = fieldSetFlags()[23] ? this.maxrtd : (java.lang.String) defaultValue(fields()[23]);
+        record.minmos = fieldSetFlags()[24] ? this.minmos : (java.lang.String) defaultValue(fields()[24]);
+        record.name1 = fieldSetFlags()[25] ? this.name1 : (java.lang.String) defaultValue(fields()[25]);
+        record.name2 = fieldSetFlags()[26] ? this.name2 : (java.lang.String) defaultValue(fields()[26]);
+        record.payloadtype1 = fieldSetFlags()[27] ? this.payloadtype1 : (java.lang.String) defaultValue(fields()[27]);
+        record.payloadtype2 = fieldSetFlags()[28] ? this.payloadtype2 : (java.lang.String) defaultValue(fields()[28]);
+        record.payloadtypetext1 = fieldSetFlags()[29] ? this.payloadtypetext1 : (java.lang.String) defaultValue(fields()[29]);
+        record.payloadtypetext2 = fieldSetFlags()[30] ? this.payloadtypetext2 : (java.lang.String) defaultValue(fields()[30]);
+        record.port1 = fieldSetFlags()[31] ? this.port1 : (java.lang.String) defaultValue(fields()[31]);
+        record.port2 = fieldSetFlags()[32] ? this.port2 : (java.lang.String) defaultValue(fields()[32]);
+        record.rtppacketcount1 = fieldSetFlags()[33] ? this.rtppacketcount1 : (java.lang.String) defaultValue(fields()[33]);
+        record.rtppacketcount2 = fieldSetFlags()[34] ? this.rtppacketcount2 : (java.lang.String) defaultValue(fields()[34]);
+        record.sessionindex = fieldSetFlags()[35] ? this.sessionindex : (java.lang.String) defaultValue(fields()[35]);
+        record.ssrc1 = fieldSetFlags()[36] ? this.ssrc1 : (java.lang.String) defaultValue(fields()[36]);
+        record.ssrc2 = fieldSetFlags()[37] ? this.ssrc2 : (java.lang.String) defaultValue(fields()[37]);
+        record.startcall = fieldSetFlags()[38] ? this.startcall : (java.lang.String) defaultValue(fields()[38]);
+        record.status = fieldSetFlags()[39] ? this.status : (java.lang.String) defaultValue(fields()[39]);
+        record.stopcall = fieldSetFlags()[40] ? this.stopcall : (java.lang.String) defaultValue(fields()[40]);
+        record.tracestatus = fieldSetFlags()[41] ? this.tracestatus : (java.lang.String) defaultValue(fields()[41]);
+        record.type1 = fieldSetFlags()[42] ? this.type1 : (java.lang.String) defaultValue(fields()[42]);
+        record.type2 = fieldSetFlags()[43] ? this.type2 : (java.lang.String) defaultValue(fields()[43]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

@@ -4,6 +4,7 @@ import com.dvsts.avaya.processing.domain.Session;
 import org.apache.avro.generic.GenericRecord;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
@@ -17,9 +18,25 @@ public class SessionComputationModel {
         String sessionIndex = generateSessionId(side1.getSsrc1(),side1.getSsrc2(),side1.getClientId());
         Long duration = calculatesDuration(side1.getStartCall());
 
-        session.setSessionindex(sessionIndex);
-        session.setDuration(duration);
+        String avgLoss = ((side1.getAvgLoss() + side2.getAvgLoss()) / 2) + "";
+        String avgJitter = ((side1.getAvgJitter() + side2.getAvgJitter()) / 2) + "";
+        String avgMos = ((side1.getMosAverage() + side2.getMosAverage()) / 2) + "";
+        String avgRtd = (double) ((side1.getRtd() + side2.getRtd()) / 2) + "";
+        session.setAvgloss(avgLoss);
+        session.setAvgjitter(avgJitter);
+        session.setAvgmos(avgMos);
+        session.setAvgrtd(avgRtd);
+        session.setIp1(side1.getIp1());
+        session.setIp2(side2.getIp1());
+        session.setName1(side1.getName1());
+        session.setName2(side2.getName1());
+        session.setPayloadtype1(side1.getPayloadType());
+        session.setPayloadtype2(side2.getPayloadType());
 
+        session.setSessionindex(sessionIndex);
+
+        session.setDuration(duration);
+        session.setInsertdata(LocalDateTime.now().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli());
 
         updateBaseSideData(session,side1,side2) ;
 

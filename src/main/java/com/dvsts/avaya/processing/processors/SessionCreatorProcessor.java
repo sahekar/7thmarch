@@ -1,14 +1,11 @@
 package com.dvsts.avaya.processing.processors;
 
-import com.dvsts.avaya.processing.domain.Session;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.SessionComputationModel;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
-import org.apache.zookeeper.server.SessionTracker;
-import sun.plugin2.message.Serializer;
 
 import static com.dvsts.avaya.processing.AppConfig.db;
 
@@ -32,10 +29,11 @@ SessionCreatorProcessor implements Processor<String, GenericRecord> {
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String clientId  = value.get("client_id").toString();
-        String aggrKey = ssrc1+ssrc2;
+        String aggrKeySide1 = ssrc1 + ssrc2;
+        String aggrkeySide2 = ssrc2 + ssrc1;
 
-        AvayaPacket side1 = this.kvStore.get(aggrKey);
-        AvayaPacket side2 = this.kvStore.get(aggrKey);
+        AvayaPacket side1 = this.kvStore.get(aggrKeySide1);
+        AvayaPacket side2 = this.kvStore.get(aggrkeySide2);
 
 
         GenericRecord session = sessionComputationModel.createSession(side1,side2);

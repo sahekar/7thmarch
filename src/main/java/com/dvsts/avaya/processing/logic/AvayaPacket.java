@@ -22,6 +22,7 @@ public class  AvayaPacket {
     private String pcktLossPct;
    // private String sessionIndex; //TODO: need to think about this field do we really this data ??
     private String codec;
+    private String payloadType;
     private String payloadTypeText;
     private String rtpDSCP;
     private String traceStatus;
