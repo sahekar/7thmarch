@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -29,7 +28,9 @@ public class MainComputationModel {
     public AvayaPacket calculatesCallMetric(GenericRecord value, AvayaPacket previousPacket )  {
 
         final long currentTime = System.currentTimeMillis();
+        System.out.println((Long) value.get("getcalltime"));
         final AvayaPacket packet = create(value,"create");
+        if (previousPacket.getStartCall() == 0) packet.setStartCall((Long) value.get("getcalltime"));
         final double intervalLoss =0;
         final String catagory = "";   //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
@@ -48,7 +49,7 @@ public class MainComputationModel {
         int maxJitter = previousPacket.getMaxJitter();
         int maxLoss = previousPacket.getMaxLoss();
 
-        long firstTime = previousPacket.getFirstTime(); // TODO: check this
+        long firstTime = (previousPacket.getStartCall() == 0) ? packet.getStartCall() : previousPacket.getStartCall(); // TODO: check this
         long lastTime = previousPacket.getLastTime();   // TODO: check this
 
         if(firstTime == 0) firstTimeMill = currentTime;
@@ -276,20 +277,27 @@ public class MainComputationModel {
 
         packet.setIp1(entry.get("ip").toString());
 
-       if(packet.getStartCall() == 0) packet.setStartCall(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
        // packet.setIp1( entry.get("ip").toString());
         GenericRecord senderReport = (GenericRecord) entry.get("senderReport");
         GenericRecord appSpecificReport = (GenericRecord) entry.get("appSpecificReport");
         GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");
-
+        GenericRecord receiverReport = (GenericRecord) entry.get("receiverReport");
 
         packet.setSsrc1(entry.get("ssrc1").toString());
         packet.setSsrc2(entry.get("ssrc2").toString());
         packet.setClientId(entry.get("clientid").toString());
 
 
-        packet.setJitter(Integer.parseInt(senderReport.get("jitter").toString()));
-        packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
+        if (senderReport == null) {
+            packet.setJitter(Integer.parseInt(receiverReport.get("jitter").toString()));
+            packet.setLoss(Integer.parseInt(receiverReport.get("loss").toString()));
+        } else {
+            packet.setJitter(Integer.parseInt(senderReport.get("jitter").toString()));
+            packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
+
+        }
+
 
 
         packet.setRtd(Integer.parseInt(appSpecificReport.get("rtd").toString()));

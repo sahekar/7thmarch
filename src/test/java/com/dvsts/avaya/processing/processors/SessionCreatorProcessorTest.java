@@ -56,12 +56,16 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
 
     @Test
-    public void simpleSessionCreate() throws IOException, URISyntaxException {
+    public void simpleSessionCreate() throws IOException, URISyntaxException, InterruptedException {
 
 
         testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
+
         testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2()));
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+        GenericRecord result2 = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+        GenericRecord result3 = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
 
         assertEquals(result.get("sessionindex"), "88979788461");
         assertNotNull(result.get("insertdata"));
@@ -70,18 +74,26 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         System.out.println(result.get("avgmos"));
         System.out.println(result.get("avgrtd"));
         assertEquals("11.11.21", result.get("ip1"));
-        assertEquals("12.12.21", result.get("ip2"));
+        assertEquals("12.12.21", result3.get("ip2"));
         assertEquals("test1", result.get("name1"));
-        assertEquals("test2", result.get("name2"));
+        assertEquals("test2", result3.get("name2"));
         assertEquals("payloadtype1", result.get("payloadtype1"));
         assertEquals("payloadtype2", result.get("payloadtype2"));
         assertEquals("phone1", result.get("type1"));
         assertEquals("phone2", result.get("type2"));
+
+        assertEquals("25", result.get("maxloss"));
         assertEquals(true, result.get("active"));
 
+        assertEquals(true, result.get("active"));
 
-        System.out.println(result.get("maxloss"));
+        System.out.println(result.get("duration"));
 
+
+    }
+
+    @Test
+    public void simpleWithOneSession() {
 
     }
 

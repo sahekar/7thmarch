@@ -1,6 +1,7 @@
 package com.dvsts.avaya.processing.logic;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SessionComputationModelTest {
@@ -24,5 +25,13 @@ public class SessionComputationModelTest {
         ssrc2 = "4";
         clientId = "5";
         assertEquals(sessionComputationModel.generateSessionId(ssrc2,ssrc1,clientId) ,sessionComputationModel.generateSessionId(ssrc1,ssrc2,clientId));
+    }
+
+
+    @Test
+    public void determineSide() {
+        String ssrc1 = "12344";
+        String ssrc2 = "44444";
+        assertEquals(ssrc2, sessionComputationModel.determineSide(ssrc1, ssrc2));
     }
 }

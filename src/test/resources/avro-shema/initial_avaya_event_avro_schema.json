@@ -496,8 +496,8 @@
         "null",
         {
           "type": "record",
-          "name": "SourceDescriptionPojo",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SourceDescriptionPojo",
+          "name": "SourceDescription",
+          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SourceDescription",
           "fields": [
             {
               "name": "email",
@@ -586,6 +586,10 @@
     },
     {
       "name": "time",
+      "type": "long"
+    },
+    {
+      "name": "getcalltime",
       "type": "long"
     }
   ]

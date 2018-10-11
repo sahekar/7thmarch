@@ -40,25 +40,25 @@ public class AvayaTransformationProcessor implements Processor<String, GenericRe
     @Override
     public void process(String key, GenericRecord value) {
 
-        System.out.println("data: "+ value);
+        //  System.out.println("data: "+ value);
 
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
         String aggrKey = ssrc1+ssrc2;
 
-        AvayaPacket existKey = this.kvStore.get(aggrKey);
+        AvayaPacket existPacket = this.kvStore.get(aggrKey);
 
         AvayaPacket result = null;
 
-        if(existKey == null) {
+        if (existPacket == null) {
             result = mainComputationModel.calculatesCallMetric(value,new AvayaPacket());
         } else {
-            result = mainComputationModel.calculatesCallMetric(value,existKey);
+            result = mainComputationModel.calculatesCallMetric(value, existPacket);
         }
 
         this.kvStore.put(aggrKey,result);
 
-        System.out.println("data from store: "+ this.kvStore.get(aggrKey));
+        //  System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
         GenericRecord avroResult = transformer.toEventAvroRecord(result,detailsEventTopic);
 

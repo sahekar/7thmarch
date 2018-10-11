@@ -25,6 +25,8 @@ import org.apache.kafka.streams.test.ConsumerRecordFactory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
@@ -106,6 +108,7 @@ public abstract class BaseKafkaStreamTest {
         record.put("remoteport", 5020);
         record.put("time",5L);
         record.put("hopnamelookup", true);
+        record.put("getcalltime", LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
 
         Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
         GenericRecord senderReport = new GenericData.Record(childSchema1);
@@ -150,6 +153,7 @@ public abstract class BaseKafkaStreamTest {
         record.put("remoteport", 5020);
         record.put("time", 5L);
         record.put("hopnamelookup", true);
+        record.put("getcalltime", LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
 
         Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
         GenericRecord senderReport = new GenericData.Record(childSchema1);

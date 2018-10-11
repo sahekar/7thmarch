@@ -38,6 +38,8 @@ SessionCreatorProcessor implements Processor<String, GenericRecord> {
 
         GenericRecord session = sessionComputationModel.createSession(side1,side2);
 
+        System.out.println("session: " + session.toString());
+
         context.forward(clientId, session );
 
     }
