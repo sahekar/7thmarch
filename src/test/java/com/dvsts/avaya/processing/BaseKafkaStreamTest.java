@@ -140,15 +140,15 @@ public abstract class BaseKafkaStreamTest {
         return record;
     }
 
-    public GenericRecord getInitialAvayaEventSide2() throws IOException, URISyntaxException {
+    public GenericRecord getInitialAvayaEventSide2(String ssrc1, String ssrc2) throws IOException, URISyntaxException {
         String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
 
         Schema schema = new Schema.Parser().parse(schemaString);
         GenericRecord record = new GenericData.Record(schema);
         record.put("clientid", 1L);
         record.put("ip", "12.12.21");
-        record.put("ssrc1", "78846");
-        record.put("ssrc2", "88979");
+        record.put("ssrc1", ssrc1);//
+        record.put("ssrc2", ssrc2); //"88979"
         record.put("subtype", 5);
         record.put("remoteport", 5020);
         record.put("time", 5L);

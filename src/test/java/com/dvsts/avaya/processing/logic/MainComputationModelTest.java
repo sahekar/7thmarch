@@ -1,7 +1,7 @@
 package com.dvsts.avaya.processing.logic;
 
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
 
 // TODO: add here test for private methods;
 public class MainComputationModelTest {
@@ -12,6 +12,12 @@ public class MainComputationModelTest {
    public void checkDoudbleMin(){
 
        // mainComputationModel.
+    }
+
+    @Test
+    public void avgMetrics() {
+
+
     }
 
 }

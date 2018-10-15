@@ -54,15 +54,15 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         System.out.println(now);
     }
 
-
     @Test
     public void simpleSessionCreate() throws IOException, URISyntaxException, InterruptedException {
 
-
+        String ssrc1 = "78846";
+        String ssrc2 = "88979";
         testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
         testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
 
-        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2()));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2(ssrc1, ssrc2)));
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
         GenericRecord result2 = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
         GenericRecord result3 = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
@@ -93,7 +93,25 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
     }
 
     @Test
-    public void simpleWithOneSession() {
+    public void OneSessionCreateWithBiggestSsrc2() throws IOException, URISyntaxException, InterruptedException {
+        String ssrc1 = "78847";
+        String ssrc2 = "88979";
+
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2(ssrc1, ssrc2)));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2(ssrc1, ssrc2)));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2(ssrc1, ssrc2)));
+        GenericRecord result = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+        GenericRecord result2 = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+        GenericRecord result3 = testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();
+
+        assertEquals(result3.get("sessionindex"), "88979788471");
+
+
+    }
+
+    @Test
+    public void avgMetrics() {
+
 
     }
 

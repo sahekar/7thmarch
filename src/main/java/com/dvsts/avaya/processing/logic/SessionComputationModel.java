@@ -10,7 +10,6 @@ import java.util.AbstractMap.SimpleEntry;
 
 public class SessionComputationModel {
 
-
     public GenericRecord createSession(AvayaPacket packet1, AvayaPacket packet2) {
 
         Session session = new Session();
@@ -18,32 +17,39 @@ public class SessionComputationModel {
         final String ssrc2 = packet1.getSsrc2();
 
         String side1Ssrc = determineSide(ssrc1, ssrc2);
+        String sessionIndex = generateSessionId(ssrc1, ssrc2, packet1.getClientId());
 
-        AvayaPacket side1 = null;
-        AvayaPacket side2 = null;
 
-        if (side1Ssrc.equals(packet1.getSsrc1())) {
-            side1 = packet1;
-            side2 = packet2;
+        if (packet2 == null) {
+            oneSession(packet1, session, sessionIndex);
         } else {
-            side1 = packet2;
-            side2 = packet1;
 
+            AvayaPacket side1 = null;
+            AvayaPacket side2 = null;
+
+            if (side1Ssrc.equals(packet1.getSsrc1())) {
+                side1 = packet1;
+                side2 = packet2;
+            } else {
+                side1 = packet2;
+                side2 = packet1;
+
+            }
+
+            bothSession(side1, side2, session, sessionIndex);
+            updateBaseSideData(session, side1, side2);
         }
 
 
-        String sessionIndex = generateSessionId(ssrc1, ssrc2, side1.getClientId());
 
 
-        if (side2 == null) oneSession(side1, session, sessionIndex);
-        else bothSession(side1, side2, session, sessionIndex);
-
-        updateBaseSideData(session, side1, side2);
 
         return session;
     }
 
     private Session bothSession(AvayaPacket side1, AvayaPacket side2, Session session, String sessionIndex) {
+
+
         Long durationSide1 = calculatesDuration(side1.getStartCall());
         Long durationSide2 = 0L;
         durationSide2 = calculatesDuration(side2.getStartCall());
