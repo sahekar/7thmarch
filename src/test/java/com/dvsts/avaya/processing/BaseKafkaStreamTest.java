@@ -112,13 +112,6 @@ public abstract class BaseKafkaStreamTest {
     }
 
     public SpecificRecord getInitialAvayaEventSide1() throws IOException, URISyntaxException {
-        String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
-
-
-
-        Schema schema = new Schema.Parser().parse(schemaString);
-        GenericRecord record = new GenericData.Record(schema);
-
 
         AvayaEvent event = new AvayaEvent();
         event.setClientid(1L);
@@ -159,46 +152,38 @@ public abstract class BaseKafkaStreamTest {
     }
 
     public SpecificRecord getInitialAvayaEventSide2(String ssrc1, String ssrc2) throws IOException, URISyntaxException {
-        String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
-
-        Schema schema = new Schema.Parser().parse(schemaString);
-        GenericRecord record = new GenericData.Record(schema);
-        record.put("clientid", 1L);
-        record.put("ip", "12.12.21");
-        record.put("ssrc1", ssrc1);//
-        record.put("ssrc2", ssrc2); //"88979"
-        record.put("subtype", 5);
-        record.put("remoteport", 5020);
-        record.put("time", 5L);
-        record.put("hopnamelookup", true);
-        record.put("getcalltime", LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
-
-        Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
-        GenericRecord senderReport = new GenericData.Record(childSchema1);
-        senderReport.put("jitter", "75");
-        senderReport.put("loss", "25");
-        senderReport.put("cumulativepktloss", 554);
-        senderReport.put("ehsnr", 75);
-
-
-        Schema childSchema2 = record.getSchema().getField("appSpecificReport").schema().getTypes().get(1);
-        GenericRecord appSpecificReport = new GenericData.Record(childSchema2);
-        appSpecificReport.put("rtd", "78");
-        appSpecificReport.put("payloadtype", "payloadtype2");
-
-        Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
-        System.out.println(childSchema);
-        GenericRecord sourceDescription = new GenericData.Record(childSchema);
-        sourceDescription.put("type", "phone2");
-        sourceDescription.put("name", "test2");
-
-        record.put("senderReport", senderReport);
-        record.put("sourceDescription", sourceDescription);
-        record.put("appSpecificReport", appSpecificReport);
-
-        System.out.println("result: " + record);
 
         AvayaEvent event = new AvayaEvent();
+        event.setClientid(1L);
+        event.setSsrc1(ssrc1);
+        event.setSsrc2(ssrc2);
+        event.setIp("12.12.21");
+        event.setSubtype(5);
+        event.setRemoteport(5020);
+        event.setTime(5L);
+        event.setHopnamelookup(true);
+        event.setGetcalltime(LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
+
+        SenderReport senderReport = new SenderReport();
+
+        senderReport.setJitter("75");
+        senderReport.setLoss("25");
+        senderReport.setCumulativepktloss(554);
+        senderReport.setEhsnr(75);
+
+        AppSpecificReport appSpecificReport = new AppSpecificReport();
+
+        appSpecificReport.setRtd("78");
+        appSpecificReport.setPayloadtype("payloadtype2");
+
+        SourceDescription sourceDescription = new SourceDescription();
+        sourceDescription.setType("phone2");
+        sourceDescription.setName("test2");
+
+        event.setSenderReport(senderReport);
+        event.setSourceDescription(sourceDescription);
+        event.setAppSpecificReport(appSpecificReport);
+
         return event;
     }
 

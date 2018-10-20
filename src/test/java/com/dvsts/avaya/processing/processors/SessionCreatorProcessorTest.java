@@ -7,10 +7,13 @@ import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientExcept
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
@@ -23,13 +26,11 @@ import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSche
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
+/**
+ * TODO: think how to refresh rockdb after finishing test
+ */
 public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
- /*   @Mock
-    private KeyValueStore<String,AvayaPacket> kvStore;
-    @InjectMocks
-    private SessionCreatorProcessor sessionCreatorProcessor;*/
 
     @BeforeEach
     public void setUp() throws IOException, RestClientException, URISyntaxException {
@@ -78,13 +79,11 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
         assertEquals("test1", result.get("name1"));
         assertEquals("test2", result3.get("name2"));
         assertEquals("payloadtype1", result.get("payloadtype1"));
-        assertEquals("payloadtype2", result.get("payloadtype2"));
+        assertEquals("payloadtype2", result3.get("payloadtype2"));
         assertEquals("phone1", result.get("type1"));
-        assertEquals("phone2", result.get("type2"));
+        assertEquals("phone2", result3.get("type2"));
 
-        assertEquals("25", result.get("maxloss"));
-        assertEquals(true, result.get("active"));
-
+        assertEquals("25", result3.get("maxloss"));
         assertEquals(true, result.get("active"));
 
         System.out.println(result.get("duration"));
@@ -116,50 +115,19 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
     }
 
 
-    private GenericRecord createSide1GenericRecord(){
-        Schema schema = new Schema.Parser().parse(outputSchema);
-        GenericRecord record = new GenericData.Record(schema);
-         record.put("id","1234");
-         record.put("ssrc1","564789");
-         record.put("ssrc2","987456");
-        record.put("jitter",1234);
-        record.put("rtd",5);
-        record.put("rtp", 5);
-        record.put("loss",510);
-        record.put("mos",2F);
-        record.put("alarm",5);
-        //Schema childSchema = record.getSchema().getField("friends").schema().getElementType();
 
-        return  record;
-    }
 
-    private Map<String,Object> createPcrfPacket(){
-        Map<String,Object> map = new HashMap<>();
+    @AfterEach
+    public void tearDown() throws IOException {
 
-        map.put("ssrc1","ddd");
-        map.put("ssrc2","fdfdf");
-        map.put("jitter","1L");
-        map.put("rtt","2");
-        map.put("loss","3");
-        map.put("cumulativeloss","4");
-        map.put("time",5L);
-        map.put("lsr","6");
-        map.put("dlsr","7");
-        map.put("codec","fdf");
-        map.put("sr","fdf");
-        map.put("name1","fdf");
-        map.put("name2","fdf");
-        map.put("transpondername","fdf");
-        map.put("type1","fdf");
-        map.put("type2","fdf");
-        map.put("reportedip","fdf");
-        map.put("reportedport","fdf");
-        map.put("owd","fdf");
-        map.put("burstloss","fdf");
-        map.put("burstdensity","fdf");
-        map.put("gaploss","fdf");
-        map.put("gapdensity","8");
+        try{
+            testDriver.close();// Close processors after finish the tests
+        } catch (Exception e) {
+            FileUtils.cleanDirectory(new File("\\tmp\\kafka-streams\\ks-stock-analysis-appid\\"));
 
-        return map;
+        }
+
+
+
     }
 }

@@ -97,6 +97,7 @@ public class SessionComputationModel {
         session.setAvgmos(avgMos);
         session.setAvgrtd(avgRtd);
         session.setIp1(side1.getIp1());
+        session.setActive(true);
 
         session.setName1(side1.getName1());
 

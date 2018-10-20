@@ -27,9 +27,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
 
-
-
-
     @BeforeEach
     public void setUp() throws IOException, RestClientException, URISyntaxException {
 
@@ -37,15 +34,9 @@ public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
 
         String inputSchema = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
 
-
-
         registerSchema(schemaRegistryClient, inputSchema,initialAvayaSourceTopic);
         registerSchema(schemaRegistryClient, outputSchema,detailsEventTopic);
-
-
-
     }
-
 
     @Test
     public void simpleInsertAndOutputEventPrint() throws IOException, URISyntaxException {
@@ -64,47 +55,10 @@ public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
         SpecificRecord record = getInitialAvayaEventSide1();
        testDriver.pipeInput(recordFactory.create(record));
        final   KeyValueStore store =  testDriver.getKeyValueStore(db);
-       AvayaPacket packet1 = (AvayaPacket)  store.get("dddfdfdf");
+       AvayaPacket packet1 = (AvayaPacket)  store.get("8897978846");
 
-        assertEquals("ddd",packet1.getSsrc1());
-
-
+        assertEquals("88979",packet1.getSsrc1());
     }
-
-
-
-
-    private  Map<String,Object> createPcrfPacket(){
-        Map<String,Object> map = new HashMap<>();
-
-        map.put("ssrc1","ddd");
-        map.put("ssrc2","fdfdf");
-        map.put("jitter","1L");
-        map.put("rtt","2");
-        map.put("loss","3");
-        map.put("cumulativeloss","4");
-        map.put("time",5L);
-        map.put("lsr","6");
-        map.put("dlsr","7");
-        map.put("codec","fdf");
-        map.put("sr","fdf");
-        map.put("name1","fdf");
-        map.put("name2","fdf");
-        map.put("transpondername","fdf");
-        map.put("type1","fdf");
-        map.put("type2","fdf");
-        map.put("reportedip","fdf");
-        map.put("reportedport","fdf");
-        map.put("owd","fdf");
-        map.put("burstloss","fdf");
-        map.put("burstdensity","fdf");
-        map.put("gaploss","fdf");
-        map.put("gapdensity","8");
-
-
-        return map;
-    }
-
 
     @AfterEach
     public void tearDown() throws IOException {
@@ -120,9 +74,4 @@ public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
 
     }
 
-  /*  @AfterEach
-    public void tearDown() {
-        testDriver.getStateStore(db).flush();
-        testDriver.close(); // Close processors after finish the tests
-    }*/
 }
