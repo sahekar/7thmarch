@@ -1,5 +1,9 @@
 package com.dvsts.avaya.processing;
 
+import com.dvsts.avaya.core.domain.event.AppSpecificReport;
+import com.dvsts.avaya.core.domain.event.AvayaEvent;
+import com.dvsts.avaya.core.domain.event.SenderReport;
+import com.dvsts.avaya.core.domain.event.SourceDescription;
 import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import com.dvsts.avaya.processing.transformers.SchemaProvider;
@@ -10,9 +14,11 @@ import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientExcept
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
+import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.specific.SpecificRecord;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
@@ -47,10 +53,11 @@ public abstract class BaseKafkaStreamTest {
     public final SchemaRegistryClient schemaRegistryClient = new MockSchemaRegistryClient();
     public  AvroTransformer transformer = new AvroTransformer(schemaRegistryClient());
     public GenericAvroSerializer genericAvroSerializer = new GenericAvroSerializer();
-    public ConsumerRecordFactory<String, GenericRecord> recordFactory;
+    public ConsumerRecordFactory<String, SpecificRecord> recordFactory;
     public TopologyTestDriver testDriver;
 
     public final Serde<GenericRecord> genericAvroSerde = createConfiguredSerdeForRecordValues();
+    public final Serde<SpecificRecord> specificAvroSerde = createConfiguredSpecificAvroSerdeForRecordValues();
     public StringDeserializer stringDeserializer = new StringDeserializer();
 
     public SchemaProvider schemaRegistryClient() {
@@ -65,14 +72,16 @@ public abstract class BaseKafkaStreamTest {
         final Map<String, String> serdeConfig1 = Collections.singletonMap("schema.registry.url","http://fake");
         genericAvroSerializer.configure(serdeConfig1,false);
 
+
+
         Properties properties =new Properties();
         properties.put("kafka.schema.registry.url","fake");
         properties.put("camel.component.kafka.brokers","dat");
 
         TopologySchema topologySchema = new TopologySchema(properties);
-        Topology topology = topologySchema.createTopology(schemaRegistryClient,genericAvroSerde.deserializer(),genericAvroSerde.serializer());
+        Topology topology = topologySchema.createTopology(schemaRegistryClient,specificAvroSerde.deserializer(),specificAvroSerde.serializer());
 
-        recordFactory = new ConsumerRecordFactory<>(initialAvayaSourceTopic,new StringSerializer(),  genericAvroSerde.serializer());
+        recordFactory = new ConsumerRecordFactory<>(initialAvayaSourceTopic,new StringSerializer(),  specificAvroSerde.serializer());
         testDriver = new TopologyTestDriver(topology, props);
 
     }
@@ -85,6 +94,13 @@ public abstract class BaseKafkaStreamTest {
         return serde;
     }
 
+    private  SpecificAvroSerde<SpecificRecord> createConfiguredSpecificAvroSerdeForRecordValues() {
+
+        SpecificAvroSerde<SpecificRecord> serde = new SpecificAvroSerde(schemaRegistryClient);
+        final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url","http://fake");
+        serde.configure(serdeConfig, false);
+        return serde;
+    }
 
 
     public  void registerSchema(SchemaRegistryClient schemaRegistryClient,String schema,String topic) throws IOException, RestClientException {
@@ -95,52 +111,54 @@ public abstract class BaseKafkaStreamTest {
 
     }
 
-    public GenericRecord getInitialAvayaEventSide1() throws IOException, URISyntaxException {
+    public SpecificRecord getInitialAvayaEventSide1() throws IOException, URISyntaxException {
         String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
+
+
 
         Schema schema = new Schema.Parser().parse(schemaString);
         GenericRecord record = new GenericData.Record(schema);
-        record.put("clientid", 1L);
-        record.put("ip", "11.11.21");
-        record.put("ssrc1", "88979");
-        record.put("ssrc2", "78846");
-        record.put("subtype",5);
-        record.put("remoteport", 5020);
-        record.put("time",5L);
-        record.put("hopnamelookup", true);
-        record.put("getcalltime", LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
-
-        Schema childSchema1 = record.getSchema().getField("senderReport").schema().getTypes().get(1);
-        GenericRecord senderReport = new GenericData.Record(childSchema1);
-        senderReport.put("jitter", "55");
-        senderReport.put("loss", "5");
-        senderReport.put("cumulativepktloss", 554);
-        senderReport.put("ehsnr", 75);
 
 
-        Schema childSchema2 = record.getSchema().getField("appSpecificReport").schema().getTypes().get(1);
-        GenericRecord appSpecificReport = new GenericData.Record(childSchema2);
-        appSpecificReport.put("rtd", "45");//sourceDescription
-        appSpecificReport.put("payloadtype", "payloadtype1");
+        AvayaEvent event = new AvayaEvent();
+        event.setClientid(1L);
+        event.setSsrc1("88979");
+        event.setSsrc2("78846");
+        event.setIp("11.11.21");
+        event.setSubtype(5);
+        event.setRemoteport(5020);
+        event.setTime(5L);
+        event.setHopnamelookup(true);
+        event.setGetcalltime(LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
+
+        SenderReport senderReport = new SenderReport();
+
+        senderReport.setJitter("55");
+        senderReport.setLoss("5");
+        senderReport.setCumulativepktloss(554);
+        senderReport.setEhsnr(75);
+
+        AppSpecificReport appSpecificReport = new AppSpecificReport();
+
+        appSpecificReport.setRtd("45");
+        appSpecificReport.setPayloadtype("payloadtype1");
+
+        SourceDescription sourceDescription = new SourceDescription();
+        sourceDescription.setType("phone1");
+        sourceDescription.setName("test1");
 
 
-        Schema childSchema = record.getSchema().getField("sourceDescription").schema().getTypes().get(1);
-        System.out.println(childSchema);
-        GenericRecord sourceDescription = new GenericData.Record(childSchema);
-        sourceDescription.put("type", "phone1");
-        sourceDescription.put("name", "test1");
+        event.setSenderReport(senderReport);
+        event.setSourceDescription(sourceDescription);
+        event.setAppSpecificReport(appSpecificReport);
 
 
-        record.put("senderReport", senderReport);
-        record.put("sourceDescription",sourceDescription);
-        record.put("appSpecificReport", appSpecificReport);
+        System.out.println("result: "+event);
 
-
-        System.out.println("result: "+record);
-        return record;
+        return event;
     }
 
-    public GenericRecord getInitialAvayaEventSide2(String ssrc1, String ssrc2) throws IOException, URISyntaxException {
+    public SpecificRecord getInitialAvayaEventSide2(String ssrc1, String ssrc2) throws IOException, URISyntaxException {
         String schemaString = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
 
         Schema schema = new Schema.Parser().parse(schemaString);
@@ -179,7 +197,9 @@ public abstract class BaseKafkaStreamTest {
         record.put("appSpecificReport", appSpecificReport);
 
         System.out.println("result: " + record);
-        return record;
+
+        AvayaEvent event = new AvayaEvent();
+        return event;
     }
 
     private Properties createKafkaProperties() {

@@ -1,596 +1,302 @@
-{
-  "type": "record",
-  "name": "AvayaEvent",
-  "namespace": "com.dvsts.nextgen.restcameltokafka.domain",
-  "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.Avaya",
-  "fields": [
+{"type" : "record",
+  "name" : "AvayaEvent",
+  "namespace" : "com.dvsts.avaya.core.domain.event",
+  "doc" : "Schema for com.dvsts.avaya.core.domain.event.Avaya",
+  "fields" : [
     {
-      "name": "appSpecificReport",
-      "type": [
-        "null",
-        {
-          "type": "record",
-          "name": "AppSpecificReport",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.AppSpecificReport",
-          "fields": [
-            {
-              "name": "burstdensity",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "burstloss",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "codec",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "echocancellation",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "echotaillength",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "framesize",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "gapdensity",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "gaploss",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "inrtpsrcport",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "intypdestport",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "ipv6flowlabel",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "jitterbufferdelay",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "jitterbufferoverrun",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "jitterbufferunderrun",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "largestsequencefall",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "largestsequencejump",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "maxjitter",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "mediaencryption",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "owd",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "payloadtype",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "remoteipandport",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "remoteipv6address",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "remoteipv6port",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "reportedip",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "reportedport",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rsvpreceiverstatus",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtd",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtp8021d",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtpdscp",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtpoctetcount",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtppacketcount",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtpttl",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "seqfallinstances",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "seqjumpinstances",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "silencesuppression",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "ssrc1",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "ssrc2",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          ]
-        }
-      ]
+      "name" : "appSpecificReport",
+      "type" : [ "null", {
+        "type" : "record",
+        "name" : "AppSpecificReport",
+        "doc" : "Schema for com.dvsts.avaya.core.domain.event.AppSpecificReport",
+        "fields" : [ {
+          "name" : "burstdensity",
+          "type" : [ "null", "string" ]
+        },
+          {
+            "name" : "burstloss",
+            "type" : [ "null", "string" ]
+          },
+          {
+            "name" : "codec",
+            "type" : [ "null", "string" ]
+          },
+          {
+            "name" : "echocancellation",
+            "type" : [ "null", "string" ]
+          },
+          {
+            "name" : "echotaillength",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "framesize",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "gapdensity",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "gaploss",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "inrtpsrcport",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "intypdestport",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "ipv6flowlabel",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "jitterbufferdelay",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "jitterbufferoverrun",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "jitterbufferunderrun",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "largestsequencefall",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "largestsequencejump",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "maxjitter",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "mediaencryption",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "owd",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "payloadtype",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "remoteipandport",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "remoteipv6address",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "remoteipv6port",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "reportedip",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "reportedport",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rsvpreceiverstatus",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rtd",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rtp8021d",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rtpdscp",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rtpoctetcount",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rtppacketcount",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "rtpttl",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "seqfallinstances",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "seqjumpinstances",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "silencesuppression",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "ssrc1",
+            "type" : [ "null", "string" ]
+          }, {
+            "name" : "ssrc2",
+            "type" : [ "null", "string" ]
+          } ]
+      } ]
     },
     {
-      "name": "clientid",
-      "type": "long"
+      "name" : "clientid",
+      "type" : "long"
     },
     {
-      "name": "goodBye",
-      "type": [
-        "null",
-        {
-          "type": "record",
-          "name": "GoodBye",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.GoodBye",
-          "fields": [
-            {
-              "name": "ssrc1",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "type",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          ]
-        }
-      ]
+      "name" : "goodBye",
+      "type" : [ "null", {
+        "type" : "record",
+        "name" : "GoodBye",
+        "doc" : "Schema for com.dvsts.avaya.core.domain.event.GoodBye",
+        "fields" : [ {
+          "name" : "ssrc1",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "type",
+          "type" : [ "null", "string" ]
+        } ]
+      } ]
     },
     {
-      "name": "hopnamelookup",
-      "type": "boolean"
+      "name" : "hopnamelookup",
+      "type" : "boolean"
     },
     {
-      "name": "ip",
-      "type": [
-        "null",
-        "string"
-      ]
+      "name" : "ip",
+      "type" : [ "null", "string" ]
     },
     {
-      "name": "receiverReport",
-      "type": [
-        "null",
-        {
-          "type": "record",
-          "name": "ReceiverReport",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.ReceiverReport",
-          "fields": [
-            {
-              "name": "cumulativeloss",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "cumulativepktloss",
-              "type": "int"
-            },
-            {
-              "name": "dlsr",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "ehsnr",
-              "type": "int"
-            },
-            {
-              "name": "jitter",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "loss",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "lsr",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "pcktlosspct",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          ]
-        }
-      ]
+      "name" : "receiverReport",
+      "type" : [ "null", {
+        "type" : "record",
+        "name" : "ReceiverReport",
+        "doc" : "Schema for com.dvsts.avaya.core.domain.event.ReceiverReport",
+        "fields" : [ {
+          "name" : "cumulativeloss",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "cumulativepktloss",
+          "type" : "int"
+        }, {
+          "name" : "dlsr",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "ehsnr",
+          "type" : "int"
+        }, {
+          "name" : "jitter",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "loss",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "lsr",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "pcktlosspct",
+          "type" : [ "null", "string" ]
+        } ]
+      } ]
     },
     {
-      "name": "remoteport",
-      "type": "int"
+      "name" : "remoteport",
+      "type" : "int"
     },
     {
-      "name": "senderReport",
-      "type": [
-        "null",
-        {
-          "type": "record",
-          "name": "SenderReport",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SenderReport",
-          "fields": [
-            {
-              "name": "cumulativeloss",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "cumulativepktloss",
-              "type": "int"
-            },
-            {
-              "name": "dlsr",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "ehsnr",
-              "type": "int"
-            },
-            {
-              "name": "jitter",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "loss",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "lsr",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "lsw",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "pcktlosspct",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "rtp",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "senderoc",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "senderpc",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "sr",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "ts",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          ]
-        }
-      ]
+      "name" : "senderReport",
+      "type" : [ "null", {
+        "type" : "record",
+        "name" : "SenderReport",
+        "doc" : "Schema for com.dvsts.avaya.core.domain.event.SenderReport",
+        "fields" : [ {
+          "name" : "cumulativeloss",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "cumulativepktloss",
+          "type" : "int"
+        }, {
+          "name" : "dlsr",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "ehsnr",
+          "type" : "int"
+        }, {
+          "name" : "jitter",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "loss",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "lsr",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "lsw",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "pcktlosspct",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "rtp",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "senderoc",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "senderpc",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "sr",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "ts",
+          "type" : [ "null", "string" ]
+        } ]
+      } ]
     },
     {
-      "name": "sourceDescription",
-      "type": [
-        "null",
-        {
-          "type": "record",
-          "name": "SourceDescription",
-          "doc": "Schema for com.dvsts.nextgen.restcameltokafka.domain.SourceDescription",
-          "fields": [
-            {
-              "name": "email",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "fullname",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "loc",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "name",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "note",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "priv",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "tool",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "type",
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            {
-              "name": "username",
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          ]
-        }
-      ]
+      "name" : "sourceDescription",
+      "type" : [ "null", {
+        "type" : "record",
+        "name" : "SourceDescription",
+        "doc" : "Schema for com.dvsts.avaya.core.domain.event.SourceDescription",
+        "fields" : [ {
+          "name" : "email",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "fullname",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "loc",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "name",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "note",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "priv",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "tool",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "type",
+          "type" : [ "null", "string" ]
+        }, {
+          "name" : "username",
+          "type" : [ "null", "string" ]
+        } ]
+      } ]
     },
     {
-      "name": "ssrc1",
-      "type": [
-        "null",
-        "string"
-      ]
+      "name" : "ssrc1",
+      "type" : [ "null", "string" ]
     },
     {
-      "name": "ssrc2",
-      "type": [
-        "null",
-        "string"
-      ]
+      "name" : "ssrc2",
+      "type" : [ "null", "string" ]
     },
     {
-      "name": "subtype",
-      "type": "int"
+      "name" : "subtype",
+      "type" : "int"
     },
     {
-      "name": "time",
-      "type": "long"
+      "name" : "time",
+      "type" : "long"
     },
     {
-      "name": "getcalltime",
-      "type": "long"
+      "name" : "getcalltime",
+      "type" : "long"
     }
   ]
 }

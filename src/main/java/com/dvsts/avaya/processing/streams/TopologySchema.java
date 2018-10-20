@@ -1,5 +1,6 @@
 package com.dvsts.avaya.processing.streams;
 
+import com.dvsts.avaya.core.domain.event.AvayaEvent;
 import com.dvsts.avaya.processing.KafkaStreamsUtils;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.processors.SideCreatorProcessor;
@@ -12,6 +13,7 @@ import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroDeserializer;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerde;
 import io.confluent.kafka.streams.serdes.avro.GenericAvroSerializer;
+import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.*;
 import org.apache.kafka.streams.KafkaStreams;
@@ -55,13 +57,19 @@ public class TopologySchema {
 
 
         GenericAvroDeserializer avroDeserializer = new GenericAvroDeserializer();
+        Deserializer specificAvroDeserializer  =  new SpecificAvroSerde<AvayaEvent>().deserializer();
+
         GenericAvroSerializer avroSerializer = new GenericAvroSerializer();
         final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",schemaRegistry);
         avroDeserializer.configure(serdeConfig,false);
         avroSerializer.configure(serdeConfig,false);
 
+        Serde<AvayaEvent> serdeCustomer = new SpecificAvroSerde<>();
 
-        Topology builder = createTopology(schemaRegistryClient,avroDeserializer,avroSerializer);
+
+        serdeCustomer.configure(serdeConfig,false);
+
+        Topology builder = createTopology(schemaRegistryClient,serdeCustomer.deserializer(),avroSerializer);
 
         KafkaStreams streams = new KafkaStreams(builder,createProps());
 
@@ -78,6 +86,7 @@ public class TopologySchema {
         Processor sideCreatorProcessor = new SideCreatorProcessor(transformer, mainComputationModel);
         Processor sessionFinisherProcessor = new SessionFinisherProcessor(transformer);
         Processor sessionCreator = new SessionCreatorProcessor();
+
 
 
         Topology builder = new Topology();

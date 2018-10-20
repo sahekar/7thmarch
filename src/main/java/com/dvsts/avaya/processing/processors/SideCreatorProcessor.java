@@ -1,5 +1,6 @@
 package com.dvsts.avaya.processing.processors;
 
+import com.dvsts.avaya.core.domain.event.AvayaEvent;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
@@ -20,7 +21,7 @@ import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
  * this processor get the initial pcrf packet from kafka topic  create {@link AvayaPacket (String)} then calculates all metrics
  * save AvayaPacket in embedded RockDB
  */
-public class SideCreatorProcessor implements Processor<String, GenericRecord> {
+public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
 
 
     private ProcessorContext context;
@@ -40,7 +41,7 @@ public class SideCreatorProcessor implements Processor<String, GenericRecord> {
     }
 
     @Override
-    public void process(String key, GenericRecord value) {
+    public void process(String key, AvayaEvent value) {
 
         System.out.println("initial data: "+ value);
 
@@ -108,9 +109,7 @@ public class SideCreatorProcessor implements Processor<String, GenericRecord> {
         packet.setName1(sourceDescription.get("name").toString());
 
 
-        if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
 
-        if( entry.get("rtpDSCP") == null ){ packet.setRtpDSCP("0"); } else { packet.setRtpDSCP("0"); }
 
         packet.setInsertTime(LocalDateTime.now());
 
