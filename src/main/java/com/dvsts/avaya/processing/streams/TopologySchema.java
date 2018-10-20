@@ -2,7 +2,7 @@ package com.dvsts.avaya.processing.streams;
 
 import com.dvsts.avaya.processing.KafkaStreamsUtils;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
-import com.dvsts.avaya.processing.processors.AvayaTransformationProcessor;
+import com.dvsts.avaya.processing.processors.SideCreatorProcessor;
 import com.dvsts.avaya.processing.processors.SessionCreatorProcessor;
 import com.dvsts.avaya.processing.processors.SessionFinisherProcessor;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
@@ -72,10 +72,10 @@ public class TopologySchema {
 
     }
 
-    public Topology createTopology( final SchemaRegistryClient schemaRegistryClient,final Deserializer avroDeserializer,final Serializer avroSerializer){
+    public Topology createTopology( final SchemaRegistryClient schemaRegistryClient,final Deserializer avroDeserializer,final Serializer avroSerializer) {
 
         final AvroTransformer transformer = new AvroTransformer(KafkaStreamsUtils.schemaRegistryClient(schemaRegistryClient));
-        Processor avayaTransformationProcessor = new AvayaTransformationProcessor(transformer, mainComputationModel);
+        Processor sideCreatorProcessor = new SideCreatorProcessor(transformer, mainComputationModel);
         Processor sessionFinisherProcessor = new SessionFinisherProcessor(transformer);
         Processor sessionCreator = new SessionCreatorProcessor();
 
@@ -86,9 +86,9 @@ public class TopologySchema {
 
                 .addSource("Source",new StringDeserializer(),avroDeserializer,initialAvayaSourceTopic)
 
-                .addProcessor(transformationProcessor,  () -> avayaTransformationProcessor,"Source")
+                .addProcessor(transformationProcessor,  () -> sideCreatorProcessor,"Source")
                 .addProcessor(sessionCreatorProcessor,() -> sessionCreator,transformationProcessor)
-              //  .addProcessor(sessionFinisherProcessor,  () -> sessionCreatorProcessor,transformationProcessor) // TODO: add late
+                //  .addProcessor(sessionFinisherProcessor,  () -> sessionCreatorProcessor,transformationProcessor) // TODO: add late
 
                 .addStateStore(initStore(db),transformationProcessor)
 

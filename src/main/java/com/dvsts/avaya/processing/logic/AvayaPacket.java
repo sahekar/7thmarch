@@ -12,15 +12,23 @@ public class  AvayaPacket {
     private String clientId;
     private String status;
     private String callStart;
+    /**
+     * time of current packet
+     */
     private long startCall;
-    private String lastPacket;
+    /**
+     * startCall the previous packet
+     */
+    private long lastTime;
+    private long firstTime;
+    private long lastPacketTime;
     private String ip1;
     private String type1;
     private String name1;
     private String ssrc1;
     private String ssrc2;
     private String pcktLossPct;
-   // private String sessionIndex; //TODO: need to think about this field do we really this data ??
+    // private String sessionIndex; //TODO: need to think about this field do we really this data ??
     private String codec;
     private String payloadType;
     private String payloadTypeText;
@@ -43,11 +51,9 @@ public class  AvayaPacket {
     private long totalMos;
     private double mosAverage;
     private int alarm;
-    private long firstTime;
-    private long lastTime;
     private long totalRtd;
     private double avgRtd;
-    private long lastPacketTime;
+    private String lastPacket;
     private int alert1;
     private int alert2;
     private int alert3;

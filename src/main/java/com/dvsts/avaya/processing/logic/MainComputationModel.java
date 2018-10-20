@@ -25,12 +25,16 @@ public class MainComputationModel {
 
     private static final SimpleDateFormat SDF = new SimpleDateFormat(DEFAULT_FULLDATEFORMAT);
 
-    public AvayaPacket calculatesCallMetric(GenericRecord value, AvayaPacket previousPacket )  {
+
+
+    public AvayaPacket calculatesCallMetric(AvayaPacket packet, AvayaPacket previousPacket )  {
 
         final long currentTime = System.currentTimeMillis();
-        System.out.println((Long) value.get("getcalltime"));
-        final AvayaPacket packet = create(value,"create");
-        if (previousPacket.getStartCall() == 0) packet.setStartCall((Long) value.get("getcalltime"));
+
+
+        if (previousPacket.getStartCall() == 0) {
+            // TODO: add here the code packet.setStartCall((Long) value.get("getcalltime"));
+        }
         final double intervalLoss =0;
         final String catagory = "";   //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
@@ -78,13 +82,13 @@ public class MainComputationModel {
             rtdAverage = ((double) totalRTD) / ((double) totalTime);
         }
 
-       long totalJitter = previousPacket.getTotalJitter() + ((packet.getJitter()) * timeDiff);
+        long totalJitter = previousPacket.getTotalJitter() + ((packet.getJitter()) * timeDiff);
         double jitterAverage = 0d;
         if (totalTime > 0L) {
             jitterAverage = ((double) totalJitter) / ((double) totalTime);
         }
 
-       long  totalMos = previousPacket.getTotalMos() + (long) (mos1 * timeDiff);
+        long  totalMos = previousPacket.getTotalMos() + (long) (mos1 * timeDiff);
 
         double mosAverage = 0d;
         if (totalTime > 0L) {
@@ -120,13 +124,13 @@ public class MainComputationModel {
         packet.setAlert4(alert4Seconds);
         packet.setAlert5(alert5Seconds);
 
-         int maxAlertLevel = packet.getMaxAlert();
+        int maxAlertLevel = packet.getMaxAlert();
 
         if (highestAlertLevel > maxAlertLevel) {
             packet.setMaxAlert(maxAlertLevel);
         }
 
-       // TODO: lool pn this int newAlertLevel = normalization ? ThresholdNormalizationEntry.evaluateCall(alert1Seconds, alert2Seconds, alert3Seconds, alert4Seconds, alert5Seconds) : highestAlertLevel;
+        // TODO: lool pn this int newAlertLevel = normalization ? ThresholdNormalizationEntry.evaluateCall(alert1Seconds, alert2Seconds, alert3Seconds, alert4Seconds, alert5Seconds) : highestAlertLevel;
 
 
         packet.setTotalLoss(totalLoss); // TODO: chech why is long and not int .... also add test
@@ -222,9 +226,9 @@ public class MainComputationModel {
 
     private float calculateMos(AvayaPacket packet) {
 
-         double ila = packet.getLoss();
+        double ila = packet.getLoss();
 
-       // TODO: add late  final String  codec1 = lookupPayloadCodecCode(packet.getPayloadTypeText());
+        // TODO: add late  final String  codec1 = lookupPayloadCodecCode(packet.getPayloadTypeText());
         String codec1 = "18";
 
         if (ila < 0) {
@@ -241,22 +245,22 @@ public class MainComputationModel {
 
     private int rateCall(String category, int rtd, int jitter, int loss, double mos, double intervalLoss) {
 
-            List<QOSThreshold> thresh = null; // TODO: here set a list of category;
-            if (thresh == null) {
-                return 1;
-            }
-            Iterator<QOSThreshold> i = thresh.iterator();
-            int maxAlert = 1;
-            while (i.hasNext()) {
-                QOSThreshold q = i.next();
-                if (q.matches(rtd, jitter, loss, mos, intervalLoss)) {
-                    int alert = q.getAlert();
-                    if (alert > maxAlert) {
-                        maxAlert = alert;
-                    }
+        List<QOSThreshold> thresh = null; // TODO: here set a list of category;
+        if (thresh == null) {
+            return 1;
+        }
+        Iterator<QOSThreshold> i = thresh.iterator();
+        int maxAlert = 1;
+        while (i.hasNext()) {
+            QOSThreshold q = i.next();
+            if (q.matches(rtd, jitter, loss, mos, intervalLoss)) {
+                int alert = q.getAlert();
+                if (alert > maxAlert) {
+                    maxAlert = alert;
                 }
             }
-            return maxAlert;
+        }
+        return maxAlert;
 
     }
 
@@ -270,57 +274,10 @@ public class MainComputationModel {
         return thisNextIndex;
     }
 
-    private AvayaPacket create(GenericRecord entry,String status){
 
-        AvayaPacket packet = new AvayaPacket();
-        packet.setStatus("active");
-
-        packet.setIp1(entry.get("ip").toString());
-
-
-       // packet.setIp1( entry.get("ip").toString());
-        GenericRecord senderReport = (GenericRecord) entry.get("senderReport");
-        GenericRecord appSpecificReport = (GenericRecord) entry.get("appSpecificReport");
-        GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");
-        GenericRecord receiverReport = (GenericRecord) entry.get("receiverReport");
-
-        packet.setSsrc1(entry.get("ssrc1").toString());
-        packet.setSsrc2(entry.get("ssrc2").toString());
-        packet.setClientId(entry.get("clientid").toString());
-
-
-        if (senderReport == null) {
-            packet.setJitter(Integer.parseInt(receiverReport.get("jitter").toString()));
-            packet.setLoss(Integer.parseInt(receiverReport.get("loss").toString()));
-        } else {
-            packet.setJitter(Integer.parseInt(senderReport.get("jitter").toString()));
-            packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
-
-        }
-
-
-
-        packet.setRtd(Integer.parseInt(appSpecificReport.get("rtd").toString()));
-        packet.setPayloadType(appSpecificReport.get("payloadtype").toString());
-
-
-
-        packet.setType1(sourceDescription.get("type").toString());
-        packet.setName1(sourceDescription.get("name").toString());
-
-
-        if(entry.get("pcktLossPct") != null)  packet.setPcktLossPct(entry.get("pcktLossPct").toString());
-
-        if( entry.get("rtpDSCP") == null ){ packet.setRtpDSCP("0"); } else { packet.setRtpDSCP("0"); }
-
-        packet.setInsertTime(LocalDateTime.now());
-
-        return packet;
-
-    }
 
     public static void main(String[] args) {
-          final String[]							AVG_FIELDS					= {
+        final String[]							AVG_FIELDS					= {
                 "firstPacketTime1",																																											// 0
                 "firstPacketTime2",																																											// 1
                 "lastPacketTime1",																																											// 2
@@ -352,7 +309,7 @@ public class MainComputationModel {
                 "maxLoss"																																													// 28
         };
 
-       // System.out.print(AVG_FIELDS[12]);
+        // System.out.print(AVG_FIELDS[12]);
         String al1 = AVG_FIELDS[20];
         String al2 = AVG_FIELDS[21];
         String al3 = AVG_FIELDS[22];

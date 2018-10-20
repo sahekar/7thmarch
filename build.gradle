@@ -1,11 +1,3 @@
-/*
-plugins {
-    id 'java'
-    id 'scala'
-}
-*/
-
-
 apply plugin: 'scala'
 
 group 'com.dvsts'
@@ -17,12 +9,13 @@ repositories {
     mavenCentral()
     jcenter()
     maven { url "http://packages.confluent.io/maven/" }
-
+    maven { url "http://195.201.184.240:8081/artifactory/example-repo-local"}
 
 }
 
 dependencies {
 
+    compile "com.dvsts.avaya:avaya-core:0.1.alfa"
     compile('org.apache.kafka:kafka-streams:2.0.0')
     compile('io.confluent:kafka-streams-avro-serde:5.0.0')
     // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
@@ -38,24 +31,12 @@ dependencies {
     compile 'org.jfree:jfreechart:1.0.14'
 
 
-   /* testCompile group:'org.apache.kafka', name:'kafka-streams', version:'2.0.0', classifier:'test'
-    testCompile group:'org.apache.kafka', name:'kafka-clients', version:'2.0.0', classifier:'test'
-    testCompile (group:'org.apache.kafka', name:'kafka_2.12', version:'2.0.0') {
-        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
-    }*/
-// https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams-test-utils
+
     compile group: 'org.apache.kafka', name: 'kafka-streams-test-utils', version: '2.0.0'
 
-    // https://mvnrepository.com/artifact/commons-io/commons-io
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
 
-/*    testCompile (group:'org.apache.kafka', name:'kafka_2.12', version:'2.0.0', classifier: 'test') {
-        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
-    }*/
-    // compile('org.projectlombok:lombok')
-    // https://mvnrepository.com/artifact/org.projectlombok/lom1.16.20bok
-    //compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
     compile group: 'org.apache.avro', name: 'avro', version: '1.8.2'
     compile('io.confluent:kafka-avro-serializer:4.1.0'){
         exclude module: 'slf4j-log4j12'

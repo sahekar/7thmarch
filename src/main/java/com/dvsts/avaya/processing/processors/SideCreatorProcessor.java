@@ -1,10 +1,10 @@
-package com.dvsts.avaya.processing.transformers;
+package com.dvsts.avaya.processing.processors;
 
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
+import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import org.apache.avro.generic.GenericRecord;
-import org.apache.kafka.streams.KeyValue;
-import org.apache.kafka.streams.kstream.Transformer;
+import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
 import org.apache.kafka.streams.state.KeyValueStore;
 
@@ -14,13 +14,21 @@ import static com.dvsts.avaya.processing.AppConfig.db;
 import static com.dvsts.avaya.processing.AppConfig.detailsEventTopic;
 
 
-public class AvayaPacketTransformer implements Transformer<String, GenericRecord, KeyValue<String, GenericRecord>> {
-    private ProcessorContext context;
-    private KeyValueStore<String,AvayaPacket> kvStore;
-    private final AvroTransformer transformer;
-    private MainComputationModel mainComputationModel;
+/**
+ *
+ * Main purpose is to calculate all needed metric for this avaya event
+ * this processor get the initial pcrf packet from kafka topic  create {@link AvayaPacket (String)} then calculates all metrics
+ * save AvayaPacket in embedded RockDB
+ */
+public class SideCreatorProcessor implements Processor<String, GenericRecord> {
 
-    public AvayaPacketTransformer(AvroTransformer transformer, MainComputationModel mainComputationModel) {
+
+    private ProcessorContext context;
+    private KeyValueStore<String, AvayaPacket> kvStore;
+    private final MainComputationModel mainComputationModel;
+    private final AvroTransformer transformer;
+
+    public SideCreatorProcessor(AvroTransformer transformer, MainComputationModel mainComputationModel) {
         this.transformer = transformer;
         this.mainComputationModel = mainComputationModel;
     }
@@ -32,33 +40,36 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
     }
 
     @Override
-    public KeyValue<String, GenericRecord> transform(String key, GenericRecord value) {
+    public void process(String key, GenericRecord value) {
+
+        System.out.println("initial data: "+ value);
 
         String ssrc1 =  value.get("ssrc1").toString();
         String ssrc2 = value.get("ssrc2").toString();
-        String aggrKey = ssrc1+ssrc2;
-        AvayaPacket existKey = this.kvStore.get(aggrKey);
+        String aggrKey = ssrc1+ssrc2; // TODO: add here cliendId
+
+        AvayaPacket existPacket = this.kvStore.get(aggrKey);
 
         AvayaPacket result = null;
-        final AvayaPacket packet = create(value,"create");
 
-        if(existKey == null) {
-             result = mainComputationModel.calculatesCallMetric(packet,new AvayaPacket());
+        final AvayaPacket initialData = create(value,"create");
+
+        if (existPacket == null) {
+            result = mainComputationModel.calculatesCallMetric(initialData,new AvayaPacket());
         } else {
-             result = mainComputationModel.calculatesCallMetric(packet,existKey);
+            result = mainComputationModel.calculatesCallMetric(initialData, existPacket);
         }
 
         this.kvStore.put(aggrKey,result);
 
-        //E   System.out.println("data from store: "+ this.kvStore.get(aggrKey));
 
         GenericRecord avroResult = transformer.toEventAvroRecord(result,detailsEventTopic);
 
-        return new KeyValue<>(key,avroResult);
+         context.forward(key, avroResult );
     }
 
 
-    private AvayaPacket create(GenericRecord entry,String status){
+    private AvayaPacket create(GenericRecord entry, String status){
 
         AvayaPacket packet = new AvayaPacket();
         packet.setStatus("active");
@@ -106,6 +117,7 @@ public class AvayaPacketTransformer implements Transformer<String, GenericRecord
         return packet;
 
     }
+
 
 
     @Override

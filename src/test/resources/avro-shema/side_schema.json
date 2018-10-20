@@ -1,5 +1,5 @@
 { "type": "record",
-  "name": "avayaSideEvent",
+  "name": "AvayaSideEvent",
   "namespace": "com.dvsts.avaya.processing.domain",
   "doc": "this is a sample avro schema to get you started. please edit",
   "fields": [

@@ -1,6 +1,7 @@
 package com.dvsts.avaya.processing.logic;
 
-import com.dvsts.avaya.processing.domain.Session;
+
+import com.dvsts.avaya.core.domain.session.*;
 import org.apache.avro.generic.GenericRecord;
 
 import java.time.LocalDateTime;

@@ -1,6 +1,7 @@
 package com.dvsts.avaya.processing.transformers;
 
-import com.dvsts.avaya.processing.domain.AvayaSideEvent;
+
+import com.dvsts.avaya.core.domain.session.AvayaSideEvent;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.generic.GenericRecordBuilder;

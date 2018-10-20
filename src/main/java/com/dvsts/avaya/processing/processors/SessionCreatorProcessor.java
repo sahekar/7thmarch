@@ -14,7 +14,7 @@ public class
 SessionCreatorProcessor implements Processor<String, GenericRecord> {
 
     private ProcessorContext context;
-    private KeyValueStore<String,AvayaPacket> kvStore;
+    private KeyValueStore<String, AvayaPacket> kvStore;
     private SessionComputationModel sessionComputationModel = new SessionComputationModel();
 
     @Override
