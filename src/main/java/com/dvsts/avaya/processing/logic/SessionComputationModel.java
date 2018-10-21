@@ -77,7 +77,7 @@ public class SessionComputationModel {
         session.setMaxloss(Math.max(side1.getMaxLoss(), side2.getMaxLoss()) + "");
         session.setMaxrtd(Math.max(side1.getMaxrtd(), side2.getMaxrtd()) + "");
         session.setSessionindex(sessionIndex);
-
+        session.setActive(true);
         session.setDuration(Math.max(durationSide1, durationSide2));
         session.setInsertdata(LocalDateTime.now().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli());
 

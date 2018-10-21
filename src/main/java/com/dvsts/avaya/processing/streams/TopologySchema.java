@@ -57,7 +57,7 @@ public class TopologySchema {
 
 
         GenericAvroDeserializer avroDeserializer = new GenericAvroDeserializer();
-        Deserializer specificAvroDeserializer  =  new SpecificAvroSerde<AvayaEvent>().deserializer();
+
 
         GenericAvroSerializer avroSerializer = new GenericAvroSerializer();
         final Map<String, String> serdeConfig = Collections.singletonMap("schema.registry.url",schemaRegistry);
@@ -84,10 +84,8 @@ public class TopologySchema {
 
         final AvroTransformer transformer = new AvroTransformer(KafkaStreamsUtils.schemaRegistryClient(schemaRegistryClient));
         Processor sideCreatorProcessor = new SideCreatorProcessor(transformer, mainComputationModel);
-        Processor sessionFinisherProcessor = new SessionFinisherProcessor(transformer);
+        Processor sessionFinisher = new SessionFinisherProcessor(transformer);
         Processor sessionCreator = new SessionCreatorProcessor();
-
-
 
         Topology builder = new Topology();
 
@@ -97,16 +95,18 @@ public class TopologySchema {
 
                 .addProcessor(transformationProcessor,  () -> sideCreatorProcessor,"Source")
                 .addProcessor(sessionCreatorProcessor,() -> sessionCreator,transformationProcessor)
-                //  .addProcessor(sessionFinisherProcessor,  () -> sessionCreatorProcessor,transformationProcessor) // TODO: add late
+                .addProcessor(sessionFinisherProcessor,  () -> sessionFinisher,sessionCreatorProcessor)
 
                 .addStateStore(initStore(db),transformationProcessor)
 
                 .addSink("ChangeState",detailsEventTopic,new StringSerializer(),avroSerializer,transformationProcessor)
                 .addSink("session", sessionEventTopic ,new StringSerializer(),avroSerializer, sessionCreatorProcessor)
+                .addSink("session_finisher", sessionEventTopic ,new StringSerializer(),avroSerializer, sessionFinisherProcessor)
 
                 // link store to first processor
                 .connectProcessorAndStateStores(transformationProcessor,db)
-                .connectProcessorAndStateStores(sessionCreatorProcessor,db);
+                .connectProcessorAndStateStores(sessionCreatorProcessor,db)
+                .connectProcessorAndStateStores(sessionFinisherProcessor,db);
 
         return builder;
 

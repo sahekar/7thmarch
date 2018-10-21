@@ -1,6 +1,6 @@
 package com.dvsts.avaya.processing.processors;
 
-import com.dvsts.avaya.core.domain.event.AvayaEvent;
+import com.dvsts.avaya.core.domain.event.*;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
@@ -73,47 +73,37 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
     }
 
 
-    private AvayaPacket create(GenericRecord entry, String status){
+    private AvayaPacket create(AvayaEvent entry, String status){
 
         AvayaPacket packet = new AvayaPacket();
         packet.setStatus("active");
 
-        packet.setIp1(entry.get("ip").toString());
+        packet.setIp1(entry.getIp());
+        packet.setSsrc1(entry.getSsrc1());
+        packet.setSsrc2(entry.getSsrc2());
+        packet.setClientId(entry.getClientid()+"");
 
-
-        // packet.setIp1( entry.get("ip").toString());
-        GenericRecord senderReport = (GenericRecord) entry.get("senderReport");
-        GenericRecord appSpecificReport = (GenericRecord) entry.get("appSpecificReport");
-        GenericRecord sourceDescription = (GenericRecord) entry.get("sourceDescription");
-        GenericRecord receiverReport = (GenericRecord) entry.get("receiverReport");
-
-        packet.setSsrc1(entry.get("ssrc1").toString());
-        packet.setSsrc2(entry.get("ssrc2").toString());
-        packet.setClientId(entry.get("clientid").toString());
-
+        SenderReport senderReport = entry.getSenderReport();
+        AppSpecificReport appSpecificReport = entry.getAppSpecificReport();
+        SourceDescription sourceDescription = entry.getSourceDescription();
+        ReceiverReport receiverReport = new ReceiverReport();
 
         if (senderReport == null) {
-            packet.setJitter(Integer.parseInt(receiverReport.get("jitter").toString()));
-            packet.setLoss(Integer.parseInt(receiverReport.get("loss").toString()));
+            packet.setJitter(Integer.parseInt(senderReport.getJitter()));
+            packet.setLoss(Integer.parseInt(senderReport.getLoss()));
         } else {
             packet.setJitter(Integer.parseInt(senderReport.get("jitter").toString()));
             packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
-
         }
 
 
+        if(appSpecificReport.getRtd() != null) {
+            packet.setRtd(Integer.parseInt(appSpecificReport.getRtd()));
+            packet.setPayloadType(appSpecificReport.getPayloadtype());
+        }
 
-        packet.setRtd(Integer.parseInt(appSpecificReport.get("rtd").toString()));
-        packet.setPayloadType(appSpecificReport.get("payloadtype").toString());
-
-
-
-        packet.setType1(sourceDescription.get("type").toString());
-        packet.setName1(sourceDescription.get("name").toString());
-
-
-
-
+        packet.setType1(sourceDescription.getType());
+        packet.setName1(sourceDescription.getName());
         packet.setInsertTime(LocalDateTime.now());
 
         return packet;
