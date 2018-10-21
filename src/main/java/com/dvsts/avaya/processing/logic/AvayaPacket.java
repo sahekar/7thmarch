@@ -11,9 +11,9 @@ public class  AvayaPacket {
 
     private String clientId;
     private String status;
-    private String callStart;
+
     /**
-     * time of current packet
+     * time of first packet by this side
      */
     private long startCall;
     /**

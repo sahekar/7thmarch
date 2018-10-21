@@ -30,11 +30,6 @@ public class MainComputationModel {
     public AvayaPacket calculatesCallMetric(AvayaPacket packet, AvayaPacket previousPacket )  {
 
         final long currentTime = System.currentTimeMillis();
-
-
-        if (previousPacket.getStartCall() == 0) {
-            // TODO: add here the code packet.setStartCall((Long) value.get("getcalltime"));
-        }
         final double intervalLoss =0;
         final String catagory = "";   //TODO: add here the needing  method to get catagery;
         final float mos1 = calculateMos(packet);
@@ -53,8 +48,8 @@ public class MainComputationModel {
         int maxJitter = previousPacket.getMaxJitter();
         int maxLoss = previousPacket.getMaxLoss();
 
-        long firstTime = (previousPacket.getStartCall() == 0) ? packet.getStartCall() : previousPacket.getStartCall(); // TODO: check this
-        long lastTime = previousPacket.getLastTime();   // TODO: check this
+        long firstTime =packet.getStartCall(); // TODO: check this
+        long lastTime = packet.getLastTime();   // TODO: check this
 
         if(firstTime == 0) firstTimeMill = currentTime;
         else firstTimeMill = firstTime;
@@ -152,33 +147,6 @@ public class MainComputationModel {
     }
 
     private final static AtomicBoolean reload = new AtomicBoolean(true);
-
-    //always called from QOSThread - so we know won't be running in multiple places
-  /*  public  boolean evaluateCall(int alert1, int alert2, int alert3, int alert4, int alert5) {
-
-
-        if (isCallMatch(alert1, alert2, alert3, alert4, alert5)) {
-            return tne.newAlert;
-        }
-        //no adjustments necessary, so just pass it through
-        return 1;
-    }*/
-
-   /* public boolean isCallMatch(int alert1, int alert2, int alert3, int alert4, int alert5) {
-
-        int seconds = 0;
-        if (currentAlert.equals("5")) seconds = alert5;
-        if (currentAlert.equals("4")) seconds = alert4;
-        if (currentAlert.equals("3")) seconds = alert3;
-        if (currentAlert.equals("2")) seconds = alert2;
-        if (currentAlert.equals("1")) seconds = alert1;
-
-        if (seconds < secondsRequired) {
-            return false;
-        }
-
-        return true;
-    }*/
 
     private String lookupPayloadCodecCode(String input) {
         if (input.equals("0")) {

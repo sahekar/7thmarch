@@ -56,8 +56,11 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
         final AvayaPacket initialData = create(value,"create");
 
         if (existPacket == null) {
+            initialData.setStartCall(System.currentTimeMillis());
             result = mainComputationModel.calculatesCallMetric(initialData,new AvayaPacket());
         } else {
+            initialData.setLastTime(existPacket.getStartCall());
+            initialData.setStartCall(existPacket.getStartCall());
             result = mainComputationModel.calculatesCallMetric(initialData, existPacket);
         }
 
