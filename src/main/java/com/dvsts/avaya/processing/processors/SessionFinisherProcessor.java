@@ -47,21 +47,27 @@ public class SessionFinisherProcessor implements Processor<String, GenericRecord
                 KeyValue<String, AvayaPacket> entry = iter.next();
                 System.out.println("get entry for calculation d_uration: "+entry.value);
                 //  if(entry.value.getInsertTime() == null) kvStore.delete(entry.key); // TODO: remove it only for testing
-                  final AvayaPacket side1 = entry.value;
+                   final AvayaPacket side1 = entry.value;
+                   final String side2Key = side1.getSsrc2()+side1.getSsrc1();
+                   final AvayaPacket side2 = this.kvStore.get(side2Key);
 
-                 long seconds = Duration.between(side1.getInsertTime(), LocalDateTime.now()).getSeconds();
+                 long secondsSide1 = Duration.between(side1.getInsertTime(), LocalDateTime.now()).getSeconds();
+                 long secondsSide2 = 100;
 
-                 if(seconds >= 20){
+                 if(side2 != null) {
+                      secondsSide2 = Duration.between(side2.getInsertTime(), LocalDateTime.now()).getSeconds();
+                 }
+
+
+                 if(secondsSide1 >= 20 && secondsSide2 >= 20 ){
                      //TODO: create and send a session here
-                     String side2Key = side1.getSsrc2()+side1.getSsrc1();
-                     final AvayaPacket side2 = this.kvStore.get(side2Key);
 
                     GenericRecord session =  sessionComputationModel.createSession(side1,side2);
                     session.put("active",false);
                     kvStore.delete(entry.key);
 
                      context.forward("gg",session);
-                     System.out.println(seconds);
+                     System.out.println(secondsSide1);
                  }
 
 
