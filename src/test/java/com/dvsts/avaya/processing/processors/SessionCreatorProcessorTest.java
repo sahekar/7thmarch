@@ -1,11 +1,11 @@
 package com.dvsts.avaya.processing.processors;
 
 
+import com.dvsts.avaya.core.domain.event.AvayaEvent;
+import com.dvsts.avaya.core.domain.session.AvayaSideEvent;
+import com.dvsts.avaya.core.domain.session.Session;
 import com.dvsts.avaya.processing.BaseKafkaStreamTest;
-import com.dvsts.avaya.processing.utils.JsonUtils;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
-import org.apache.avro.Schema;
-import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterEach;
@@ -18,11 +18,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.dvsts.avaya.processing.AppConfig.*;
-import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -38,9 +35,9 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
         init();
 
-        String inputSchema = JsonUtils.getJsonString("/avro-shema/initial_avaya_event_avro_schema.json");
-        String sideSchema = JsonUtils.getJsonString("/avro-shema/side_schema.json");
-        String sessionSchema = JsonUtils.getJsonString("/avro-shema/session_schema.json");
+        String inputSchema = AvayaEvent.getClassSchema().toString(true);
+        String sideSchema = AvayaSideEvent.getClassSchema().toString(true);
+        String sessionSchema = Session.getClassSchema().toString(true);
 
 
         registerSchema(schemaRegistryClient, inputSchema,initialAvayaSourceTopic);
@@ -60,8 +57,8 @@ public class SessionCreatorProcessorTest extends BaseKafkaStreamTest {
 
         String ssrc1 = "78846";
         String ssrc2 = "88979";
-        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
-        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide1()));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventWindSenderReportSide1()));
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventWindSenderReportSide1()));
 
         testDriver.pipeInput(recordFactory.create(getInitialAvayaEventSide2(ssrc1, ssrc2)));
         GenericRecord result =  testDriver.readOutput(sessionEventTopic, stringDeserializer, genericAvroSerde.deserializer()).value();

@@ -41,34 +41,7 @@ public class AvroTransformer {
 		return recordBuilder.build();
 	}
 
-	public GenericRecord toEventAvroRecord(AvayaPacket data, String subject)  {
-	/*	GenericRecordBuilder recordBuilder = new GenericRecordBuilder(schemaProvider.getSchema(subject + "-value"));
 
-		long now = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
-		System.out.println(data.getSsrc1()+data.getSsrc2()+ now);
-
-	//	recordBuilder.set("ssrc1",toSupportedType(data.getSsrc1()));
-	//	recordBuilder.set("ssrc2",toSupportedType(data.getSsrc2()));
-		recordBuilder.set("jitter",toSupportedType(data.getJitter()));
-		recordBuilder.set("rtd",toSupportedType(data.getRtd()));
-		recordBuilder.set("loss",toSupportedType(data.getLoss()));
-		recordBuilder.set("mos",toSupportedType(data.getMos1()));
-		recordBuilder.set("alarm",toSupportedType(data.getAlarm()));
-		recordBuilder.set("client_id",toSupportedType(data.getClientId()));
-		//recordBuilder.set("maxJitter",toSupportedType(data.getMaxJitter()));
-		//recordBuilder.set("totalJitter",toSupportedType(data.getMaxJitter()));
-
-		return recordBuilder.build();*/
-
-		AvayaSideEvent event = new AvayaSideEvent();
-
-		event.setSsrc1(data.getSsrc1());
-		event.setSsrc2(data.getSsrc2());
-		event.setClientId(data.getClientId());
-
-		return event;
-
-	}
 
 
 	public GenericRecord toSessionAvroRecord(AvayaPacket side1, String subject)  {

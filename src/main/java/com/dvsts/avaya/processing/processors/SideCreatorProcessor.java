@@ -1,6 +1,7 @@
 package com.dvsts.avaya.processing.processors;
 
 import com.dvsts.avaya.core.domain.event.*;
+import com.dvsts.avaya.core.domain.session.AvayaSideEvent;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.MainComputationModel;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
@@ -64,10 +65,10 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
             result = mainComputationModel.calculatesCallMetric(initialData, existPacket);
         }
 
-        this.kvStore.put(aggrKey,result);
+         this.kvStore.put(aggrKey,result);
 
 
-        GenericRecord avroResult = transformer.toEventAvroRecord(result,detailsEventTopic);
+        AvayaSideEvent avroResult = toAvayaSideEvent(result);
 
          context.forward(key, avroResult );
     }
@@ -83,12 +84,19 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
         packet.setSsrc2(entry.getSsrc2());
         packet.setClientId(entry.getClientid()+"");
 
+
+
+
+
+
+
+
         SenderReport senderReport = entry.getSenderReport();
         AppSpecificReport appSpecificReport = entry.getAppSpecificReport();
         SourceDescription sourceDescription = entry.getSourceDescription();
         ReceiverReport receiverReport = new ReceiverReport();
 
-        if (senderReport == null) {
+        if (senderReport != null) {
             packet.setJitter(Integer.parseInt(senderReport.getJitter()));
             packet.setLoss(Integer.parseInt(senderReport.getLoss()));
         } else {
@@ -110,6 +118,22 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
 
     }
 
+    private AvayaSideEvent toAvayaSideEvent(AvayaPacket data){
+
+            AvayaSideEvent event = new AvayaSideEvent();
+
+            event.setSsrc1(data.getSsrc1());
+            event.setSsrc2(data.getSsrc2());
+            event.setClientId(data.getClientId());
+            event.setJitter(data.getJitter());
+            event.setRtd(data.getRtd());
+            event.setLoss(data.getRtd());
+            event.setMos(data.getMos1());
+            event.setAlarm(data.getAlarm());
+
+
+            return event;
+    }
 
 
     @Override

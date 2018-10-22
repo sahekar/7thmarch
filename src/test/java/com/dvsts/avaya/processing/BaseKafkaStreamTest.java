@@ -111,7 +111,7 @@ public abstract class BaseKafkaStreamTest {
 
     }
 
-    public SpecificRecord getInitialAvayaEventSide1() throws IOException, URISyntaxException {
+    public SpecificRecord getInitialAvayaEventWindSenderReportSide1() throws IOException, URISyntaxException {
 
         AvayaEvent event = new AvayaEvent();
         event.setClientid(1L);

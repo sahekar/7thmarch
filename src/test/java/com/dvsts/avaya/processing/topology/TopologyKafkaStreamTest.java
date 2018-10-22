@@ -5,8 +5,6 @@ import com.dvsts.avaya.processing.BaseKafkaStreamTest;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.utils.JsonUtils;
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
-import org.apache.avro.generic.GenericRecord;
-import org.apache.avro.specific.SpecificData;
 import org.apache.avro.specific.SpecificRecord;
 import org.apache.commons.io.FileUtils;
 import org.apache.kafka.streams.state.KeyValueStore;
@@ -17,11 +15,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.dvsts.avaya.processing.AppConfig.*;
-import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.inputSchema;
 import static com.dvsts.avaya.processing.config.KafkaStreamConfigTest.outputSchema;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -41,7 +36,7 @@ public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
     @Test
     public void simpleInsertAndOutputEventPrint() throws IOException, URISyntaxException {
 
-        SpecificRecord record = getInitialAvayaEventSide1();
+        SpecificRecord record = getInitialAvayaEventWindSenderReportSide1();
 
         testDriver.pipeInput(recordFactory.create(record));
         AvayaSideEvent result = (AvayaSideEvent) testDriver.readOutput(detailsEventTopic, stringDeserializer, specificAvroSerde.deserializer()).value();
@@ -52,7 +47,7 @@ public class TopologyKafkaStreamTest extends BaseKafkaStreamTest {
 
     @Test
     public void stateStoreSimpleInsertOutputPrint() throws IOException, URISyntaxException {
-        SpecificRecord record = getInitialAvayaEventSide1();
+        SpecificRecord record = getInitialAvayaEventWindSenderReportSide1();
        testDriver.pipeInput(recordFactory.create(record));
        final   KeyValueStore store =  testDriver.getKeyValueStore(db);
        AvayaPacket packet1 = (AvayaPacket)  store.get("8897978846");
