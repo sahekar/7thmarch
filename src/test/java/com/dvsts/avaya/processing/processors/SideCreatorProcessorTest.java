@@ -42,7 +42,7 @@ public class SideCreatorProcessorTest extends BaseKafkaStreamTest {
 
 
     @Test
-    public void checkIfWhenGetSenderReport() throws IOException, URISyntaxException, InterruptedException {
+    public void checkIfWhenGetSenderReportCorrect() throws IOException, URISyntaxException, InterruptedException {
 
         testDriver.pipeInput(recordFactory.create(getInitialAvayaEventWindSenderReportSide1()));
 
@@ -51,6 +51,18 @@ public class SideCreatorProcessorTest extends BaseKafkaStreamTest {
         assertEquals(new Integer(55),result.getJitter());
 
     }
+
+    @Test
+    public void checkIfWhenGetReceiverReportCorrect() throws IOException, URISyntaxException, InterruptedException {
+
+        testDriver.pipeInput(recordFactory.create(getInitialAvayaEventWithReceiverReportSide1()));
+
+        AvayaSideEvent result = (AvayaSideEvent)  testDriver.readOutput(detailsEventTopic, stringDeserializer, specificAvroSerde.deserializer()).value();
+
+        assertEquals(new Integer(85),result.getJitter());
+
+    }
+
 
     @AfterEach
     public void tearDown() throws IOException {

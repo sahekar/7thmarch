@@ -1,9 +1,6 @@
 package com.dvsts.avaya.processing;
 
-import com.dvsts.avaya.core.domain.event.AppSpecificReport;
-import com.dvsts.avaya.core.domain.event.AvayaEvent;
-import com.dvsts.avaya.core.domain.event.SenderReport;
-import com.dvsts.avaya.core.domain.event.SourceDescription;
+import com.dvsts.avaya.core.domain.event.*;
 import com.dvsts.avaya.processing.streams.TopologySchema;
 import com.dvsts.avaya.processing.transformers.AvroTransformer;
 import com.dvsts.avaya.processing.transformers.SchemaProvider;
@@ -142,6 +139,46 @@ public abstract class BaseKafkaStreamTest {
 
 
         event.setSenderReport(senderReport);
+        event.setSourceDescription(sourceDescription);
+        event.setAppSpecificReport(appSpecificReport);
+
+
+        System.out.println("result: "+event);
+
+        return event;
+    }
+
+    public SpecificRecord getInitialAvayaEventWithReceiverReportSide1() throws IOException, URISyntaxException {
+
+        AvayaEvent event = new AvayaEvent();
+        event.setClientid(1L);
+        event.setSsrc1("88979");
+        event.setSsrc2("78846");
+        event.setIp("11.11.21");
+        event.setSubtype(5);
+        event.setRemoteport(5020);
+        event.setTime(5L);
+        event.setHopnamelookup(true);
+        event.setGetcalltime(LocalDateTime.now().minusSeconds(25).toEpochSecond(ZoneOffset.UTC));
+
+        ReceiverReport receiverReport = new ReceiverReport();
+
+        receiverReport.setJitter("85");
+        receiverReport.setLoss("19");
+        receiverReport.setCumulativepktloss(778);
+        receiverReport.setEhsnr(998);
+
+        AppSpecificReport appSpecificReport = new AppSpecificReport();
+
+        appSpecificReport.setRtd("45");
+        appSpecificReport.setPayloadtype("payloadtype1");
+
+        SourceDescription sourceDescription = new SourceDescription();
+        sourceDescription.setType("phone1");
+        sourceDescription.setName("test1");
+
+
+        event.setReceiverReport(receiverReport);
         event.setSourceDescription(sourceDescription);
         event.setAppSpecificReport(appSpecificReport);
 

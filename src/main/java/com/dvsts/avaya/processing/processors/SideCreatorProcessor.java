@@ -94,14 +94,14 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
         SenderReport senderReport = entry.getSenderReport();
         AppSpecificReport appSpecificReport = entry.getAppSpecificReport();
         SourceDescription sourceDescription = entry.getSourceDescription();
-        ReceiverReport receiverReport = new ReceiverReport();
+        ReceiverReport receiverReport = entry.getReceiverReport();
 
         if (senderReport != null) {
             packet.setJitter(Integer.parseInt(senderReport.getJitter()));
             packet.setLoss(Integer.parseInt(senderReport.getLoss()));
         } else {
-            packet.setJitter(Integer.parseInt(senderReport.get("jitter").toString()));
-            packet.setLoss(Integer.parseInt(senderReport.get("loss").toString()));
+            packet.setJitter(Integer.parseInt(receiverReport.getJitter()));
+            packet.setLoss(Integer.parseInt(receiverReport.getLoss()));
         }
 
 
