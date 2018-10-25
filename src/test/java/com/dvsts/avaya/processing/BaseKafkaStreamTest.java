@@ -123,8 +123,8 @@ public abstract class BaseKafkaStreamTest {
 
         SenderReport senderReport = new SenderReport();
 
-        senderReport.setJitter("55");
-        senderReport.setLoss("5");
+        senderReport.setJitter(55);
+        senderReport.setLoss(5);
         senderReport.setCumulativepktloss(554);
         senderReport.setEhsnr(75);
 
@@ -163,8 +163,8 @@ public abstract class BaseKafkaStreamTest {
 
         ReceiverReport receiverReport = new ReceiverReport();
 
-        receiverReport.setJitter("85");
-        receiverReport.setLoss("19");
+        receiverReport.setJitter(85);
+        receiverReport.setLoss(19);
         receiverReport.setCumulativepktloss(778);
         receiverReport.setEhsnr(998);
 
@@ -203,8 +203,8 @@ public abstract class BaseKafkaStreamTest {
 
         SenderReport senderReport = new SenderReport();
 
-        senderReport.setJitter("75");
-        senderReport.setLoss("25");
+        senderReport.setJitter(75);
+        senderReport.setLoss(25);
         senderReport.setCumulativepktloss(554);
         senderReport.setEhsnr(75);
 

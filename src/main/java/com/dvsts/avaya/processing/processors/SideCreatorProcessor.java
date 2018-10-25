@@ -84,27 +84,35 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
         packet.setSsrc2(entry.getSsrc2());
         packet.setClientId(entry.getClientid()+"");
 
-
-
-
-
-
-
-
         SenderReport senderReport = entry.getSenderReport();
         AppSpecificReport appSpecificReport = entry.getAppSpecificReport();
         SourceDescription sourceDescription = entry.getSourceDescription();
         ReceiverReport receiverReport = entry.getReceiverReport();
 
+
+        //TODO: need to remove this only as temprorary hack to get oporntunity to test
+       // if(senderReport != null  && senderReport.getJitter() ==null )
+
+
         if (senderReport != null) {
-            packet.setJitter(Integer.parseInt(senderReport.getJitter()));
-            packet.setLoss(Integer.parseInt(senderReport.getLoss()));
+
+             int jitter = senderReport.getJitter() == null ? 0: senderReport.getJitter();
+             int loss = senderReport.getLoss() == null ? 0: senderReport.getLoss();
+
+            packet.setJitter(jitter);
+            packet.setLoss(loss);
+
         } else {
-            packet.setJitter(Integer.parseInt(receiverReport.getJitter()));
-            packet.setLoss(Integer.parseInt(receiverReport.getLoss()));
+
+            int jitter = receiverReport.getJitter() == null ? 0: receiverReport.getJitter();
+            int loss = receiverReport.getLoss() == null ? 0: receiverReport.getLoss();
+
+            packet.setJitter(jitter);
+            packet.setLoss(loss);
         }
 
 
+        // TODO: add here a correct parcing fot type5 or type4
         if(appSpecificReport.getRtd() != null) {
             packet.setRtd(Integer.parseInt(appSpecificReport.getRtd()));
             packet.setPayloadType(appSpecificReport.getPayloadtype());

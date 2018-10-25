@@ -35,28 +35,31 @@
     "seqfallinstances": null,
     "seqjumpinstances": null,
     "silencesuppression": null,
-    "ssrc1": "538448356",
-    "ssrc2": "1603278409"
+    "ssrc1": "721095808",
+    "ssrc2": "1062357290"
   },
   "clientid": 1,
-  "goodBye": {
-    "ssrc1": null,
-    "type": "1"
-  },
+  "goodBye": null,
   "hopnamelookup": true,
   "ip": "localhost",
-  "receiverReport": {
-    "cumulativeloss": "0",
-    "cumulativepktloss": 0,
-    "dlsr": "197132",
-    "ehsnr": 28890,
-    "jitter": "40",
-    "loss": "0",
-    "lsr": "294982898",
-    "pcktlosspct": "0"
-  },
+  "receiverReport": null,
   "remoteport": 4444,
-  "senderReport": null,
+  "senderReport": {
+    "cumulativeloss": null,
+    "cumulativepktloss": 0,
+    "dlsr": null,
+    "ehsnr": 0,
+    "jitter": null,
+    "loss": null,
+    "lsr": null,
+    "lsw": "1838284800",
+    "pcktlosspct": null,
+    "rtp": "0",
+    "senderoc": "681120",
+    "senderpc": "4257",
+    "sr": null,
+    "ts": "38367"
+  },
   "sourceDescription": {
     "email": null,
     "fullname": "gwp@10.65.0.40",
@@ -68,9 +71,9 @@
     "type": null,
     "username": null
   },
-  "ssrc1": "538448356",
-  "ssrc2": "1603278409",
-  "subtype": 1,
-  "time": 261744276446035,
-  "getcalltime": 1540108455635
+  "ssrc1": "721095808",
+  "ssrc2": "1062357290",
+  "subtype": 5,
+  "time": 369629140645998,
+  "getcalltime": 1540216340495
 }

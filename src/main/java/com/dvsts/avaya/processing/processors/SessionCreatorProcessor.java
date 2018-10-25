@@ -1,5 +1,6 @@
 package com.dvsts.avaya.processing.processors;
 
+import com.dvsts.avaya.core.domain.session.Session;
 import com.dvsts.avaya.processing.logic.AvayaPacket;
 import com.dvsts.avaya.processing.logic.SessionComputationModel;
 import org.apache.avro.generic.GenericRecord;
@@ -36,7 +37,12 @@ SessionCreatorProcessor implements Processor<String, GenericRecord> {
         AvayaPacket side2 = this.kvStore.get(aggrkeySide2);
 
 
-        GenericRecord session = sessionComputationModel.createSession(side1,side2);
+        Session session = sessionComputationModel.createSession(side1,side2);
+
+        if(session.getActive() == null) {
+
+            System.out.println("");
+        }
 
         System.out.println("session: " + session.toString());
 

@@ -52,7 +52,7 @@ public class SessionFinisherProcessor implements Processor<String, GenericRecord
                    final AvayaPacket side2 = this.kvStore.get(side2Key);
 
                  long secondsSide1 = Duration.between(side1.getInsertTime(), LocalDateTime.now()).getSeconds();
-                 long secondsSide2 = 100;
+                 long secondsSide2 = 0;
 
                  if(side2 != null) {
                       secondsSide2 = Duration.between(side2.getInsertTime(), LocalDateTime.now()).getSeconds();
@@ -65,6 +65,10 @@ public class SessionFinisherProcessor implements Processor<String, GenericRecord
                     GenericRecord session =  sessionComputationModel.createSession(side1,side2);
                     session.put("active",false);
                     kvStore.delete(entry.key);
+
+                    if(((Session) session).getSsrc1() == null) {
+                        System.out.println();
+                    }
 
                      context.forward("gg",session);
                      System.out.println(secondsSide1);

@@ -11,7 +11,7 @@ import java.util.AbstractMap.SimpleEntry;
 
 public class SessionComputationModel {
 
-    public GenericRecord createSession(AvayaPacket packet1, AvayaPacket packet2) {
+    public Session createSession(AvayaPacket packet1, AvayaPacket packet2) {
 
         Session session = new Session();
         final String ssrc1 = packet1.getSsrc1();
@@ -37,8 +37,9 @@ public class SessionComputationModel {
 
             }
 
+
+
             bothSession(side1, side2, session, sessionIndex);
-            updateBaseSideData(session, side1, side2);
         }
 
 
@@ -55,7 +56,8 @@ public class SessionComputationModel {
         Long durationSide2 = 0L;
         durationSide2 = calculatesDuration(side2.getStartCall());
 
-
+        session.setSsrc1(side1.getSsrc1());
+        session.setSsrc2(side1.getSsrc2());
         String avgLoss = ((side1.getAvgLoss() + side2.getAvgLoss()) / 2) + "";
         String avgJitter = ((side1.getAvgJitter() + side2.getAvgJitter()) / 2) + "";
         String avgMos = ((side1.getMosAverage() + side2.getMosAverage()) / 2) + "";
@@ -87,7 +89,8 @@ public class SessionComputationModel {
     private Session oneSession(AvayaPacket side1, Session session, String sessionIndex) {
         Long durationSide1 = calculatesDuration(side1.getStartCall());
 
-
+        session.setSsrc1(side1.getSsrc1());
+        session.setSsrc2(side1.getSsrc2());
         String avgLoss = ((side1.getAvgLoss())) + "";
         String avgJitter = ((side1.getAvgJitter())) + "";
         String avgMos = ((side1.getMosAverage())) + "";
@@ -117,14 +120,7 @@ public class SessionComputationModel {
         return session;
     }
 
-    private void updateBaseSideData(Session session,AvayaPacket side1,AvayaPacket side2){
 
-        session.setAlert(session.getAlert1());
-        session.setAlert(session.getAlert());
-        session.setSsrc1(side1.getSsrc1());
-        session.setSsrc2(side1.getSsrc2());
-        session.setActive(true);
-    }
 
     String determineSide(String ssrc1, String ssrc2) {
         if (ssrc1.compareTo(ssrc2) > 0) {

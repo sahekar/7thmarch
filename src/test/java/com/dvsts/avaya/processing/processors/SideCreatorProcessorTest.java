@@ -40,7 +40,6 @@ public class SideCreatorProcessorTest extends BaseKafkaStreamTest {
 
     }
 
-
     @Test
     public void checkIfWhenGetSenderReportCorrect() throws IOException, URISyntaxException, InterruptedException {
 
@@ -62,7 +61,6 @@ public class SideCreatorProcessorTest extends BaseKafkaStreamTest {
         assertEquals(new Integer(85),result.getJitter());
 
     }
-
 
     @AfterEach
     public void tearDown() throws IOException {

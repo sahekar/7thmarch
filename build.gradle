@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
 
-    compile "com.dvsts.avaya:avaya-core:0.1.alfa"
+    compile "com.dvsts.avaya:avaya-core:0.2.alfa"
     compile('org.apache.kafka:kafka-streams:2.0.0')
     compile('io.confluent:kafka-streams-avro-serde:5.0.0')
     // https://mvnrepository.com/artifact/ch.qos.logback/logback-core
