@@ -1,5 +1,6 @@
 package com.dvsts.avaya.processing.logic;
 
+import com.dvsts.avaya.core.domain.session.Session;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +10,7 @@ public class SessionComputationModelTest {
     private SessionComputationModel sessionComputationModel = new SessionComputationModel();
 
     @Test
-    public void sessionCreate(){
+    public void generateSessionId(){
 
         String ssrc1 = "564789";
         String ssrc2 = "987456";
@@ -34,4 +35,29 @@ public class SessionComputationModelTest {
         String ssrc2 = "44444";
         assertEquals(ssrc2, sessionComputationModel.determineSide(ssrc1, ssrc2));
     }
+
+
+    @Test
+    public void createSessionWithOneSide(){
+
+      Session session =  sessionComputationModel.createSession(createAvayaPacketSide1(),null);
+
+       assertEquals("12345",session.getSsrc1());
+       assertEquals("6789123451",session.getSessionindex());
+
+    }
+
+
+    private AvayaPacket createAvayaPacketSide1(){
+        AvayaPacket packet = new AvayaPacket();
+
+        packet.setClientId("1");
+        packet.setSsrc1("12345");
+        packet.setSsrc2("6789");
+        packet.setAvgJitter(5.55d);
+
+
+        return  packet;
+    }
+
 }

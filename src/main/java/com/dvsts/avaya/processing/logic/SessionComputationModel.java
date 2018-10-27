@@ -22,7 +22,8 @@ public class SessionComputationModel {
 
 
         if (packet2 == null) {
-           return oneSession(packet1, session, sessionIndex);
+
+           return bothSession(packet1,new AvayaPacket(), session, sessionIndex);
         } else {
 
             AvayaPacket side1 = null;
@@ -51,13 +52,13 @@ public class SessionComputationModel {
 
     private Session bothSession(AvayaPacket side1, AvayaPacket side2, Session session, String sessionIndex) {
 
-
         Long durationSide1 = calculatesDuration(side1.getStartCall());
         Long durationSide2 = 0L;
         durationSide2 = calculatesDuration(side2.getStartCall());
 
         session.setSsrc1(side1.getSsrc1());
         session.setSsrc2(side1.getSsrc2());
+
         String avgLoss = ((side1.getAvgLoss() + side2.getAvgLoss()) / 2) + "";
         String avgJitter = ((side1.getAvgJitter() + side2.getAvgJitter()) / 2) + "";
         String avgMos = ((side1.getMosAverage() + side2.getMosAverage()) / 2) + "";
@@ -66,21 +67,28 @@ public class SessionComputationModel {
         session.setAvgjitter(avgJitter);
         session.setAvgmos(avgMos);
         session.setAvgrtd(avgRtd);
+
         session.setIp1(side1.getIp1());
         session.setIp2(side2.getIp1());
+
         session.setName1(side1.getName1());
         session.setName2(side2.getName1());
+
         session.setPayloadtype1(side1.getPayloadType());
         session.setPayloadtype2(side2.getPayloadType());
+
         session.setType1(side1.getType1());
         session.setType2(side2.getType1());
+
         session.setMinmos(Math.min(side1.getMos1(), side2.getMos1()) + "");
+
         session.setMaxjitter(Math.max(side1.getMaxJitter(), side2.getMaxJitter()) + "");
         session.setMaxloss(Math.max(side1.getMaxLoss(), side2.getMaxLoss()) + "");
         session.setMaxrtd(Math.max(side1.getMaxrtd(), side2.getMaxrtd()) + "");
         session.setSessionindex(sessionIndex);
         session.setActive(true);
         session.setDuration(Math.max(durationSide1, durationSide2));
+
         session.setInsertdata(LocalDateTime.now().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli());
 
         return session;
