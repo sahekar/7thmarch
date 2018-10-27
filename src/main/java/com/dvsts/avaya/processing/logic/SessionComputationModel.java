@@ -22,7 +22,7 @@ public class SessionComputationModel {
 
 
         if (packet2 == null) {
-            oneSession(packet1, session, sessionIndex);
+           return oneSession(packet1, session, sessionIndex);
         } else {
 
             AvayaPacket side1 = null;
@@ -39,14 +39,14 @@ public class SessionComputationModel {
 
 
 
-            bothSession(side1, side2, session, sessionIndex);
+         return    bothSession(side1, side2, session, sessionIndex);
         }
 
 
 
 
 
-        return session;
+
     }
 
     private Session bothSession(AvayaPacket side1, AvayaPacket side2, Session session, String sessionIndex) {

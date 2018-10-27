@@ -66,7 +66,7 @@ public class SessionFinisherProcessor implements Processor<String, GenericRecord
                     session.put("active",false);
                     kvStore.delete(entry.key);
 
-                    if(((Session) session).getSsrc1() == null) {
+                    if(((Session) session).getInsertdata() < 0) {
                         System.out.println();
                     }
 

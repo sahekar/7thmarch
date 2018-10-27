@@ -39,9 +39,8 @@ SessionCreatorProcessor implements Processor<String, GenericRecord> {
 
         Session session = sessionComputationModel.createSession(side1,side2);
 
-        if(session.getActive() == null) {
-
-            System.out.println("");
+        if(((Session) session).getInsertdata() < 0) {
+            System.out.println();
         }
 
         System.out.println("session: " + session.toString());

@@ -1,79 +1,291 @@
 {
-  "appSpecificReport": {
-    "burstdensity": null,
-    "burstloss": null,
-    "codec": null,
-    "echocancellation": null,
-    "echotaillength": null,
-    "framesize": null,
-    "gapdensity": null,
-    "gaploss": null,
-    "inrtpsrcport": null,
-    "intypdestport": null,
-    "ipv6flowlabel": null,
-    "jitterbufferdelay": null,
-    "jitterbufferoverrun": null,
-    "jitterbufferunderrun": null,
-    "largestsequencefall": null,
-    "largestsequencejump": null,
-    "maxjitter": null,
-    "mediaencryption": null,
-    "owd": null,
-    "payloadtype": null,
-    "remoteipandport": null,
-    "remoteipv6address": null,
-    "remoteipv6port": null,
-    "reportedip": null,
-    "reportedport": null,
-    "rsvpreceiverstatus": null,
-    "rtd": null,
-    "rtp8021d": null,
-    "rtpdscp": null,
-    "rtpoctetcount": null,
-    "rtppacketcount": null,
-    "rtpttl": null,
-    "seqfallinstances": null,
-    "seqjumpinstances": null,
-    "silencesuppression": null,
-    "ssrc1": "721095808",
-    "ssrc2": "1062357290"
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 5,
+    "skipped": 0,
+    "failed": 0
   },
-  "clientid": 1,
-  "goodBye": null,
-  "hopnamelookup": true,
-  "ip": "localhost",
-  "receiverReport": null,
-  "remoteport": 4444,
-  "senderReport": {
-    "cumulativeloss": null,
-    "cumulativepktloss": 0,
-    "dlsr": null,
-    "ehsnr": 0,
-    "jitter": null,
-    "loss": null,
-    "lsr": null,
-    "lsw": "1838284800",
-    "pcktlosspct": null,
-    "rtp": "0",
-    "senderoc": "681120",
-    "senderpc": "4257",
-    "sr": null,
-    "ts": "38367"
+  "hits": {
+    "total": 34,
+    "max_score": 0,
+    "hits": []
   },
-  "sourceDescription": {
-    "email": null,
-    "fullname": "gwp@10.65.0.40",
-    "loc": null,
-    "name": null,
-    "note": null,
-    "priv": null,
-    "tool": "TN2602 VoIP engine V666",
-    "type": null,
-    "username": null
-  },
-  "ssrc1": "721095808",
-  "ssrc2": "1062357290",
-  "subtype": 5,
-  "time": 369629140645998,
-  "getcalltime": 1540216340495
+  "aggregations": {
+    "group": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "33974457610502820751",
+          "doc_count": 20,
+          "latest_data": {
+            "hits": {
+              "total": 20,
+              "max_score": null,
+              "hits": [
+                {
+                  "_index": "session",
+                  "_type": "type.name=avaya-details",
+                  "_id": "avaya_session_output_test1+0+73659",
+                  "_score": null,
+                  "_source": {
+                    "insertdata": 1540506211040,
+                    "alert": null,
+                    "alert1": null,
+                    "alert2": null,
+                    "alert3": null,
+                    "alert4": null,
+                    "alert5": null,
+                    "avgjitter": "29.605272182252396",
+                    "avgloss": "0.0",
+                    "avgmos": "20.105459685725123",
+                    "avgrtd": "9.0",
+                    "avgtimelength": null,
+                    "callindex": null,
+                    "callstart": null,
+                    "callstop": null,
+                    "category": null,
+                    "duration": 10848,
+                    "active": true,
+                    "idx": null,
+                    "ip1": "localhost",
+                    "ip2": "localhost",
+                    "maxjitter": "15",
+                    "maxloss": "0",
+                    "maxrtd": "0",
+                    "minmos": "4.0",
+                    "name1": null,
+                    "name2": "1102",
+                    "payloadtype1": null,
+                    "payloadtype2": null,
+                    "payloadtypetext1": null,
+                    "payloadtypetext2": null,
+                    "port1": null,
+                    "port2": null,
+                    "rtppacketcount1": null,
+                    "rtppacketcount2": null,
+                    "sessionindex": "33974457610502820751",
+                    "ssrc1": "339744576",
+                    "ssrc2": "1050282075",
+                    "startcall": null,
+                    "status": null,
+                    "stopcall": null,
+                    "tracestatus": null,
+                    "type1": null,
+                    "type2": "phone"
+                  },
+                  "sort": [
+                    1540506211040
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "34348012013155366461",
+          "doc_count": 12,
+          "latest_data": {
+            "hits": {
+              "total": 12,
+              "max_score": null,
+              "hits": [
+                {
+                  "_index": "session",
+                  "_type": "type.name=avaya-details",
+                  "_id": "avaya_session_output_test1+0+73658",
+                  "_score": null,
+                  "_source": {
+                    "insertdata": 1540506210202,
+                    "alert": null,
+                    "alert1": null,
+                    "alert2": null,
+                    "alert3": null,
+                    "alert4": null,
+                    "alert5": null,
+                    "avgjitter": "0.27233139186761746",
+                    "avgloss": "8.194219149746884",
+                    "avgmos": "21.79121078511422",
+                    "avgrtd": "2.0",
+                    "avgtimelength": null,
+                    "callindex": null,
+                    "callstart": null,
+                    "callstop": null,
+                    "category": null,
+                    "duration": 10855,
+                    "active": true,
+                    "idx": null,
+                    "ip1": "localhost",
+                    "ip2": null,
+                    "maxjitter": "3",
+                    "maxloss": "6",
+                    "maxrtd": "0",
+                    "minmos": "3.83",
+                    "name1": null,
+                    "name2": null,
+                    "payloadtype1": null,
+                    "payloadtype2": null,
+                    "payloadtypetext1": null,
+                    "payloadtypetext2": null,
+                    "port1": null,
+                    "port2": null,
+                    "rtppacketcount1": null,
+                    "rtppacketcount2": null,
+                    "sessionindex": "34348012013155366461",
+                    "ssrc1": "343480120",
+                    "ssrc2": "1315536646",
+                    "startcall": null,
+                    "status": null,
+                    "stopcall": null,
+                    "tracestatus": null,
+                    "type1": null,
+                    "type2": null
+                  },
+                  "sort": [
+                    1540506210202
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "33679406810502820751",
+          "doc_count": 1,
+          "latest_data": {
+            "hits": {
+              "total": 1,
+              "max_score": null,
+              "hits": [
+                {
+                  "_index": "session",
+                  "_type": "type.name=avaya-details",
+                  "_id": "avaya_session_output_test1+0+73628",
+                  "_score": null,
+                  "_source": {
+                    "insertdata": 1540506157264,
+                    "alert": null,
+                    "alert1": null,
+                    "alert2": null,
+                    "alert3": null,
+                    "alert4": null,
+                    "alert5": null,
+                    "avgjitter": "0.0",
+                    "avgloss": "0.0",
+                    "avgmos": "0.0",
+                    "avgrtd": "0.0",
+                    "avgtimelength": null,
+                    "callindex": null,
+                    "callstart": null,
+                    "callstop": null,
+                    "category": null,
+                    "duration": 10800,
+                    "active": true,
+                    "idx": null,
+                    "ip1": "localhost",
+                    "ip2": null,
+                    "maxjitter": "0",
+                    "maxloss": "0",
+                    "maxrtd": "0",
+                    "minmos": "4.03",
+                    "name1": "1102",
+                    "name2": null,
+                    "payloadtype1": null,
+                    "payloadtype2": null,
+                    "payloadtypetext1": null,
+                    "payloadtypetext2": null,
+                    "port1": null,
+                    "port2": null,
+                    "rtppacketcount1": null,
+                    "rtppacketcount2": null,
+                    "sessionindex": "33679406810502820751",
+                    "ssrc1": "1050282075",
+                    "ssrc2": "336794068",
+                    "startcall": null,
+                    "status": null,
+                    "stopcall": null,
+                    "tracestatus": null,
+                    "type1": "phone",
+                    "type2": null
+                  },
+                  "sort": [
+                    1540506157264
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "5115304323364665041",
+          "doc_count": 1,
+          "latest_data": {
+            "hits": {
+              "total": 1,
+              "max_score": null,
+              "hits": [
+                {
+                  "_index": "session",
+                  "_type": "type.name=avaya-details",
+                  "_id": "avaya_session_output_test1+0+73627",
+                  "_score": null,
+                  "_source": {
+                    "insertdata": 1540506155097,
+                    "alert": null,
+                    "alert1": null,
+                    "alert2": null,
+                    "alert3": null,
+                    "alert4": null,
+                    "alert5": null,
+                    "avgjitter": "1101.4061645241895",
+                    "avgloss": "4.582334205852332",
+                    "avgmos": "653.2884150011014",
+                    "avgrtd": "10.0",
+                    "avgtimelength": null,
+                    "callindex": null,
+                    "callstart": null,
+                    "callstop": null,
+                    "category": null,
+                    "duration": 12676,
+                    "active": false,
+                    "idx": null,
+                    "ip1": "localhost",
+                    "ip2": "localhost",
+                    "maxjitter": "65",
+                    "maxloss": "2",
+                    "maxrtd": "0",
+                    "minmos": "4.0",
+                    "name1": "0504",
+                    "name2": null,
+                    "payloadtype1": null,
+                    "payloadtype2": null,
+                    "payloadtypetext1": null,
+                    "payloadtypetext2": null,
+                    "port1": null,
+                    "port2": null,
+                    "rtppacketcount1": null,
+                    "rtppacketcount2": null,
+                    "sessionindex": "5115304323364665041",
+                    "ssrc1": "511530432",
+                    "ssrc2": "336466504",
+                    "startcall": null,
+                    "status": null,
+                    "stopcall": null,
+                    "tracestatus": null,
+                    "type1": "phone",
+                    "type2": null
+                  },
+                  "sort": [
+                    1540506155097
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
 }
