@@ -57,11 +57,15 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
         final AvayaPacket initialData = create(value,"create");
 
         if (existPacket == null) {
+            if(initialData.getPayloadType() == null) System.out.println("ff");
             initialData.setStartCall(System.currentTimeMillis());
             result = mainComputationModel.calculatesCallMetric(initialData,new AvayaPacket());
         } else {
             initialData.setLastTime(existPacket.getStartCall());
             initialData.setStartCall(existPacket.getStartCall());
+
+            if(initialData.getPayloadType() == null) initialData.setPayloadType(existPacket.getPayloadType());
+
             result = mainComputationModel.calculatesCallMetric(initialData, existPacket);
         }
 
@@ -115,8 +119,11 @@ public class SideCreatorProcessor implements Processor<String, AvayaEvent> {
         // TODO: add here a correct parcing fot type5 or type4
         if(appSpecificReport.getRtd() != null) {
             packet.setRtd(Integer.parseInt(appSpecificReport.getRtd()));
-            packet.setPayloadType(appSpecificReport.getPayloadtype());
         }
+
+         packet.setPayloadType(appSpecificReport.getPayloadtype());
+
+
 
         packet.setType1(sourceDescription.getType());
         packet.setName1(sourceDescription.getName());
